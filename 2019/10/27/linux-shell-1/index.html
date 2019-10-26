@@ -17,16 +17,16 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Linux学习————Shell篇（1） | holdfire</title>
-  <meta name="description" content="1. Shell是什么？   想象一下场景A：你去同福客栈吃饭，你对店小二老白说：“我要一份水煮酸菜鱼。”老白对着你点头微笑表示ok。于是，在点菜机器上输入一堆信息后，该消息传到了后厨李大嘴那里，李大嘴开始鼓捣起他的菜刀、砧板、铁锅等工具。一个小时过后，一份既不好看也不好吃的酸菜鱼终于摆到了你的面前。   想象一下场景B：你在Linux终端工具上写代码，你写下了一行echo &amp;quot;Hell">
+  <title>Linux学习——Shell篇(1) | holdfire</title>
+  <meta name="description" content="1. Shell是什么？  1.1 正规军的解释   Shell是一个用C语言编写的程序！Shell是一个命令解释器！Shell是一种命令语言！Shell是一种程序设计语言！Shell是系统的用户界面，提供了用户与内核进行交互操作的接口！上面是网上找到的关于Shell的大部分解释，听着是不是让人头大？是的？！那就忘掉它，看看下面两个场景先。  1.2 酸菜鱼和Hello,world   场景A：">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux学习————Shell篇（1）">
+<meta property="og:title" content="Linux学习——Shell篇(1)">
 <meta property="og:url" content="http:&#x2F;&#x2F;holdfire.github.io&#x2F;2019&#x2F;10&#x2F;27&#x2F;linux-shell-1&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. Shell是什么？   想象一下场景A：你去同福客栈吃饭，你对店小二老白说：“我要一份水煮酸菜鱼。”老白对着你点头微笑表示ok。于是，在点菜机器上输入一堆信息后，该消息传到了后厨李大嘴那里，李大嘴开始鼓捣起他的菜刀、砧板、铁锅等工具。一个小时过后，一份既不好看也不好吃的酸菜鱼终于摆到了你的面前。   想象一下场景B：你在Linux终端工具上写代码，你写下了一行echo &amp;quot;Hell">
+<meta property="og:description" content="1. Shell是什么？  1.1 正规军的解释   Shell是一个用C语言编写的程序！Shell是一个命令解释器！Shell是一种命令语言！Shell是一种程序设计语言！Shell是系统的用户界面，提供了用户与内核进行交互操作的接口！上面是网上找到的关于Shell的大部分解释，听着是不是让人头大？是的？！那就忘掉它，看看下面两个场景先。  1.2 酸菜鱼和Hello,world   场景A：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-26T17:34:30.363Z">
+<meta property="og:updated_time" content="2019-10-26T20:42:02.752Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
   <link rel="canonical" href="http://holdfire.github.io/2019/10/27/linux-shell-1/index.html">
@@ -201,7 +201,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/">软件安装</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/">软件安装</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -211,7 +211,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web%E5%89%8D%E7%AB%AF/" rel="tag">web前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web%E5%89%8D%E7%AB%AF/" rel="tag">web前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -221,7 +221,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/Linux/" style="font-size: 13px;">Linux</a> <a href="/tags/Python/" style="font-size: 13px;">Python</a> <a href="/tags/web%E5%89%8D%E7%AB%AF/" style="font-size: 13px;">web前端</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 13px;">机器学习</a>
+      <a href="/tags/Linux/" style="font-size: 14px;">Linux</a> <a href="/tags/Python/" style="font-size: 13px;">Python</a> <a href="/tags/web%E5%89%8D%E7%AB%AF/" style="font-size: 13px;">web前端</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 13px;">机器学习</a>
     </div>
   </div>
 
@@ -230,7 +230,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">4</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">6</span></li></ul>
     </div>
   </div>
 
@@ -242,6 +242,56 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled ">
         
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/10/27/linux-file-directory-1/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/10/27/linux-file-directory-1/" class="title">Linux学习——文件系统与目录篇(1)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-10-26T19:17:45.000Z" itemprop="datePublished">2019-10-27</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/10/27/linux-introduction/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/10/27/linux-introduction/" class="title">Linux学习——简介</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-10-26T18:30:34.000Z" itemprop="datePublished">2019-10-27</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-thumb">
@@ -259,7 +309,7 @@
                 <a class="category-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
               </p>
               <p class="item-title">
-                <a href="/2019/10/27/linux-shell-1/" class="title">Linux学习————Shell篇（1）</a>
+                <a href="/2019/10/27/linux-shell-1/" class="title">Linux学习——Shell篇(1)</a>
               </p>
               <p class="item-date">
                 <time datetime="2019-10-26T16:00:27.000Z" itemprop="datePublished">2019-10-27</time>
@@ -317,31 +367,6 @@
             </div>
           </li>
           
-          <li>
-            
-            <div class="item-thumb">
-              <a href="/2019/10/25/my_first_blog/" class="thumb">
-    
-    
-        <span class="thumb-image thumb-none"></span>
-    
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/">软件安装</a>
-              </p>
-              <p class="item-title">
-                <a href="/2019/10/25/my_first_blog/" class="title">网站出生的第一天</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2019-10-25T10:51:19.000Z" itemprop="datePublished">2019-10-25</time>
-              </p>
-            </div>
-          </li>
-          
       </ul>
     </div>
   </div>
@@ -362,7 +387,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Linux学习————Shell篇（1）
+      Linux学习——Shell篇(1)
     </h1>
   
 
@@ -399,10 +424,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/10/27/linux-shell-1/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 475(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 713(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
 	
 
       </div>
@@ -410,11 +435,20 @@
     <div class="article-entry marked-body" itemprop="articleBody">
       
         <h4 id="1-shell是什么"><a class="markdownIt-Anchor" href="#1-shell是什么"></a> 1. Shell是什么？</h4>
-<p>  想象一下场景A：你去同福客栈吃饭，你对店小二老白说：“我要一份水煮酸菜鱼。”老白对着你点头微笑表示ok。于是，在点菜机器上输入一堆信息后，该消息传到了后厨李大嘴那里，李大嘴开始鼓捣起他的菜刀、砧板、铁锅等工具。一个小时过后，一份既不好看也不好吃的酸菜鱼终于摆到了你的面前。<br />
-  想象一下场景B：你在Linux终端工具上写代码，你写下了一行<code>echo &quot;Hello, World&quot;</code>,Shell对这行代码进行解释。然后，系统调用收到了该解释信息后，这个解释传到了操作系统内核那里，内核开始控制CPU、内存、显卡等玩意。不到1s的时间，你的显示器上就显示出了&quot;Hello, World&quot;这行字。<br />
-  **所以，Shell是什么？<strong>Shell是一个用C语言编写的程序！Shell是一个命令解释器！Shell是一种命令语言！Shell是一种程序设计语言！Shell是系统的用户界面，提供了用户与内核进行交互操作的接口！上面是网上找到的关于Shell的几乎所有解释，听着让人头大。再看看我我们场景A，我的解释是：如果你认同场景A等价于场景B，那么</strong>Shell就是老白！**后面关于Shell的所有解释，我都引用到场景A的例子。</p>
-<p>首先，电脑的硬件由CPU、内存、显卡、磁盘等组成；这些硬件由操作系统（包括内核和系统调用两部分）的内核（kernel）来控制，内核包括CPU调度、内存管理、磁盘输入输出等工作；那么我们用户是如何与内核进行沟通的呢？答案就是通过Shell（外壳）。</p>
-
+<h5 id="11-正规军的解释"><a class="markdownIt-Anchor" href="#11-正规军的解释"></a> 1.1 正规军的解释</h5>
+<p>  Shell是一个用C语言编写的程序！Shell是一个命令解释器！Shell是一种命令语言！Shell是一种程序设计语言！Shell是系统的用户界面，提供了用户与内核进行交互操作的接口！上面是网上找到的关于Shell的大部分解释，听着是不是让人头大？是的？！那就忘掉它，看看下面两个场景先。</p>
+<h5 id="12-酸菜鱼和helloworld"><a class="markdownIt-Anchor" href="#12-酸菜鱼和helloworld"></a> 1.2 酸菜鱼和Hello,world</h5>
+<p>  场景A：你去同福客栈吃饭，你对店小二老白说：“我要一份酸菜鱼。”老白对着你点头微笑表示ok，然后跑去前台的点菜机上噼里啪啦输入一堆信息，该消息就被传到了后厨李大嘴那里，李大嘴开始鼓捣起他的菜刀、砧板、狼牙棒等厨房工具。一个时辰过后，你的桌上终于出现了一份既不好看也不好吃的酸菜鱼。<br />
+  场景B：你在Linux终端工具上写代码，你写下了一行<code>echo &quot;Hello, world&quot;</code>,Shell对这行代码进行了解释，然后系统调用收到了该解释信息，信息接下来被传到了内核那里，内核开始控制CPU、内存、显卡等设备。一眨眼的时间，你的显示器上就出现了&quot;Hello, world&quot;这行字。<br />
+  补充概念：计算机的硬件由CPU、内存、显卡、磁盘等组成。操作系统包括内核和系统调用，内核（kernel，包括CPU调度、内存管理、磁盘输入输出等）直接控制上述硬件，系统调用是应用程序同系统之间的接口(API)，eg:Linux操作系统中如内存管理、网络、Socket套接字、进程间通信等接口。</p>
+<h5 id="13-游击队的解释"><a class="markdownIt-Anchor" href="#13-游击队的解释"></a> 1.3 游击队的解释</h5>
+<p>  场景A中信息的流动方向是：你的话–&gt;老白–&gt;点菜机—&gt;李大嘴–&gt;厨具，场景B中信息的流动方向是：你的代码–&gt;Shell–&gt;系统调用—&gt;内核–&gt;硬件。仅考虑信息的流动方向，如果我们认可场景A等价于场景B，那么，Shell是什么？<font color=red>Shell就是老白！</font> 回过头来看1.1中的解释，把Shell替换成老白，Shell到底是什么，是不是就很好理解了呢？</p>
+<h4 id="2-shell简介"><a class="markdownIt-Anchor" href="#2-shell简介"></a> 2. Shell简介</h4>
+<h5 id="21-shell的家族"><a class="markdownIt-Anchor" href="#21-shell的家族"></a> 2.1 Shell的家族</h5>
+<p>  常见的shell有Bourne shell(简称sh),在Sun里默认的C shell(简称csh)等。Linux使用的版本是Bourne Again Shell(简称bash)，它是Bourne shell的增强版本。</p>
+<h5 id="22-linux中的shell"><a class="markdownIt-Anchor" href="#22-linux中的shell"></a> 2.2 Linux中的Shell</h5>
+<p>  在linux中，查看/etc/shells这个文件，就可以看到当前可以使用的shell种类了。我在ubuntu  16.04.5上查看的结果是下面4种：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/bin/sh        # 已经被/bin/bash所替换</span><br><span class="line">/bin/dash</span><br><span class="line">/bin/bash      # Linux默认的shell</span><br><span class="line">/bin/rbash</span><br></pre></td></tr></table></figure>
       
     </div>
     <div class="article-footer">
@@ -423,7 +457,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://holdfire.github.io/2019/10/27/linux-shell-1/" title="Linux学习————Shell篇（1）" target="_blank" rel="external">http://holdfire.github.io/2019/10/27/linux-shell-1/</a>
+      <a href="http://holdfire.github.io/2019/10/27/linux-shell-1/" title="Linux学习——Shell篇(1)" target="_blank" rel="external">http://holdfire.github.io/2019/10/27/linux-shell-1/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -468,6 +502,10 @@
   <div class="bar-inner">
   
   <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2019/10/27/linux-introduction/" title="Linux学习——简介"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
     
     
     <li class="next">

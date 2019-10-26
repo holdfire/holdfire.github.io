@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://holdfire.github.io/"/>
-  <updated>2019-10-26T17:34:30.363Z</updated>
+  <updated>2019-10-26T19:21:15.427Z</updated>
   <id>http://holdfire.github.io/</id>
   
   <author>
@@ -17,20 +17,75 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Linux学习————Shell篇（1）</title>
+    <title>Linux学习——文件系统与目录篇(1)</title>
+    <link href="http://holdfire.github.io/2019/10/27/linux-file-directory-1/"/>
+    <id>http://holdfire.github.io/2019/10/27/linux-file-directory-1/</id>
+    <published>2019-10-26T19:17:45.000Z</published>
+    <updated>2019-10-26T19:21:15.427Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="1-linux的文件权限"><a class="markdownIt-Anchor" href="#1-linux的文件权限"></a> 1. Linux的文件权限</h4><p>  </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;1-linux的文件权限&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-linux的文件权限&quot;&gt;&lt;/a&gt; 1. Linux的文件权限&lt;/h4&gt;
+&lt;p&gt;  &lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="操作系统" scheme="http://holdfire.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+      <category term="Linux" scheme="http://holdfire.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux学习——简介</title>
+    <link href="http://holdfire.github.io/2019/10/27/linux-introduction/"/>
+    <id>http://holdfire.github.io/2019/10/27/linux-introduction/</id>
+    <published>2019-10-26T18:30:34.000Z</published>
+    <updated>2019-10-26T19:29:14.335Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="1-linux简介"><a class="markdownIt-Anchor" href="#1-linux简介"></a> 1. Linux简介</h4><p>  Linux是一个GNU GPL授权模式的开源的操作系统。操作系统由内核和系统调用组成,操作系统是应用程序和计算机硬件沟通的桥梁。即：硬件–&gt;内核–&gt;系统调用–&gt;应用程序(Shell)。</p><h5 id="11-linux内核版本与发行版本"><a class="markdownIt-Anchor" href="#11-linux内核版本与发行版本"></a> 1.1 Linux内核版本与发行版本</h5><p>  Linux内核版本是单线发展的，其版本号由“主版本.次版本.末版本”的格式构成。截至2019年10月27日，最新的<a href="https://www.kernel.org/" target="_blank" rel="noopener">Linux稳定内核版本为</a>5.3.7版。<br />  Linux发行版本是由“Linux内核+软件+工具+文件”组成的一个完整的安装程序，不同的厂商提供不同的发行版本，主要分为两大类：</p><ul><li>使用rpm/yum包管理方式的系统，包括：RedHat,Fedora,CentOS等；</li><li>使用apt-get/dpkg包管理方式的系统，包括：Debian,Ubuntu等；</li></ul><h5 id="12-linux的特点"><a class="markdownIt-Anchor" href="#12-linux的特点"></a> 1.2 Linux的特点</h5><ul><li>Linux严格区分大小写；</li><li>Linux中一切内容皆文件（包括硬件）；</li><li>Linux不依靠拓展名区分文件类型，而是依据文件权限；</li><li>通常，压缩包的后缀为.gz .bz2 .tar .bz2 .tgz；二进制软件包为.rmp；脚本文件为 .sh</li></ul><h4 id="2-linux文件系统和目录"><a class="markdownIt-Anchor" href="#2-linux文件系统和目录"></a> 2. Linux文件系统和目录</h4><h4 id="3-shell与shell脚本"><a class="markdownIt-Anchor" href="#3-shell与shell脚本"></a> 3. Shell与Shell脚本</h4><h4 id="4-linux用户管理"><a class="markdownIt-Anchor" href="#4-linux用户管理"></a> 4. Linux用户管理</h4><h4 id="5-linux系统管理"><a class="markdownIt-Anchor" href="#5-linux系统管理"></a> 5. Linux系统管理</h4>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;1-linux简介&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-linux简介&quot;&gt;&lt;/a&gt; 1. Linux简介&lt;/h4&gt;
+&lt;p&gt;  Linux是一个GNU GPL授权模式的开源的操作系统。操作系统由内核和系统调用组成,操作系统是
+      
+    
+    </summary>
+    
+    
+      <category term="操作系统" scheme="http://holdfire.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+      <category term="Linux" scheme="http://holdfire.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux学习——Shell篇(1)</title>
     <link href="http://holdfire.github.io/2019/10/27/linux-shell-1/"/>
     <id>http://holdfire.github.io/2019/10/27/linux-shell-1/</id>
     <published>2019-10-26T16:00:27.000Z</published>
-    <updated>2019-10-26T17:34:30.363Z</updated>
+    <updated>2019-10-26T20:42:02.752Z</updated>
     
-    <content type="html"><![CDATA[<h4 id="1-shell是什么"><a class="markdownIt-Anchor" href="#1-shell是什么"></a> 1. Shell是什么？</h4><p>  想象一下场景A：你去同福客栈吃饭，你对店小二老白说：“我要一份水煮酸菜鱼。”老白对着你点头微笑表示ok。于是，在点菜机器上输入一堆信息后，该消息传到了后厨李大嘴那里，李大嘴开始鼓捣起他的菜刀、砧板、铁锅等工具。一个小时过后，一份既不好看也不好吃的酸菜鱼终于摆到了你的面前。<br />  想象一下场景B：你在Linux终端工具上写代码，你写下了一行<code>echo &quot;Hello, World&quot;</code>,Shell对这行代码进行解释。然后，系统调用收到了该解释信息后，这个解释传到了操作系统内核那里，内核开始控制CPU、内存、显卡等玩意。不到1s的时间，你的显示器上就显示出了&quot;Hello, World&quot;这行字。<br />  **所以，Shell是什么？<strong>Shell是一个用C语言编写的程序！Shell是一个命令解释器！Shell是一种命令语言！Shell是一种程序设计语言！Shell是系统的用户界面，提供了用户与内核进行交互操作的接口！上面是网上找到的关于Shell的几乎所有解释，听着让人头大。再看看我我们场景A，我的解释是：如果你认同场景A等价于场景B，那么</strong>Shell就是老白！**后面关于Shell的所有解释，我都引用到场景A的例子。</p><p>首先，电脑的硬件由CPU、内存、显卡、磁盘等组成；这些硬件由操作系统（包括内核和系统调用两部分）的内核（kernel）来控制，内核包括CPU调度、内存管理、磁盘输入输出等工作；那么我们用户是如何与内核进行沟通的呢？答案就是通过Shell（外壳）。</p>]]></content>
+    <content type="html"><![CDATA[<h4 id="1-shell是什么"><a class="markdownIt-Anchor" href="#1-shell是什么"></a> 1. Shell是什么？</h4><h5 id="11-正规军的解释"><a class="markdownIt-Anchor" href="#11-正规军的解释"></a> 1.1 正规军的解释</h5><p>  Shell是一个用C语言编写的程序！Shell是一个命令解释器！Shell是一种命令语言！Shell是一种程序设计语言！Shell是系统的用户界面，提供了用户与内核进行交互操作的接口！上面是网上找到的关于Shell的大部分解释，听着是不是让人头大？是的？！那就忘掉它，看看下面两个场景先。</p><h5 id="12-酸菜鱼和helloworld"><a class="markdownIt-Anchor" href="#12-酸菜鱼和helloworld"></a> 1.2 酸菜鱼和Hello,world</h5><p>  场景A：你去同福客栈吃饭，你对店小二老白说：“我要一份酸菜鱼。”老白对着你点头微笑表示ok，然后跑去前台的点菜机上噼里啪啦输入一堆信息，该消息就被传到了后厨李大嘴那里，李大嘴开始鼓捣起他的菜刀、砧板、狼牙棒等厨房工具。一个时辰过后，你的桌上终于出现了一份既不好看也不好吃的酸菜鱼。<br />  场景B：你在Linux终端工具上写代码，你写下了一行<code>echo &quot;Hello, world&quot;</code>,Shell对这行代码进行了解释，然后系统调用收到了该解释信息，信息接下来被传到了内核那里，内核开始控制CPU、内存、显卡等设备。一眨眼的时间，你的显示器上就出现了&quot;Hello, world&quot;这行字。<br />  补充概念：计算机的硬件由CPU、内存、显卡、磁盘等组成。操作系统包括内核和系统调用，内核（kernel，包括CPU调度、内存管理、磁盘输入输出等）直接控制上述硬件，系统调用是应用程序同系统之间的接口(API)，eg:Linux操作系统中如内存管理、网络、Socket套接字、进程间通信等接口。</p><h5 id="13-游击队的解释"><a class="markdownIt-Anchor" href="#13-游击队的解释"></a> 1.3 游击队的解释</h5><p>  场景A中信息的流动方向是：你的话–&gt;老白–&gt;点菜机—&gt;李大嘴–&gt;厨具，场景B中信息的流动方向是：你的代码–&gt;Shell–&gt;系统调用—&gt;内核–&gt;硬件。仅考虑信息的流动方向，如果我们认可场景A等价于场景B，那么，Shell是什么？<font color=red>Shell就是老白！</font> 回过头来看1.1中的解释，把Shell替换成老白，Shell到底是什么，是不是就很好理解了呢？</p><h4 id="2-shell简介"><a class="markdownIt-Anchor" href="#2-shell简介"></a> 2. Shell简介</h4><h5 id="21-shell的家族"><a class="markdownIt-Anchor" href="#21-shell的家族"></a> 2.1 Shell的家族</h5><p>  常见的shell有Bourne shell(简称sh),在Sun里默认的C shell(简称csh)等。Linux使用的版本是Bourne Again Shell(简称bash)，它是Bourne shell的增强版本。</p><h5 id="22-linux中的shell"><a class="markdownIt-Anchor" href="#22-linux中的shell"></a> 2.2 Linux中的Shell</h5><p>  在linux中，查看/etc/shells这个文件，就可以看到当前可以使用的shell种类了。我在ubuntu  16.04.5上查看的结果是下面4种：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/bin/sh        # 已经被/bin/bash所替换</span><br><span class="line">/bin/dash</span><br><span class="line">/bin/bash      # Linux默认的shell</span><br><span class="line">/bin/rbash</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
         &lt;h4 id=&quot;1-shell是什么&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-shell是什么&quot;&gt;&lt;/a&gt; 1. Shell是什么？&lt;/h4&gt;
-&lt;p&gt;  想象一下场景A：你去同福客栈吃饭，你对店小二老白说：“我要一份水煮酸菜鱼。”老白对着你点
+&lt;h5 id=&quot;11-正规军的解释&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; h
       
     
     </summary>
