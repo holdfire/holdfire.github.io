@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://holdfire.github.io/"/>
-  <updated>2019-10-25T20:32:46.082Z</updated>
+  <updated>2019-10-26T17:34:30.363Z</updated>
   <id>http://holdfire.github.io/</id>
   
   <author>
@@ -15,6 +15,60 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux学习————Shell篇（1）</title>
+    <link href="http://holdfire.github.io/2019/10/27/linux-shell-1/"/>
+    <id>http://holdfire.github.io/2019/10/27/linux-shell-1/</id>
+    <published>2019-10-26T16:00:27.000Z</published>
+    <updated>2019-10-26T17:34:30.363Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="1-shell是什么"><a class="markdownIt-Anchor" href="#1-shell是什么"></a> 1. Shell是什么？</h4><p>  想象一下场景A：你去同福客栈吃饭，你对店小二老白说：“我要一份水煮酸菜鱼。”老白对着你点头微笑表示ok。于是，在点菜机器上输入一堆信息后，该消息传到了后厨李大嘴那里，李大嘴开始鼓捣起他的菜刀、砧板、铁锅等工具。一个小时过后，一份既不好看也不好吃的酸菜鱼终于摆到了你的面前。<br />  想象一下场景B：你在Linux终端工具上写代码，你写下了一行<code>echo &quot;Hello, World&quot;</code>,Shell对这行代码进行解释。然后，系统调用收到了该解释信息后，这个解释传到了操作系统内核那里，内核开始控制CPU、内存、显卡等玩意。不到1s的时间，你的显示器上就显示出了&quot;Hello, World&quot;这行字。<br />  **所以，Shell是什么？<strong>Shell是一个用C语言编写的程序！Shell是一个命令解释器！Shell是一种命令语言！Shell是一种程序设计语言！Shell是系统的用户界面，提供了用户与内核进行交互操作的接口！上面是网上找到的关于Shell的几乎所有解释，听着让人头大。再看看我我们场景A，我的解释是：如果你认同场景A等价于场景B，那么</strong>Shell就是老白！**后面关于Shell的所有解释，我都引用到场景A的例子。</p><p>首先，电脑的硬件由CPU、内存、显卡、磁盘等组成；这些硬件由操作系统（包括内核和系统调用两部分）的内核（kernel）来控制，内核包括CPU调度、内存管理、磁盘输入输出等工作；那么我们用户是如何与内核进行沟通的呢？答案就是通过Shell（外壳）。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;1-shell是什么&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-shell是什么&quot;&gt;&lt;/a&gt; 1. Shell是什么？&lt;/h4&gt;
+&lt;p&gt;  想象一下场景A：你去同福客栈吃饭，你对店小二老白说：“我要一份水煮酸菜鱼。”老白对着你点
+      
+    
+    </summary>
+    
+    
+      <category term="操作系统" scheme="http://holdfire.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+      <category term="Linux" scheme="http://holdfire.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python虚拟环境</title>
+    <link href="http://holdfire.github.io/2019/10/26/python-virtual-environment/"/>
+    <id>http://holdfire.github.io/2019/10/26/python-virtual-environment/</id>
+    <published>2019-10-26T09:00:10.000Z</published>
+    <updated>2019-10-26T13:26:56.131Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="1-python虚拟环境简介"><a class="markdownIt-Anchor" href="#1-python虚拟环境简介"></a> 1. Python虚拟环境简介</h4><p>  Python中所有的第三方包都会被pip安装到<strong>site-packages目录</strong>下。对于某个特定的Python包，在项目A中可能需要使用1.0版的，而项目B中需要使用1.1版的。如何解决这种冲突呢？<br />  解决方案是：创建两个不同的虚拟环境，这两个虚拟环境相互独立、互不干扰。不同的项目就可以分别在各自的虚拟环境中独立运行啦，完美！<font color=CCCCCC>（引申：不同虚拟环境的包是独立的，那它们使用的Python解释器是共享的还是独立的呢？）</font><br />  那么如何创建虚拟环境呢？接下来就总结一下几种常用的虚拟环境管理工具。</p><h4 id="2-几种虚拟环境管理工具"><a class="markdownIt-Anchor" href="#2-几种虚拟环境管理工具"></a> 2. 几种虚拟环境管理工具</h4><h5 id="21-virtualenv工具"><a class="markdownIt-Anchor" href="#21-virtualenv工具"></a> 2.1 virtualenv工具</h5><p>  virtualenv工具在安装Anaconda时有自带，位于安装目录/Lib/site-packages目录下。如果没有安装，可以在终端命令行中输入<code>pip install virtualenv</code>命令安装。<br />  创建虚拟环境：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir my_project                # 创建项目文件夹</span><br><span class="line">cd my_project                   # 进入项目路径下</span><br><span class="line">virtualenv env_name             # 使用默认的python解释器创建虚拟环境</span><br><span class="line">virtualenv -p path env_name     # 使用path路径下的python解释器创建虚拟环境，Linux下path通常为/usr/bin/python,Windows中如e:/anaconda/python.exe </span><br><span class="line"><span class="meta">#</span><span class="bash"> 使用virtualenv -h 可查看创建虚拟环境时的其他参数</span></span><br></pre></td></tr></table></figure><p>  操作虚拟环境：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Linux下操作虚拟环境</span></span><br><span class="line">source env_name/bin/activate    # 激活该虚拟环境，之后所有的操作都在该环境中</span><br><span class="line">deactivate                      # 退出该虚拟环境</span><br><span class="line">rm -rf env_name                 # 删除该虚拟环境</span><br><span class="line"><span class="meta">#</span><span class="bash"> Windows下操作虚拟环境，退出和删除操作同上</span></span><br><span class="line">cd env_name/Scripts/            # 进入到activate文件所在的目录</span><br><span class="line">activate                        # 执行activate文件，激活该虚拟环境</span><br></pre></td></tr></table></figure><h5 id="22-virtualenvwrapper工具"><a class="markdownIt-Anchor" href="#22-virtualenvwrapper工具"></a> 2.2 virtualenvwrapper工具</h5><p>  用户可以使用virtualenv工具在系统的任意地方创建虚拟环境。但下次需要激活这个环境时仍需要使用<code>source env_path/activate</code>命令，然而同学你可能早已忘记虚拟环境的路径env_path。<br />  为了让用户更方便使用，我们可以把虚拟环境集中进行管理，virtualenvwrapper工具应运而生。在使用之前，你得先安装了virtualenv，然后再安装virtualenvwrapper。安装命令：</p><pre class="highlight"><code class="shell">pip install virtualenvwrapper       # Linux下安装命令pip install virtualenvwrapper-win   # Windows下安装命令</code></pre><p>  </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;1-python虚拟环境简介&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-python虚拟环境简介&quot;&gt;&lt;/a&gt; 1. Python虚拟环境简介&lt;/h4&gt;
+&lt;p&gt;  Python中所有的第三方包都会被pip安装到&lt;strong&gt;si
+      
+    
+    </summary>
+    
+    
+      <category term="编程语言" scheme="http://holdfire.github.io/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+    
+      <category term="Python" scheme="http://holdfire.github.io/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>支持向量机SVM</title>
