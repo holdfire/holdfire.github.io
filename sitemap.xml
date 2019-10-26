@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://holdfire.github.io/2019/10/27/linux-shell-1/</loc>
+    <loc>http://holdfire.github.io/2019/10/26/linux-introduction/</loc>
     
-    <lastmod>2019-10-26T20:42:02.752Z</lastmod>
+    <lastmod>2019-10-26T22:55:23.764Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://holdfire.github.io/2019/10/27/linux-introduction/</loc>
+    <loc>http://holdfire.github.io/2019/10/27/linux-command/</loc>
     
-    <lastmod>2019-10-26T19:29:14.335Z</lastmod>
+    <lastmod>2019-10-26T22:54:50.712Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/10/27/linux-shell-1/</loc>
+    
+    <lastmod>2019-10-26T22:32:19.903Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/10/27/linux-system-directory/</loc>
+    
+    <lastmod>2019-10-26T21:24:03.838Z</lastmod>
     
   </url>
   

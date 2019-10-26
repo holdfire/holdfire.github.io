@@ -17,19 +17,19 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Linux学习——文件系统与目录篇(1) | holdfire</title>
-  <meta name="description" content="1. Linux的文件权限">
+  <title>Linux学习——Linux命令介绍 | holdfire</title>
+  <meta name="description" content="1. 简介  1.1 Linux命令分类   Linux命令分为两种，一种是shell内置命令，一种是外部命名。在命令行输入type command可以区分。  1.2 帮助使用Linux命令   对于一些内部命令，可以有： 123man bash           # 查看所有的内部命令man help           # 得到所有内建命令列表及使用方法help command">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux学习——文件系统与目录篇(1)">
-<meta property="og:url" content="http:&#x2F;&#x2F;holdfire.github.io&#x2F;2019&#x2F;10&#x2F;27&#x2F;linux-file-directory-1&#x2F;index.html">
+<meta property="og:title" content="Linux学习——Linux命令介绍">
+<meta property="og:url" content="http:&#x2F;&#x2F;holdfire.github.io&#x2F;2019&#x2F;10&#x2F;27&#x2F;linux-command&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. Linux的文件权限">
+<meta property="og:description" content="1. 简介  1.1 Linux命令分类   Linux命令分为两种，一种是shell内置命令，一种是外部命名。在命令行输入type command可以区分。  1.2 帮助使用Linux命令   对于一些内部命令，可以有： 123man bash           # 查看所有的内部命令man help           # 得到所有内建命令列表及使用方法help command">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-26T19:21:15.427Z">
+<meta property="og:updated_time" content="2019-10-26T22:54:50.712Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://holdfire.github.io/2019/10/27/linux-file-directory-1/index.html">
+  <link rel="canonical" href="http://holdfire.github.io/2019/10/27/linux-command/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -380,14 +380,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-linux-file-directory-1" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-linux-command" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Linux学习——文件系统与目录篇(1)
+      Linux学习——Linux命令介绍
     </h1>
   
 
@@ -395,8 +395,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2019/10/27/linux-file-directory-1/" class="article-date">
-	  <time datetime="2019-10-26T19:17:45.000Z" itemprop="datePublished">2019-10-27</time>
+	<a href="/2019/10/27/linux-command/" class="article-date">
+	  <time datetime="2019-10-26T21:25:15.000Z" itemprop="datePublished">2019-10-27</time>
 	</a>
 </span>
         
@@ -421,10 +421,10 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/10/27/linux-file-directory-1/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/10/27/linux-command/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 7(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 361(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -434,9 +434,19 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h4 id="1-linux的文件权限"><a class="markdownIt-Anchor" href="#1-linux的文件权限"></a> 1. Linux的文件权限</h4>
-<p>  </p>
-
+        <h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<h5 id="11-linux命令分类"><a class="markdownIt-Anchor" href="#11-linux命令分类"></a> 1.1 Linux命令分类</h5>
+<p>  Linux命令分为两种，一种是shell内置命令，一种是外部命名。在命令行输入<code>type command</code>可以区分。</p>
+<h5 id="12-帮助使用linux命令"><a class="markdownIt-Anchor" href="#12-帮助使用linux命令"></a> 1.2 帮助使用Linux命令</h5>
+<p>  对于一些内部命令，可以有：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">man bash           # 查看所有的内部命令</span><br><span class="line">man help           # 得到所有内建命令列表及使用方法</span><br><span class="line">help command       # 得到该命令的具体信息</span><br></pre></td></tr></table></figure>
+<p>  对于外部命令，可以有：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">command --help     # 得到该命令的帮助信息</span><br><span class="line">command -h         # 同上</span><br><span class="line">man command        # </span><br><span class="line">info command       #</span><br></pre></td></tr></table></figure>
+<h5 id="13-linux执行命令的查找顺序"><a class="markdownIt-Anchor" href="#13-linux执行命令的查找顺序"></a> 1.3 Linux执行命令的查找顺序</h5>
+<p>   环境变量<code>$PATH</code>：决定了shell在哪些目录中寻找命令或程序。由左到右依次在这些目录中查找，以先找到的为准。命令行输入<code>echo $PATH</code>可以查看环境变量。</p>
+<h5 id="14-linux常用命令的存放位置"><a class="markdownIt-Anchor" href="#14-linux常用命令的存放位置"></a> 1.4 Linux常用命令的存放位置</h5>
+<p>  在命令行输入完一个命令后，shell会在下面几个目录查找是否有该命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/bin              # 存放普通用户经常使用的命令，如cp,mv,kill</span><br><span class="line">/sbin             # 存放系统管理员才能使用的系统管理程序，如ping,ifconfig</span><br><span class="line">/usr/bin          # 存放普通用户使用的应用程序，如python,vi</span><br><span class="line">/usr/local/bin    # 存放用户下载安装的软件或者自己编写的可执行文件，如pip,virtualenv,MySQL</span><br><span class="line">/usr/sbin         # 存放系统管理员使用的比较高级的管理程序和系统守护程序</span><br></pre></td></tr></table></figure>
       
     </div>
     <div class="article-footer">
@@ -445,7 +455,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://holdfire.github.io/2019/10/27/linux-file-directory-1/" title="Linux学习——文件系统与目录篇(1)" target="_blank" rel="external">http://holdfire.github.io/2019/10/27/linux-file-directory-1/</a>
+      <a href="http://holdfire.github.io/2019/10/27/linux-command/" title="Linux学习——Linux命令介绍" target="_blank" rel="external">http://holdfire.github.io/2019/10/27/linux-command/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -491,13 +501,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2019/10/27/linux-system-directory/" title="Linux学习——系统目录结构"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2019/10/27/linux-shell-1/" title="Linux学习——Shell篇(1)"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2019/10/27/linux-system-directory/" title="Linux学习——系统目录结构"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
