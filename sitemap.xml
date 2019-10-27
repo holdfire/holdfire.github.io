@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://holdfire.github.io/2019/10/27/linux-shell-1/</loc>
+    
+    <lastmod>2019-10-27T08:07:49.296Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/10/26/python-virtual-environment/</loc>
+    
+    <lastmod>2019-10-27T07:54:44.835Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://holdfire.github.io/2019/10/27/linux-introduction/</loc>
     
     <lastmod>2019-10-26T22:58:33.456Z</lastmod>
@@ -16,13 +30,6 @@
   </url>
   
   <url>
-    <loc>http://holdfire.github.io/2019/10/27/linux-shell-1/</loc>
-    
-    <lastmod>2019-10-26T22:32:19.903Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://holdfire.github.io/2019/10/27/linux-system-directory/</loc>
     
     <lastmod>2019-10-26T21:24:03.838Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>http://holdfire.github.io/2019/10/27/linux-file-directory-1/</loc>
     
     <lastmod>2019-10-26T19:21:15.427Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/10/26/python-virtual-environment/</loc>
-    
-    <lastmod>2019-10-26T13:26:56.131Z</lastmod>
     
   </url>
   
