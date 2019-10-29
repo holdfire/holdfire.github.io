@@ -2,6 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://holdfire.github.io/2019/10/29/cpp-polymorphism/</loc>
+    
+    <lastmod>2019-10-29T20:06:48.098Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/10/30/cpp-memory-allocation/</loc>
+    
+    <lastmod>2019-10-29T19:57:02.240Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/10/30/cpp-left-value-right-value/</loc>
+    
+    <lastmod>2019-10-29T19:32:27.302Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/10/29/cpp-const/</loc>
+    
+    <lastmod>2019-10-29T18:40:52.256Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/10/29/cpp-pointer/</loc>
+    
+    <lastmod>2019-10-29T18:40:21.218Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/10/29/cpp-reference/</loc>
+    
+    <lastmod>2019-10-29T18:26:54.121Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://holdfire.github.io/2019/10/27/linux-shell-1/</loc>
     
     <lastmod>2019-10-27T08:07:49.296Z</lastmod>
