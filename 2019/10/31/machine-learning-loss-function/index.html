@@ -17,19 +17,19 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Linux——简介 | holdfire</title>
-  <meta name="description" content="1. Linux简介   Linux是一个GNU GPL授权模式的开源的操作系统。操作系统由内核和系统调用组成,操作系统是应用程序和计算机硬件沟通的桥梁。即：硬件–&amp;gt;内核–&amp;gt;系统调用–&amp;gt;应用程序(Shell)。  1.1 Linux内核版本与发行版本   Linux内核版本是单线发展的，其版本号由“主版本.次版本.末版本”的格式构成。截至2019年10月27日，最新的Linux">
-<meta name="keywords" content="Linux">
+  <title>机器学习——损失函数 | holdfire</title>
+  <meta name="description" content="1. 简介  1.1 什么是损失函数？  2.回归问题中的损失函数  3. 分类问题中的损失函数">
+<meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux——简介">
-<meta property="og:url" content="http:&#x2F;&#x2F;holdfire.github.io&#x2F;2019&#x2F;10&#x2F;27&#x2F;linux-introduction&#x2F;index.html">
+<meta property="og:title" content="机器学习——损失函数">
+<meta property="og:url" content="http:&#x2F;&#x2F;holdfire.github.io&#x2F;2019&#x2F;10&#x2F;31&#x2F;machine-learning-loss-function&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. Linux简介   Linux是一个GNU GPL授权模式的开源的操作系统。操作系统由内核和系统调用组成,操作系统是应用程序和计算机硬件沟通的桥梁。即：硬件–&amp;gt;内核–&amp;gt;系统调用–&amp;gt;应用程序(Shell)。  1.1 Linux内核版本与发行版本   Linux内核版本是单线发展的，其版本号由“主版本.次版本.末版本”的格式构成。截至2019年10月27日，最新的Linux">
+<meta property="og:description" content="1. 简介  1.1 什么是损失函数？  2.回归问题中的损失函数  3. 分类问题中的损失函数">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-30T11:22:03.332Z">
+<meta property="og:updated_time" content="2019-10-30T19:14:57.962Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://holdfire.github.io/2019/10/27/linux-introduction/index.html">
+  <link rel="canonical" href="http://holdfire.github.io/2019/10/31/machine-learning-loss-function/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -380,14 +380,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-linux-introduction" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-machine-learning-loss-function" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Linux——简介
+      机器学习——损失函数
     </h1>
   
 
@@ -395,20 +395,20 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2019/10/27/linux-introduction/" class="article-date">
-	  <time datetime="2019-10-26T16:10:34.000Z" itemprop="datePublished">2019-10-27</time>
+	<a href="/2019/10/31/machine-learning-loss-function/" class="article-date">
+	  <time datetime="2019-10-30T18:29:07.000Z" itemprop="datePublished">2019-10-31</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
+    <a class="article-category-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/Linux/" rel="tag">Linux</a>
+	<a class="article-tag-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a>
   </span>
 
 
@@ -421,10 +421,10 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/10/27/linux-introduction/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/10/31/machine-learning-loss-function/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 320(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 34(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -434,26 +434,10 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h4 id="1-linux简介"><a class="markdownIt-Anchor" href="#1-linux简介"></a> 1. Linux简介</h4>
-<p>  Linux是一个GNU GPL授权模式的开源的操作系统。操作系统由内核和系统调用组成,操作系统是应用程序和计算机硬件沟通的桥梁。即：硬件–&gt;内核–&gt;系统调用–&gt;应用程序(Shell)。</p>
-<h5 id="11-linux内核版本与发行版本"><a class="markdownIt-Anchor" href="#11-linux内核版本与发行版本"></a> 1.1 Linux内核版本与发行版本</h5>
-<p>  Linux内核版本是单线发展的，其版本号由“主版本.次版本.末版本”的格式构成。截至2019年10月27日，最新的<a href="https://www.kernel.org/" target="_blank" rel="noopener">Linux稳定内核版本为</a>5.3.7版。<br />
-  Linux发行版本是由“Linux内核+软件+工具+文件”组成的一个完整的安装程序，不同的厂商提供不同的发行版本，主要分为两大类：</p>
-<ul>
-<li>使用rpm/yum包管理方式的系统，包括：RedHat,Fedora,CentOS等；</li>
-<li>使用apt-get/dpkg包管理方式的系统，包括：Debian,Ubuntu等；</li>
-</ul>
-<h5 id="12-linux的特点"><a class="markdownIt-Anchor" href="#12-linux的特点"></a> 1.2 Linux的特点</h5>
-<ul>
-<li>Linux严格区分大小写；</li>
-<li>Linux中一切内容皆文件（包括硬件）；</li>
-<li>Linux不依靠拓展名区分文件类型，而是依据文件权限；</li>
-<li>通常，压缩包的后缀为.gz .bz2 .tar .bz2 .tgz；二进制软件包为.rmp；脚本文件为 .sh</li>
-</ul>
-<h4 id="2-linux文件系统和目录"><a class="markdownIt-Anchor" href="#2-linux文件系统和目录"></a> 2. Linux文件系统和目录</h4>
-<h4 id="3-shell与shell-script"><a class="markdownIt-Anchor" href="#3-shell与shell-script"></a> 3. Shell与Shell Script</h4>
-<h4 id="4-linux用户管理"><a class="markdownIt-Anchor" href="#4-linux用户管理"></a> 4. Linux用户管理</h4>
-<h4 id="5-linux系统管理"><a class="markdownIt-Anchor" href="#5-linux系统管理"></a> 5. Linux系统管理</h4>
+        <h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<h5 id="11-什么是损失函数"><a class="markdownIt-Anchor" href="#11-什么是损失函数"></a> 1.1 什么是损失函数？</h5>
+<h4 id="2回归问题中的损失函数"><a class="markdownIt-Anchor" href="#2回归问题中的损失函数"></a> 2.回归问题中的损失函数</h4>
+<h4 id="3-分类问题中的损失函数"><a class="markdownIt-Anchor" href="#3-分类问题中的损失函数"></a> 3. 分类问题中的损失函数</h4>
 
       
     </div>
@@ -463,7 +447,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://holdfire.github.io/2019/10/27/linux-introduction/" title="Linux——简介" target="_blank" rel="external">http://holdfire.github.io/2019/10/27/linux-introduction/</a>
+      <a href="http://holdfire.github.io/2019/10/31/machine-learning-loss-function/" title="机器学习——损失函数" target="_blank" rel="external">http://holdfire.github.io/2019/10/31/machine-learning-loss-function/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -510,12 +494,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2019/10/27/linux-file-directory-1/" title="Linux——文件系统与目录篇(1)"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2019/10/31/machine-learning-optimization-algorithm-2/" title="机器学习——二阶优化算法"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2019/10/27/linux-shell-1/" title="Linux——Shell篇(1)"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2019/10/31/machine-learning-optimization-algorithm-1/" title="机器学习——一阶优化算法"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     

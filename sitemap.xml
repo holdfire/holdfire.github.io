@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://holdfire.github.io/2019/10/31/machine-learning-activation-function/</loc>
+    
+    <lastmod>2019-10-30T19:15:30.783Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/10/31/machine-learning-loss-function/</loc>
+    
+    <lastmod>2019-10-30T19:14:57.962Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/10/31/machine-learning-optimization-algorithm-2/</loc>
+    
+    <lastmod>2019-10-30T19:13:36.728Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/10/31/machine-learning-optimization-algorithm-1/</loc>
+    
+    <lastmod>2019-10-30T19:12:51.455Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/10/25/machine-learning-SVM/</loc>
+    
+    <lastmod>2019-10-30T18:33:22.743Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://holdfire.github.io/2019/10/30/python-package-module-import/</loc>
     
     <lastmod>2019-10-30T17:34:35.542Z</lastmod>
@@ -89,13 +124,6 @@
     <loc>http://holdfire.github.io/2019/10/26/python-virtual-environment/</loc>
     
     <lastmod>2019-10-30T11:21:32.804Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/10/25/SVM/</loc>
-    
-    <lastmod>2019-10-25T20:32:46.082Z</lastmod>
     
   </url>
   
