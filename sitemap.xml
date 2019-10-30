@@ -2,86 +2,93 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://holdfire.github.io/2019/10/29/cpp-polymorphism/</loc>
+    <loc>http://holdfire.github.io/2019/10/30/python-package-module-import/</loc>
     
-    <lastmod>2019-10-29T20:06:48.098Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/10/30/cpp-memory-allocation/</loc>
-    
-    <lastmod>2019-10-29T19:57:02.240Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/10/30/cpp-left-value-right-value/</loc>
-    
-    <lastmod>2019-10-29T19:32:27.302Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/10/29/cpp-const/</loc>
-    
-    <lastmod>2019-10-29T18:40:52.256Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/10/29/cpp-pointer/</loc>
-    
-    <lastmod>2019-10-29T18:40:21.218Z</lastmod>
+    <lastmod>2019-10-30T15:29:56.359Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://holdfire.github.io/2019/10/29/cpp-reference/</loc>
     
-    <lastmod>2019-10-29T18:26:54.121Z</lastmod>
+    <lastmod>2019-10-30T13:14:08.234Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://holdfire.github.io/2019/10/27/linux-shell-1/</loc>
+    <loc>http://holdfire.github.io/2019/10/29/cpp-polymorphism/</loc>
     
-    <lastmod>2019-10-27T08:07:49.296Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/10/26/python-virtual-environment/</loc>
-    
-    <lastmod>2019-10-27T07:54:44.835Z</lastmod>
+    <lastmod>2019-10-30T11:23:36.670Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://holdfire.github.io/2019/10/27/linux-introduction/</loc>
+    <loc>http://holdfire.github.io/2019/10/29/cpp-pointer/</loc>
     
-    <lastmod>2019-10-26T22:58:33.456Z</lastmod>
+    <lastmod>2019-10-30T11:23:30.806Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://holdfire.github.io/2019/10/27/linux-command/</loc>
+    <loc>http://holdfire.github.io/2019/10/30/cpp-memory-allocation/</loc>
     
-    <lastmod>2019-10-26T22:54:50.712Z</lastmod>
+    <lastmod>2019-10-30T11:23:27.394Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/10/30/cpp-left-value-right-value/</loc>
+    
+    <lastmod>2019-10-30T11:23:24.657Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/10/29/cpp-const/</loc>
+    
+    <lastmod>2019-10-30T11:23:18.538Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://holdfire.github.io/2019/10/27/linux-system-directory/</loc>
     
-    <lastmod>2019-10-26T21:24:03.838Z</lastmod>
+    <lastmod>2019-10-30T11:22:10.261Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/10/27/linux-shell-1/</loc>
+    
+    <lastmod>2019-10-30T11:22:06.845Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/10/27/linux-introduction/</loc>
+    
+    <lastmod>2019-10-30T11:22:03.332Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://holdfire.github.io/2019/10/27/linux-file-directory-1/</loc>
     
-    <lastmod>2019-10-26T19:21:15.427Z</lastmod>
+    <lastmod>2019-10-30T11:21:59.352Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/10/27/linux-command/</loc>
+    
+    <lastmod>2019-10-30T11:21:53.054Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/10/26/python-virtual-environment/</loc>
+    
+    <lastmod>2019-10-30T11:21:32.804Z</lastmod>
     
   </url>
   
