@@ -2,9 +2,79 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://holdfire.github.io/2019/10/31/deep-learning-activation-function/</loc>
+    
+    <lastmod>2019-11-01T22:26:02.924Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/02/computer-vision-upsampling-downsampling/</loc>
+    
+    <lastmod>2019-11-01T22:15:41.564Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/02/deep-learning-parameter-initialization/</loc>
+    
+    <lastmod>2019-11-01T22:02:09.647Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/10/31/deep-learning-loss-function/</loc>
+    
+    <lastmod>2019-11-01T21:44:10.087Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/02/deep-learning-batch-normalization/</loc>
+    
+    <lastmod>2019-11-01T21:44:04.878Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/10/31/deep-learning-optimization-algorithm-1/</loc>
+    
+    <lastmod>2019-11-01T21:43:50.014Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/10/31/deep-learning-optimization-algorithm-2/</loc>
+    
+    <lastmod>2019-11-01T21:43:41.859Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/02/computer-vision-IOU-NMS/</loc>
+    
+    <lastmod>2019-11-01T21:38:04.776Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://holdfire.github.io/2019/10/25/machine-learning-SVM/</loc>
     
-    <lastmod>2019-11-01T18:35:04.936Z</lastmod>
+    <lastmod>2019-11-01T21:11:46.547Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/10/30/cpp-memory-allocation/</loc>
+    
+    <lastmod>2019-11-01T19:27:24.030Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/10/29/cpp-pointer/</loc>
+    
+    <lastmod>2019-11-01T19:22:56.855Z</lastmod>
     
   </url>
   
@@ -30,34 +100,6 @@
   </url>
   
   <url>
-    <loc>http://holdfire.github.io/2019/10/31/machine-learning-activation-function/</loc>
-    
-    <lastmod>2019-10-30T19:15:30.783Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/10/31/machine-learning-loss-function/</loc>
-    
-    <lastmod>2019-10-30T19:14:57.962Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/10/31/machine-learning-optimization-algorithm-2/</loc>
-    
-    <lastmod>2019-10-30T19:13:36.728Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/10/31/machine-learning-optimization-algorithm-1/</loc>
-    
-    <lastmod>2019-10-30T19:12:51.455Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://holdfire.github.io/2019/10/30/python-package-module-import/</loc>
     
     <lastmod>2019-10-30T17:34:35.542Z</lastmod>
@@ -75,20 +117,6 @@
     <loc>http://holdfire.github.io/2019/10/29/cpp-polymorphism/</loc>
     
     <lastmod>2019-10-30T11:23:36.670Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/10/29/cpp-pointer/</loc>
-    
-    <lastmod>2019-10-30T11:23:30.806Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/10/30/cpp-memory-allocation/</loc>
-    
-    <lastmod>2019-10-30T11:23:27.394Z</lastmod>
     
   </url>
   

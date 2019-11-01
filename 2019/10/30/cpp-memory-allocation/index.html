@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="学无止境">
 <meta property="og:description" content="1. 栈区 由编译器自动分配和释放，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈。  2. 堆区 一般有程序员分配和释放，用new运算符申请；若程序员不释放，程序结束时可由OS回收。  3. 全局区（静态区） 全局变量（main函数前声明的变量）和静态变量的存储放在一起。其中，初始化的全局变量和静态变量在一块区域，未初始化的全局变量和未初始化的静态变量在一块区域。  4. 文">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-30T11:23:27.394Z">
+<meta property="og:updated_time" content="2019-11-01T19:27:24.030Z">
 <meta name="twitter:card" content="summary">
     
         <link rel="alternate" type="application/atom+xml" title="学无止境" href="/atom.xml">
@@ -205,7 +205,9 @@
 <h4 id="3-全局区静态区"><a class="markdownIt-Anchor" href="#3-全局区静态区"></a> 3. 全局区（静态区）</h4>
 <p>全局变量（main函数前声明的变量）和静态变量的存储放在一起。其中，初始化的全局变量和静态变量在一块区域，未初始化的全局变量和未初始化的静态变量在一块区域。</p>
 <h4 id="4-文字常量区"><a class="markdownIt-Anchor" href="#4-文字常量区"></a> 4. 文字常量区</h4>
-<p>常量字符串存储的地方。</p>
+<p>常量字符串存储的地方。<br />
+为了节省内存，C/C++把常量字符串放到一个单独的内存区域。当几个指针赋值给相同的常量字符串时，它们实际上会指向相同的内存地址。但用常量内存初始化数组时，情况却有所不同。如下所示：str1和str2的地址不同，str3和str4的地址相同。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> str1[] = <span class="string">"Hello world"</span></span><br><span class="line"><span class="keyword">char</span> str2[] = <span class="string">"Hello world"</span></span><br><span class="line"><span class="keyword">char</span>* str3 = <span class="string">"Hello world"</span></span><br><span class="line"><span class="keyword">char</span>* str3 = <span class="string">"Hello world"</span></span><br></pre></td></tr></table></figure>
 <h4 id="5-程序代码区"><a class="markdownIt-Anchor" href="#5-程序代码区"></a> 5. 程序代码区</h4>
 <p>存放函数体的二进制码。</p>
 
@@ -216,7 +218,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-10-30T11:23:27.394Z" itemprop="dateUpdated">2019-10-30 19:23:27</time>
+    最后更新时间：<time datetime="2019-11-01T19:27:24.030Z" itemprop="dateUpdated">2019-11-02 03:27:24</time>
 </span><br>
 
 
