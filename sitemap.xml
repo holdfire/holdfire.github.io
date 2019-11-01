@@ -2,9 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://holdfire.github.io/2019/11/02/deep-learning-parameter-initialization/</loc>
+    
+    <lastmod>2019-11-01T22:37:25.750Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/10/31/deep-learning-optimization-algorithm-2/</loc>
+    
+    <lastmod>2019-11-01T22:37:21.130Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/10/31/deep-learning-optimization-algorithm-1/</loc>
+    
+    <lastmod>2019-11-01T22:37:17.263Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/10/31/deep-learning-loss-function/</loc>
+    
+    <lastmod>2019-11-01T22:37:13.417Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/02/deep-learning-batch-normalization/</loc>
+    
+    <lastmod>2019-11-01T22:37:09.454Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://holdfire.github.io/2019/10/31/deep-learning-activation-function/</loc>
     
-    <lastmod>2019-11-01T22:26:02.924Z</lastmod>
+    <lastmod>2019-11-01T22:37:04.105Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/02/computer-vision-IOU-NMS/</loc>
+    
+    <lastmod>2019-11-01T22:36:51.727Z</lastmod>
     
   </url>
   
@@ -12,48 +54,6 @@
     <loc>http://holdfire.github.io/2019/11/02/computer-vision-upsampling-downsampling/</loc>
     
     <lastmod>2019-11-01T22:15:41.564Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/11/02/deep-learning-parameter-initialization/</loc>
-    
-    <lastmod>2019-11-01T22:02:09.647Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/10/31/deep-learning-loss-function/</loc>
-    
-    <lastmod>2019-11-01T21:44:10.087Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/11/02/deep-learning-batch-normalization/</loc>
-    
-    <lastmod>2019-11-01T21:44:04.878Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/10/31/deep-learning-optimization-algorithm-1/</loc>
-    
-    <lastmod>2019-11-01T21:43:50.014Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/10/31/deep-learning-optimization-algorithm-2/</loc>
-    
-    <lastmod>2019-11-01T21:43:41.859Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/11/02/computer-vision-IOU-NMS/</loc>
-    
-    <lastmod>2019-11-01T21:38:04.776Z</lastmod>
     
   </url>
   
@@ -75,27 +75,6 @@
     <loc>http://holdfire.github.io/2019/10/29/cpp-pointer/</loc>
     
     <lastmod>2019-11-01T19:22:56.855Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/custom/index.html</loc>
-    
-    <lastmod>2019-11-01T18:33:40.403Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/tags/index.html</loc>
-    
-    <lastmod>2019-11-01T17:11:05.724Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/categories/index.html</loc>
-    
-    <lastmod>2019-11-01T17:10:50.669Z</lastmod>
     
   </url>
   

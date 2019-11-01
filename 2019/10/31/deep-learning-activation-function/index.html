@@ -1,204 +1,236 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-    
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-    
-
-    
+<link rel="stylesheet" href="/css/main.css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    
-    
-    
-    
-    <title>神经网络——激活函数 | 学无止境 | 不忘初心</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
-    
-    
-    <meta name="keywords" content="深度学习,神经网络">
-    <meta name="description" content="1.简介   在多层神经网络中，上层神经元输出的线性组合和下层神经元的输出之间具有一个函数关系，这个函数关系称为激活函数。激活函数有什么作用呢？   神经网络中如果不使用激活函数（相当于激活函数是f(x)=xf(x)=xf(x)=x)，那么每一层节点的输出都会是输入的线性函数。其结果是：无论神经网络有多少层，网络的输出层都是输入层的线性组合，神经网络仅相当于一个感知机，网络的拟合能力变得非常有限">
-<meta name="keywords" content="深度学习,神经网络">
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="1.简介   在多层神经网络中，上层神经元输出的线性组合和下层神经元的输出之间具有一个函数关系，这个函数关系称为激活函数。激活函数有什么作用呢？   神经网络中如果不使用激活函数（相当于激活函数是f(x)=xf(x)=xf(x)=x)，那么每一层节点的输出都会是输入的线性函数。其结果是：无论神经网络有多少层，网络的输出层都是输入层的线性组合，神经网络仅相当于一个感知机，网络的拟合能力变得非常有限">
+<meta name="keywords" content="深度学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="神经网络——激活函数">
 <meta property="og:url" content="http:&#x2F;&#x2F;holdfire.github.io&#x2F;2019&#x2F;10&#x2F;31&#x2F;deep-learning-activation-function&#x2F;index.html">
 <meta property="og:site_name" content="学无止境">
 <meta property="og:description" content="1.简介   在多层神经网络中，上层神经元输出的线性组合和下层神经元的输出之间具有一个函数关系，这个函数关系称为激活函数。激活函数有什么作用呢？   神经网络中如果不使用激活函数（相当于激活函数是f(x)=xf(x)=xf(x)=x)，那么每一层节点的输出都会是输入的线性函数。其结果是：无论神经网络有多少层，网络的输出层都是输入层的线性组合，神经网络仅相当于一个感知机，网络的拟合能力变得非常有限">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-01T22:26:02.924Z">
+<meta property="og:updated_time" content="2019-11-01T22:37:04.105Z">
 <meta name="twitter:card" content="summary">
-    
-        <link rel="alternate" type="application/atom+xml" title="学无止境" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
 
-    <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-    
+<link rel="canonical" href="http://holdfire.github.io/2019/10/31/deep-learning-activation-function/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>神经网络——激活函数 | 学无止境</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
-<body>
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+    <div class="headband"></div>
 
-    <aside id="menu"  >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/avatar.jpg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">holdfire</h5>
-          <a href="mailto:liuxing16@tsinghua.org.cn" target="_blank" rel="noopener" title="liuxing16@tsinghua.org.cn" class="mail">liuxing16@tsinghua.org.cn</a>
-        </hgroup>
-      </div>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">学无止境</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
-        
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                动态
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                标签
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                分类
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/holdfire" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="http://www.weibo.com/holdfireLX" target="_blank" >
-                <i class="icon icon-lg icon-weibo"></i>
-                微博
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/custom"  >
-                <i class="icon icon-lg icon-link"></i>
-                关于
-              </a>
-            </li>
-        
-      </ul>
+        <p class="site-subtitle">不忘初心</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
-</aside>
-
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">神经网络——激活函数</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
-    </div>
-</header>
-<header class="content-header post-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">神经网络——激活函数</h1>
-        <h5 class="subtitle">
-            
-                <time datetime="2019-10-30T18:24:41.000Z" itemprop="datePublished" class="page-time">
-  2019-10-31
-</time>
+</div>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></li></ul>
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
 
-            
-        </h5>
-    </div>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
 
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
 
-</header>
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
 
+          <div class="content">
+            
 
-<div class="container body-wrap">
-    
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1简介"><span class="post-toc-number">1.</span> <span class="post-toc-text"> 1.简介</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-常用的激活函数"><span class="post-toc-number">2.</span> <span class="post-toc-text"> 2. 常用的激活函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#21-sigmoid函数"><span class="post-toc-number">2.1.</span> <span class="post-toc-text"> 2.1 sigmoid函数</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#22-tanh函数"><span class="post-toc-number">2.2.</span> <span class="post-toc-text"> 2.2 tanh函数</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#23-relu函数"><span class="post-toc-number">2.3.</span> <span class="post-toc-text"> 2.3 ReLU函数</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#24-leaky-relu函数"><span class="post-toc-number">2.4.</span> <span class="post-toc-text"> 2.4 Leaky ReLU函数</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#25-maxout函数"><span class="post-toc-number">2.5.</span> <span class="post-toc-text"> 2.5 Maxout函数</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#26-softmax函数"><span class="post-toc-number">2.6.</span> <span class="post-toc-text"> 2.6 Softmax函数</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3激活函数的选择"><span class="post-toc-number">3.</span> <span class="post-toc-text"> 3.激活函数的选择</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#参考资料"><span class="post-toc-number">4.</span> <span class="post-toc-text"> 参考资料：</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#center附录center"><span class="post-toc-number"></span> <span class="post-toc-text"> 附录</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#sigmoid函数梯度消失和梯度爆炸试验"><span class="post-toc-number">1.</span> <span class="post-toc-text"> sigmoid函数梯度消失和梯度爆炸试验：</span></a></li></ol>
-        </nav>
-    </aside>
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/10/31/deep-learning-activation-function/">
 
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="holdfire">
+      <meta itemprop="description" content="一只梦想遨游天际的菜鸟！">
+    </span>
 
-<article id="post-deep-learning-activation-function"
-  class="post-article article-type-post fade" itemprop="blogPost">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学无止境">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          神经网络——激活函数
+        </h1>
 
-    <div class="post-card">
-        <h1 class="post-card-title">神经网络——激活函数</h1>
         <div class="post-meta">
-            <time class="post-time" title="2019-10-31 02:24:41" datetime="2019-10-30T18:24:41.000Z"  itemprop="datePublished">2019-10-31</time>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
 
-            
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></li></ul>
+              <time title="创建时间：2019-10-31 02:24:41" itemprop="dateCreated datePublished" datetime="2019-10-31T02:24:41+08:00">2019-10-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-02 06:37:04" itemprop="dateModified" datetime="2019-11-02T06:37:04+08:00">2019-11-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" itemprop="url" rel="index">
+                    <span itemprop="name">人工智能</span>
+                  </a>
+                </span>
+            </span>
 
-
-
-            
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
-
+          
 
         </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            <h4 id="1简介"><a class="markdownIt-Anchor" href="#1简介"></a> 1.简介</h4>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="1简介"><a class="markdownIt-Anchor" href="#1简介"></a> 1.简介</h4>
 <p>  在多层神经网络中，上层神经元输出的线性组合和下层神经元的输出之间具有一个函数关系，这个函数关系称为激活函数。激活函数有什么作用呢？<br />
   神经网络中如果不使用激活函数（相当于激活函数是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">f(x)=x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>)，那么每一层节点的输出都会是输入的线性函数。其结果是：无论神经网络有多少层，网络的输出层都是输入层的线性组合，神经网络仅相当于一个感知机，网络的拟合能力变得非常有限。<br />
   神经网络中加入激活函数后，网络对现实模型的表达能力得到增强，网络几乎能够逼近任意的函数模型。常用的的激活函数主要有：sigmoid函数，relu函数，tanh函数，leaky_relu函数，maxout函数等。</p>
@@ -248,6 +280,7 @@
 <li>书籍<a href="http://neuralnetworksanddeeplearning.com/chap5.html" target="_blank" rel="noopener">Neural Networks and Deep Learning</a>第5章</li>
 <li>Hinton关于Relu函数在RNN中不奏效的论文：<a href="https://arxiv.org/abs/1504.00941" target="_blank" rel="noopener">A Simple Way to Initialize Recurrent Networks of Rectified Linear Units</a></li>
 <li>Glorot和Bengio关于sigmoid函数在深层网络中产生饱和的论文：<a href="http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf" target="_blank" rel="noopener">Understanding the difficulty of training deep feedforward neural networks</a></li>
+<li>知乎专栏——RNN 中为什么要采用 tanh，而不是 ReLU 作为激活函数 ：<a href="https://www.zhihu.com/question/61265076/answer/186347780" target="_blank" rel="noopener">https://www.zhihu.com/question/61265076/answer/186347780</a></li>
 </ol>
 <h2 id="center附录center"><a class="markdownIt-Anchor" href="#center附录center"></a> <center>附录</center></h2>
 <h4 id="sigmoid函数梯度消失和梯度爆炸试验"><a class="markdownIt-Anchor" href="#sigmoid函数梯度消失和梯度爆炸试验"></a> sigmoid函数梯度消失和梯度爆炸试验：</h4>
@@ -277,358 +310,187 @@
 <p>  带有4个隐含层的网络，训练过程中各隐含层权重的学习速度变化如下图所示。从图中可以看出：在训练后期，第一个隐含层的学习速率比第四个隐含层慢了约100倍。</p>
 <p>  <strong>分析：</strong> 直观上来说，额外的隐含层应该使网络能够学习更为复杂的分类功能，从而进行更好的分类。即使额外的隐含层什么都不做，模型的准确率也不会变得更差。由于权重是随机初始化的，因而第一个隐含层会丢失大量的图片有用信息，所以此时第一层几乎不可能不需要再学习，即还没有收敛到最优值。若假设额外的隐含层确实有用，那么问题应该是我们的学习算法没有找到合适的权重和偏差。<br />
   <strong>梯度消失的数学推导：</strong> 考虑一个每层只有1个神经元的深层神经网络，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>w</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>w</mi><mn>2</mn></msub><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">w_1,w_2,...</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02691em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02691em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span></span></span></span>为权重，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>b</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>b</mi><mn>2</mn></msub><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">b_1,b_2,...</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span></span></span></span>为偏置。<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">a_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>为第j层的输出值，代价函数C对第一个隐含层的偏置<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>b</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">b_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>的偏导为：<br />
-  将神经网络的权值初始化为均值为0，标准差为1。则大部分权值满足<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mrow><mo fence="true">∣</mo><msub><mi>w</mi><mi>j</mi></msub><mo fence="true">∣</mo></mrow><mo>&lt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\left|w_j\right|&lt;1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">∣</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.02691em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;">∣</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，且有$\left|w_j \sigma^{\prime}(z_j)&lt;\frac {1} {4}\right| <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">。</mi><mi mathvariant="normal">由</mi><mi mathvariant="normal">反</mi><mi mathvariant="normal">向</mi><mi mathvariant="normal">传</mi><mi mathvariant="normal">播</mi><mi mathvariant="normal">算</mi><mi mathvariant="normal">法</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">数</mi><mi mathvariant="normal">学</mi><mi mathvariant="normal">推</mi><mi mathvariant="normal">导</mi><mi mathvariant="normal">可</mi><mi mathvariant="normal">知</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">梯</mi><mi mathvariant="normal">度</mi><mi mathvariant="normal">从</mi><mi mathvariant="normal">后</mi><mi mathvariant="normal">向</mi><mi mathvariant="normal">前</mi><mi mathvariant="normal">传</mi><mi mathvariant="normal">播</mi><mi mathvariant="normal">时</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">每</mi><mi mathvariant="normal">传</mi><mi mathvariant="normal">递</mi><mi mathvariant="normal">一</mi><mi mathvariant="normal">层</mi><mi mathvariant="normal">梯</mi><mi mathvariant="normal">度</mi><mi mathvariant="normal">值</mi><mi mathvariant="normal">都</mi><mi mathvariant="normal">会</mi><mi mathvariant="normal">减</mi><mi mathvariant="normal">小</mi><mi mathvariant="normal">为</mi><mi mathvariant="normal">原</mi><mi mathvariant="normal">来</mi><mi mathvariant="normal">的</mi><mn>0.25</mn><mi mathvariant="normal">倍</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">如</mi><mi mathvariant="normal">果</mi><mi mathvariant="normal">神</mi><mi mathvariant="normal">经</mi><mi mathvariant="normal">网</mi><mi mathvariant="normal">络</mi><mi mathvariant="normal">隐</mi><mi mathvariant="normal">层</mi><mi mathvariant="normal">特</mi><mi mathvariant="normal">别</mi><mi mathvariant="normal">多</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">那</mi><mi mathvariant="normal">么</mi><mi mathvariant="normal">梯</mi><mi mathvariant="normal">度</mi><mi mathvariant="normal">在</mi><mi mathvariant="normal">穿</mi><mi mathvariant="normal">过</mi><mi mathvariant="normal">多</mi><mi mathvariant="normal">层</mi><mi mathvariant="normal">后</mi><mi mathvariant="normal">将</mi><mi mathvariant="normal">变</mi><mi mathvariant="normal">得</mi><mi mathvariant="normal">非</mi><mi mathvariant="normal">常</mi><mi mathvariant="normal">小</mi><mi mathvariant="normal">接</mi><mi mathvariant="normal">近</mi><mi mathvariant="normal">于</mi><mn>0</mn><mi mathvariant="normal">，</mi><mi mathvariant="normal">即</mi><mi mathvariant="normal">出</mi><mi mathvariant="normal">现</mi><mi mathvariant="normal">梯</mi><mi mathvariant="normal">度</mi><mi mathvariant="normal">消</mi><mi mathvariant="normal">失</mi><mi mathvariant="normal">现</mi><mi mathvariant="normal">象</mi><mi mathvariant="normal">；</mi><mi mathvariant="normal">当</mi><mi mathvariant="normal">网</mi><mi mathvariant="normal">络</mi><mi mathvariant="normal">权</mi><mi mathvariant="normal">值</mi><mi mathvariant="normal">初</mi><mi mathvariant="normal">始</mi><mi mathvariant="normal">化</mi><mi mathvariant="normal">为</mi></mrow><annotation encoding="application/x-tex">。由反向传播算法的数学推导可知，梯度从后向前传播时，每传递一层梯度值都会减小为原来的0.25倍，如果神经网络隐层特别多，那么梯度在穿过多层后将变得非常小接近于0，即出现梯度消失现象；当网络权值初始化为</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord cjk_fallback">。</span><span class="mord cjk_fallback">由</span><span class="mord cjk_fallback">反</span><span class="mord cjk_fallback">向</span><span class="mord cjk_fallback">传</span><span class="mord cjk_fallback">播</span><span class="mord cjk_fallback">算</span><span class="mord cjk_fallback">法</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">数</span><span class="mord cjk_fallback">学</span><span class="mord cjk_fallback">推</span><span class="mord cjk_fallback">导</span><span class="mord cjk_fallback">可</span><span class="mord cjk_fallback">知</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">梯</span><span class="mord cjk_fallback">度</span><span class="mord cjk_fallback">从</span><span class="mord cjk_fallback">后</span><span class="mord cjk_fallback">向</span><span class="mord cjk_fallback">前</span><span class="mord cjk_fallback">传</span><span class="mord cjk_fallback">播</span><span class="mord cjk_fallback">时</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">每</span><span class="mord cjk_fallback">传</span><span class="mord cjk_fallback">递</span><span class="mord cjk_fallback">一</span><span class="mord cjk_fallback">层</span><span class="mord cjk_fallback">梯</span><span class="mord cjk_fallback">度</span><span class="mord cjk_fallback">值</span><span class="mord cjk_fallback">都</span><span class="mord cjk_fallback">会</span><span class="mord cjk_fallback">减</span><span class="mord cjk_fallback">小</span><span class="mord cjk_fallback">为</span><span class="mord cjk_fallback">原</span><span class="mord cjk_fallback">来</span><span class="mord cjk_fallback">的</span><span class="mord">0</span><span class="mord">.</span><span class="mord">2</span><span class="mord">5</span><span class="mord cjk_fallback">倍</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">如</span><span class="mord cjk_fallback">果</span><span class="mord cjk_fallback">神</span><span class="mord cjk_fallback">经</span><span class="mord cjk_fallback">网</span><span class="mord cjk_fallback">络</span><span class="mord cjk_fallback">隐</span><span class="mord cjk_fallback">层</span><span class="mord cjk_fallback">特</span><span class="mord cjk_fallback">别</span><span class="mord cjk_fallback">多</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">那</span><span class="mord cjk_fallback">么</span><span class="mord cjk_fallback">梯</span><span class="mord cjk_fallback">度</span><span class="mord cjk_fallback">在</span><span class="mord cjk_fallback">穿</span><span class="mord cjk_fallback">过</span><span class="mord cjk_fallback">多</span><span class="mord cjk_fallback">层</span><span class="mord cjk_fallback">后</span><span class="mord cjk_fallback">将</span><span class="mord cjk_fallback">变</span><span class="mord cjk_fallback">得</span><span class="mord cjk_fallback">非</span><span class="mord cjk_fallback">常</span><span class="mord cjk_fallback">小</span><span class="mord cjk_fallback">接</span><span class="mord cjk_fallback">近</span><span class="mord cjk_fallback">于</span><span class="mord">0</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">即</span><span class="mord cjk_fallback">出</span><span class="mord cjk_fallback">现</span><span class="mord cjk_fallback">梯</span><span class="mord cjk_fallback">度</span><span class="mord cjk_fallback">消</span><span class="mord cjk_fallback">失</span><span class="mord cjk_fallback">现</span><span class="mord cjk_fallback">象</span><span class="mord cjk_fallback">；</span><span class="mord cjk_fallback">当</span><span class="mord cjk_fallback">网</span><span class="mord cjk_fallback">络</span><span class="mord cjk_fallback">权</span><span class="mord cjk_fallback">值</span><span class="mord cjk_fallback">初</span><span class="mord cjk_fallback">始</span><span class="mord cjk_fallback">化</span><span class="mord cjk_fallback">为</span></span></span></span>(1,+\infty)<span class='katex-error' title='ParseError: KaTeX parse error: Expected &#039;EOF&#039;, got &#039;&amp;&#039; at position 21: …，则会出现梯度爆炸情况。  
+  将神经网络的权值初始化为均值为0，标准差为1。则大部分权值满足<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mrow><mo fence="true">∣</mo><msub><mi>w</mi><mi>j</mi></msub><mo fence="true">∣</mo></mrow><mo>&lt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\left|w_j\right|&lt;1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">∣</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.02691em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;">∣</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，且有$ \left|w_j \sigma^{\prime}(z_j)&lt;\frac {1} {4}\right| <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">。</mi><mi mathvariant="normal">由</mi><mi mathvariant="normal">反</mi><mi mathvariant="normal">向</mi><mi mathvariant="normal">传</mi><mi mathvariant="normal">播</mi><mi mathvariant="normal">算</mi><mi mathvariant="normal">法</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">数</mi><mi mathvariant="normal">学</mi><mi mathvariant="normal">推</mi><mi mathvariant="normal">导</mi><mi mathvariant="normal">可</mi><mi mathvariant="normal">知</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">梯</mi><mi mathvariant="normal">度</mi><mi mathvariant="normal">从</mi><mi mathvariant="normal">后</mi><mi mathvariant="normal">向</mi><mi mathvariant="normal">前</mi><mi mathvariant="normal">传</mi><mi mathvariant="normal">播</mi><mi mathvariant="normal">时</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">每</mi><mi mathvariant="normal">传</mi><mi mathvariant="normal">递</mi><mi mathvariant="normal">一</mi><mi mathvariant="normal">层</mi><mi mathvariant="normal">梯</mi><mi mathvariant="normal">度</mi><mi mathvariant="normal">值</mi><mi mathvariant="normal">都</mi><mi mathvariant="normal">会</mi><mi mathvariant="normal">减</mi><mi mathvariant="normal">小</mi><mi mathvariant="normal">为</mi><mi mathvariant="normal">原</mi><mi mathvariant="normal">来</mi><mi mathvariant="normal">的</mi><mn>0.25</mn><mi mathvariant="normal">倍</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">如</mi><mi mathvariant="normal">果</mi><mi mathvariant="normal">神</mi><mi mathvariant="normal">经</mi><mi mathvariant="normal">网</mi><mi mathvariant="normal">络</mi><mi mathvariant="normal">隐</mi><mi mathvariant="normal">层</mi><mi mathvariant="normal">特</mi><mi mathvariant="normal">别</mi><mi mathvariant="normal">多</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">那</mi><mi mathvariant="normal">么</mi><mi mathvariant="normal">梯</mi><mi mathvariant="normal">度</mi><mi mathvariant="normal">在</mi><mi mathvariant="normal">穿</mi><mi mathvariant="normal">过</mi><mi mathvariant="normal">多</mi><mi mathvariant="normal">层</mi><mi mathvariant="normal">后</mi><mi mathvariant="normal">将</mi><mi mathvariant="normal">变</mi><mi mathvariant="normal">得</mi><mi mathvariant="normal">非</mi><mi mathvariant="normal">常</mi><mi mathvariant="normal">小</mi><mi mathvariant="normal">接</mi><mi mathvariant="normal">近</mi><mi mathvariant="normal">于</mi><mn>0</mn><mi mathvariant="normal">，</mi><mi mathvariant="normal">即</mi><mi mathvariant="normal">出</mi><mi mathvariant="normal">现</mi><mi mathvariant="normal">梯</mi><mi mathvariant="normal">度</mi><mi mathvariant="normal">消</mi><mi mathvariant="normal">失</mi><mi mathvariant="normal">现</mi><mi mathvariant="normal">象</mi><mi mathvariant="normal">；</mi><mi mathvariant="normal">当</mi><mi mathvariant="normal">网</mi><mi mathvariant="normal">络</mi><mi mathvariant="normal">权</mi><mi mathvariant="normal">值</mi><mi mathvariant="normal">初</mi><mi mathvariant="normal">始</mi><mi mathvariant="normal">化</mi><mi mathvariant="normal">为</mi></mrow><annotation encoding="application/x-tex">。由反向传播算法的数学推导可知，梯度从后向前传播时，每传递一层梯度值都会减小为原来的0.25倍，如果神经网络隐层特别多，那么梯度在穿过多层后将变得非常小接近于0，即出现梯度消失现象；当网络权值初始化为</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord cjk_fallback">。</span><span class="mord cjk_fallback">由</span><span class="mord cjk_fallback">反</span><span class="mord cjk_fallback">向</span><span class="mord cjk_fallback">传</span><span class="mord cjk_fallback">播</span><span class="mord cjk_fallback">算</span><span class="mord cjk_fallback">法</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">数</span><span class="mord cjk_fallback">学</span><span class="mord cjk_fallback">推</span><span class="mord cjk_fallback">导</span><span class="mord cjk_fallback">可</span><span class="mord cjk_fallback">知</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">梯</span><span class="mord cjk_fallback">度</span><span class="mord cjk_fallback">从</span><span class="mord cjk_fallback">后</span><span class="mord cjk_fallback">向</span><span class="mord cjk_fallback">前</span><span class="mord cjk_fallback">传</span><span class="mord cjk_fallback">播</span><span class="mord cjk_fallback">时</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">每</span><span class="mord cjk_fallback">传</span><span class="mord cjk_fallback">递</span><span class="mord cjk_fallback">一</span><span class="mord cjk_fallback">层</span><span class="mord cjk_fallback">梯</span><span class="mord cjk_fallback">度</span><span class="mord cjk_fallback">值</span><span class="mord cjk_fallback">都</span><span class="mord cjk_fallback">会</span><span class="mord cjk_fallback">减</span><span class="mord cjk_fallback">小</span><span class="mord cjk_fallback">为</span><span class="mord cjk_fallback">原</span><span class="mord cjk_fallback">来</span><span class="mord cjk_fallback">的</span><span class="mord">0</span><span class="mord">.</span><span class="mord">2</span><span class="mord">5</span><span class="mord cjk_fallback">倍</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">如</span><span class="mord cjk_fallback">果</span><span class="mord cjk_fallback">神</span><span class="mord cjk_fallback">经</span><span class="mord cjk_fallback">网</span><span class="mord cjk_fallback">络</span><span class="mord cjk_fallback">隐</span><span class="mord cjk_fallback">层</span><span class="mord cjk_fallback">特</span><span class="mord cjk_fallback">别</span><span class="mord cjk_fallback">多</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">那</span><span class="mord cjk_fallback">么</span><span class="mord cjk_fallback">梯</span><span class="mord cjk_fallback">度</span><span class="mord cjk_fallback">在</span><span class="mord cjk_fallback">穿</span><span class="mord cjk_fallback">过</span><span class="mord cjk_fallback">多</span><span class="mord cjk_fallback">层</span><span class="mord cjk_fallback">后</span><span class="mord cjk_fallback">将</span><span class="mord cjk_fallback">变</span><span class="mord cjk_fallback">得</span><span class="mord cjk_fallback">非</span><span class="mord cjk_fallback">常</span><span class="mord cjk_fallback">小</span><span class="mord cjk_fallback">接</span><span class="mord cjk_fallback">近</span><span class="mord cjk_fallback">于</span><span class="mord">0</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">即</span><span class="mord cjk_fallback">出</span><span class="mord cjk_fallback">现</span><span class="mord cjk_fallback">梯</span><span class="mord cjk_fallback">度</span><span class="mord cjk_fallback">消</span><span class="mord cjk_fallback">失</span><span class="mord cjk_fallback">现</span><span class="mord cjk_fallback">象</span><span class="mord cjk_fallback">；</span><span class="mord cjk_fallback">当</span><span class="mord cjk_fallback">网</span><span class="mord cjk_fallback">络</span><span class="mord cjk_fallback">权</span><span class="mord cjk_fallback">值</span><span class="mord cjk_fallback">初</span><span class="mord cjk_fallback">始</span><span class="mord cjk_fallback">化</span><span class="mord cjk_fallback">为</span></span></span></span>(1,+\infty)<span class='katex-error' title='ParseError: KaTeX parse error: Expected &#039;EOF&#039;, got &#039;&amp;&#039; at position 21: …，则会出现梯度爆炸情况。  
 &amp;̲emsp;&amp;emsp;**梯度…'>区间内的值，则会出现梯度爆炸情况。  
 &amp;emsp;&amp;emsp;**梯度爆炸的产生：**   当权重设置很大时，如</span>w_1=w_2=w_3=w_4=1000<span class='katex-error' title='ParseError: KaTeX parse error: Expected &#039;EOF&#039;, got &#039;&amp;&#039; at position 23: …0时，会产生梯度爆炸。   
 &amp;̲emsp;&amp;emsp;**思考…'>,而z的值接近0时，会产生梯度爆炸。   
 &amp;emsp;&amp;emsp;**思考：** 为了避免梯度消失，我们可以通过设置合适</span>w_j<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">的</mi><mi mathvariant="normal">初</mi><mi mathvariant="normal">始</mi><mi mathvariant="normal">值</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">使</mi><mi mathvariant="normal">得</mi></mrow><annotation encoding="application/x-tex">的初始值，使得</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">初</span><span class="mord cjk_fallback">始</span><span class="mord cjk_fallback">值</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">使</span><span class="mord cjk_fallback">得</span></span></span></span>\left|w_j \sigma^{\prime}(z_j) \right|&gt;1<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">。</mi><mi mathvariant="normal">事</mi><mi mathvariant="normal">实</mi><mi mathvariant="normal">上</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">这</mi><mi mathvariant="normal">非</mi><mi mathvariant="normal">常</mi><mi mathvariant="normal">困</mi><mi mathvariant="normal">难</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">因</mi><mi mathvariant="normal">为</mi></mrow><annotation encoding="application/x-tex">。事实上，这非常困难，因为</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mord cjk_fallback">。</span><span class="mord cjk_fallback">事</span><span class="mord cjk_fallback">实</span><span class="mord cjk_fallback">上</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">这</span><span class="mord cjk_fallback">非</span><span class="mord cjk_fallback">常</span><span class="mord cjk_fallback">困</span><span class="mord cjk_fallback">难</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">因</span><span class="mord cjk_fallback">为</span></span></span></span>\sigma<sup>{\prime}(z_j)=\sigma</sup>{\prime}(wa+b) <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">的</mi><mi mathvariant="normal">值</mi><mi mathvariant="normal">是</mi><mi mathvariant="normal">依</mi><mi mathvariant="normal">赖</mi><mi mathvariant="normal">于</mi><mi>w</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">当</mi><mi>w</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">值</mi><mi mathvariant="normal">较</mi><mi mathvariant="normal">大</mi><mi mathvariant="normal">时</mi><mi mathvariant="normal">，</mi></mrow><annotation encoding="application/x-tex">的值是依赖于w的，当w的值较大时，</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">值</span><span class="mord cjk_fallback">是</span><span class="mord cjk_fallback">依</span><span class="mord cjk_fallback">赖</span><span class="mord cjk_fallback">于</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">当</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">值</span><span class="mord cjk_fallback">较</span><span class="mord cjk_fallback">大</span><span class="mord cjk_fallback">时</span><span class="mord cjk_fallback">，</span></span></span></span>\sigma^{\prime}(z_j)$通常会很小。梯度消失很难避免。<br />
   <strong>总结：</strong> 深层神经网络的反向传播过程会发生梯度变化不稳定的状况。通过使用其他的激活函数，我们能否避免这种梯度下降不稳定的现象呢？</p>
 
-        </div>
-
-        <blockquote class="post-copyright">
-    
-    <div class="content">
-        
-<span class="post-time">
-    最后更新时间：<time datetime="2019-11-01T22:26:02.924Z" itemprop="dateUpdated">2019-11-02 06:26:02</time>
-</span><br>
-
-
-        
-        本人才疏学浅，内容如有错误，敬请批评指正！内容系原创，转载请邮件联系作者！本文链接：<a href="/2019/10/31/deep-learning-activation-function/" target="_blank" rel="external">http://holdfire.github.io/2019/10/31/deep-learning-activation-function/</a>
-        
-    </div>
-    
-    <footer>
-        <a href="http://holdfire.github.io">
-            <img src="/img/avatar.jpg" alt="holdfire">
-            holdfire
-        </a>
-    </footer>
-</blockquote>
-
-        
-<div class="page-reward">
-    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
-</div>
-
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag">神经网络</a></li></ul>
-
-
-            
-<div class="page-share-wrap">
-    
-
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://holdfire.github.io/2019/10/31/deep-learning-activation-function/&title=《神经网络——激活函数》 — 学无止境&pic=http://holdfire.github.io/img/avatar.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://holdfire.github.io/2019/10/31/deep-learning-activation-function/&title=《神经网络——激活函数》 — 学无止境&source=一只梦想遨游天际的菜鸟！" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://holdfire.github.io/2019/10/31/deep-learning-activation-function/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《神经网络——激活函数》 — 学无止境&url=http://holdfire.github.io/2019/10/31/deep-learning-activation-function/&via=http://holdfire.github.io" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://holdfire.github.io/2019/10/31/deep-learning-activation-function/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
-</div>
-
-
-
-        </div>
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2019/10/31/deep-learning-optimization-algorithm-1/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">神经网络——一阶优化算法</h4>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/2019/10/30/python-package-module-import/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Python——导入操作import</h4>
-      </a>
-    </div>
-  
-</nav>
-
-
-
+    
     
 
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag"># 深度学习</a>
+          </div>
 
-
-
-
-
-
-
-
-
-
-    <!-- Valine Comments -->
-    <div class="comments vcomment" id="comments"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
-    <!-- Valine Comments script -->
-    <script>
-        var GUEST_INFO = ['nick','mail','link'];
-        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
-          return GUEST_INFO.indexOf(item) > -1
-        });
-        new Valine({
-            el: '#comments',
-            notify: 'false' == 'true',
-            verify: 'false' == 'true',
-            appId: "y3U6QFDMxRlh8fDNs1qJl7su-gzGzoHsz",
-            appKey: "pssOSm45PFn6XJO82i2Nkb20",
-            avatar: "mm",
-            placeholder: "这是写评论的地方...",
-            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
-            pageSize: "5"
-        })
-    </script>
-    <!-- Valine Comments end -->
-
-
-
-
-
-
-
-
-
-
-</article>
-
-<div id="reward" class="page-modal reward-lay">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <h3 class="reward-title">
-        <i class="icon icon-quote-left"></i>
-        谢谢大爷~
-        <i class="icon icon-quote-right"></i>
-    </h3>
-    <div class="reward-content">
         
-        <div class="reward-code">
-            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
-        </div>
-        
-        <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
-                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
-            <div class="reward-toggle-ctrol">
-                <span class="reward-toggle-item wechat">微信</span>
-                <span class="reward-toggle-label"></span>
-                <span class="reward-toggle-item alipay">支付宝</span>
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2019/10/30/python-package-module-import/" rel="next" title="Python——导入操作import">
+                  <i class="fa fa-chevron-left"></i> Python——导入操作import
+                </a>
             </div>
-        </label>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2019/10/31/deep-learning-optimization-algorithm-1/" rel="prev" title="神经网络——一阶优化算法">
+                  神经网络——一阶优化算法 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1简介"><span class="nav-number">1.</span> <span class="nav-text"> 1.简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-常用的激活函数"><span class="nav-number">2.</span> <span class="nav-text"> 2. 常用的激活函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#21-sigmoid函数"><span class="nav-number">2.1.</span> <span class="nav-text"> 2.1 sigmoid函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#22-tanh函数"><span class="nav-number">2.2.</span> <span class="nav-text"> 2.2 tanh函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#23-relu函数"><span class="nav-number">2.3.</span> <span class="nav-text"> 2.3 ReLU函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#24-leaky-relu函数"><span class="nav-number">2.4.</span> <span class="nav-text"> 2.4 Leaky ReLU函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#25-maxout函数"><span class="nav-number">2.5.</span> <span class="nav-text"> 2.5 Maxout函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#26-softmax函数"><span class="nav-number">2.6.</span> <span class="nav-text"> 2.6 Softmax函数</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3激活函数的选择"><span class="nav-number">3.</span> <span class="nav-text"> 3.激活函数的选择</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text"> 参考资料：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#center附录center"><span class="nav-number"></span> <span class="nav-text"> 附录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#sigmoid函数梯度消失和梯度爆炸试验"><span class="nav-number">1.</span> <span class="nav-text"> sigmoid函数梯度消失和梯度爆炸试验：</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="holdfire"
+    src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">holdfire</p>
+  <div class="site-description" itemprop="description">一只梦想遨游天际的菜鸟！</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
         
-    </div>
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
 </div>
 
 
 
-</div>
+      </div>
 
-        <footer class="footer">
-    <div class="top">
-        
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
     </div>
-    <div class="bottom">
-        <p><span>holdfire &copy; 2019</span>
-            <span>
-                
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
-</footer>
+  </aside>
+  <div id="sidebar-dimmer"></div>
 
+
+      </div>
     </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
+    <footer class="footer">
+      <div class="footer-inner">
+        
 
-
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://holdfire.github.io/2019/10/31/deep-learning-activation-function/&title=《神经网络——激活函数》 — 学无止境&pic=http://holdfire.github.io/img/avatar.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://holdfire.github.io/2019/10/31/deep-learning-activation-function/&title=《神经网络——激活函数》 — 学无止境&source=一只梦想遨游天际的菜鸟！" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://holdfire.github.io/2019/10/31/deep-learning-activation-function/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《神经网络——激活函数》 — 学无止境&url=http://holdfire.github.io/2019/10/31/deep-learning-activation-function/&via=http://holdfire.github.io" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://holdfire.github.io/2019/10/31/deep-learning-activation-function/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://holdfire.github.io/2019/10/31/deep-learning-activation-function/" alt="微信分享二维码">
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">holdfire</span>
 </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
+  </div>
+
+        
 
 
 
 
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
-
-
-</script>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
-
-
-
-<!-- mathjax config similar to math.stackexchange -->
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
-
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
-
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
 
 
 
 
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
-<script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = '无止尽...';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '真的无止尽!';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
-        }
-    });
-})();
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
 
 </body>
 </html>
