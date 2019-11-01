@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://holdfire.github.io/2019/10/25/machine-learning-SVM/</loc>
+    
+    <lastmod>2019-11-01T18:35:04.936Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/custom/index.html</loc>
+    
+    <lastmod>2019-11-01T18:33:40.403Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/tags/index.html</loc>
+    
+    <lastmod>2019-11-01T17:11:05.724Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/categories/index.html</loc>
+    
+    <lastmod>2019-11-01T17:10:50.669Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://holdfire.github.io/2019/10/31/machine-learning-activation-function/</loc>
     
     <lastmod>2019-10-30T19:15:30.783Z</lastmod>
@@ -26,13 +54,6 @@
     <loc>http://holdfire.github.io/2019/10/31/machine-learning-optimization-algorithm-1/</loc>
     
     <lastmod>2019-10-30T19:12:51.455Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/10/25/machine-learning-SVM/</loc>
-    
-    <lastmod>2019-10-30T18:33:22.743Z</lastmod>
     
   </url>
   
@@ -131,48 +152,6 @@
     <loc>http://holdfire.github.io/2019/10/25/my_first_blog/</loc>
     
     <lastmod>2019-10-25T19:00:16.314Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/tags/index.html</loc>
-    
-    <lastmod>2019-10-25T11:35:08.060Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/repository/index.html</loc>
-    
-    <lastmod>2019-10-25T11:35:08.054Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/links/index.html</loc>
-    
-    <lastmod>2019-10-25T11:35:08.047Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/categories/index.html</loc>
-    
-    <lastmod>2019-10-25T11:35:08.041Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/books/index.html</loc>
-    
-    <lastmod>2019-10-25T11:35:08.034Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/about/index.html</loc>
-    
-    <lastmod>2019-10-25T11:35:08.028Z</lastmod>
     
   </url>
   

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://holdfire.github.io/2019/10/25/machine-learning-SVM/</loc>
+    <lastmod>2019-11-01</lastmod>
+  </url>  <url>
     <loc>http://holdfire.github.io/2019/10/31/machine-learning-activation-function/</loc>
     <lastmod>2019-10-30</lastmod>
   </url>  <url>
@@ -11,9 +14,6 @@
     <lastmod>2019-10-30</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/10/31/machine-learning-optimization-algorithm-1/</loc>
-    <lastmod>2019-10-30</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/10/25/machine-learning-SVM/</loc>
     <lastmod>2019-10-30</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/10/30/python-package-module-import/</loc>
