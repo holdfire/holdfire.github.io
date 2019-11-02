@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://holdfire.github.io/2019/10/31/deep-learning-activation-function/</loc>
+    <lastmod>2019-11-02</lastmod>
+  </url>  <url>
     <loc>http://holdfire.github.io/2019/11/02/deep-learning-parameter-initialization/</loc>
     <lastmod>2019-11-01</lastmod>
   </url>  <url>
@@ -14,9 +17,6 @@
     <lastmod>2019-11-01</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/02/deep-learning-batch-normalization/</loc>
-    <lastmod>2019-11-01</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/10/31/deep-learning-activation-function/</loc>
     <lastmod>2019-11-01</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/02/computer-vision-IOU-NMS/</loc>

@@ -253,10 +253,11 @@
   <strong>总结：</strong> 深层神经网络的反向传播过程会发生梯度变化不稳定的状况。通过使用其他的激活函数，我们能否避免这种梯度下降不稳定的现象呢？</p>
 ]]></content>
       <categories>
-        <category>人工智能</category>
+        <category>深度学习</category>
       </categories>
       <tags>
         <tag>深度学习</tag>
+        <tag>神经网络</tag>
       </tags>
   </entry>
   <entry>
