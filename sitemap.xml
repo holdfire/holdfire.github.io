@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://holdfire.github.io/about/index.html</loc>
+    
+    <lastmod>2019-11-02T01:53:41.861Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/schedule/index.html</loc>
+    
+    <lastmod>2019-11-02T01:47:41.333Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://holdfire.github.io/2019/10/31/deep-learning-activation-function/</loc>
     
-    <lastmod>2019-11-02T01:09:02.344Z</lastmod>
+    <lastmod>2019-11-02T01:41:23.488Z</lastmod>
     
   </url>
   
@@ -19,13 +33,6 @@
     <loc>http://holdfire.github.io/tags/index.html</loc>
     
     <lastmod>2019-11-01T23:45:42.167Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/about/index.html</loc>
-    
-    <lastmod>2019-11-01T23:45:19.179Z</lastmod>
     
   </url>
   
