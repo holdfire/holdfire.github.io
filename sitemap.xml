@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://holdfire.github.io/categories/index.html</loc>
+    
+    <lastmod>2019-11-01T23:46:29.026Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/tags/index.html</loc>
+    
+    <lastmod>2019-11-01T23:45:42.167Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/about/index.html</loc>
+    
+    <lastmod>2019-11-01T23:45:19.179Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://holdfire.github.io/2019/11/02/deep-learning-parameter-initialization/</loc>
     
     <lastmod>2019-11-01T22:37:25.750Z</lastmod>
