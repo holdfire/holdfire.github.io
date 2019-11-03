@@ -1,10 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://holdfire.github.io/2019/10/31/deep-learning-loss-function/</loc>
+    <loc>http://holdfire.github.io/2019/11/03/computer-vision-introduction/</loc>
+    <lastmod>2019-11-03</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/04/personal-ideas-reading-papers/</loc>
     <lastmod>2019-11-03</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/02/deep-learning-batch-normalization/</loc>
+    <lastmod>2019-11-03</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/04/machine-leanrning-standardization-normalization/</loc>
+    <lastmod>2019-11-03</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/04/machine-leanrning-adaBoost/</loc>
+    <lastmod>2019-11-03</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/04/machine-leanrning-ensemble-learning/</loc>
+    <lastmod>2019-11-03</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/10/31/deep-learning-activation-function/</loc>
+    <lastmod>2019-11-03</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/10/31/deep-learning-optimization-algorithm-1/</loc>
+    <lastmod>2019-11-03</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/10/31/deep-learning-optimization-algorithm-2/</loc>
+    <lastmod>2019-11-03</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/02/deep-learning-parameter-initialization/</loc>
+    <lastmod>2019-11-03</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/04/machine-leanrning-XgBoost/</loc>
+    <lastmod>2019-11-03</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/04/machine-leanrning-GBDT/</loc>
+    <lastmod>2019-11-03</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/03/computer-vision-object-detection/</loc>
+    <lastmod>2019-11-03</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/10/31/deep-learning-loss-function/</loc>
     <lastmod>2019-11-03</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/10/25/machine-learning-SVM/</loc>
@@ -14,18 +50,6 @@
     <lastmod>2019-11-03</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/03/machine-learning-EM-algorithm/</loc>
-    <lastmod>2019-11-03</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/02/deep-learning-parameter-initialization/</loc>
-    <lastmod>2019-11-03</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/10/31/deep-learning-optimization-algorithm-2/</loc>
-    <lastmod>2019-11-03</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/10/31/deep-learning-optimization-algorithm-1/</loc>
-    <lastmod>2019-11-03</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/10/31/deep-learning-activation-function/</loc>
     <lastmod>2019-11-03</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/02/computer-vision-upsampling-downsampling/</loc>
