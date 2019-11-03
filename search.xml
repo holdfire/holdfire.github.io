@@ -41,7 +41,7 @@ j = 1,2,...,N；k = 1,2,..,K </annotation></semantics></math></span><span class=
 <p>  </p>
 ]]></content>
       <categories>
-        <category>人工智能</category>
+        <category>机器学习</category>
       </categories>
       <tags>
         <tag>机器学习</tag>
@@ -66,7 +66,7 @@ j = 1,2,...,N；k = 1,2,..,K </annotation></semantics></math></span><span class=
 </ol>
 ]]></content>
       <categories>
-        <category>人工智能</category>
+        <category>机器学习</category>
       </categories>
       <tags>
         <tag>机器学习</tag>
@@ -78,10 +78,11 @@ j = 1,2,...,N；k = 1,2,..,K </annotation></semantics></math></span><span class=
     <url>/2019/11/02/computer-vision-upsampling-downsampling/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>人工智能</category>
+        <category>计算机视觉</category>
       </categories>
       <tags>
-        <tag>计算机视觉</tag>
+        <tag>深度学习</tag>
+        <tag>图像处理</tag>
       </tags>
   </entry>
   <entry>
@@ -103,10 +104,11 @@ j = 1,2,...,N；k = 1,2,..,K </annotation></semantics></math></span><span class=
 </ol>
 ]]></content>
       <categories>
-        <category>人工智能</category>
+        <category>机器学习</category>
       </categories>
       <tags>
         <tag>深度学习</tag>
+        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -115,10 +117,10 @@ j = 1,2,...,N；k = 1,2,..,K </annotation></semantics></math></span><span class=
     <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
 ]]></content>
       <categories>
-        <category>人工智能</category>
+        <category>机器学习</category>
       </categories>
       <tags>
-        <tag>深度学习</tag>
+        <tag>深度学习，机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -140,11 +142,10 @@ j = 1,2,...,N；k = 1,2,..,K </annotation></semantics></math></span><span class=
 </ol>
 ]]></content>
       <categories>
-        <category>人工智能</category>
+        <category>计算机视觉</category>
       </categories>
       <tags>
-        <tag>深度学习</tag>
-        <tag>计算机视觉</tag>
+        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -173,10 +174,12 @@ j = 1,2,...,N；k = 1,2,..,K </annotation></semantics></math></span><span class=
 </ol>
 ]]></content>
       <categories>
-        <category>人工智能</category>
+        <category>机器学习</category>
       </categories>
       <tags>
         <tag>深度学习</tag>
+        <tag>机器学习</tag>
+        <tag>凸优化</tag>
       </tags>
   </entry>
   <entry>
@@ -188,11 +191,10 @@ j = 1,2,...,N；k = 1,2,..,K </annotation></semantics></math></span><span class=
 <h4 id="3-分类问题中的损失函数"><a class="markdownIt-Anchor" href="#3-分类问题中的损失函数"></a> 3. 分类问题中的损失函数</h4>
 ]]></content>
       <categories>
-        <category>人工智能</category>
+        <category>机器学习</category>
       </categories>
       <tags>
-        <tag>深度学习</tag>
-        <tag>机器学习</tag>
+        <tag>深度学习，机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -229,10 +231,12 @@ j = 1,2,...,N；k = 1,2,..,K </annotation></semantics></math></span><span class=
 </ol>
 ]]></content>
       <categories>
-        <category>人工智能</category>
+        <category>机器学习</category>
       </categories>
       <tags>
         <tag>深度学习</tag>
+        <tag>机器学习</tag>
+        <tag>凸优化</tag>
       </tags>
   </entry>
   <entry>
@@ -323,11 +327,11 @@ j = 1,2,...,N；k = 1,2,..,K </annotation></semantics></math></span><span class=
   <strong>总结：</strong> 深层神经网络的反向传播过程会发生梯度变化不稳定的状况。通过使用其他的激活函数，我们能否避免这种梯度下降不稳定的现象呢？</p>
 ]]></content>
       <categories>
-        <category>深度学习</category>
+        <category>机器学习</category>
       </categories>
       <tags>
         <tag>深度学习</tag>
-        <tag>神经网络</tag>
+        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -794,10 +798,11 @@ pip install virtualenvwrapper-win   # Windows下安装命令
 <h4 id="3-非线性支持向量机与核函数"><a class="markdownIt-Anchor" href="#3-非线性支持向量机与核函数"></a> 3. 非线性支持向量机与核函数</h4>
 ]]></content>
       <categories>
-        <category>人工智能</category>
+        <category>机器学习</category>
       </categories>
       <tags>
         <tag>机器学习</tag>
+        <tag>监督学习</tag>
       </tags>
   </entry>
   <entry>
