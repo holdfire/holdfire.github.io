@@ -129,7 +129,7 @@
     <link href="http://holdfire.github.io/2019/11/02/deep-learning-batch-normalization/"/>
     <id>http://holdfire.github.io/2019/11/02/deep-learning-batch-normalization/</id>
     <published>2019-11-01T21:13:56.000Z</published>
-    <updated>2019-11-03T12:54:43.955Z</updated>
+    <updated>2019-11-03T12:59:36.129Z</updated>
     
     <content type="html"><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>]]></content>
     
@@ -147,7 +147,9 @@
       <category term="机器学习" scheme="http://holdfire.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="深度学习，机器学习" scheme="http://holdfire.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%8C%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+      <category term="深度学习" scheme="http://holdfire.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="机器学习" scheme="http://holdfire.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -214,7 +216,7 @@
     <link href="http://holdfire.github.io/2019/10/31/deep-learning-loss-function/"/>
     <id>http://holdfire.github.io/2019/10/31/deep-learning-loss-function/</id>
     <published>2019-10-30T18:29:07.000Z</published>
-    <updated>2019-11-03T12:54:53.647Z</updated>
+    <updated>2019-11-03T12:59:41.128Z</updated>
     
     <content type="html"><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4><h5 id="11-什么是损失函数"><a class="markdownIt-Anchor" href="#11-什么是损失函数"></a> 1.1 什么是损失函数？</h5><h4 id="2回归问题中的损失函数"><a class="markdownIt-Anchor" href="#2回归问题中的损失函数"></a> 2.回归问题中的损失函数</h4><h4 id="3-分类问题中的损失函数"><a class="markdownIt-Anchor" href="#3-分类问题中的损失函数"></a> 3. 分类问题中的损失函数</h4>]]></content>
     
@@ -232,7 +234,9 @@
       <category term="机器学习" scheme="http://holdfire.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="深度学习，机器学习" scheme="http://holdfire.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%8C%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+      <category term="深度学习" scheme="http://holdfire.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="机器学习" scheme="http://holdfire.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
