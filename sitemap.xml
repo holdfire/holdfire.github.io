@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://holdfire.github.io/2019/11/03/machine-learning-GMM/</loc>
+    
+    <lastmod>2019-11-03T11:33:21.181Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/03/machine-learning-EM-algorithm/</loc>
+    
+    <lastmod>2019-11-03T10:22:24.182Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://holdfire.github.io/about/index.html</loc>
     
     <lastmod>2019-11-02T01:53:41.861Z</lastmod>
