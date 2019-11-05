@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://holdfire.github.io/2019/11/03/computer-vision-introduction/</loc>
-    <lastmod>2019-11-03</lastmod>
+    <loc>http://holdfire.github.io/2019/11/04/computer-vision-nn-vector-quantization/</loc>
+    <lastmod>2019-11-05</lastmod>
   </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/04/personal-ideas-reading-papers/</loc>
-    <lastmod>2019-11-03</lastmod>
+    <loc>http://holdfire.github.io/2019/10/31/deep-learning-activation-function/</loc>
+    <lastmod>2019-11-05</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/04/computer-vision-nn/</loc>
+    <lastmod>2019-11-05</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/04/computer-vision-nn-local-sensitive-hash/</loc>
+    <lastmod>2019-11-05</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/02/deep-learning-batch-normalization/</loc>
+    <lastmod>2019-11-04</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/03/computer-vision-introduction/</loc>
+    <lastmod>2019-11-04</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/04/personal-ideas-reading-papers/</loc>
     <lastmod>2019-11-03</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/04/machine-leanrning-standardization-normalization/</loc>
@@ -17,9 +29,6 @@
     <lastmod>2019-11-03</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/04/machine-leanrning-ensemble-learning/</loc>
-    <lastmod>2019-11-03</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/10/31/deep-learning-activation-function/</loc>
     <lastmod>2019-11-03</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/10/31/deep-learning-optimization-algorithm-1/</loc>
