@@ -2,16 +2,72 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://holdfire.github.io/2019/11/05/computer-vision-OCR/</loc>
+    <loc>http://holdfire.github.io/2019/11/02/deep-learning-normalization/</loc>
     
-    <lastmod>2019-11-05T15:32:10.953Z</lastmod>
+    <lastmod>2019-11-05T18:00:27.829Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://holdfire.github.io/2019/11/05/computer-vision-nn-vector-quantization/</loc>
+    <loc>http://holdfire.github.io/2019/11/05/computer-vision-object-detection-yolov3/</loc>
     
-    <lastmod>2019-11-05T14:24:13.089Z</lastmod>
+    <lastmod>2019-11-05T17:53:42.337Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/03/computer-vision-object-detection/</loc>
+    
+    <lastmod>2019-11-05T17:43:26.309Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/02/computer-vision-object-detection-evaluation/</loc>
+    
+    <lastmod>2019-11-05T17:41:56.906Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/04/computer-vision-nn/</loc>
+    
+    <lastmod>2019-11-05T15:46:18.092Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/04/computer-vision-nn-vector-quantization/</loc>
+    
+    <lastmod>2019-11-05T15:46:15.539Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/04/computer-vision-nn-local-sensitive-hash/</loc>
+    
+    <lastmod>2019-11-05T15:46:10.011Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/02/computer-vision-upsampling-downsampling/</loc>
+    
+    <lastmod>2019-11-05T15:39:09.494Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/05/computer-vision-OCR/</loc>
+    
+    <lastmod>2019-11-05T15:39:00.859Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/03/computer-vision-introduction/</loc>
+    
+    <lastmod>2019-11-05T15:37:37.929Z</lastmod>
     
   </url>
   
@@ -26,34 +82,6 @@
     <loc>http://holdfire.github.io/2019/11/04/machine-leanrning-regularization/</loc>
     
     <lastmod>2019-11-05T13:55:41.140Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/11/03/computer-vision-introduction/</loc>
-    
-    <lastmod>2019-11-05T13:51:35.852Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/11/05/computer-vision-nn/</loc>
-    
-    <lastmod>2019-11-05T11:15:30.154Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/11/05/computer-vision-nn-local-sensitive-hash/</loc>
-    
-    <lastmod>2019-11-05T11:15:22.399Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/11/02/deep-learning-batch-normalization/</loc>
-    
-    <lastmod>2019-11-04T18:18:26.062Z</lastmod>
     
   </url>
   
@@ -121,13 +149,6 @@
   </url>
   
   <url>
-    <loc>http://holdfire.github.io/2019/11/03/computer-vision-object-detection/</loc>
-    
-    <lastmod>2019-11-03T13:40:24.610Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://holdfire.github.io/2019/10/31/deep-learning-loss-function/</loc>
     
     <lastmod>2019-11-03T12:59:41.128Z</lastmod>
@@ -152,20 +173,6 @@
     <loc>http://holdfire.github.io/2019/11/03/machine-learning-EM-algorithm/</loc>
     
     <lastmod>2019-11-03T12:55:44.982Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/11/02/computer-vision-upsampling-downsampling/</loc>
-    
-    <lastmod>2019-11-03T12:52:36.013Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/11/02/computer-vision-IOU-NMS/</loc>
-    
-    <lastmod>2019-11-03T12:52:18.026Z</lastmod>
     
   </url>
   
