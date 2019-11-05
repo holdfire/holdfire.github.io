@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://holdfire.github.io/2019/11/05/computer-vision-OCR/</loc>
+    
+    <lastmod>2019-11-05T15:32:10.953Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://holdfire.github.io/2019/11/05/computer-vision-nn-vector-quantization/</loc>
     
     <lastmod>2019-11-05T14:24:13.089Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://holdfire.github.io/2019/10/31/deep-learning-activation-function/</loc>
     
     <lastmod>2019-11-05T14:17:38.472Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/11/05/computer-vision-OCR/</loc>
-    
-    <lastmod>2019-11-05T14:00:57.379Z</lastmod>
     
   </url>
   
