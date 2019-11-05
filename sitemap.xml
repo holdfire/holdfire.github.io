@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://holdfire.github.io/2019/11/04/computer-vision-nn-vector-quantization/</loc>
+    <loc>http://holdfire.github.io/2019/11/05/computer-vision-nn/</loc>
     
-    <lastmod>2019-11-05T11:08:48.234Z</lastmod>
+    <lastmod>2019-11-05T11:15:30.154Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/05/computer-vision-nn-local-sensitive-hash/</loc>
+    
+    <lastmod>2019-11-05T11:15:22.399Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/05/computer-vision-nn-vector-quantization/</loc>
+    
+    <lastmod>2019-11-05T11:15:15.976Z</lastmod>
     
   </url>
   
@@ -12,20 +26,6 @@
     <loc>http://holdfire.github.io/2019/10/31/deep-learning-activation-function/</loc>
     
     <lastmod>2019-11-05T11:08:41.484Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/11/04/computer-vision-nn/</loc>
-    
-    <lastmod>2019-11-05T10:45:09.498Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/11/04/computer-vision-nn-local-sensitive-hash/</loc>
-    
-    <lastmod>2019-11-05T08:02:13.019Z</lastmod>
     
   </url>
   
