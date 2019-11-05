@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>computer-vision-OCR</title>
+    <url>/2019/11/05/computer-vision-OCR/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>最近邻搜索NN——哈希散列方法</title>
     <url>/2019/11/05/computer-vision-nn-local-sensitive-hash/</url>
     <content><![CDATA[]]></content>
@@ -249,6 +254,18 @@
       </tags>
   </entry>
   <entry>
+    <title>机器学习——正则化</title>
+    <url>/2019/11/04/machine-leanrning-regularization/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>深度学习</tag>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>机器学习——标准化和归一化</title>
     <url>/2019/11/04/machine-leanrning-standardization-normalization/</url>
     <content><![CDATA[]]></content>
@@ -311,22 +328,15 @@
   <entry>
     <title>计算机视觉——介绍</title>
     <url>/2019/11/03/computer-vision-introduction/</url>
-    <content><![CDATA[<h4 id="简介"><a class="markdownIt-Anchor" href="#简介"></a> 简介</h4>
-<p>  计算机视觉包含图像分析、图像处理和图像理解三个部分。</p>
-<h4 id="计算机视觉基础任务"><a class="markdownIt-Anchor" href="#计算机视觉基础任务"></a> 计算机视觉基础任务</h4>
-<h5 id="图像处理image-process"><a class="markdownIt-Anchor" href="#图像处理image-process"></a> 图像处理image process</h5>
+    <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<p>  计算机视觉包含图像处理、图像分析和图像理解三个部分。</p>
+<h4 id="2-计算机视觉基础任务"><a class="markdownIt-Anchor" href="#2-计算机视觉基础任务"></a> 2. 计算机视觉基础任务</h4>
+<h5 id="21-图像处理image-process"><a class="markdownIt-Anchor" href="#21-图像处理image-process"></a> 2.1 图像处理image process</h5>
 <p>  图像处理是对图像进行去噪、增强、复原、分割、特征提取、识别、等操作的理论、方法和技术。</p>
-<ul>
-<li>三维重建：从全景图恢复三维结构，深度相机室内实时稠密三维重建，基于单目视觉的三维重建</li>
-<li>图像拼接：阵列相机立体全景拼接</li>
-<li>构造深度图：单目微运动生成深度图，深度图补全</li>
-</ul>
-<h5 id="图像分析image-analysis"><a class="markdownIt-Anchor" href="#图像分析image-analysis"></a> 图像分析image analysis</h5>
-<ul>
-<li>视频对象提取（video object extraction）</li>
-</ul>
-<h5 id="图像理解image-understanding"><a class="markdownIt-Anchor" href="#图像理解image-understanding"></a> 图像理解image understanding</h5>
-<p>图像理解可以认为是一种动态的目标检测，由全局信息生成图像摘要。</p>
+<h5 id="22-图像分析image-analysis"><a class="markdownIt-Anchor" href="#22-图像分析image-analysis"></a> 2.2 图像分析image analysis</h5>
+<p>  </p>
+<h5 id="23-图像理解image-understanding"><a class="markdownIt-Anchor" href="#23-图像理解image-understanding"></a> 2.3 图像理解image understanding</h5>
+<p>  图像理解可以认为是一种动态的目标检测，由全局信息生成图像摘要。</p>
 <ul>
 <li>图像分类(image classification)</li>
 <li>目标检测(object detection)</li>
@@ -336,23 +346,38 @@
 <li>视频分类(video classification)</li>
 <li>度量学习(metric learning)</li>
 </ul>
-<h4 id="计算机视觉复杂方向"><a class="markdownIt-Anchor" href="#计算机视觉复杂方向"></a> 计算机视觉复杂方向</h4>
+<h4 id="3-计算机视觉方向"><a class="markdownIt-Anchor" href="#3-计算机视觉方向"></a> 3. 计算机视觉方向</h4>
+<h5 id="31-图像相关"><a class="markdownIt-Anchor" href="#31-图像相关"></a> 3.1 图像相关</h5>
 <ul>
-<li>图像检索：基于内容的图像检索CBIR，实例图像检索(instance image retrieval)</li>
-<li>视频目标跟踪：单目标跟踪，多目标跟踪，行人再追踪</li>
-<li>人脸识别：人脸活体检测算法，人脸表情识别，人脸颜值打分</li>
-<li>人体骨骼关键点检测(Pose Estimation)：人体姿态估计，行为识别(open pose开源框架)</li>
-<li>行人属性识别：Re ID</li>
-<li>自动驾驶：</li>
-<li>车辆结构化：车牌识别，车型识别</li>
-<li>医学图像分析（biomedical image analysis）：</li>
-<li>OCR文字识别：场景文字识别，手写体文本检测与识别（handwriting recognition），文档文本检测与识别</li>
-<li>唇语识别：</li>
-<li>立体匹配技术：</li>
-<li>深度学习自动构图：</li>
-<li>基于深度学习的表格提取：</li>
-<li>基于RGB-D的三维深度学习：三维目标分类，三维目标检测，三维语义分割</li>
-<li></li>
+<li><font color="red">图像检索</font>：基于内容的图像检索CBIR，实例图像检索(instance image retrieval)</li>
+<li><font color="red">人脸识别</font>：人脸活体检测算法，人脸表情识别，人脸颜值打分</li>
+<li><font color="red">行人属性识别</font>：Re ID</li>
+<li><font color="red">人体骨骼关键点检测</font>：人体姿态估计(Pose Estimation)，行为识别(open pose开源框架)</li>
+</ul>
+<h5 id="32-视频相关"><a class="markdownIt-Anchor" href="#32-视频相关"></a> 3.2 视频相关</h5>
+<ul>
+<li><font color="red">视频目标跟踪</font>：单目标跟踪，多目标跟踪，行人再追踪</li>
+<li><font color="red">视频对象提取</font>：</li>
+</ul>
+<h5 id="33-文字-语言相关"><a class="markdownIt-Anchor" href="#33-文字-语言相关"></a> 3.3 文字、语言相关</h5>
+<ul>
+<li><font color="red">文字检测与识别</font>：文档文字检测与识别，场景文字检测与识别，手写体文本检测与识别</li>
+<li><font color="red">基于深度学习的表格提取</font>：</li>
+<li><font color="red">唇语识别</font>：</li>
+</ul>
+<h5 id="34-专门领域"><a class="markdownIt-Anchor" href="#34-专门领域"></a> 3.4 专门领域</h5>
+<ul>
+<li><font color="red">自动驾驶</font>：slam技术</li>
+<li><font color="red">车辆结构化</font>：车牌识别，车型识别</li>
+<li><font color="red">医学图像分析</font>:</li>
+</ul>
+<h5 id="35-三维视觉技术"><a class="markdownIt-Anchor" href="#35-三维视觉技术"></a> 3.5 三维视觉技术</h5>
+<ul>
+<li><font color="red">基于RGB-D的三维深度学习</font>：三维目标分类，三维目标检测，三维语义分割</li>
+<li><font color="red">立体匹配技术</font>：阵列相机立体全景拼接</li>
+<li><font color="red">三维重建</font>：从全景图恢复三维结构，深度相机室内实时稠密三维重建，基于单目视觉的三维重建</li>
+<li><font color="red">构造深度图</font>：单目微运动生成深度图，深度图补全</li>
+<li><font color="red">深度学习自动构图</font>：</li>
 </ul>
 ]]></content>
       <categories>
