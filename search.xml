@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>图像检索——综述</title>
+    <url>/2019/11/06/computer-vision-image-retrieval/</url>
+    <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<p>  图片库Lib中共有n张图片，现有待检索图片q，我们想在Lib中查找和图片q最相似的图片y。</p>
+<h4 id="2-基于内容的图像检索cbir"><a class="markdownIt-Anchor" href="#2-基于内容的图像检索cbir"></a> 2. 基于内容的图像检索CBIR</h4>
+<h5 id="21-基于局部特征"><a class="markdownIt-Anchor" href="#21-基于局部特征"></a> 2.1 基于局部特征</h5>
+<p>  可选用的局部特征点包括角点和斑点两类，如：SIFT特征，SURF特征，ORB特征。流程如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">（1）对图片库Lib中图片，逐张提取局部特征点后生成描述子，将所有图片的描述子Desc保存在本地；</span><br><span class="line">（2）对待检索图片q提取局部特征并生成描述子desc_q；</span><br><span class="line">（3）将desc_q和图片库中的描述子进行match操作，用matched kepoints的数目以及其距离来衡量其相似程度；</span><br><span class="line">（4）查找到相似度最高的图片，即为所得结果。</span><br></pre></td></tr></table></figure>
+<h5 id="22-基于全局特征"><a class="markdownIt-Anchor" href="#22-基于全局特征"></a> 2.2 基于全局特征</h5>
+<h5 id="23-基于cnn特征"><a class="markdownIt-Anchor" href="#23-基于cnn特征"></a> 2.3 基于CNN特征</h5>
+<h4 id="3检索算法"><a class="markdownIt-Anchor" href="#3检索算法"></a> 3.检索算法</h4>
+<h5 id="31-树形结构检索"><a class="markdownIt-Anchor" href="#31-树形结构检索"></a> 3.1 树形结构检索</h5>
+<h5 id="32-基于哈希的方法"><a class="markdownIt-Anchor" href="#32-基于哈希的方法"></a> 3.2 基于哈希的方法</h5>
+<h5 id="33-基于向量量化的方法"><a class="markdownIt-Anchor" href="#33-基于向量量化的方法"></a> 3.3 基于向量量化的方法</h5>
+]]></content>
+      <categories>
+        <category>计算机视觉</category>
+      </categories>
+      <tags>
+        <tag>图像检索</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>deep-learning-introduction</title>
     <url>/2019/11/06/deep-learning-introduction/</url>
     <content><![CDATA[]]></content>
@@ -25,8 +48,8 @@
       </tags>
   </entry>
   <entry>
-    <title>文字识别技术简介</title>
-    <url>/2019/11/05/computer-vision-OCR/</url>
+    <title>文字识别技术</title>
+    <url>/2019/11/05/computer-vision-fields-OCR/</url>
     <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
 <p>  自然图像文本识别一直被认为是两个连续但独立的问题：文字检测和识别问题。当前最好的文字监测方法都是从目标检测或分割框架拓展而来。基于文字检测的结果，文字识别从被抠出的文本图片中识别一连串字符。一般来说，文字识别被转换为一个序列标记问题，通常用基于卷积神经网络(CNN)特征的递归神经网络(RNN)来解决。然而样两阶段的方法存在一些限制：（1）独立学习两个任务很难利用到文本本身的性质，比如联合的文字检测和识别可以提供丰富的上下文信息，并且两个任务可以实现互补；（2）两阶段的方法通常需要多个连续的步骤，整个系统变复杂。<br />
   有些方法尝试开发一个统一的文字检测与识别框架（也叫端到端识别），如通过添加一个RNN的分支到文字检测模型来实现端到端识别。但它们本质上还是属于两阶段的框架。其缺点是：（1）使用RNN序列去识别文字，基于RNN的模型是比较难以与CNN文本监测模型进行联合优化的；（2）这些两阶段框架都需要RoI Pooling，因此很难精确地抠出准确的文本区域，通常会有很多背景被包含在抠出来的特征中，这不可避免的限制了文字识别的性能，尤其是对于多方向或弯曲文本。</p>
@@ -43,12 +66,12 @@
         <category>计算机视觉</category>
       </categories>
       <tags>
-        <tag>文字识别</tag>
+        <tag>计算机视觉方向</tag>
       </tags>
   </entry>
   <entry>
     <title>最近邻搜索NN——哈希散列方法</title>
-    <url>/2019/11/04/computer-vision-nn-local-sensitive-hash/</url>
+    <url>/2019/11/04/computer-vision-image-retrieval-NN-LSH/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>计算机视觉</category>
@@ -59,7 +82,7 @@
   </entry>
   <entry>
     <title>最近邻搜索NN——向量量化</title>
-    <url>/2019/11/04/computer-vision-nn-vector-quantization/</url>
+    <url>/2019/11/04/computer-vision-image-retrieval-NN-vector-quantization/</url>
     <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
 <p>  <strong>向量量化：把原空间分解为低维子空间的Cartesian乘积后，在每个子空间通过聚类把向量聚集成若干类，每类里面的向量用对应的类中心来近似。</strong> 这样每个向量只需要用其对应的聚类中心的索引ID来表示，其余查询向量间的距离用其对应的聚类中心与查询向量间的距离来近似。向量量化的优点为：<br />
 （1）向量需要的存储空间变少了，只需保留对应的聚类中心的ID；<br />
@@ -97,7 +120,7 @@
   </entry>
   <entry>
     <title>最近邻搜索NN——综述</title>
-    <url>/2019/11/04/computer-vision-nn/</url>
+    <url>/2019/11/04/computer-vision-image-retrieval-NN/</url>
     <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
 <p>  最近邻搜索的数学描述为：在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>D</mi></mrow><annotation encoding="application/x-tex">D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span></span></span></span>维欧式空间<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi mathvariant="double-struck">R</mi><mi>D</mi></msup></mrow><annotation encoding="application/x-tex">\mathbb{R}^D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathbb">R</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">D</span></span></span></span></span></span></span></span></span></span></span>中，给定查询向量<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>q</mi><mo>∈</mo><msup><mi mathvariant="double-struck">R</mi><mi>D</mi></msup></mrow><annotation encoding="application/x-tex">q \in \mathbb{R}^D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7335400000000001em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathbb">R</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">D</span></span></span></span></span></span></span></span></span></span></span>，我们想要从有n个向量的有限集合<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="script">X</mi><mo>⊂</mo><msup><mi mathvariant="double-struck">R</mi><mi>D</mi></msup></mrow><annotation encoding="application/x-tex">\mathcal{X} \subset \mathbb{R}^D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.14643em;">X</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">⊂</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathbb">R</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">D</span></span></span></span></span></span></span></span></span></span></span>中,找到和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>q</mi></mrow><annotation encoding="application/x-tex">q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span></span></span></span>距离最小的元素<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi><mi>N</mi><mo stretchy="false">(</mo><mi>q</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">NN(q)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="mclose">)</span></span></span></span>。</p>
 <p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi><mi>N</mi><mo stretchy="false">(</mo><mi>q</mi><mo stretchy="false">)</mo><mo>=</mo><mi>a</mi><mi>r</mi><mi>g</mi><mtext> </mtext><munder><mo><mi>min</mi><mo>⁡</mo></mo><mrow><mi>x</mi><mo>∈</mo><mi mathvariant="script">X</mi></mrow></munder><mtext> </mtext><mi>d</mi><mi>i</mi><mi>s</mi><mi>t</mi><mo stretchy="false">(</mo><mi>q</mi><mo separator="true">,</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">NN(q) = arg \ \min_{x \in\mathcal{X}}\ dist(q,x) 
@@ -364,8 +387,8 @@
       </tags>
   </entry>
   <entry>
-    <title>计算机视觉——介绍</title>
-    <url>/2019/11/03/computer-vision-introduction/</url>
+    <title>计算机视觉方向——介绍</title>
+    <url>/2019/11/03/computer-vision-fields/</url>
     <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
 <p>  计算机视觉包含图像处理、图像分析和图像理解三个部分。</p>
 <h4 id="2-计算机视觉基础任务"><a class="markdownIt-Anchor" href="#2-计算机视觉基础任务"></a> 2. 计算机视觉基础任务</h4>
@@ -426,7 +449,7 @@
         <category>计算机视觉</category>
       </categories>
       <tags>
-        <tag>深度学习</tag>
+        <tag>计算机视觉方向</tag>
       </tags>
   </entry>
   <entry>
@@ -521,7 +544,7 @@ j = 1,2,...,N；k = 1,2,..,K </annotation></semantics></math></span><span class=
   </entry>
   <entry>
     <title>图像处理——上采样与下采样</title>
-    <url>/2019/11/02/computer-vision-upsampling-downsampling/</url>
+    <url>/2019/11/02/computer-vision-imageProcess-upsampling-downsampling/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>计算机视觉</category>

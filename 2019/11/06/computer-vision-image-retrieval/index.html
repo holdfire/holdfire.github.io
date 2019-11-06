@@ -51,18 +51,18 @@
   };
 </script>
 
-  <meta name="description" content="一只想上天的菜鸟！">
-<meta name="keywords" content="图像处理">
+  <meta name="description" content="1. 简介   图片库Lib中共有n张图片，现有待检索图片q，我们想在Lib中查找和图片q最相似的图片y。  2. 基于内容的图像检索CBIR  2.1 基于局部特征   可选用的局部特征点包括角点和斑点两类，如：SIFT特征，SURF特征，ORB特征。流程如下： 1234（1）对图片库Lib中图片，逐张提取局部特征点后生成描述子，将所有图片的描述子Desc保存在本地；（2）对待检索图片q提取局">
+<meta name="keywords" content="图像检索">
 <meta property="og:type" content="article">
-<meta property="og:title" content="图像处理——上采样与下采样">
-<meta property="og:url" content="http:&#x2F;&#x2F;holdfire.github.io&#x2F;2019&#x2F;11&#x2F;02&#x2F;computer-vision-upsampling-downsampling&#x2F;index.html">
+<meta property="og:title" content="图像检索——综述">
+<meta property="og:url" content="http:&#x2F;&#x2F;holdfire.github.io&#x2F;2019&#x2F;11&#x2F;06&#x2F;computer-vision-image-retrieval&#x2F;index.html">
 <meta property="og:site_name" content="holdfire">
-<meta property="og:description" content="一只想上天的菜鸟！">
+<meta property="og:description" content="1. 简介   图片库Lib中共有n张图片，现有待检索图片q，我们想在Lib中查找和图片q最相似的图片y。  2. 基于内容的图像检索CBIR  2.1 基于局部特征   可选用的局部特征点包括角点和斑点两类，如：SIFT特征，SURF特征，ORB特征。流程如下： 1234（1）对图片库Lib中图片，逐张提取局部特征点后生成描述子，将所有图片的描述子Desc保存在本地；（2）对待检索图片q提取局">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-05T15:39:09.494Z">
+<meta property="og:updated_time" content="2019-11-06T08:52:26.730Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://holdfire.github.io/2019/11/02/computer-vision-upsampling-downsampling/">
+<link rel="canonical" href="http://holdfire.github.io/2019/11/06/computer-vision-image-retrieval/">
 
 
 <script id="page-configurations">
@@ -76,7 +76,7 @@
   };
 </script>
 
-  <title>图像处理——上采样与下采样 | holdfire</title>
+  <title>图像检索——综述 | holdfire</title>
   
 
 
@@ -160,6 +160,11 @@
     <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
 
   </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
+
+  </li>
         <li class="menu-item menu-item-about">
 
     <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
@@ -221,7 +226,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/02/computer-vision-upsampling-downsampling/">
+    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/06/computer-vision-image-retrieval/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -234,7 +239,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          图像处理——上采样与下采样
+          图像检索——综述
         </h1>
 
         <div class="post-meta">
@@ -243,16 +248,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2019-11-02 06:14:41" itemprop="dateCreated datePublished" datetime="2019-11-02T06:14:41+08:00">2019-11-02</time>
+              <time title="创建时间：2019-11-06 16:14:50 / 修改时间：16:52:26" itemprop="dateCreated datePublished" datetime="2019-11-06T16:14:50+08:00">2019-11-06</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-05 23:39:09" itemprop="dateModified" datetime="2019-11-05T23:39:09+08:00">2019-11-05</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -276,7 +275,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<p>  图片库Lib中共有n张图片，现有待检索图片q，我们想在Lib中查找和图片q最相似的图片y。</p>
+<h4 id="2-基于内容的图像检索cbir"><a class="markdownIt-Anchor" href="#2-基于内容的图像检索cbir"></a> 2. 基于内容的图像检索CBIR</h4>
+<h5 id="21-基于局部特征"><a class="markdownIt-Anchor" href="#21-基于局部特征"></a> 2.1 基于局部特征</h5>
+<p>  可选用的局部特征点包括角点和斑点两类，如：SIFT特征，SURF特征，ORB特征。流程如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">（1）对图片库Lib中图片，逐张提取局部特征点后生成描述子，将所有图片的描述子Desc保存在本地；</span><br><span class="line">（2）对待检索图片q提取局部特征并生成描述子desc_q；</span><br><span class="line">（3）将desc_q和图片库中的描述子进行match操作，用matched kepoints的数目以及其距离来衡量其相似程度；</span><br><span class="line">（4）查找到相似度最高的图片，即为所得结果。</span><br></pre></td></tr></table></figure>
+<h5 id="22-基于全局特征"><a class="markdownIt-Anchor" href="#22-基于全局特征"></a> 2.2 基于全局特征</h5>
+<h5 id="23-基于cnn特征"><a class="markdownIt-Anchor" href="#23-基于cnn特征"></a> 2.3 基于CNN特征</h5>
+<h4 id="3检索算法"><a class="markdownIt-Anchor" href="#3检索算法"></a> 3.检索算法</h4>
+<h5 id="31-树形结构检索"><a class="markdownIt-Anchor" href="#31-树形结构检索"></a> 3.1 树形结构检索</h5>
+<h5 id="32-基于哈希的方法"><a class="markdownIt-Anchor" href="#32-基于哈希的方法"></a> 3.2 基于哈希的方法</h5>
+<h5 id="33-基于向量量化的方法"><a class="markdownIt-Anchor" href="#33-基于向量量化的方法"></a> 3.3 基于向量量化的方法</h5>
+
     </div>
 
     
@@ -306,24 +317,21 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" rel="tag"># 图像处理</a>
+              <a href="/tags/%E5%9B%BE%E5%83%8F%E6%A3%80%E7%B4%A2/" rel="tag"># 图像检索</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2019/11/02/deep-learning-parameter-initialization/" rel="next" title="神经网络——参数初始化">
-                  <i class="fa fa-chevron-left"></i> 神经网络——参数初始化
+                <a href="/2019/11/06/deep-learning-introduction/" rel="next" title="deep-learning-introduction">
+                  <i class="fa fa-chevron-left"></i> deep-learning-introduction
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2019/11/03/machine-learning-EM-algorithm/" rel="prev" title="非监督学习——EM算法">
-                  非监督学习——EM算法 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
       </footer>
@@ -362,6 +370,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-简介"><span class="nav-number">1.</span> <span class="nav-text"> 1. 简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-基于内容的图像检索cbir"><span class="nav-number">2.</span> <span class="nav-text"> 2. 基于内容的图像检索CBIR</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#21-基于局部特征"><span class="nav-number">2.1.</span> <span class="nav-text"> 2.1 基于局部特征</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#22-基于全局特征"><span class="nav-number">2.2.</span> <span class="nav-text"> 2.2 基于全局特征</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#23-基于cnn特征"><span class="nav-number">2.3.</span> <span class="nav-text"> 2.3 基于CNN特征</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3检索算法"><span class="nav-number">3.</span> <span class="nav-text"> 3.检索算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#31-树形结构检索"><span class="nav-number">3.1.</span> <span class="nav-text"> 3.1 树形结构检索</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#32-基于哈希的方法"><span class="nav-number">3.2.</span> <span class="nav-text"> 3.2 基于哈希的方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#33-基于向量量化的方法"><span class="nav-number">3.3.</span> <span class="nav-text"> 3.3 基于向量量化的方法</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -377,7 +386,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-count">41</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -462,7 +471,7 @@
    
     </div>
     <div class="powered-by"></div>
-    <span class="post-count">博客全站共19k字</span>
+    <span class="post-count">博客全站共19.2k字</span>
   </div>
         
 <div class="busuanzi-count">

@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://holdfire.github.io/2019/11/04/computer-vision-nn/</loc>
+    <loc>http://holdfire.github.io/2019/11/06/computer-vision-image-retrieval/</loc>
     <lastmod>2019-11-06</lastmod>
   </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/03/computer-vision-introduction/</loc>
+    <loc>http://holdfire.github.io/2019/11/02/computer-vision-imageProcess-upsampling-downsampling/</loc>
+    <lastmod>2019-11-06</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/03/computer-vision-fields/</loc>
+    <lastmod>2019-11-06</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/04/computer-vision-image-retrieval-NN-vector-quantization/</loc>
+    <lastmod>2019-11-06</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/04/computer-vision-image-retrieval-NN-LSH/</loc>
+    <lastmod>2019-11-06</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/04/computer-vision-image-retrieval-NN/</loc>
+    <lastmod>2019-11-06</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/05/computer-vision-fields-OCR/</loc>
     <lastmod>2019-11-06</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/06/deep-learning-introduction/</loc>
-    <lastmod>2019-11-06</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/04/computer-vision-nn-vector-quantization/</loc>
     <lastmod>2019-11-06</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/02/deep-learning-normalization/</loc>
@@ -23,15 +35,6 @@
     <lastmod>2019-11-05</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/02/computer-vision-object-detection-evaluation/</loc>
-    <lastmod>2019-11-05</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/04/computer-vision-nn-local-sensitive-hash/</loc>
-    <lastmod>2019-11-05</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/02/computer-vision-upsampling-downsampling/</loc>
-    <lastmod>2019-11-05</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/05/computer-vision-OCR/</loc>
     <lastmod>2019-11-05</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/10/31/deep-learning-activation-function/</loc>

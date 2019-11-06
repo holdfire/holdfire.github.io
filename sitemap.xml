@@ -2,23 +2,65 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://holdfire.github.io/schedule/index.html</loc>
+    
+    <lastmod>2019-11-06T09:38:38.155Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://holdfire.github.io/about/index.html</loc>
     
-    <lastmod>2019-11-06T07:33:46.232Z</lastmod>
+    <lastmod>2019-11-06T09:22:32.885Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://holdfire.github.io/2019/11/04/computer-vision-nn/</loc>
+    <loc>http://holdfire.github.io/2019/11/06/computer-vision-image-retrieval/</loc>
     
-    <lastmod>2019-11-06T06:49:16.515Z</lastmod>
+    <lastmod>2019-11-06T08:52:26.730Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://holdfire.github.io/2019/11/03/computer-vision-introduction/</loc>
+    <loc>http://holdfire.github.io/2019/11/02/computer-vision-imageProcess-upsampling-downsampling/</loc>
     
-    <lastmod>2019-11-06T05:33:06.135Z</lastmod>
+    <lastmod>2019-11-06T07:55:08.850Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/03/computer-vision-fields/</loc>
+    
+    <lastmod>2019-11-06T07:53:31.199Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/04/computer-vision-image-retrieval-NN-vector-quantization/</loc>
+    
+    <lastmod>2019-11-06T07:53:12.407Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/04/computer-vision-image-retrieval-NN-LSH/</loc>
+    
+    <lastmod>2019-11-06T07:53:05.099Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/04/computer-vision-image-retrieval-NN/</loc>
+    
+    <lastmod>2019-11-06T07:52:58.661Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/05/computer-vision-fields-OCR/</loc>
+    
+    <lastmod>2019-11-06T07:50:53.426Z</lastmod>
     
   </url>
   
@@ -26,13 +68,6 @@
     <loc>http://holdfire.github.io/2019/11/06/deep-learning-introduction/</loc>
     
     <lastmod>2019-11-06T05:12:36.910Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/11/04/computer-vision-nn-vector-quantization/</loc>
-    
-    <lastmod>2019-11-06T01:52:48.523Z</lastmod>
     
   </url>
   
@@ -61,27 +96,6 @@
     <loc>http://holdfire.github.io/2019/11/02/computer-vision-object-detection-evaluation/</loc>
     
     <lastmod>2019-11-05T17:41:56.906Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/11/04/computer-vision-nn-local-sensitive-hash/</loc>
-    
-    <lastmod>2019-11-05T15:46:10.011Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/11/02/computer-vision-upsampling-downsampling/</loc>
-    
-    <lastmod>2019-11-05T15:39:09.494Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/11/05/computer-vision-OCR/</loc>
-    
-    <lastmod>2019-11-05T15:39:00.859Z</lastmod>
     
   </url>
   
@@ -187,13 +201,6 @@
     <loc>http://holdfire.github.io/2019/11/03/machine-learning-EM-algorithm/</loc>
     
     <lastmod>2019-11-03T12:55:44.982Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/schedule/index.html</loc>
-    
-    <lastmod>2019-11-02T01:47:41.333Z</lastmod>
     
   </url>
   
