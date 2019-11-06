@@ -59,7 +59,7 @@
 <meta property="og:site_name" content="holdfire">
 <meta property="og:description" content="1. 简介   计算机视觉包含图像处理、图像分析和图像理解三个部分。  2. 计算机视觉基础任务  2.1 图像处理image process   图像处理是对图像进行去噪、增强、复原、分割、特征提取、识别、等操作的理论、方法和技术。  2.2 图像分析image analysis     2.3 图像理解image understanding   图像理解可以认为是一种动态的目标检测，由全局信">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-05T15:37:37.929Z">
+<meta property="og:updated_time" content="2019-11-06T02:23:01.504Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://holdfire.github.io/2019/11/03/computer-vision-introduction/">
@@ -251,7 +251,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-05 23:37:37" itemprop="dateModified" datetime="2019-11-05T23:37:37+08:00">2019-11-05</time>
+                <time title="修改时间：2019-11-06 10:23:01" itemprop="dateModified" datetime="2019-11-06T10:23:01+08:00">2019-11-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -286,9 +286,11 @@
 <h5 id="23-图像理解image-understanding"><a class="markdownIt-Anchor" href="#23-图像理解image-understanding"></a> 2.3 图像理解image understanding</h5>
 <p>  图像理解可以认为是一种动态的目标检测，由全局信息生成图像摘要。</p>
 <ul>
+<li>特征检测和匹配(feature detection and matching)</li>
+<li>图像分割(segmentation):图像语义分割(image semantic segmentation)</li>
+<li>基于特征的图像对齐(feature based alignment):姿态估计(pose estimation)</li>
 <li>图像分类(image classification)</li>
 <li>目标检测(object detection)</li>
-<li>图像语义分割(image semantic segmentation)</li>
 <li>图像描述(image caption)</li>
 <li>图像生成(image generation):如变分自编码器VAE，生成对抗网络GAN</li>
 <li>视频分类(video classification)</li>
@@ -302,7 +304,7 @@
 <li><font color="red">行人属性识别</font>：Re ID</li>
 <li><font color="red">人体骨骼关键点检测</font>：人体姿态估计(Pose Estimation)，行为识别(open pose开源框架)</li>
 </ul>
-<h5 id="32-视频相关"><a class="markdownIt-Anchor" href="#32-视频相关"></a> 3.2 视频相关</h5>
+<h5 id="32-视频或多幅图像"><a class="markdownIt-Anchor" href="#32-视频或多幅图像"></a> 3.2 视频或多幅图像</h5>
 <ul>
 <li><font color="red">视频目标跟踪</font>：单目标跟踪，多目标跟踪，行人再追踪</li>
 <li><font color="red">视频对象提取</font>：</li>
@@ -321,9 +323,10 @@
 </ul>
 <h5 id="35-三维视觉技术"><a class="markdownIt-Anchor" href="#35-三维视觉技术"></a> 3.5 三维视觉技术</h5>
 <ul>
-<li><font color="red">基于RGB-D的三维深度学习</font>：三维目标分类，三维目标检测，三维语义分割</li>
+<li><font color="red">三维重建</font>：单视图三维重建，多视图三维重建，从全景图恢复三维结构，深度相机室内实时稠密三维重建，</li>
 <li><font color="red">立体匹配技术</font>：阵列相机立体全景拼接</li>
-<li><font color="red">三维重建</font>：从全景图恢复三维结构，深度相机室内实时稠密三维重建，基于单目视觉的三维重建</li>
+<li><font color="red">运动重构SFM</font>：Strucutre From Motion，从一系列包含视觉运动信息的多幅二维图像序列中估计三维结构</li>
+<li><font color="red">基于RGB-D的三维深度学习</font>：三维目标分类，三维目标检测，三维语义分割</li>
 <li><font color="red">构造深度图</font>：单目微运动生成深度图，深度图补全</li>
 <li><font color="red">深度学习自动构图</font>：</li>
 </ul>
@@ -413,7 +416,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-简介"><span class="nav-number">1.</span> <span class="nav-text"> 1. 简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-计算机视觉基础任务"><span class="nav-number">2.</span> <span class="nav-text"> 2. 计算机视觉基础任务</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#21-图像处理image-process"><span class="nav-number">2.1.</span> <span class="nav-text"> 2.1 图像处理image process</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#22-图像分析image-analysis"><span class="nav-number">2.2.</span> <span class="nav-text"> 2.2 图像分析image analysis</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#23-图像理解image-understanding"><span class="nav-number">2.3.</span> <span class="nav-text"> 2.3 图像理解image understanding</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-计算机视觉方向"><span class="nav-number">3.</span> <span class="nav-text"> 3. 计算机视觉方向</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#31-图像相关"><span class="nav-number">3.1.</span> <span class="nav-text"> 3.1 图像相关</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#32-视频相关"><span class="nav-number">3.2.</span> <span class="nav-text"> 3.2 视频相关</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#33-文字-语言相关"><span class="nav-number">3.3.</span> <span class="nav-text"> 3.3 文字、语言相关</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#34-专门领域"><span class="nav-number">3.4.</span> <span class="nav-text"> 3.4 专门领域</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#35-三维视觉技术"><span class="nav-number">3.5.</span> <span class="nav-text"> 3.5 三维视觉技术</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-简介"><span class="nav-number">1.</span> <span class="nav-text"> 1. 简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-计算机视觉基础任务"><span class="nav-number">2.</span> <span class="nav-text"> 2. 计算机视觉基础任务</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#21-图像处理image-process"><span class="nav-number">2.1.</span> <span class="nav-text"> 2.1 图像处理image process</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#22-图像分析image-analysis"><span class="nav-number">2.2.</span> <span class="nav-text"> 2.2 图像分析image analysis</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#23-图像理解image-understanding"><span class="nav-number">2.3.</span> <span class="nav-text"> 2.3 图像理解image understanding</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-计算机视觉方向"><span class="nav-number">3.</span> <span class="nav-text"> 3. 计算机视觉方向</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#31-图像相关"><span class="nav-number">3.1.</span> <span class="nav-text"> 3.1 图像相关</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#32-视频或多幅图像"><span class="nav-number">3.2.</span> <span class="nav-text"> 3.2 视频或多幅图像</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#33-文字-语言相关"><span class="nav-number">3.3.</span> <span class="nav-text"> 3.3 文字、语言相关</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#34-专门领域"><span class="nav-number">3.4.</span> <span class="nav-text"> 3.4 专门领域</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#35-三维视觉技术"><span class="nav-number">3.5.</span> <span class="nav-text"> 3.5 三维视觉技术</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -474,12 +477,6 @@
       Links
     </div>
     <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="http://cs231n.stanford.edu/" title="http:&#x2F;&#x2F;cs231n.stanford.edu&#x2F;" rel="noopener" target="_blank">Stanford cs231n</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://neuralnetworksanddeeplearning.com/" title="http:&#x2F;&#x2F;neuralnetworksanddeeplearning.com&#x2F;" rel="noopener" target="_blank">NNandDL book</a>
-        </li>
         <li class="links-of-blogroll-item">
           <a href="https://tensorflow.google.cn/" title="https:&#x2F;&#x2F;tensorflow.google.cn&#x2F;" rel="noopener" target="_blank">Tensorflow</a>
         </li>

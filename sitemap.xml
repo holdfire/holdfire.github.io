@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://holdfire.github.io/about/index.html</loc>
+    
+    <lastmod>2019-11-06T04:04:32.758Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/03/computer-vision-introduction/</loc>
+    
+    <lastmod>2019-11-06T02:23:01.504Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/04/computer-vision-nn-vector-quantization/</loc>
+    
+    <lastmod>2019-11-06T01:52:48.523Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://holdfire.github.io/2019/11/02/deep-learning-normalization/</loc>
     
     <lastmod>2019-11-05T18:00:27.829Z</lastmod>
@@ -37,13 +58,6 @@
   </url>
   
   <url>
-    <loc>http://holdfire.github.io/2019/11/04/computer-vision-nn-vector-quantization/</loc>
-    
-    <lastmod>2019-11-05T15:46:15.539Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://holdfire.github.io/2019/11/04/computer-vision-nn-local-sensitive-hash/</loc>
     
     <lastmod>2019-11-05T15:46:10.011Z</lastmod>
@@ -61,13 +75,6 @@
     <loc>http://holdfire.github.io/2019/11/05/computer-vision-OCR/</loc>
     
     <lastmod>2019-11-05T15:39:00.859Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/11/03/computer-vision-introduction/</loc>
-    
-    <lastmod>2019-11-05T15:37:37.929Z</lastmod>
     
   </url>
   
@@ -173,13 +180,6 @@
     <loc>http://holdfire.github.io/2019/11/03/machine-learning-EM-algorithm/</loc>
     
     <lastmod>2019-11-03T12:55:44.982Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/about/index.html</loc>
-    
-    <lastmod>2019-11-02T01:53:41.861Z</lastmod>
     
   </url>
   

@@ -56,7 +56,7 @@
     <title>最近邻搜索NN——向量量化</title>
     <url>/2019/11/04/computer-vision-nn-vector-quantization/</url>
     <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
-<p>  <strong>向量量化是通过聚类把向量聚集成若干类，每类里面的向量用对应的类中心来近似。</strong> 这样每个向量只需要用其对应的聚类中心的索引ID来表示，其余查询向量间的距离用其对应的聚类中心与查询向量间的距离来近似。向量量化的优点为：<br />
+<p>  <strong>向量量化：把原空间分解为低维子空间的Cartesian乘积后，在每个子空间通过聚类把向量聚集成若干类，每类里面的向量用对应的类中心来近似。</strong> 这样每个向量只需要用其对应的聚类中心的索引ID来表示，其余查询向量间的距离用其对应的聚类中心与查询向量间的距离来近似。向量量化的优点为：<br />
 （1）向量需要的存储空间变少了，只需保留对应的聚类中心的ID；<br />
 （2）计算时间减少了，只需要通过聚类中心的索引ID来查询预先计算好的聚类中心与查询向量的距离表格；<br />
   然而，直接用k-means算法并不能带来明显的效果：如果聚类中心数目太少，向量近似效果不佳；而如果聚类中心数目太多，距离表格计算时间会太长。用Cartesian量化来解决此问题，Cartesian量化的聚类中心C是建立在几个小的聚类中心集合<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">{</mo><msub><mi>C</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>C</mi><mn>1</mn></msub><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><msub><mi>C</mi><mi>P</mi></msub><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\{C_1,C_1,...C_P\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">P</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">}</span></span></span></span>的基础上：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mo>=</mo><msub><mi>C</mi><mn>1</mn></msub><mo>×</mo><msub><mi>C</mi><mn>2</mn></msub><mo>×</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo>×</mo><msub><mi>C</mi><mi>P</mi></msub></mrow><annotation encoding="application/x-tex">C = C_1 \times C_2 \times ...\times C_P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">P</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>。其好处在于通过几个小的聚类中心集合，可以得到非常多的聚类中心，甚至多于搜索的向量集合大小，从而向量近似效果可以得到保证。进一步通过引进一些限制或者策略来保证距离计算可以通过快速查找距离表格来实现，以降低计算时间。</p>
@@ -311,8 +311,8 @@
       </tags>
   </entry>
   <entry>
-    <title>集成学习——GBDT</title>
-    <url>/2019/11/04/machine-leanrning-GBDT/</url>
+    <title>集成学习——XgBoost</title>
+    <url>/2019/11/04/machine-leanrning-XgBoost/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>机器学习</category>
@@ -323,8 +323,8 @@
       </tags>
   </entry>
   <entry>
-    <title>集成学习——XgBoost</title>
-    <url>/2019/11/04/machine-leanrning-XgBoost/</url>
+    <title>集成学习——GBDT</title>
+    <url>/2019/11/04/machine-leanrning-GBDT/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>机器学习</category>
@@ -371,9 +371,11 @@
 <h5 id="23-图像理解image-understanding"><a class="markdownIt-Anchor" href="#23-图像理解image-understanding"></a> 2.3 图像理解image understanding</h5>
 <p>  图像理解可以认为是一种动态的目标检测，由全局信息生成图像摘要。</p>
 <ul>
+<li>特征检测和匹配(feature detection and matching)</li>
+<li>图像分割(segmentation):图像语义分割(image semantic segmentation)</li>
+<li>基于特征的图像对齐(feature based alignment):姿态估计(pose estimation)</li>
 <li>图像分类(image classification)</li>
 <li>目标检测(object detection)</li>
-<li>图像语义分割(image semantic segmentation)</li>
 <li>图像描述(image caption)</li>
 <li>图像生成(image generation):如变分自编码器VAE，生成对抗网络GAN</li>
 <li>视频分类(video classification)</li>
@@ -387,7 +389,7 @@
 <li><font color="red">行人属性识别</font>：Re ID</li>
 <li><font color="red">人体骨骼关键点检测</font>：人体姿态估计(Pose Estimation)，行为识别(open pose开源框架)</li>
 </ul>
-<h5 id="32-视频相关"><a class="markdownIt-Anchor" href="#32-视频相关"></a> 3.2 视频相关</h5>
+<h5 id="32-视频或多幅图像"><a class="markdownIt-Anchor" href="#32-视频或多幅图像"></a> 3.2 视频或多幅图像</h5>
 <ul>
 <li><font color="red">视频目标跟踪</font>：单目标跟踪，多目标跟踪，行人再追踪</li>
 <li><font color="red">视频对象提取</font>：</li>
@@ -406,9 +408,10 @@
 </ul>
 <h5 id="35-三维视觉技术"><a class="markdownIt-Anchor" href="#35-三维视觉技术"></a> 3.5 三维视觉技术</h5>
 <ul>
-<li><font color="red">基于RGB-D的三维深度学习</font>：三维目标分类，三维目标检测，三维语义分割</li>
+<li><font color="red">三维重建</font>：单视图三维重建，多视图三维重建，从全景图恢复三维结构，深度相机室内实时稠密三维重建，</li>
 <li><font color="red">立体匹配技术</font>：阵列相机立体全景拼接</li>
-<li><font color="red">三维重建</font>：从全景图恢复三维结构，深度相机室内实时稠密三维重建，基于单目视觉的三维重建</li>
+<li><font color="red">运动重构SFM</font>：Strucutre From Motion，从一系列包含视觉运动信息的多幅二维图像序列中估计三维结构</li>
+<li><font color="red">基于RGB-D的三维深度学习</font>：三维目标分类，三维目标检测，三维语义分割</li>
 <li><font color="red">构造深度图</font>：单目微运动生成深度图，深度图补全</li>
 <li><font color="red">深度学习自动构图</font>：</li>
 </ul>
