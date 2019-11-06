@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://holdfire.github.io/2019/11/04/computer-vision-nn/</loc>
+    <lastmod>2019-11-06</lastmod>
+  </url>  <url>
     <loc>http://holdfire.github.io/2019/11/03/computer-vision-introduction/</loc>
     <lastmod>2019-11-06</lastmod>
   </url>  <url>
@@ -20,9 +23,6 @@
     <lastmod>2019-11-05</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/02/computer-vision-object-detection-evaluation/</loc>
-    <lastmod>2019-11-05</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/04/computer-vision-nn/</loc>
     <lastmod>2019-11-05</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/04/computer-vision-nn-local-sensitive-hash/</loc>
