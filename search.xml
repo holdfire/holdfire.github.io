@@ -371,13 +371,13 @@
   </entry>
   <entry>
     <title>学习方法——如何阅读论文</title>
-    <url>/2019/11/04/personal-ideas-reading-papers/</url>
+    <url>/2019/11/04/lx-howToReadPapers/</url>
     <content><![CDATA[<h4 id="1论文的阅读顺序"><a class="markdownIt-Anchor" href="#1论文的阅读顺序"></a> 1.论文的阅读顺序</h4>
 <h5 id="第一阶段判断论文是否值得读"><a class="markdownIt-Anchor" href="#第一阶段判断论文是否值得读"></a> 第一阶段：判断论文是否值得读</h5>
 <p>阅读顺序为：读标题和关键词–&gt;读摘要–&gt;读结论<br />
 掌握论文的大概内容。</p>
 <h5 id="第二阶段读论文"><a class="markdownIt-Anchor" href="#第二阶段读论文"></a> 第二阶段：读论文</h5>
-<p>阅读顺序为：读图标和数据–&gt;读引言introduction<br />
+<p>阅读顺序为：读图表和数据–&gt;读引言introduction<br />
 如果想要深挖细节：读结果和讨论–&gt;读实验部分</p>
 <h5 id="第三阶段做笔记"><a class="markdownIt-Anchor" href="#第三阶段做笔记"></a> 第三阶段：做笔记</h5>
 <p>好笔记的标准：下次看笔记内容即可，无需再看这篇论文</p>
@@ -414,6 +414,7 @@
       </categories>
       <tags>
         <tag>学习方法</tag>
+        <tag>论文笔记</tag>
       </tags>
   </entry>
   <entry>

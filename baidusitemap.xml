@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://holdfire.github.io/2019/11/04/lx-howToReadPapers/</loc>
+    <lastmod>2019-11-06</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/06/papers-imageRetrieval01/</loc>
+    <lastmod>2019-11-06</lastmod>
+  </url>  <url>
     <loc>http://holdfire.github.io/2019/11/06/cv-imageRetrieval-2encodeFeatures/</loc>
     <lastmod>2019-11-06</lastmod>
   </url>  <url>
@@ -23,9 +29,6 @@
     <lastmod>2019-11-06</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/06/cv-imageFeature-cnnFeatures/</loc>
-    <lastmod>2019-11-06</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/06/papers-imageRetrieval01/</loc>
     <lastmod>2019-11-06</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/10/25/ml-SVM/</loc>
@@ -93,9 +96,6 @@
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/05/cv-fields-OCR/</loc>
     <lastmod>2019-11-06</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/04/personal-ideas-reading-papers/</loc>
-    <lastmod>2019-11-03</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/10/30/cpp-memory-allocation/</loc>
     <lastmod>2019-11-01</lastmod>
