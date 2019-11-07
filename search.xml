@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>编译原理——gcc,g++,make和cmake的区别</title>
+    <url>/2019/11/08/complie-make-cmake/</url>
+    <content><![CDATA[<h4 id="1-gcc和g的区别"><a class="markdownIt-Anchor" href="#1-gcc和g的区别"></a> 1. gcc和g++的区别</h4>
+<p>  二者的区别在于：<br />
+（1）对于.c的文件，gcc把它当成是c程序，g<ins>当做是c</ins>程序；对于.cpp的文件，两者都会认为是c<ins>程序。<br />
+（2）编译可以用gcc或g</ins>，链接可以用gcc-lstdc<ins>或者g</ins>。<br />
+（3）如果后缀为.C的文件定义了_cplusplus宏，gcc编译器认为该宏是未定义的，否则就是已定义的。<br />
+（4）无论是gcc还是g++，当源文件中用extern &quot;C&quot;时，都是以C的命名方式来为symbol命名的；否则，都以c<ins>的方式命名。<br />
+（5）在编译阶段，g</ins>是调用gcc的。</p>
+<h4 id="2-make和cmake的区别"><a class="markdownIt-Anchor" href="#2-make和cmake的区别"></a> 2. make和cmake的区别</h4>
+<p>  但如果源文件太多，一个个编译会太麻烦。于是人们设计了一个类似批处理的程序来来批量编译源文件，于是就有了make工具，但你需要编写一个规则文件，make依据它来批处理编译，这个文件就是<strong>makefile</strong>。所以编写makefile也是一个程序员所必备的技能。<br />
+  对于一个大型工程，编写makefile是一件复杂的事。于是人们又设计了一个读入所有源文件后，自动生成makefile的工具，这就是cmake，它能够输出makefile或者project文件。但是程序员还是要编写<strong>cmakefile</strong>，它是cmake所依据的规则。</p>
+]]></content>
+      <categories>
+        <category>编译原理</category>
+        <category>编程语言</category>
+      </categories>
+      <tags>
+        <tag>编译原理</tag>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>图像特征——基于描述子的图像对齐</title>
     <url>/2019/11/07/cv-imageFeature-3alignment/</url>
     <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
