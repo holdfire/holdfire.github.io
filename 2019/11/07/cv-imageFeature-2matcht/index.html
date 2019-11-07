@@ -51,18 +51,18 @@
   };
 </script>
 
-  <meta name="description" content="一只想上天的菜鸟！">
-<meta name="keywords" content="计算机，水利工程">
+  <meta name="description" content="1. 简介   在keypoingts和descriptors均已生成的前提下，opencv的匹配步骤： （1）生成匹配器matcher：DescriptorMatcher，BFMatcher，FlannMatcher； （2）选择匹配函数类型：match，knnMatch，radiusMatch； （3）上述匹配函数存在的重载函数，来实现一对一或者一对多   特征描述是实现图像匹配与图像搜索必">
+<meta name="keywords" content="图像特征,图像检索">
 <meta property="og:type" content="article">
-<meta property="og:title" content="deep-learning-introduction">
-<meta property="og:url" content="http:&#x2F;&#x2F;holdfire.github.io&#x2F;2019&#x2F;11&#x2F;06&#x2F;dl-introduction&#x2F;index.html">
+<meta property="og:title" content="图像特征——基于描述子的图像匹配">
+<meta property="og:url" content="http:&#x2F;&#x2F;holdfire.github.io&#x2F;2019&#x2F;11&#x2F;07&#x2F;cv-imageFeature-2matcht&#x2F;index.html">
 <meta property="og:site_name" content="holdfire">
-<meta property="og:description" content="一只想上天的菜鸟！">
+<meta property="og:description" content="1. 简介   在keypoingts和descriptors均已生成的前提下，opencv的匹配步骤： （1）生成匹配器matcher：DescriptorMatcher，BFMatcher，FlannMatcher； （2）选择匹配函数类型：match，knnMatch，radiusMatch； （3）上述匹配函数存在的重载函数，来实现一对一或者一对多   特征描述是实现图像匹配与图像搜索必">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-06T11:58:56.172Z">
+<meta property="og:updated_time" content="2019-11-07T11:54:23.439Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://holdfire.github.io/2019/11/06/dl-introduction/">
+<link rel="canonical" href="http://holdfire.github.io/2019/11/07/cv-imageFeature-2matcht/">
 
 
 <script id="page-configurations">
@@ -76,7 +76,7 @@
   };
 </script>
 
-  <title>deep-learning-introduction | holdfire</title>
+  <title>图像特征——基于描述子的图像匹配 | holdfire</title>
   
 
 
@@ -226,7 +226,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/06/dl-introduction/">
+    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/07/cv-imageFeature-2matcht/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -239,7 +239,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          deep-learning-introduction
+          图像特征——基于描述子的图像匹配
         </h1>
 
         <div class="post-meta">
@@ -250,7 +250,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2019-11-06 13:12:36 / 修改时间：19:58:56" itemprop="dateCreated datePublished" datetime="2019-11-06T13:12:36+08:00">2019-11-06</time>
+              <time title="创建时间：2019-11-07 19:41:06 / 修改时间：19:54:23" itemprop="dateCreated datePublished" datetime="2019-11-07T19:41:06+08:00">2019-11-07</time>
             </span>
 
           
@@ -264,7 +264,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<p>  在keypoingts和descriptors均已生成的前提下，opencv的匹配步骤：<br />
+（1）生成匹配器matcher：DescriptorMatcher，BFMatcher，FlannMatcher；<br />
+（2）选择匹配函数类型：match，knnMatch，radiusMatch；<br />
+（3）上述匹配函数存在的重载函数，来实现一对一或者一对多<br />
+  特征描述是实现图像匹配与图像搜索必不可少的步骤，比较有代表性的特征描述子是浮点型特征描述子和二进帽字符串特征描述子。像SIFT与SURF算法用梯度统计直方图来描述的描述子都属于浮点型特征描述子。但它们计算起来，算法复杂，效率较低，所以后来就出现了许多新型的特征描述算法，如BRIEF。后来很多二进制串描述子ORB，BRISK，FREAK等都是在它上面的基础上的改进。</p>
+<h4 id="2-暴力匹配算法brute-force"><a class="markdownIt-Anchor" href="#2-暴力匹配算法brute-force"></a> 2. 暴力匹配算法Brute Force</h4>
+<p>  以二进制串特征描述子匹配为例，ORB算法最大的特点就是计算速度快 。 这首先得益于使用FAST检测特征点，FAST的检测速度正如它的名字一样是出了名的快。再次是使用BRIEF算法计算描述子，该描述子特有的2进制串的表现形式不仅节约了存储空间，而且大大缩短了匹配的时间。<br />
+例如特征点A、B的描述子如下。<br />
+A：10101011<br />
+B：10101010<br />
+我们设定一个阈值，比如80%。当A和B的描述子的相似度大于90%时，我们判断A,B是相同的特征点，即这2个点匹配成功。在这个例子中A,B只有最后一位不同，相似度为87.5%，大于80%。则A和B是匹配的。<br />
+我们将A和B进行异或操作就可以轻松计算出A和B的相似度。而异或操作可以借组硬件完成，具有很高的效率，加快了匹配的速度。</p>
+<h4 id="3-聚类算法"><a class="markdownIt-Anchor" href="#3-聚类算法"></a> 3. 聚类算法</h4>
+<h4 id="4-flann算法"><a class="markdownIt-Anchor" href="#4-flann算法"></a> 4. flann算法</h4>
+
     </div>
 
     
@@ -293,21 +308,25 @@
 
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%9B%BE%E5%83%8F%E7%89%B9%E5%BE%81/" rel="tag"># 图像特征</a>
+              <a href="/tags/%E5%9B%BE%E5%83%8F%E6%A3%80%E7%B4%A2/" rel="tag"># 图像检索</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2019/11/05/cV-objectDetection-yolov3/" rel="next" title="目标检测——YOLO系列算法">
-                  <i class="fa fa-chevron-left"></i> 目标检测——YOLO系列算法
+                <a href="/2019/11/07/dl-advanced-NASandAutoML2/" rel="next" title="自动机器学习AutoML和神经架构搜索NAS（2）">
+                  <i class="fa fa-chevron-left"></i> 自动机器学习AutoML和神经架构搜索NAS（2）
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2019/11/06/cv-imageRetrieval-0/" rel="prev" title="图像检索——综述">
-                  图像检索——综述 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/11/07/cv-imageFeature-3alignment/" rel="prev" title="图像特征——基于描述子的图像对齐">
+                  图像特征——基于描述子的图像对齐 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -347,6 +366,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-简介"><span class="nav-number">1.</span> <span class="nav-text"> 1. 简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-暴力匹配算法brute-force"><span class="nav-number">2.</span> <span class="nav-text"> 2. 暴力匹配算法Brute Force</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-聚类算法"><span class="nav-number">3.</span> <span class="nav-text"> 3. 聚类算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-flann算法"><span class="nav-number">4.</span> <span class="nav-text"> 4. flann算法</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -362,7 +382,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -375,7 +395,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -450,7 +470,7 @@
    
     </div>
     <div class="powered-by"></div>
-    <span class="post-count">博客全站共19.6k字</span>
+    <span class="post-count">博客全站共25.3k字</span>
   </div>
         
 <div class="busuanzi-count">

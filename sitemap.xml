@@ -2,6 +2,118 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://holdfire.github.io/2019/11/06/cv-imageFeature-1localFeatures/</loc>
+    
+    <lastmod>2019-11-07T11:56:10.176Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/07/cv-imageFeature-3alignment/</loc>
+    
+    <lastmod>2019-11-07T11:54:28.817Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/07/cv-imageFeature-2matcht/</loc>
+    
+    <lastmod>2019-11-07T11:54:23.439Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/06/cv-imageFeature-1cnnFeatures/</loc>
+    
+    <lastmod>2019-11-07T11:54:14.904Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/06/cv-imageFeature-1globalFeatures/</loc>
+    
+    <lastmod>2019-11-07T11:54:09.943Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/06/cv-imageRetrieval-2encodeFeatures/</loc>
+    
+    <lastmod>2019-11-07T11:36:16.177Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/07/dl-advanced-NASandAutoML1/</loc>
+    
+    <lastmod>2019-11-07T03:34:03.422Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/07/dl-advanced-NASandAutoML2/</loc>
+    
+    <lastmod>2019-11-07T03:29:31.705Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/03/cv-fields/</loc>
+    
+    <lastmod>2019-11-07T02:45:41.258Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/06/dl-base-introduction/</loc>
+    
+    <lastmod>2019-11-07T02:05:10.031Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/02/dl-base-parameterInitialization/</loc>
+    
+    <lastmod>2019-11-07T02:04:59.683Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/10/31/dl-base-optimizationAlgorithm2/</loc>
+    
+    <lastmod>2019-11-07T02:04:52.721Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/10/31/dL-base-optimizationAlgorithm1/</loc>
+    
+    <lastmod>2019-11-07T02:04:46.080Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/02/dL-base-normalization/</loc>
+    
+    <lastmod>2019-11-07T02:04:39.838Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/10/31/dl-base-lossFunction/</loc>
+    
+    <lastmod>2019-11-07T02:04:30.121Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/10/31/dl-base-activationFunction/</loc>
+    
+    <lastmod>2019-11-07T02:04:10.948Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://holdfire.github.io/2019/11/04/lx-howToReadPapers/</loc>
     
     <lastmod>2019-11-06T14:37:18.656Z</lastmod>
@@ -12,13 +124,6 @@
     <loc>http://holdfire.github.io/2019/11/06/papers-imageRetrieval01/</loc>
     
     <lastmod>2019-11-06T14:35:05.648Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/11/06/cv-imageRetrieval-2encodeFeatures/</loc>
-    
-    <lastmod>2019-11-06T12:30:09.363Z</lastmod>
     
   </url>
   
@@ -47,27 +152,6 @@
     <loc>http://holdfire.github.io/2019/11/06/cv-imageRetrieval-0/</loc>
     
     <lastmod>2019-11-06T12:26:19.890Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/11/06/cv-imageFeature-globalFeatures/</loc>
-    
-    <lastmod>2019-11-06T12:22:06.129Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/11/06/cv-imageFeature-localFeatures/</loc>
-    
-    <lastmod>2019-11-06T12:19:46.705Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/11/06/cv-imageFeature-cnnFeatures/</loc>
-    
-    <lastmod>2019-11-06T12:18:44.945Z</lastmod>
     
   </url>
   
@@ -135,55 +219,6 @@
   </url>
   
   <url>
-    <loc>http://holdfire.github.io/2019/11/02/dl-parameterInitialization/</loc>
-    
-    <lastmod>2019-11-06T12:00:00.616Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/10/31/dl-optimizationAlgorithm2/</loc>
-    
-    <lastmod>2019-11-06T11:59:47.564Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/10/31/dL-optimizationAlgorithm1/</loc>
-    
-    <lastmod>2019-11-06T11:59:32.743Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/11/02/dL-normalization/</loc>
-    
-    <lastmod>2019-11-06T11:59:16.395Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/10/31/dl-lossFunction/</loc>
-    
-    <lastmod>2019-11-06T11:59:08.305Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/11/06/dl-introduction/</loc>
-    
-    <lastmod>2019-11-06T11:58:56.172Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/10/31/dl-activationFunction/</loc>
-    
-    <lastmod>2019-11-06T11:58:45.076Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://holdfire.github.io/2019/11/02/cv-imageProcess-upAndDownSampling/</loc>
     
     <lastmod>2019-11-06T11:58:13.611Z</lastmod>
@@ -208,13 +243,6 @@
     <loc>http://holdfire.github.io/2019/11/02/cv-objectDetection-evaluation/</loc>
     
     <lastmod>2019-11-06T11:56:52.170Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/11/03/cv-fields/</loc>
-    
-    <lastmod>2019-11-06T11:54:01.606Z</lastmod>
     
   </url>
   

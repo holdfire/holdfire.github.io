@@ -51,18 +51,18 @@
   };
 </script>
 
-  <meta name="description" content="1. 简介  1.1 什么是损失函数？  2.回归问题中的损失函数  3. 分类问题中的损失函数">
-<meta name="keywords" content="深度学习,机器学习">
+  <meta name="description" content="1.如何分析参数初始化结果的好坏？   查看初始化后各层的激活值分布，如果在某个固定区间内分布则较好，如果集中在某个值上则初始化不好。  2. 把w初始化为0   对于单层网络可行；对于多层网络，由于链式法则会导致梯度消失。  3. 随机初始化   使用均值为0，方差为0.02的正态分布去初始化。w初始值较小是因为：如果x很大的话，w又相对较大，会导致Z非常大，这样如果激活函数是sigmoid，">
+<meta name="keywords" content="深度学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习——损失函数">
-<meta property="og:url" content="http:&#x2F;&#x2F;holdfire.github.io&#x2F;2019&#x2F;10&#x2F;31&#x2F;dl-lossFunction&#x2F;index.html">
+<meta property="og:title" content="神经网络——参数初始化">
+<meta property="og:url" content="http:&#x2F;&#x2F;holdfire.github.io&#x2F;2019&#x2F;11&#x2F;02&#x2F;dl-base-parameterInitialization&#x2F;index.html">
 <meta property="og:site_name" content="holdfire">
-<meta property="og:description" content="1. 简介  1.1 什么是损失函数？  2.回归问题中的损失函数  3. 分类问题中的损失函数">
+<meta property="og:description" content="1.如何分析参数初始化结果的好坏？   查看初始化后各层的激活值分布，如果在某个固定区间内分布则较好，如果集中在某个值上则初始化不好。  2. 把w初始化为0   对于单层网络可行；对于多层网络，由于链式法则会导致梯度消失。  3. 随机初始化   使用均值为0，方差为0.02的正态分布去初始化。w初始值较小是因为：如果x很大的话，w又相对较大，会导致Z非常大，这样如果激活函数是sigmoid，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-06T11:59:08.305Z">
+<meta property="og:updated_time" content="2019-11-07T02:04:59.683Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://holdfire.github.io/2019/10/31/dl-lossFunction/">
+<link rel="canonical" href="http://holdfire.github.io/2019/11/02/dl-base-parameterInitialization/">
 
 
 <script id="page-configurations">
@@ -76,7 +76,7 @@
   };
 </script>
 
-  <title>机器学习——损失函数 | holdfire</title>
+  <title>神经网络——参数初始化 | holdfire</title>
   
 
 
@@ -226,7 +226,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/10/31/dl-lossFunction/">
+    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/02/dl-base-parameterInitialization/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -239,7 +239,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          机器学习——损失函数
+          神经网络——参数初始化
         </h1>
 
         <div class="post-meta">
@@ -249,14 +249,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-10-31 02:29:07" itemprop="dateCreated datePublished" datetime="2019-10-31T02:29:07+08:00">2019-10-31</time>
+              <time title="创建时间：2019-11-02 05:57:50" itemprop="dateCreated datePublished" datetime="2019-11-02T05:57:50+08:00">2019-11-02</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-06 19:59:08" itemprop="dateModified" datetime="2019-11-06T19:59:08+08:00">2019-11-06</time>
+                <time title="修改时间：2019-11-07 10:04:59" itemprop="dateModified" datetime="2019-11-07T10:04:59+08:00">2019-11-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -264,8 +264,8 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
+                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习</span>
                   </a>
                 </span>
             </span>
@@ -281,10 +281,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
-<h5 id="11-什么是损失函数"><a class="markdownIt-Anchor" href="#11-什么是损失函数"></a> 1.1 什么是损失函数？</h5>
-<h4 id="2回归问题中的损失函数"><a class="markdownIt-Anchor" href="#2回归问题中的损失函数"></a> 2.回归问题中的损失函数</h4>
-<h4 id="3-分类问题中的损失函数"><a class="markdownIt-Anchor" href="#3-分类问题中的损失函数"></a> 3. 分类问题中的损失函数</h4>
+        <h4 id="1如何分析参数初始化结果的好坏"><a class="markdownIt-Anchor" href="#1如何分析参数初始化结果的好坏"></a> 1.如何分析参数初始化结果的好坏？</h4>
+<p>  查看初始化后各层的激活值分布，如果在某个固定区间内分布则较好，如果集中在某个值上则初始化不好。</p>
+<h4 id="2-把w初始化为0"><a class="markdownIt-Anchor" href="#2-把w初始化为0"></a> 2. 把w初始化为0</h4>
+<p>  对于单层网络可行；对于多层网络，由于链式法则会导致梯度消失。</p>
+<h4 id="3-随机初始化"><a class="markdownIt-Anchor" href="#3-随机初始化"></a> 3. 随机初始化</h4>
+<p>  使用均值为0，方差为0.02的正态分布去初始化。w初始值较小是因为：如果x很大的话，w又相对较大，会导致Z非常大，这样如果激活函数是sigmoid，就会导致sigmoid的输出值1或者0。</p>
+<h4 id="4-xavier-initialization"><a class="markdownIt-Anchor" href="#4-xavier-initialization"></a> 4. Xavier initialization</h4>
+<p>  Xavier initialization方法是Glorot等人为了解决随机初始化的问题提出来的另一种初始化方法。他们的思想倒也简单，就是尽可能的让输入和输出服从相同的分布，这样就能够避免后面层的激活函数的输出值趋向于0。Xavier initialization能够很好的tanh激活函数。</p>
+<h4 id="5-he-initialization"><a class="markdownIt-Anchor" href="#5-he-initialization"></a> 5. He initialization</h4>
+<p>  </p>
+<h4 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料：</h4>
+<ol>
+<li>斯坦福大学——李飞飞计算机视觉课程cs231n：</li>
+</ol>
 
     </div>
 
@@ -316,23 +326,22 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag"># 深度学习</a>
-              <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag"># 机器学习</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2019/10/31/dL-optimizationAlgorithm1/" rel="next" title="神经网络——一阶优化算法">
-                  <i class="fa fa-chevron-left"></i> 神经网络——一阶优化算法
+                <a href="/2019/11/02/dL-base-normalization/" rel="next" title="神经网络——归一化Normalization">
+                  <i class="fa fa-chevron-left"></i> 神经网络——归一化Normalization
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2019/10/31/dl-optimizationAlgorithm2/" rel="prev" title="神经网络——二阶优化算法">
-                  神经网络——二阶优化算法 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/11/02/cv-imageProcess-upAndDownSampling/" rel="prev" title="图像处理——上采样与下采样">
+                  图像处理——上采样与下采样 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -372,7 +381,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-简介"><span class="nav-number">1.</span> <span class="nav-text"> 1. 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#11-什么是损失函数"><span class="nav-number">1.1.</span> <span class="nav-text"> 1.1 什么是损失函数？</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2回归问题中的损失函数"><span class="nav-number">2.</span> <span class="nav-text"> 2.回归问题中的损失函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-分类问题中的损失函数"><span class="nav-number">3.</span> <span class="nav-text"> 3. 分类问题中的损失函数</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1如何分析参数初始化结果的好坏"><span class="nav-number">1.</span> <span class="nav-text"> 1.如何分析参数初始化结果的好坏？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-把w初始化为0"><span class="nav-number">2.</span> <span class="nav-text"> 2. 把w初始化为0</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-随机初始化"><span class="nav-number">3.</span> <span class="nav-text"> 3. 随机初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-xavier-initialization"><span class="nav-number">4.</span> <span class="nav-text"> 4. Xavier initialization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-he-initialization"><span class="nav-number">5.</span> <span class="nav-text"> 5. He initialization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考资料"><span class="nav-number">6.</span> <span class="nav-text"> 参考资料：</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -388,7 +397,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -401,7 +410,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -476,7 +485,7 @@
    
     </div>
     <div class="powered-by"></div>
-    <span class="post-count">博客全站共19.6k字</span>
+    <span class="post-count">博客全站共25.3k字</span>
   </div>
         
 <div class="busuanzi-count">

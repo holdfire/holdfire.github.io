@@ -225,7 +225,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/10/31/dl-activationFunction/">
+    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/02/cv-objectDetection-evaluation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -239,7 +239,411 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/10/31/dl-activationFunction/" class="post-title-link" itemprop="url">神经网络——激活函数</a>
+            <a href="/2019/11/02/cv-objectDetection-evaluation/" class="post-title-link" itemprop="url">目标检测——评价指标</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-02 05:07:41" itemprop="dateCreated datePublished" datetime="2019-11-02T05:07:41+08:00">2019-11-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-06 19:56:52" itemprop="dateModified" datetime="2019-11-06T19:56:52+08:00">2019-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机视觉</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<p>  </p>
+<h4 id="2-混淆矩阵与相关指标"><a class="markdownIt-Anchor" href="#2-混淆矩阵与相关指标"></a> 2. 混淆矩阵与相关指标</h4>
+<p>  混淆矩阵的形式如下图<img src="https://github.com/holdfire/imageLib/blob/master/machine-learning/confusion_matrix.png" alt="如下图所示:" /><br />
+True Positive(TP): 正样本被正确识别为正样本；<br />
+True Negative(TN)：负样本被正确识别为负样本；<br />
+False Positive(FP): 假的正样本，即负样本被错误识别为正样本；<br />
+False Negative(FN)：假的负样本，即正样本被错误识别为负样本；</p>
+<h5 id="准确率"><a class="markdownIt-Anchor" href="#准确率"></a> 准确率：</h5>
+<p>  准确率(Accuracy)是混淆矩阵中对角线之和除以样本总数。</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mi>c</mi><mi>c</mi><mi>u</mi><mi>r</mi><mi>a</mi><mi>c</mi><mi>y</mi><mo>=</mo><mfrac><mrow><mo stretchy="false">(</mo><mi>T</mi><mi>P</mi><mo>+</mo><mi>T</mi><mi>N</mi><mo stretchy="false">)</mo></mrow><mrow><mo stretchy="false">(</mo><mi>T</mi><mi>P</mi><mo>+</mo><mi>T</mi><mi>N</mi><mo>+</mo><mi>F</mi><mi>P</mi><mo>+</mo><mi>F</mi><mi>N</mi><mo stretchy="false">)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">Accuracy = \frac {(TP + TN)}  {(TP+TN+FP+FN)}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">A</span><span class="mord mathdefault">c</span><span class="mord mathdefault">c</span><span class="mord mathdefault">u</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">a</span><span class="mord mathdefault">c</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.363em;vertical-align:-0.936em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.936em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<h5 id="精确率和召回率"><a class="markdownIt-Anchor" href="#精确率和召回率"></a> 精确率和召回率：</h5>
+<p>  精确率(precision)也叫查准率，召回率(recall)也叫查全率。</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mi>r</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>s</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo>=</mo><mfrac><mrow><mi>T</mi><mi>P</mi></mrow><mrow><mi>T</mi><mi>P</mi><mo>+</mo><mi>F</mi><mi>P</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">Precision = \frac {TP} {TP+FP}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">e</span><span class="mord mathdefault">c</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span><span class="mord mathdefault">i</span><span class="mord mathdefault">o</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.1296600000000003em;vertical-align:-0.7693300000000001em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7693300000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi><mi>e</mi><mi>c</mi><mi>a</mi><mi>l</mi><mi>l</mi><mo>=</mo><mfrac><mrow><mi>T</mi><mi>P</mi></mrow><mrow><mi>T</mi><mi>P</mi><mo>+</mo><mi>F</mi><mi>N</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">Recall = \frac {TP} {TP+FN}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mord mathdefault">e</span><span class="mord mathdefault">c</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.1296600000000003em;vertical-align:-0.7693300000000001em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7693300000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<h5 id="f1度量是基于查全率和查准率的调和平均"><a class="markdownIt-Anchor" href="#f1度量是基于查全率和查准率的调和平均"></a> F1度量是基于查全率和查准率的调和平均：</h5>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mn>1</mn><mo>=</mo><mfrac><mn>1</mn><mrow><mn>1</mn><mi mathvariant="normal">/</mi><mi>P</mi><mi>r</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>s</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo>+</mo><mn>1</mn><mi mathvariant="normal">/</mi><mi>R</mi><mi>e</mi><mi>c</mi><mi>a</mi><mi>l</mi><mi>l</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">F1 = \frac {1} {1 / Precision + 1/Recall}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.25744em;vertical-align:-0.936em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span><span class="mord">/</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">e</span><span class="mord mathdefault">c</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span><span class="mord mathdefault">i</span><span class="mord mathdefault">o</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mord">/</span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mord mathdefault">e</span><span class="mord mathdefault">c</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.936em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<h4 id="3-pr曲线"><a class="markdownIt-Anchor" href="#3-pr曲线"></a> 3. PR曲线</h4>
+<p>  对预测结果进行排序，设置不同的阈值依次识别前K张图片为正例，每次计算出当前的查全率和查准率，分别作为横轴和纵轴作图，就得到了PR曲线。曲线上查全率=查准率的点成为平衡点(Break-Even Point, BEP)。</p>
+<h4 id="4-roc曲线和auc"><a class="markdownIt-Anchor" href="#4-roc曲线和auc"></a> 4. ROC曲线和AUC</h4>
+<p>  受试者工作特征曲线(Recievier Operating Characteristic)，其横轴是假正例(False Positive Rate, FPR)，纵轴是真正例率(True Positive Rate, TPR,等价于召回率Recall)，定义公式如下。ROC曲线和PR曲线一样，设置不同的正例阈值来作曲线。曲线和横纵坐标包围的面积成为AUC(Area Under ROC Curve)指标。</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mi>P</mi><mi>R</mi><mo>=</mo><mfrac><mrow><mi>F</mi><mi>P</mi></mrow><mrow><mi>T</mi><mi>P</mi><mo>+</mo><mi>F</mi><mi>P</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">FPR = \frac {FP} {TP+FP}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.1296600000000003em;vertical-align:-0.7693300000000001em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7693300000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi><mi>P</mi><mi>R</mi><mo>=</mo><mfrac><mrow><mi>T</mi><mi>P</mi></mrow><mrow><mi>T</mi><mi>P</mi><mo>+</mo><mi>F</mi><mi>N</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">TPR = \frac {TP} {TP+FN} 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.1296600000000003em;vertical-align:-0.7693300000000001em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7693300000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<h4 id="pr曲线和roc曲线比较"><a class="markdownIt-Anchor" href="#pr曲线和roc曲线比较"></a> PR曲线和ROC曲线比较</h4>
+<p>  ROC曲线由于兼顾正例与负例，所以适用于评估分类器的整体性能，相比而言PR曲线完全聚焦于正例。<br />
+参考：<a href="https://www.cnblogs.com/eilearn/p/9071440.html" target="_blank" rel="noopener">https://www.cnblogs.com/eilearn/p/9071440.html</a></p>
+<h4 id="5-交并比iou"><a class="markdownIt-Anchor" href="#5-交并比iou"></a> 5. 交并比IoU</h4>
+<p>  在目标检测任务中，通常使用矩形框来定位检测对象的边界。假设你的算法给出的边界框为A，实际的边界框为B，那么交并比(Intersection over Union)就可以衡量检测结果的好坏，其计算公式为：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>I</mi><mi>o</mi><mi>U</mi><mo>=</mo><mfrac><mrow><mi>A</mi><mo>∩</mo><mi>B</mi></mrow><mrow><mi>A</mi><mo>∪</mo><mi>B</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">IoU = \frac {A \cap B} {A \cup B}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.10903em;">U</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.04633em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>  通常约定IoU大于0.5，就认为目标检测正确。</p>
+<h4 id="6-平均精度average-precisionap与mean-average-precisionmap"><a class="markdownIt-Anchor" href="#6-平均精度average-precisionap与mean-average-precisionmap"></a> 6. 平均精度(Average-Precision,AP)与mean Average Precision(mAP)</h4>
+<p>  AP就是PR曲线下的面积，通常一个分类器越好，AP值越高。<br />
+  mAP是多个类别AP的平均值。这个mean的意思是对每个类的AP再求平均，得到的就是mAP的值，mAP的大小一定在[0,1]区间，越大越好。该指标是目标检测算法中最重要的一个。</p>
+<h4 id="7-非极大值抑制nms"><a class="markdownIt-Anchor" href="#7-非极大值抑制nms"></a> 7. 非极大值抑制NMS</h4>
+<p>  在目标检测任务中，你的算法可能对同一个目标做了多次检测。非极大值抑制(Non-Maximum Suppression, NMS)就是为了确保你的算法对一个目标只检测一次。<br />
+要深究原理！！！！！！</p>
+<h4 id="8-anchor-box"><a class="markdownIt-Anchor" href="#8-anchor-box"></a> 8. Anchor Box</h4>
+<h4 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料：</h4>
+<ol>
+<li>吴恩达深度学习课程：</li>
+<li>斯坦福大学，李飞飞计算机视觉课程cs231n：</li>
+<li>慕课网，深度学习之目标检测课程：</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/10/31/dl-base-optimizationAlgorithm2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="holdfire">
+      <meta itemprop="description" content="一只想上天的菜鸟！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="holdfire">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/31/dl-base-optimizationAlgorithm2/" class="post-title-link" itemprop="url">神经网络——二阶优化算法</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-31 02:54:23" itemprop="dateCreated datePublished" datetime="2019-10-31T02:54:23+08:00">2019-10-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-07 10:04:52" itemprop="dateModified" datetime="2019-11-07T10:04:52+08:00">2019-11-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<h5 id="11-牛顿法"><a class="markdownIt-Anchor" href="#11-牛顿法"></a> 1.1 牛顿法</h5>
+<h5 id="12-高斯-牛顿法"><a class="markdownIt-Anchor" href="#12-高斯-牛顿法"></a> 1.2 高斯-牛顿法</h5>
+<h5 id="13-拟牛顿法"><a class="markdownIt-Anchor" href="#13-拟牛顿法"></a> 1.3 拟牛顿法</h5>
+<h5 id="14-发展历程"><a class="markdownIt-Anchor" href="#14-发展历程"></a> 1.4 发展历程</h5>
+<h4 id="2-不常用的二阶优化算法"><a class="markdownIt-Anchor" href="#2-不常用的二阶优化算法"></a> 2. 不常用的二阶优化算法</h4>
+<h5 id="21-dfp算法"><a class="markdownIt-Anchor" href="#21-dfp算法"></a> 2.1 DFP算法</h5>
+<p>  第一个拟牛顿算法是由Argonne国家实验室的物理学家William C.Davidon提出的。 他在1959年开发了第一个拟牛顿算法:DFP（Davidon–Fletcher–Powell formula）更新公式，后来由Fletcher和Powell在1963年推广，但现在很少使用</p>
+<h4 id="3-常用的二阶优化算法"><a class="markdownIt-Anchor" href="#3-常用的二阶优化算法"></a> 3. 常用的二阶优化算法</h4>
+<h5 id="31-sr1公式用于对称秩一"><a class="markdownIt-Anchor" href="#31-sr1公式用于对称秩一"></a> 3.1 SR1公式（用于“对称秩一”）</h5>
+<p>  </p>
+<h5 id="32-bhhh方法"><a class="markdownIt-Anchor" href="#32-bhhh方法"></a> 3.2 BHHH方法</h5>
+<p>  </p>
+<h5 id="33-bfgs方法"><a class="markdownIt-Anchor" href="#33-bfgs方法"></a> 3.3 BFGS方法</h5>
+<p>  BFGS算法的全称为Broyden–Fletcher–Goldfarb–Shanno algorithm</p>
+<h5 id="34-limited-memory-bfgs方法"><a class="markdownIt-Anchor" href="#34-limited-memory-bfgs方法"></a> 3.4 Limited-memory BFGS方法</h5>
+<p>  低内存拓展算法</p>
+<h4 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料：</h4>
+<ol>
+<li>机器之心——二阶优化算法介绍：<a href="https://www.jiqizhixin.com/graph/technologies/75950ad0-edbd-4208-9347-b8c17b8e058c" target="_blank" rel="noopener">https://www.jiqizhixin.com/graph/technologies/75950ad0-edbd-4208-9347-b8c17b8e058c</a></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/10/31/dl-base-lossFunction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="holdfire">
+      <meta itemprop="description" content="一只想上天的菜鸟！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="holdfire">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/31/dl-base-lossFunction/" class="post-title-link" itemprop="url">机器学习——损失函数</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-31 02:29:07" itemprop="dateCreated datePublished" datetime="2019-10-31T02:29:07+08:00">2019-10-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-07 10:04:30" itemprop="dateModified" datetime="2019-11-07T10:04:30+08:00">2019-11-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<h5 id="11-什么是损失函数"><a class="markdownIt-Anchor" href="#11-什么是损失函数"></a> 1.1 什么是损失函数？</h5>
+<h4 id="2回归问题中的损失函数"><a class="markdownIt-Anchor" href="#2回归问题中的损失函数"></a> 2.回归问题中的损失函数</h4>
+<h4 id="3-分类问题中的损失函数"><a class="markdownIt-Anchor" href="#3-分类问题中的损失函数"></a> 3. 分类问题中的损失函数</h4>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/10/31/dL-base-optimizationAlgorithm1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="holdfire">
+      <meta itemprop="description" content="一只想上天的菜鸟！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="holdfire">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/31/dL-base-optimizationAlgorithm1/" class="post-title-link" itemprop="url">神经网络——一阶优化算法</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-31 02:28:46" itemprop="dateCreated datePublished" datetime="2019-10-31T02:28:46+08:00">2019-10-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-07 10:04:46" itemprop="dateModified" datetime="2019-11-07T10:04:46+08:00">2019-11-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<h5 id="11-什么是优化算法"><a class="markdownIt-Anchor" href="#11-什么是优化算法"></a> 1.1 什么是优化算法？</h5>
+<h5 id="12-为什么需要优化算法"><a class="markdownIt-Anchor" href="#12-为什么需要优化算法"></a> 1.2 为什么需要优化算法？</h5>
+<h5 id="13-优化算法分类"><a class="markdownIt-Anchor" href="#13-优化算法分类"></a> 1.3 优化算法分类</h5>
+<h4 id="2-一阶优化算法"><a class="markdownIt-Anchor" href="#2-一阶优化算法"></a> 2. 一阶优化算法</h4>
+<h5 id="21-随机梯度下降法"><a class="markdownIt-Anchor" href="#21-随机梯度下降法"></a> 2.1 随机梯度下降法</h5>
+<p>  随机梯度下降法(Stotastic Gradient Descend method, SGD)是</p>
+<h5 id="22-批量梯度下降法"><a class="markdownIt-Anchor" href="#22-批量梯度下降法"></a> 2.2 批量梯度下降法</h5>
+<p>  批量梯度下降法(Batch Gradient Descend)</p>
+<h5 id="23-小批量随机梯度下降法"><a class="markdownIt-Anchor" href="#23-小批量随机梯度下降法"></a> 2.3 小批量随机梯度下降法</h5>
+<p>  小批量梯度下降法(mini-Batch Gradient Descend)</p>
+<h5 id="24-动量梯度下降法"><a class="markdownIt-Anchor" href="#24-动量梯度下降法"></a> 2.4 动量梯度下降法</h5>
+<p>  动量梯度下降法(Momentum Gradient Descend)</p>
+<h5 id="25-nesterov梯度下降方法"><a class="markdownIt-Anchor" href="#25-nesterov梯度下降方法"></a> 2.5 Nesterov梯度下降方法</h5>
+<p>  Nesterov梯度下降方法(Nesterov Accelerated Gradient)是对传统momentum方法的一项改进，由Ilya Sutskever(2012 unpublished)在Nesterov工作的启发下提出的。<br />
+其基本思路如下图：</p>
+<h5 id="26-adagrade"><a class="markdownIt-Anchor" href="#26-adagrade"></a> 2.6 Adagrade</h5>
+<p>  </p>
+<h5 id="27-adadelta"><a class="markdownIt-Anchor" href="#27-adadelta"></a> 2.7 Adadelta</h5>
+<p>  </p>
+<h5 id="28-rmsprop"><a class="markdownIt-Anchor" href="#28-rmsprop"></a> 2.8 RMSprop</h5>
+<p>  </p>
+<h5 id="29-adam"><a class="markdownIt-Anchor" href="#29-adam"></a> 2.9 Adam</h5>
+<p>  </p>
+<h5 id="3-选择技巧"><a class="markdownIt-Anchor" href="#3-选择技巧"></a> 3 选择技巧</h5>
+<h4 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料：</h4>
+<ol>
+<li>各种优化方法总结比较：<a href="https://www.cnblogs.com/qniguoym/p/8058186.html" target="_blank" rel="noopener">https://www.cnblogs.com/qniguoym/p/8058186.html</a></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/10/31/dl-base-activationFunction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="holdfire">
+      <meta itemprop="description" content="一只想上天的菜鸟！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="holdfire">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/31/dl-base-activationFunction/" class="post-title-link" itemprop="url">神经网络——激活函数</a>
         </h1>
 
         <div class="post-meta">
@@ -256,7 +660,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-06 19:58:45" itemprop="dateModified" datetime="2019-11-06T19:58:45+08:00">2019-11-06</time>
+                <time title="修改时间：2019-11-07 10:04:10" itemprop="dateModified" datetime="2019-11-07T10:04:10+08:00">2019-11-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -885,364 +1289,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/10/29/cpp-polymorphism/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="holdfire">
-      <meta itemprop="description" content="一只想上天的菜鸟！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="holdfire">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/29/cpp-polymorphism/" class="post-title-link" itemprop="url">C++学习——多态性</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-10-29 19:20:16" itemprop="dateCreated datePublished" datetime="2019-10-29T19:20:16+08:00">2019-10-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-30 19:23:36" itemprop="dateModified" datetime="2019-10-30T19:23:36+08:00">2019-10-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index">
-                    <span itemprop="name">编程语言</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
-<h5 id="11-c的4种多态"><a class="markdownIt-Anchor" href="#11-c的4种多态"></a> 1.1 C++的4种多态</h5>
-<p>  多态性是指一段程序能够处理多种类型对象的能力。C++中可以通过强制多态、重载多态、类型参数化多态、包含多态4种形式实现。前两种是表面的多态性，后两种是真正的多态性。</p>
-<ul>
-<li>强制多态：将一种类型的数据强制转化成另一种类型（隐式转换或显式转换）</li>
-<li>重载多态：是指给同一个名字赋予不同的含义</li>
-<li>参数化多态：通过模板实现，分为函数模板和类模板两种</li>
-<li>包含多态：通过虚函数实现，虚函数是多态性的精华</li>
-</ul>
-<h5 id="12-静态绑定和动态绑定"><a class="markdownIt-Anchor" href="#12-静态绑定和动态绑定"></a> 1.2 静态绑定和动态绑定</h5>
-<p>  多态性还可以分成编译时的多态和运行时的多态：其中，绑定工作在编译连接阶段完成的情况称为静态绑定，在程序运行阶段完成的情况称为动态绑定。绑定时指计算机程序自身彼此关联的过程，用面向对象的术语讲，就是把一条消息和一个对象的方法相结合的过程</p>
-<h4 id="2-强制多态"><a class="markdownIt-Anchor" href="#2-强制多态"></a> 2. 强制多态</h4>
-<h4 id="3-重载多态"><a class="markdownIt-Anchor" href="#3-重载多态"></a> 3. 重载多态</h4>
-<h4 id="4-参数化多态"><a class="markdownIt-Anchor" href="#4-参数化多态"></a> 4. 参数化多态</h4>
-<h4 id="5-包含多态"><a class="markdownIt-Anchor" href="#5-包含多态"></a> 5. 包含多态</h4>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/10/29/cpp-const/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="holdfire">
-      <meta itemprop="description" content="一只想上天的菜鸟！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="holdfire">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/29/cpp-const/" class="post-title-link" itemprop="url">C++学习——const限定符</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-10-29 18:57:15" itemprop="dateCreated datePublished" datetime="2019-10-29T18:57:15+08:00">2019-10-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-30 19:23:18" itemprop="dateModified" datetime="2019-10-30T19:23:18+08:00">2019-10-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index">
-                    <span itemprop="name">编程语言</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="1-const简介"><a class="markdownIt-Anchor" href="#1-const简介"></a> 1. const简介</h4>
-<ul>
-<li>简介：用const关键字修饰的内容为常量，其值初始化后就不允许修改。</li>
-<li>命名：常用的做法是将这个常量的首字母或全部大写，以提醒用户这是个常量。</li>
-<li>初始化：在声明一个常量时就应该将其初始化，如<code>const int Name = value;</code>。</li>
-<li>替换：C语言中通常使用#define来定义常量，而const能够明确指定类型和限定作用域，优于前者。</li>
-<li>优点：在函数的参数传递中，在引用传递前加上const限定符，可以防止输入变量被修改。</li>
-</ul>
-<h4 id="2-const的用法"><a class="markdownIt-Anchor" href="#2-const的用法"></a> 2. const的用法</h4>
-<p>  const可以用来修饰整型变量、引用变量、指针变量、函数、对象、数组等。修饰的是其左边相邻的内容，如果左边没有内容，则修饰右边相邻的内容。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> age = <span class="number">3</span>;                  <span class="comment">// 我的年龄age是个整型变量，可以修改，我今年3岁</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> Age_Mao = <span class="number">83</span>;       <span class="comment">// age_Mao是由const修饰的常量，其值初始化后不能修改</span></span><br></pre></td></tr></table></figure>
-<h5 id="21-常引用"><a class="markdownIt-Anchor" href="#21-常引用"></a> 2.1 常引用</h5>
-<p>  下面的year就是对变量age的一个常引用，不能通过year修改age的值，但可直接修改age的值。常引用的这一优点可以应用在函数的参数传递上，既能节约内存，也能防止引用对象被修改。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> &amp;year = age;        <span class="comment">// year是一个常引用</span></span><br><span class="line">*b = <span class="number">4</span>;                       <span class="comment">// 错误，常引用year，你是常引用，你不能改我的age啊</span></span><br><span class="line">age = <span class="number">4</span>;                      <span class="comment">// 正确，我的年龄age可以通过赋值修改，明年我4岁</span></span><br></pre></td></tr></table></figure>
-<h5 id="22-常指针"><a class="markdownIt-Anchor" href="#22-常指针"></a> 2.2 常指针</h5>
-<p>  指针p指向age所在地址，不能指向别的。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *<span class="keyword">const</span> pt1 = &amp;age;</span><br></pre></td></tr></table></figure>
-<h5 id="23-指向常量的指针"><a class="markdownIt-Anchor" href="#23-指向常量的指针"></a> 2.3 指向常量的指针</h5>
-<p>  如下所示：pt2和pt3均为指向常量的指针，不能通过指针来修改age或者age_Mao。（但age可直接修改，age_Mao不能修改）</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> *pt2 = &amp;age;          </span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> *pt3 = &amp;Age_Mao;</span><br><span class="line"><span class="keyword">int</span> *p4 = &amp;Age_Mao;             <span class="comment">// 错误用法：禁止将const的地址附给非const指针(但const_cast可强制转换)</span></span><br></pre></td></tr></table></figure>
-<h5 id="24-复杂情况将指针指向指针"><a class="markdownIt-Anchor" href="#24-复杂情况将指针指向指针"></a> 2.4 复杂情况：将指针指向指针</h5>
-<p>参考《C++ Primer Plus》P222</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *pd = &amp;age;                 <span class="comment">// *pd = 4 是有效的</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> *pt = pd;             <span class="comment">// *pt = 4 是无效操作(一级间接关系)</span></span><br></pre></td></tr></table></figure>
-<h4 id="3-常成员函数"><a class="markdownIt-Anchor" href="#3-常成员函数"></a> 3. 常成员函数</h4>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">类名::fun(形参) <span class="keyword">const</span>;           <span class="comment">// 常成员函数：</span></span><br></pre></td></tr></table></figure>
-<h4 id="4-常对象"><a class="markdownIt-Anchor" href="#4-常对象"></a> 4. 常对象</h4>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">类名 <span class="keyword">const</span> 对象名;               <span class="comment">// 常对象：</span></span><br></pre></td></tr></table></figure>
-<h4 id="5-其他"><a class="markdownIt-Anchor" href="#5-其他"></a> 5. 其他</h4>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> 数组名[];              <span class="comment">// 常数组：</span></span><br></pre></td></tr></table></figure>
-<h4 id="6-const_cast"><a class="markdownIt-Anchor" href="#6-const_cast"></a> 6. const_cast</h4>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/10/27/linux-command/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="holdfire">
-      <meta itemprop="description" content="一只想上天的菜鸟！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="holdfire">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/27/linux-command/" class="post-title-link" itemprop="url">Linux——Linux命令介绍</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-10-27 05:25:15" itemprop="dateCreated datePublished" datetime="2019-10-27T05:25:15+08:00">2019-10-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-30 19:21:53" itemprop="dateModified" datetime="2019-10-30T19:21:53+08:00">2019-10-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index">
-                    <span itemprop="name">操作系统</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
-<h5 id="11-linux命令分类"><a class="markdownIt-Anchor" href="#11-linux命令分类"></a> 1.1 Linux命令分类</h5>
-<p>  Linux命令分为两种，一种是shell内置命令，一种是外部命名。在命令行输入<code>type command</code>可以区分。</p>
-<h5 id="12-帮助使用linux命令"><a class="markdownIt-Anchor" href="#12-帮助使用linux命令"></a> 1.2 帮助使用Linux命令</h5>
-<p>  对于一些内部命令，可以有：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">man bash           # 查看所有的内部命令</span><br><span class="line">man help           # 得到所有内建命令列表及使用方法</span><br><span class="line">help command       # 得到该命令的具体信息</span><br></pre></td></tr></table></figure>
-<p>  对于外部命令，可以有：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">command --help     # 得到该命令的帮助信息</span><br><span class="line">command -h         # 同上</span><br><span class="line">man command        # </span><br><span class="line">info command       #</span><br></pre></td></tr></table></figure>
-<h5 id="13-linux执行命令的查找顺序"><a class="markdownIt-Anchor" href="#13-linux执行命令的查找顺序"></a> 1.3 Linux执行命令的查找顺序</h5>
-<p>   环境变量<code>$PATH</code>：决定了shell在哪些目录中寻找命令或程序。由左到右依次在这些目录中查找，以先找到的为准。命令行输入<code>echo $PATH</code>可以查看环境变量。</p>
-<h5 id="14-linux常用命令的存放位置"><a class="markdownIt-Anchor" href="#14-linux常用命令的存放位置"></a> 1.4 Linux常用命令的存放位置</h5>
-<p>  在命令行输入完一个命令后，shell会在下面几个目录查找是否有该命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/bin              # 存放普通用户经常使用的命令，如cp,mv,kill</span><br><span class="line">/sbin             # 存放系统管理员才能使用的系统管理程序，如ping,ifconfig</span><br><span class="line">/usr/bin          # 存放普通用户使用的应用程序，如python,vi</span><br><span class="line">/usr/local/bin    # 存放用户下载安装的软件或者自己编写的可执行文件，如pip,virtualenv,MySQL</span><br><span class="line">/usr/sbin         # 存放系统管理员使用的比较高级的管理程序和系统守护程序</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/10/27/linux-system-directory/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="holdfire">
-      <meta itemprop="description" content="一只想上天的菜鸟！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="holdfire">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/27/linux-system-directory/" class="post-title-link" itemprop="url">Linux——系统目录结构</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-10-27 05:23:19" itemprop="dateCreated datePublished" datetime="2019-10-27T05:23:19+08:00">2019-10-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-30 19:22:10" itemprop="dateModified" datetime="2019-10-30T19:22:10+08:00">2019-10-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index">
-                    <span itemprop="name">操作系统</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1293,7 +1339,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1306,7 +1352,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1381,7 +1427,7 @@
    
     </div>
     <div class="powered-by"></div>
-    <span class="post-count">博客全站共19.6k字</span>
+    <span class="post-count">博客全站共25.3k字</span>
   </div>
         
 <div class="busuanzi-count">

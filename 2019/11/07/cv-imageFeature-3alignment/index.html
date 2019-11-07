@@ -51,18 +51,18 @@
   };
 </script>
 
-  <meta name="description" content="1. 简介     2. 颜色特征     3. 纹理特征   如小波变换、Tamura纹理、灰度共生矩阵、纹理谱、Gabor变换  4. 形状特征     5. 感知哈希算法    基于低频的均值哈希aHash 感知哈希pHash 差异哈希算法dHash">
+  <meta name="description" content="1. 简介   在keypoingts和descriptors均已生成，特征点已经匹配过后，根据matched特征点对可以做图片对齐  2. RANSAC算法   RANSAC算法（Random sample consensus:RANSAC，也叫随机抽样一致算法）用来筛选匹配点，从而计算单应性矩阵。该算法能够有效地去除误差很大的点，并且这些点不计入模型的计算之中。 RANSAC算法经常用于计算">
 <meta name="keywords" content="图像特征,图像检索">
 <meta property="og:type" content="article">
-<meta property="og:title" content="图像特征——全局特征描述">
-<meta property="og:url" content="http:&#x2F;&#x2F;holdfire.github.io&#x2F;2019&#x2F;11&#x2F;06&#x2F;cv-imageFeature-globalFeatures&#x2F;index.html">
+<meta property="og:title" content="图像特征——基于描述子的图像对齐">
+<meta property="og:url" content="http:&#x2F;&#x2F;holdfire.github.io&#x2F;2019&#x2F;11&#x2F;07&#x2F;cv-imageFeature-3alignment&#x2F;index.html">
 <meta property="og:site_name" content="holdfire">
-<meta property="og:description" content="1. 简介     2. 颜色特征     3. 纹理特征   如小波变换、Tamura纹理、灰度共生矩阵、纹理谱、Gabor变换  4. 形状特征     5. 感知哈希算法    基于低频的均值哈希aHash 感知哈希pHash 差异哈希算法dHash">
+<meta property="og:description" content="1. 简介   在keypoingts和descriptors均已生成，特征点已经匹配过后，根据matched特征点对可以做图片对齐  2. RANSAC算法   RANSAC算法（Random sample consensus:RANSAC，也叫随机抽样一致算法）用来筛选匹配点，从而计算单应性矩阵。该算法能够有效地去除误差很大的点，并且这些点不计入模型的计算之中。 RANSAC算法经常用于计算">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-06T12:22:06.129Z">
+<meta property="og:updated_time" content="2019-11-07T11:54:28.817Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://holdfire.github.io/2019/11/06/cv-imageFeature-globalFeatures/">
+<link rel="canonical" href="http://holdfire.github.io/2019/11/07/cv-imageFeature-3alignment/">
 
 
 <script id="page-configurations">
@@ -76,7 +76,7 @@
   };
 </script>
 
-  <title>图像特征——全局特征描述 | holdfire</title>
+  <title>图像特征——基于描述子的图像对齐 | holdfire</title>
   
 
 
@@ -226,7 +226,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/06/cv-imageFeature-globalFeatures/">
+    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/07/cv-imageFeature-3alignment/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -239,7 +239,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          图像特征——全局特征描述
+          图像特征——基于描述子的图像对齐
         </h1>
 
         <div class="post-meta">
@@ -250,18 +250,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2019-11-06 20:05:02 / 修改时间：20:22:06" itemprop="dateCreated datePublished" datetime="2019-11-06T20:05:02+08:00">2019-11-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机视觉</span>
-                  </a>
-                </span>
+              <time title="创建时间：2019-11-07 19:41:28 / 修改时间：19:54:28" itemprop="dateCreated datePublished" datetime="2019-11-07T19:41:28+08:00">2019-11-07</time>
             </span>
 
           
@@ -276,18 +265,34 @@
 
       
         <h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
-<p>  </p>
-<h4 id="2-颜色特征"><a class="markdownIt-Anchor" href="#2-颜色特征"></a> 2. 颜色特征</h4>
-<p>  </p>
-<h4 id="3-纹理特征"><a class="markdownIt-Anchor" href="#3-纹理特征"></a> 3. 纹理特征</h4>
-<p>  如小波变换、Tamura纹理、灰度共生矩阵、纹理谱、Gabor变换</p>
-<h4 id="4-形状特征"><a class="markdownIt-Anchor" href="#4-形状特征"></a> 4. 形状特征</h4>
-<p>  </p>
-<h4 id="5-感知哈希算法"><a class="markdownIt-Anchor" href="#5-感知哈希算法"></a> 5. 感知哈希算法</h4>
-<p>  <br />
-基于低频的均值哈希aHash<br />
-感知哈希pHash<br />
-差异哈希算法dHash</p>
+<p>  在keypoingts和descriptors均已生成，特征点已经匹配过后，根据matched特征点对可以做图片对齐</p>
+<h4 id="2-ransac算法"><a class="markdownIt-Anchor" href="#2-ransac算法"></a> 2. RANSAC算法</h4>
+<p>  RANSAC算法（Random sample consensus:RANSAC，也叫随机抽样一致算法）用来筛选匹配点，从而计算单应性矩阵。该算法能够有效地去除误差很大的点，并且这些点不计入模型的计算之中。<br />
+RANSAC算法经常用于计算机视觉，例如同时求解相关问题与估计立体摄像机的基础矩阵，在图像拼接时求变换矩阵的时候。在SLAM中经常被用于虑除误匹配。</p>
+<h5 id="21-算法步骤"><a class="markdownIt-Anchor" href="#21-算法步骤"></a> 2.1 算法步骤</h5>
+<p>  在数据误差比较小的情况下，可以使用最小二乘法。但针对噪声很大的数据集的时候，容易出问题。算法的框架如下：<br />
+在数据中随机的选择几个点设定为内群（也就是用来计算模型的点）<br />
+用这些选择的数据计算出一个模型<br />
+把其它刚才没选到的点带入刚才建立的模型中，计算是否为内群（也就是看这些点是否符合模型，如果符合模型的话，将新的点也计入内群）<br />
+如果此时的内群数量足够多的话，可以认为这个模型还算OK，那么就用现在的内群数据重新计算一个稍微好些的模型。<br />
+重复以上步骤，最后，我们保留那个内群数量最多的模型。<br />
+在得到了众多的匹配点以后，使用RANSAC算法，每次从中筛选四个随机的点，然后求得H矩阵，不断的迭代，直到求得最优的Homography矩阵为止。</p>
+<h5 id="22-单应性矩阵homography"><a class="markdownIt-Anchor" href="#22-单应性矩阵homography"></a> 2.2 单应性矩阵Homography</h5>
+<p>  采用RANSAC算法寻找一个最佳单应性矩阵H，矩阵大小为3×3。RANSAC目的是找到最优的参数矩阵使得满足该矩阵的数据点个数最多，通常令h33=1h33=1来归一化矩阵。由于单应性矩阵有8个未知参数，至少需要8个线性方程求解，对应到点位置信息上，一组点对可以列出两个方程，则至少包含4组匹配点对。</p>
+<h5 id="23-ransac算法优缺点"><a class="markdownIt-Anchor" href="#23-ransac算法优缺点"></a> 2.3 RANSAC算法优缺点：</h5>
+<p>  RANSAC的优点是它能鲁棒的估计模型参数。例如，它能从包含大量局外点的数据集中估计出高精度的参数。RANSAC的缺点是它计算参数的迭代次数没有上限；如果设置迭代次数的上限，得到的结果可能不是最优的结果，甚至可能得到错误的结果。		<br />
+RANSAC只有一定的概率得到可信的模型，概率与迭代次数成正比。RANSAC的另一个缺点是它要求设置跟问题相关的阀值。 RANSAC只能从特定的数据集中估计出一个模型，如果存在两个（或多个）模型，RANSAC不能找到别的模型。</p>
+<h4 id="3-gms算法"><a class="markdownIt-Anchor" href="#3-gms算法"></a> 3. GMS算法</h4>
+<p>  GMS（CVPR2017论文：Grid-based Motion Statisticsfor Fast, Ultra-robust Feature Correspondence ）的方法实际上是<strong>消除错误匹配</strong>的一种方案，比如可以替换ransac。算法执行的大致流程是：先执行任意一种特征点的检测和特征点的描述子计算，论文中采用的是ORB特征。然后执行暴力匹配BF，最后执行GMS以消除错误匹配。<br />
+opencv的ransac非常耗时，这个GMS则非常快，比opencv的ransac快好几倍。在同样特征点执行错误消除的时候要比openCV的ransac快。实际上ransac可以优化到非常快，至少可以比openCV的ransac要快10倍以上。在同样特征点个数的情况下，用ORB+BF+GMS 的时间 小于 SIFT + RANSAC的时间。</p>
+<h5 id="算法特点"><a class="markdownIt-Anchor" href="#算法特点"></a> 算法特点：</h5>
+<p>  该论文认为运动的平滑性导致了匹配的特征点周围的区域有较多匹配的点，因此可以通过计数周围区域的匹配点个数来判断一个匹配正确与否。之前的特征匹配的论文多认为匹配的质量受特征不变性和区别是否明显的影响，本文从一个新的角度来分析，认为原始特征的数量也能够影响匹配的质量。而找到更多特征显然比设计全新的匹配器更加简单，GMS就是这样一个简捷的解决方法，综合来看论文的贡献在于：将运动平滑性转化为统计问题以判别错误的匹配，使得困难场景上的匹配更高效。一个有效的基于网格的打分器，能够与实时的特征匹配器结合证明了GMS系统具有更好的效果(SIFT,SURF,LIFT)</p>
+<h4 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料：</h4>
+<p>使用Python中的SIFT算法进行图像校准 <a href="https://www.jianshu.com/p/f1b97dacc501" target="_blank" rel="noopener">https://www.jianshu.com/p/f1b97dacc501</a><br />
+RANSAC算法理解1： <a href="https://blog.csdn.net/robinhjwy/article/details/79174914" target="_blank" rel="noopener">https://blog.csdn.net/robinhjwy/article/details/79174914</a><br />
+RANSAC算法理解2： <a href="https://blog.csdn.net/fandq1223/article/details/53175964" target="_blank" rel="noopener">https://blog.csdn.net/fandq1223/article/details/53175964</a><br />
+GMS论文解读： <a href="https://blog.csdn.net/kevin_zhao_zl/article/details/89810718" target="_blank" rel="noopener">https://blog.csdn.net/kevin_zhao_zl/article/details/89810718</a><br />
+GMS算法特点介绍：<a href="https://zhuanlan.zhihu.com/p/27131143" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/27131143</a></p>
 
     </div>
 
@@ -326,17 +331,14 @@
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2019/11/06/cv-imageFeature-localFeatures/" rel="next" title="图像特征——局部特征点检测和描述">
-                  <i class="fa fa-chevron-left"></i> 图像特征——局部特征点检测和描述
+                <a href="/2019/11/07/cv-imageFeature-2matcht/" rel="next" title="图像特征——基于描述子的图像匹配">
+                  <i class="fa fa-chevron-left"></i> 图像特征——基于描述子的图像匹配
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2019/11/06/cv-imageFeature-cnnFeatures/" rel="prev" title="图像特征——CNN特征">
-                  图像特征——CNN特征 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
       </footer>
@@ -375,7 +377,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-简介"><span class="nav-number">1.</span> <span class="nav-text"> 1. 简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-颜色特征"><span class="nav-number">2.</span> <span class="nav-text"> 2. 颜色特征</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-纹理特征"><span class="nav-number">3.</span> <span class="nav-text"> 3. 纹理特征</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-形状特征"><span class="nav-number">4.</span> <span class="nav-text"> 4. 形状特征</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-感知哈希算法"><span class="nav-number">5.</span> <span class="nav-text"> 5. 感知哈希算法</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-简介"><span class="nav-number">1.</span> <span class="nav-text"> 1. 简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-ransac算法"><span class="nav-number">2.</span> <span class="nav-text"> 2. RANSAC算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#21-算法步骤"><span class="nav-number">2.1.</span> <span class="nav-text"> 2.1 算法步骤</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#22-单应性矩阵homography"><span class="nav-number">2.2.</span> <span class="nav-text"> 2.2 单应性矩阵Homography</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#23-ransac算法优缺点"><span class="nav-number">2.3.</span> <span class="nav-text"> 2.3 RANSAC算法优缺点：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-gms算法"><span class="nav-number">3.</span> <span class="nav-text"> 3. GMS算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#算法特点"><span class="nav-number">3.1.</span> <span class="nav-text"> 算法特点：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text"> 参考资料：</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -391,7 +393,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -404,7 +406,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -479,7 +481,7 @@
    
     </div>
     <div class="powered-by"></div>
-    <span class="post-count">博客全站共19.6k字</span>
+    <span class="post-count">博客全站共25.3k字</span>
   </div>
         
 <div class="busuanzi-count">
