@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://holdfire.github.io/2019/11/08/linux-file-mount/</loc>
+    
+    <lastmod>2019-11-08T10:26:11.658Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/08/windows-cmd-commands/</loc>
+    
+    <lastmod>2019-11-08T10:25:23.434Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/08/windows-environment-path/</loc>
+    
+    <lastmod>2019-11-08T09:15:07.395Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/10/26/python-virtual-environment/</loc>
+    
+    <lastmod>2019-11-08T08:33:40.158Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/08/python-anaconda/</loc>
+    
+    <lastmod>2019-11-08T07:25:44.688Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://holdfire.github.io/2019/11/08/complie-make-cmake/</loc>
     
     <lastmod>2019-11-07T18:53:17.652Z</lastmod>
@@ -369,13 +404,6 @@
     <loc>http://holdfire.github.io/2019/10/27/linux-command/</loc>
     
     <lastmod>2019-10-30T11:21:53.054Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/10/26/python-virtual-environment/</loc>
-    
-    <lastmod>2019-10-30T11:21:32.804Z</lastmod>
     
   </url>
   

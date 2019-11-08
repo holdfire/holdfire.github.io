@@ -59,7 +59,7 @@
 <meta property="og:site_name" content="holdfire">
 <meta property="og:description" content="1. Python虚拟环境简介   Python中所有的第三方包都会被pip安装到site-packages目录下。对于某个特定的Python包，在项目A中可能需要使用1.0版的，而项目B中需要使用1.1版的。如何解决这种冲突呢？   解决方案是：创建两个不同的虚拟环境，这两个虚拟环境相互独立、互不干扰。不同的项目就可以分别在各自的虚拟环境中独立运行啦，完美！（引申：不同虚拟环境的包是独立的，那">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-30T11:21:32.804Z">
+<meta property="og:updated_time" content="2019-11-08T08:33:40.158Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://holdfire.github.io/2019/10/26/python-virtual-environment/">
@@ -256,7 +256,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-30 19:21:32" itemprop="dateModified" datetime="2019-10-30T19:21:32+08:00">2019-10-30</time>
+                <time title="修改时间：2019-11-08 16:33:40" itemprop="dateModified" datetime="2019-11-08T16:33:40+08:00">2019-11-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -295,10 +295,10 @@
 <h5 id="22-virtualenvwrapper工具"><a class="markdownIt-Anchor" href="#22-virtualenvwrapper工具"></a> 2.2 virtualenvwrapper工具</h5>
 <p>  用户可以使用virtualenv工具在系统的任意地方创建虚拟环境。但下次需要激活这个环境时仍需要使用<code>source env_path/activate</code>命令，然而同学你可能早已忘记虚拟环境的路径env_path。<br />
   为了让用户更方便使用，我们可以把虚拟环境集中进行管理，virtualenvwrapper工具应运而生。在使用之前，你得先安装了virtualenv，然后再安装virtualenvwrapper。安装命令：</p>
-<pre class="highlight"><code class="shell">pip install virtualenvwrapper       # Linux下安装命令
-pip install virtualenvwrapper-win   # Windows下安装命令
-</code></pre>
-<p>  </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">pip install virtualenvwrapper       # Linux下安装命令</span><br><span class="line">pip install virtualenvwrapper-win   # Windows下安装命令</span><br><span class="line">```  </span><br><span class="line">&amp;emsp;&amp;emsp;不想写了。。。还要自己一遍遍测试代码好麻烦。。。反正我也不用这个工具。。。先放着。。。后面用到了再写！！！</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#### 2.3 使用pipenv</span></span></span><br><span class="line">&amp;emsp;&amp;emsp;pipenv能够有效地管理虚拟环境和包，相当于virtualenv和pip的合体。使用pipenv成功安装虚拟环境后，会生成两个文件Pipfile和Pipfile.lock。前者是TOML格式（这是啥？）的，不用管子依赖包，子依赖包在pipenv install package的时候自动安装或更新。后者是json格式的，它包含了所有子依赖包的确定版本</span><br><span class="line">```shell</span><br><span class="line">pip install pipenv                  # 安装pipenv</span><br><span class="line">mkdir my_project                    # 创建项目文件夹</span><br><span class="line">cd  my_project                      # 进入文件夹下</span><br><span class="line"><span class="meta">#</span><span class="bash"> 创键虚拟环境，下面两种方式二选一</span></span><br><span class="line">pipenv install                      # 使用本地默认的python创建虚拟环境</span><br><span class="line">pipenv --python 3.6                 # 指定Python版本，我没试过</span><br><span class="line">pipenv shell                        # 激活虚拟环境</span><br><span class="line">pipenv install flask                # 然后就可以愉快地安装各种包啦</span><br><span class="line">pip list                            # 这个命令可以查看当前虚拟环境安装的所有包</span><br><span class="line">pipenv graph                        # 可以查看安装包的依赖关系</span><br></pre></td></tr></table></figure>
+<h5 id="24-使用conda"><a class="markdownIt-Anchor" href="#24-使用conda"></a> 2.4 使用conda</h5>
+<p>  conda是一个开源的软件包和环境管理系统，结合了pip和virtualenv两者的功能。conda是一个通用包管理器，不但可以安装python包，还可以安装其他语言的包。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 创建虚拟环境，指定python版本，指不指定pip好像都可以</span></span><br><span class="line">conda create -n venv_name python=3.7       </span><br><span class="line">conda create -n venv_name pip python=3.7  </span><br><span class="line">conda env list                          # 可查看当前存在的虚拟环境</span><br><span class="line"><span class="meta">#</span><span class="bash"> linux下激活和退出虚拟环境</span></span><br><span class="line">source activate venv_name               </span><br><span class="line">source deactivate</span><br><span class="line"><span class="meta">#</span><span class="bash"> windows下激活和退出虚拟环境</span></span><br><span class="line">conda activate venv_name                     </span><br><span class="line">conda deactivate</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装和管理包，使用conda或者pip都可以</span></span><br><span class="line">conda install numpy                      # 没试过</span><br><span class="line">pip install numpy</span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除虚拟环境</span></span><br><span class="line">conda remove -n venv_name --all</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -385,7 +385,7 @@ pip install virtualenvwrapper-win   # Windows下安装命令
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-python虚拟环境简介"><span class="nav-number">1.</span> <span class="nav-text"> 1. Python虚拟环境简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-几种虚拟环境管理工具"><span class="nav-number">2.</span> <span class="nav-text"> 2. 几种虚拟环境管理工具</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#21-virtualenv工具"><span class="nav-number">2.1.</span> <span class="nav-text"> 2.1 virtualenv工具</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#22-virtualenvwrapper工具"><span class="nav-number">2.2.</span> <span class="nav-text"> 2.2 virtualenvwrapper工具</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-python虚拟环境简介"><span class="nav-number">1.</span> <span class="nav-text"> 1. Python虚拟环境简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-几种虚拟环境管理工具"><span class="nav-number">2.</span> <span class="nav-text"> 2. 几种虚拟环境管理工具</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#21-virtualenv工具"><span class="nav-number">2.1.</span> <span class="nav-text"> 2.1 virtualenv工具</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#22-virtualenvwrapper工具"><span class="nav-number">2.2.</span> <span class="nav-text"> 2.2 virtualenvwrapper工具</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#24-使用conda"><span class="nav-number">2.3.</span> <span class="nav-text"> 2.4 使用conda</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -401,7 +401,7 @@ pip install virtualenvwrapper-win   # Windows下安装命令
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-count">55</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -414,7 +414,7 @@ pip install virtualenvwrapper-win   # Windows下安装命令
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -489,7 +489,7 @@ pip install virtualenvwrapper-win   # Windows下安装命令
    
     </div>
     <div class="powered-by"></div>
-    <span class="post-count">博客全站共25.7k字</span>
+    <span class="post-count">博客全站共27.7k字</span>
   </div>
         
 <div class="busuanzi-count">
