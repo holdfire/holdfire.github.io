@@ -2,6 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://holdfire.github.io/2019/11/09/dl-course-tf20-1/</loc>
+    
+    <lastmod>2019-11-09T18:19:22.391Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/10/cuda-learning1/</loc>
+    
+    <lastmod>2019-11-09T17:51:08.618Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/10/python-numpy/</loc>
+    
+    <lastmod>2019-11-09T16:59:49.462Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/10/numerical-computation-blas/</loc>
+    
+    <lastmod>2019-11-09T16:49:29.431Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/08/dl-AndrewNGDL-chapter1/</loc>
+    
+    <lastmod>2019-11-08T11:44:44.863Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/about/index.html</loc>
+    
+    <lastmod>2019-11-08T11:36:53.721Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://holdfire.github.io/2019/11/08/linux-file-mount/</loc>
     
     <lastmod>2019-11-08T10:26:11.658Z</lastmod>
@@ -292,13 +334,6 @@
     <loc>http://holdfire.github.io/2019/11/05/cv-fields-OCR/</loc>
     
     <lastmod>2019-11-06T11:53:00.565Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/about/index.html</loc>
-    
-    <lastmod>2019-11-06T11:48:20.904Z</lastmod>
     
   </url>
   

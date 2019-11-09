@@ -327,6 +327,482 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/10/cuda-learning1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="holdfire">
+      <meta itemprop="description" content="一只想上天的菜鸟！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="holdfire">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/10/cuda-learning1/" class="post-title-link" itemprop="url">CUDA编程——快速入门篇</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-11-10 01:01:27 / 修改时间：01:51:08" itemprop="dateCreated datePublished" datetime="2019-11-10T01:01:27+08:00">2019-11-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机体系结构</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<p>  CUDA(Computer Unified Device Architecture)的中文全称是计算统一设备架构。</p>
+<h4 id="2-gpu架构的特点"><a class="markdownIt-Anchor" href="#2-gpu架构的特点"></a> 2. GPU架构的特点</h4>
+<h5 id="串行计算和并行计算"><a class="markdownIt-Anchor" href="#串行计算和并行计算"></a> 串行计算和并行计算：</h5>
+<p>  首先，高性能计算的关键是利用多核处理器进行并行计算。一个程序可不可以进行并行计算，关键就在于我们要分析出该程序可以拆分出哪几个执行模块，这些执行模块哪些是独立的，哪些又是强依赖强耦合的，独立的模块我们可以试着设计并行计算，充分利用多核处理器的优势进一步加速我们的计算任务，强耦合模块我们就使用串行编程，利用串行+并行的编程思路完成一次高性能计算。</p>
+<h5 id="cpu和gpu的区别"><a class="markdownIt-Anchor" href="#cpu和gpu的区别"></a> CPU和GPU的区别：</h5>
+<p>  首先CPU是专为顺序串行处理而优化的几个核心组成。而GPU则由数以千计的更小、更高效的核心组成，这些核心专门为同时处理多任务而设计，可高效地处理并行任务。也就是，CPU虽然每个核心自身能力极强，处理任务上非常强悍，无奈他核心少，在并行计算上表现不佳；反观GPU，虽然他的每个核心的计算能力不算强，但他胜在核心非常多，可以同时处理多个计算任务，在并行计算的支持上做得很好。<br />
+  现在的计算机体系架构中，要完成CUDA并行计算，单靠GPU一人之力是不能完成计算任务的，必须借助CPU来协同配合完成一次高性能的并行计算任务。</p>
+<h5 id="异构计算"><a class="markdownIt-Anchor" href="#异构计算"></a> 异构计算：</h5>
+<p>  一般而言，并行部分在GPU上运行，串行部分在CPU运行，这就是异构计算。具体一点，异构计算的意思就是不同体系结构的处理器相互协作完成计算任务。CPU负责总体的程序流程，而GPU负责具体的计算任务，当GPU各个线程完成计算任务后，我们就将GPU那边计算得到的结果拷贝到CPU端，完成一次计算任务。</p>
+<h4 id="2-cuda线程模型"><a class="markdownIt-Anchor" href="#2-cuda线程模型"></a> 2. CUDA线程模型</h4>
+<h5 id="模型的不同层次单元"><a class="markdownIt-Anchor" href="#模型的不同层次单元"></a> 模型的不同层次单元</h5>
+<ul>
+<li>线程thread</li>
+<li>线程块thread block</li>
+<li>grid</li>
+<li>kernel</li>
+</ul>
+<h5 id="sp和sm"><a class="markdownIt-Anchor" href="#sp和sm"></a> SP和SM</h5>
+<p>  SP(Streaming Processor)是最基本的处理单元，也称为CUDA core。最后具体的指令和任务都是在SP上处理的。GPU进行并行计算，就是很多歌SP同时做处理。<br />
+  多个SP加上其他的一些资源组成SM(Streaming Multiprocessor)，也叫GPU大核。其他资源如：warp schedule, register, shared memory等。SM可以看做GPU的心脏（对比CPU核心），register和shared memory是SM的稀缺资源。CUDA将这些资源分配给所有驻留在SM中的threads。因此，这些有限的资源就使每个SM中的active wraps有非常严格的限制，也就限制了并行能力。每个SM包含的SP数量依据GPU架构而不同，Fermi架构GF100是32个，GF 10X是48个，Kepler架构都是192个，Maxwell都是128个。<br />
+  简而言之，SP是线程执行的硬件单位，SM中包含多个SP，一个GPU可以有多个SM。</p>
+<h4 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料：</h4>
+<ol>
+<li>CUDA编程之快速入门： <a href="https://www.cnblogs.com/skyfsm/p/9673960.html" target="_blank" rel="noopener">https://www.cnblogs.com/skyfsm/p/9673960.html</a></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/10/numerical-computation-blas/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="holdfire">
+      <meta itemprop="description" content="一只想上天的菜鸟！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="holdfire">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/10/numerical-computation-blas/" class="post-title-link" itemprop="url">数值计算——线性代数运算程序</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-11-10 00:22:31 / 修改时间：00:49:29" itemprop="dateCreated datePublished" datetime="2019-11-10T00:22:31+08:00">2019-11-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index">
+                    <span itemprop="name">计算数学</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<h5 id="11-blas和lapack"><a class="markdownIt-Anchor" href="#11-blas和lapack"></a> 1.1 BLAS和LAPACK</h5>
+<p>  基础线性代数子程序(Basic Linear Algebra Subprograms , BLAS)是一个设计基本线性代数操作的数学函数标准，它定义了一组应用程序接口API标准。BLAS一般分为三级，第一级主要完成向量与向量或者向量与标量以及范数之间的运算，第二级主要涉及矩阵与向量之间的操作，第三季主要涉及矩阵于矩阵之间的操作。Netlib用firtran实现了BLAS的这些API接口，得到的库也叫作BLAS。<br />
+  Netlib还用fortran写了一个线性代数库叫做LAPACK（Linear Algebra Package）,其底层是BLAS，在此基础上定义了很多矩阵和向量高级运算的函数，如矩阵分解、求逆和求奇异值等。该库的运行效率比BLAS库高。为了进行C语言的开发，开发了CBLAS和CLAPACK。</p>
+<h5 id="12-atlas和openblas"><a class="markdownIt-Anchor" href="#12-atlas和openblas"></a> 1.2 atlas和openblas</h5>
+<p>  既然可以将BLAS和LAPACK看作是接口规范，于是开源社区实现了科学计算（矩阵计算）库atlas和openblas。它们都实现了BLAS的全部功能以及LAPACK的部分功能。<br />
+  Atlas （Automatically Tuned Linear Algebra Software）能根据硬件，在运行时，自动调整运行参数。Openblas在编译时根据目标硬件进行优化，生成运行效率很高的程序或者库。Openblas的优化是在编译时进行的，所以其运行效率一般比atlas要高。但这也决定了openblas对硬件依赖性高，换了机器，可能就要重新编译了。（例如A和B两台机器cpu架构、指令集不一样，操作系统一样，在A下编译的openblas库，在B下无法运行，会出现“非法指令”这样的错误）</p>
+<h5 id="13-mkl和acml"><a class="markdownIt-Anchor" href="#13-mkl和acml"></a> 1.3 MKL和ACML</h5>
+<p>  商业公司对BLAS和LAPACK的实现，有Intel的MKL和AMD的ACML。他们对自己的cpu架构，进行了相关计算过程的优化，实现算法效率也很高。NVIDIA针对其GPU，也推出了cuBLAS，用以在GPU上做矩阵运行。</p>
+<h4 id="2-其他说明"><a class="markdownIt-Anchor" href="#2-其他说明"></a> 2. 其他说明</h4>
+<p>  </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/10/python-numpy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="holdfire">
+      <meta itemprop="description" content="一只想上天的菜鸟！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="holdfire">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/10/python-numpy/" class="post-title-link" itemprop="url">Python包学习——numpy</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-11-10 00:07:44 / 修改时间：00:59:49" itemprop="dateCreated datePublished" datetime="2019-11-10T00:07:44+08:00">2019-11-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index">
+                    <span itemprop="name">编程语言</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<h5 id="12-numpy的array计算为什么快"><a class="markdownIt-Anchor" href="#12-numpy的array计算为什么快"></a> 1.2 Numpy的array计算为什么快？</h5>
+<p>  numpy许多函数使用了基础线性代数子程序(Basic Linear Algebra Subprograms , BLAS)，里面拥有大量已经编写好的关于线性代数运算的程序。一般在windows下使用的是到MKL程序，linux下使用的是OpenBLAS。这些BLAS在每种操作上都进行了高度优化，例如使用AVX向量指令集。（关于BLAS参考本网站另一篇文章：<a href="">数值计算——线性代数运算程序</a>）</p>
+<h4 id="2-numpy教程"><a class="markdownIt-Anchor" href="#2-numpy教程"></a> 2. numpy教程</h4>
+<h5 id="21-创建数组"><a class="markdownIt-Anchor" href="#21-创建数组"></a> 2.1 创建数组</h5>
+<ul>
+<li>np.array操作，np.arange操作，np.linspace操作</li>
+<li>np.zeroes操作，np.ones操作。np.eye操作</li>
+<li>np.random.random操作</li>
+</ul>
+<h5 id="22-数组的加载和保存"><a class="markdownIt-Anchor" href="#22-数组的加载和保存"></a> 2.2 数组的加载和保存</h5>
+<p>  np.save操作和np.load操作</p>
+<h5 id="23-各种变形操作"><a class="markdownIt-Anchor" href="#23-各种变形操作"></a> 2.3 各种变形操作</h5>
+<ul>
+<li>reshape操作，flatten操作，</li>
+<li>concatenate操作，stack操作，split操作</li>
+<li>repeat操作</li>
+<li>其他操作</li>
+</ul>
+<h5 id="24-索引操作"><a class="markdownIt-Anchor" href="#24-索引操作"></a> 2.4 索引操作</h5>
+<ul>
+<li>normal indexing：正规索引，切片得到视图，索引得到复制</li>
+<li>bool indexing</li>
+<li>fancy indexing</li>
+<li>argmax操作</li>
+</ul>
+<h5 id="25-数组的计算"><a class="markdownIt-Anchor" href="#25-数组的计算"></a> 2.5 数组的计算</h5>
+<p>  广播机制</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/09/dl-course-tf20-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="holdfire">
+      <meta itemprop="description" content="一只想上天的菜鸟！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="holdfire">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/09/dl-course-tf20-1/" class="post-title-link" itemprop="url">深度学习课程——TensorFlow2.0学习</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-09 23:43:54" itemprop="dateCreated datePublished" datetime="2019-11-09T23:43:54+08:00">2019-11-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-10 02:19:22" itemprop="dateModified" datetime="2019-11-10T02:19:22+08:00">2019-11-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <center> 第1章 TensorFlow简介与环境搭建 </center>   
+<h4 id="1-tensorflow简介"><a class="markdownIt-Anchor" href="#1-tensorflow简介"></a> 1. Tensorflow简介</h4>
+<h5 id="tensorflow是什么"><a class="markdownIt-Anchor" href="#tensorflow是什么"></a> TensorFlow是什么？</h5>
+<ul>
+<li>采用数据流图，用于数值计算；</li>
+<li>数据流图：节点是处理数据，边表示节点的依赖关系，边上运输张量；</li>
+<li>节点被分配到各种计算设备上运行；</li>
+</ul>
+<h5 id="tensorflow的特性"><a class="markdownIt-Anchor" href="#tensorflow的特性"></a> TensorFlow的特性：</h5>
+<ul>
+<li>高度的灵活性</li>
+<li>可移植性</li>
+<li>自动求微分</li>
+<li>多语言支持</li>
+</ul>
+<h5 id="tensorflow版本变迁"><a class="markdownIt-Anchor" href="#tensorflow版本变迁"></a> TensorFlow版本变迁：</h5>
+<ul>
+<li>201704：集成了keras</li>
+<li>201708：添加了estimator</li>
+<li>201711：添加了Eager execution和TensorFlow Lite（对移动端支持）</li>
+<li>201803：推出了TF Hub，TensorFlow.js和Tensorflow Extended</li>
+<li>201805: 支持Cloud TPU模块与管道</li>
+<li>201806：新的分布式策略API，概率编程工具TensorFlow Probability</li>
+<li>201808：Cloud Big Table集成</li>
+<li>201810：侧重于可用性的API改进</li>
+<li>2019： TensorFlow2.0发布</li>
+</ul>
+<h5 id="tensorflow10特性介绍"><a class="markdownIt-Anchor" href="#tensorflow10特性介绍"></a> TensorFlow1.0特性介绍</h5>
+<ul>
+<li>加入了XLA支持——Accelerate Linear Algebra：提升训练速度58倍</li>
+<li>引入更高级API——tf.keras/tf.layers/tf.metrics/tf.losses</li>
+<li>TensorFlow调试器tensorflow debugger</li>
+<li>支持Docker镜像，引入tensorflow serving服务</li>
+</ul>
+<h5 id="tensorflow20主要特性"><a class="markdownIt-Anchor" href="#tensorflow20主要特性"></a> TensorFlow2.0主要特性</h5>
+<ul>
+<li>使用tf.keras和eager model进行更简单的模型构建</li>
+<li>鲁棒的跨平台模型部署</li>
+<li>keras功能API和子类API，允许差UN感觉爱你复杂的拓扑结构；</li>
+<li>自定义训练逻辑，使用tf.GradientTape和tf。custom_gradient进行更细粒度的控制；</li>
+<li>低层API自始至终可以与高层结合使用，完全的可定制；</li>
+<li>高级拓展：Ragged Tensors, Tensor2Tensor；</li>
+</ul>
+<h5 id="tensorflow20的开发流程"><a class="markdownIt-Anchor" href="#tensorflow20的开发流程"></a> TensorFlow2.0的开发流程</h5>
+<ul>
+<li>使用tf.data加载数据；</li>
+<li>使用tf.keras构建模型，也可以使用premade estimator来验证模型；
+<ul>
+<li>使用tensorflow hub进行迁移学习</li>
+</ul>
+</li>
+<li>使用eager mode进行运行和调试；</li>
+<li>使用分发策略来进行分布式训练；</li>
+<li>导出到SavedModel；</li>
+<li>使用Tesnsoflow Server, Tensorflow Lite, Tensorflow.js部署模型。</li>
+</ul>
+<h4 id="2-tensorflow和pytorch的区别"><a class="markdownIt-Anchor" href="#2-tensorflow和pytorch的区别"></a> 2. Tensorflow和Pytorch的区别</h4>
+<h5 id="21-从4个方面进行比较"><a class="markdownIt-Anchor" href="#21-从4个方面进行比较"></a> 2.1 从4个方面进行比较：</h5>
+<ul>
+<li>入门掌握的时间</li>
+<li>图的创建和调试</li>
+<li>全面性</li>
+<li>序列化与部署</li>
+</ul>
+<h5 id="22-入门掌握时间"><a class="markdownIt-Anchor" href="#22-入门掌握时间"></a> 2.2 入门掌握时间</h5>
+<p>  Tensorflow1.版本是静态图（没有eager mode的情况下就是静态图），需要额外学习很多概念：图，回话，变量，占位符等，还要写很多样板代码。<br />
+  Tensorflow2.0的版本的eager mode默认是打开的，使用的是动态图（运行过程中可以更改的图）。eager mode避免1.0的缺点，直接集成在python中。<br />
+  Pytorch构建的模型是动态图。Numpy的拓展，直接集成在python中。</p>
+<h5 id="23-静态图和动态图"><a class="markdownIt-Anchor" href="#23-静态图和动态图"></a> 2.3 静态图和动态图</h5>
+<p>  静态图的结构一旦确定后就不能改变，其优点是效率高。<br />
+  动态图的特点是调试容易。</p>
+<p>  </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/08/dl-AndrewNGDL-chapter1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="holdfire">
+      <meta itemprop="description" content="一只想上天的菜鸟！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="holdfire">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/08/dl-AndrewNGDL-chapter1/" class="post-title-link" itemprop="url">dl-AndrewNGDL-chapter1</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-08 19:44:44" itemprop="dateCreated datePublished" datetime="2019-11-08T19:44:44+08:00">2019-11-08</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/08/linux-file-mount/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -643,414 +1119,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/08/complie-make-cmake/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="holdfire">
-      <meta itemprop="description" content="一只想上天的菜鸟！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="holdfire">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/08/complie-make-cmake/" class="post-title-link" itemprop="url">编译原理——gcc,g++,make和cmake的区别</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-11-08 02:32:53 / 修改时间：02:53:17" itemprop="dateCreated datePublished" datetime="2019-11-08T02:32:53+08:00">2019-11-08</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" itemprop="url" rel="index">
-                    <span itemprop="name">编译原理</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index">
-                    <span itemprop="name">编程语言</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="1-gcc和g的区别"><a class="markdownIt-Anchor" href="#1-gcc和g的区别"></a> 1. gcc和g++的区别</h4>
-<p>  二者的区别在于：<br />
-（1）对于.c的文件，gcc把它当成是c程序，g<ins>当做是c</ins>程序；对于.cpp的文件，两者都会认为是c<ins>程序。<br />
-（2）编译可以用gcc或g</ins>，链接可以用gcc-lstdc<ins>或者g</ins>。<br />
-（3）如果后缀为.C的文件定义了_cplusplus宏，gcc编译器认为该宏是未定义的，否则就是已定义的。<br />
-（4）无论是gcc还是g++，当源文件中用extern &quot;C&quot;时，都是以C的命名方式来为symbol命名的；否则，都以c<ins>的方式命名。<br />
-（5）在编译阶段，g</ins>是调用gcc的。</p>
-<h4 id="2-make和cmake的区别"><a class="markdownIt-Anchor" href="#2-make和cmake的区别"></a> 2. make和cmake的区别</h4>
-<p>  但如果源文件太多，一个个编译会太麻烦。于是人们设计了一个类似批处理的程序来来批量编译源文件，于是就有了make工具，但你需要编写一个规则文件，make依据它来批处理编译，这个文件就是<strong>makefile</strong>。所以编写makefile也是一个程序员所必备的技能。<br />
-  对于一个大型工程，编写makefile是一件复杂的事。于是人们又设计了一个读入所有源文件后，自动生成makefile的工具，这就是cmake，它能够输出makefile或者project文件。但是程序员还是要编写<strong>cmakefile</strong>，它是cmake所依据的规则。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/07/cv-imageFeature-3alignment/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="holdfire">
-      <meta itemprop="description" content="一只想上天的菜鸟！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="holdfire">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/07/cv-imageFeature-3alignment/" class="post-title-link" itemprop="url">图像特征——基于描述子的图像对齐</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-11-07 19:41:28 / 修改时间：19:54:28" itemprop="dateCreated datePublished" datetime="2019-11-07T19:41:28+08:00">2019-11-07</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
-<p>  在keypoingts和descriptors均已生成，特征点已经匹配过后，根据matched特征点对可以做图片对齐</p>
-<h4 id="2-ransac算法"><a class="markdownIt-Anchor" href="#2-ransac算法"></a> 2. RANSAC算法</h4>
-<p>  RANSAC算法（Random sample consensus:RANSAC，也叫随机抽样一致算法）用来筛选匹配点，从而计算单应性矩阵。该算法能够有效地去除误差很大的点，并且这些点不计入模型的计算之中。<br />
-RANSAC算法经常用于计算机视觉，例如同时求解相关问题与估计立体摄像机的基础矩阵，在图像拼接时求变换矩阵的时候。在SLAM中经常被用于虑除误匹配。</p>
-<h5 id="21-算法步骤"><a class="markdownIt-Anchor" href="#21-算法步骤"></a> 2.1 算法步骤</h5>
-<p>  在数据误差比较小的情况下，可以使用最小二乘法。但针对噪声很大的数据集的时候，容易出问题。算法的框架如下：<br />
-在数据中随机的选择几个点设定为内群（也就是用来计算模型的点）<br />
-用这些选择的数据计算出一个模型<br />
-把其它刚才没选到的点带入刚才建立的模型中，计算是否为内群（也就是看这些点是否符合模型，如果符合模型的话，将新的点也计入内群）<br />
-如果此时的内群数量足够多的话，可以认为这个模型还算OK，那么就用现在的内群数据重新计算一个稍微好些的模型。<br />
-重复以上步骤，最后，我们保留那个内群数量最多的模型。<br />
-在得到了众多的匹配点以后，使用RANSAC算法，每次从中筛选四个随机的点，然后求得H矩阵，不断的迭代，直到求得最优的Homography矩阵为止。</p>
-<h5 id="22-单应性矩阵homography"><a class="markdownIt-Anchor" href="#22-单应性矩阵homography"></a> 2.2 单应性矩阵Homography</h5>
-<p>  采用RANSAC算法寻找一个最佳单应性矩阵H，矩阵大小为3×3。RANSAC目的是找到最优的参数矩阵使得满足该矩阵的数据点个数最多，通常令h33=1h33=1来归一化矩阵。由于单应性矩阵有8个未知参数，至少需要8个线性方程求解，对应到点位置信息上，一组点对可以列出两个方程，则至少包含4组匹配点对。</p>
-<h5 id="23-ransac算法优缺点"><a class="markdownIt-Anchor" href="#23-ransac算法优缺点"></a> 2.3 RANSAC算法优缺点：</h5>
-<p>  RANSAC的优点是它能鲁棒的估计模型参数。例如，它能从包含大量局外点的数据集中估计出高精度的参数。RANSAC的缺点是它计算参数的迭代次数没有上限；如果设置迭代次数的上限，得到的结果可能不是最优的结果，甚至可能得到错误的结果。		<br />
-RANSAC只有一定的概率得到可信的模型，概率与迭代次数成正比。RANSAC的另一个缺点是它要求设置跟问题相关的阀值。 RANSAC只能从特定的数据集中估计出一个模型，如果存在两个（或多个）模型，RANSAC不能找到别的模型。</p>
-<h4 id="3-gms算法"><a class="markdownIt-Anchor" href="#3-gms算法"></a> 3. GMS算法</h4>
-<p>  GMS（CVPR2017论文：Grid-based Motion Statisticsfor Fast, Ultra-robust Feature Correspondence ）的方法实际上是<strong>消除错误匹配</strong>的一种方案，比如可以替换ransac。算法执行的大致流程是：先执行任意一种特征点的检测和特征点的描述子计算，论文中采用的是ORB特征。然后执行暴力匹配BF，最后执行GMS以消除错误匹配。<br />
-opencv的ransac非常耗时，这个GMS则非常快，比opencv的ransac快好几倍。在同样特征点执行错误消除的时候要比openCV的ransac快。实际上ransac可以优化到非常快，至少可以比openCV的ransac要快10倍以上。在同样特征点个数的情况下，用ORB+BF+GMS 的时间 小于 SIFT + RANSAC的时间。</p>
-<h5 id="算法特点"><a class="markdownIt-Anchor" href="#算法特点"></a> 算法特点：</h5>
-<p>  该论文认为运动的平滑性导致了匹配的特征点周围的区域有较多匹配的点，因此可以通过计数周围区域的匹配点个数来判断一个匹配正确与否。之前的特征匹配的论文多认为匹配的质量受特征不变性和区别是否明显的影响，本文从一个新的角度来分析，认为原始特征的数量也能够影响匹配的质量。而找到更多特征显然比设计全新的匹配器更加简单，GMS就是这样一个简捷的解决方法，综合来看论文的贡献在于：将运动平滑性转化为统计问题以判别错误的匹配，使得困难场景上的匹配更高效。一个有效的基于网格的打分器，能够与实时的特征匹配器结合证明了GMS系统具有更好的效果(SIFT,SURF,LIFT)</p>
-<h4 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料：</h4>
-<p>使用Python中的SIFT算法进行图像校准 <a href="https://www.jianshu.com/p/f1b97dacc501" target="_blank" rel="noopener">https://www.jianshu.com/p/f1b97dacc501</a><br />
-RANSAC算法理解1： <a href="https://blog.csdn.net/robinhjwy/article/details/79174914" target="_blank" rel="noopener">https://blog.csdn.net/robinhjwy/article/details/79174914</a><br />
-RANSAC算法理解2： <a href="https://blog.csdn.net/fandq1223/article/details/53175964" target="_blank" rel="noopener">https://blog.csdn.net/fandq1223/article/details/53175964</a><br />
-GMS论文解读： <a href="https://blog.csdn.net/kevin_zhao_zl/article/details/89810718" target="_blank" rel="noopener">https://blog.csdn.net/kevin_zhao_zl/article/details/89810718</a><br />
-GMS算法特点介绍：<a href="https://zhuanlan.zhihu.com/p/27131143" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/27131143</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/07/cv-imageFeature-2matcht/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="holdfire">
-      <meta itemprop="description" content="一只想上天的菜鸟！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="holdfire">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/07/cv-imageFeature-2matcht/" class="post-title-link" itemprop="url">图像特征——基于描述子的图像匹配</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-11-07 19:41:06 / 修改时间：19:54:23" itemprop="dateCreated datePublished" datetime="2019-11-07T19:41:06+08:00">2019-11-07</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
-<p>  在keypoingts和descriptors均已生成的前提下，opencv的匹配步骤：<br />
-（1）生成匹配器matcher：DescriptorMatcher，BFMatcher，FlannMatcher；<br />
-（2）选择匹配函数类型：match，knnMatch，radiusMatch；<br />
-（3）上述匹配函数存在的重载函数，来实现一对一或者一对多<br />
-  特征描述是实现图像匹配与图像搜索必不可少的步骤，比较有代表性的特征描述子是浮点型特征描述子和二进帽字符串特征描述子。像SIFT与SURF算法用梯度统计直方图来描述的描述子都属于浮点型特征描述子。但它们计算起来，算法复杂，效率较低，所以后来就出现了许多新型的特征描述算法，如BRIEF。后来很多二进制串描述子ORB，BRISK，FREAK等都是在它上面的基础上的改进。</p>
-<h4 id="2-暴力匹配算法brute-force"><a class="markdownIt-Anchor" href="#2-暴力匹配算法brute-force"></a> 2. 暴力匹配算法Brute Force</h4>
-<p>  以二进制串特征描述子匹配为例，ORB算法最大的特点就是计算速度快 。 这首先得益于使用FAST检测特征点，FAST的检测速度正如它的名字一样是出了名的快。再次是使用BRIEF算法计算描述子，该描述子特有的2进制串的表现形式不仅节约了存储空间，而且大大缩短了匹配的时间。<br />
-例如特征点A、B的描述子如下。<br />
-A：10101011<br />
-B：10101010<br />
-我们设定一个阈值，比如80%。当A和B的描述子的相似度大于90%时，我们判断A,B是相同的特征点，即这2个点匹配成功。在这个例子中A,B只有最后一位不同，相似度为87.5%，大于80%。则A和B是匹配的。<br />
-我们将A和B进行异或操作就可以轻松计算出A和B的相似度。而异或操作可以借组硬件完成，具有很高的效率，加快了匹配的速度。</p>
-<h4 id="3-聚类算法"><a class="markdownIt-Anchor" href="#3-聚类算法"></a> 3. 聚类算法</h4>
-<h4 id="4-flann算法"><a class="markdownIt-Anchor" href="#4-flann算法"></a> 4. flann算法</h4>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/07/dl-advanced-NASandAutoML1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="holdfire">
-      <meta itemprop="description" content="一只想上天的菜鸟！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="holdfire">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/07/dl-advanced-NASandAutoML1/" class="post-title-link" itemprop="url">自动机器学习AutoML和神经架构搜索NAS（1）</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-11-07 10:02:55 / 修改时间：11:34:03" itemprop="dateCreated datePublished" datetime="2019-11-07T10:02:55+08:00">2019-11-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
-<p>  神经架构搜索(Neural Architecture Search, NAS)是一种搜索出最优神经网络架构的算法。它的工作流程通常从定义一组神经网络可能会用到的“建筑模块”开始，比如2018年Google Brain关于NASNet的论文，就为图像识别网络总结了多种常用的卷积池和池化模块。论文：<a href="https://arxiv.org/abs/1707.07012" target="_blank" rel="noopener">Learning Transferable Architectures for Scalable Image Recognition</a><br />
-  NAS算法用一个循环神经网络(RNN)作为控制器，从这些模块中挑选，然后将它们放在一起，来创造某种端到端地架构。然后训练这个新网络直至收敛，得到在验证集上的准确率，这个准确率随后会用来通过策略梯度更新控制器，让控制器生成架构的水平越来越高。</p>
-<h4 id="2-架构搜索的进展"><a class="markdownIt-Anchor" href="#2-架构搜索的进展"></a> 2. 架构搜索的进展</h4>
-<h5 id="渐进式神经架构搜索pnas"><a class="markdownIt-Anchor" href="#渐进式神经架构搜索pnas"></a> 渐进式神经架构搜索PNAS</h5>
-<p>  论文：<a href="https://arxiv.org/abs/1712.00559" target="_blank" rel="noopener">Progressive Neural Architecture Search</a></p>
-<h5 id="高效神经架构搜索enas"><a class="markdownIt-Anchor" href="#高效神经架构搜索enas"></a> 高效神经架构搜索ENAS</h5>
-<p>  论文：<a href="http://arxiv.org/abs/1802.03268" target="_blank" rel="noopener">Efficient Neural Architecture Search via Parameter Sharing</a></p>
-<h4 id="架构搜索的开源项目和商业产品"><a class="markdownIt-Anchor" href="#架构搜索的开源项目和商业产品"></a> 架构搜索的开源项目和商业产品</h4>
-<h5 id="开源项目"><a class="markdownIt-Anchor" href="#开源项目"></a> 开源项目</h5>
-<h5 id="商业产品"><a class="markdownIt-Anchor" href="#商业产品"></a> 商业产品</h5>
-<p>  Google提供的Cloud AutoML</p>
-<h4 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料：</h4>
-<ol>
-<li>一文看懂AutoML和NAS：<a href="https://zhuanlan.zhihu.com/p/42924585" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/42924585</a></li>
-<li>AutoML和NAS的调研（CVPR2019）:<a href="https://blog.csdn.net/soulmeetliang/article/details/93002244" target="_blank" rel="noopener">https://blog.csdn.net/soulmeetliang/article/details/93002244</a></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/07/dl-advanced-NASandAutoML2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="holdfire">
-      <meta itemprop="description" content="一只想上天的菜鸟！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="holdfire">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/07/dl-advanced-NASandAutoML2/" class="post-title-link" itemprop="url">自动机器学习AutoML和神经架构搜索NAS（2）</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-11-07 10:02:55 / 修改时间：11:29:31" itemprop="dateCreated datePublished" datetime="2019-11-07T10:02:55+08:00">2019-11-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
-<p>  </p>
-<h4 id="2nas算法搜索图像分类backbone"><a class="markdownIt-Anchor" href="#2nas算法搜索图像分类backbone"></a> 2.NAS算法搜索图像分类backbone</h4>
-<p>  </p>
-<h4 id="3-nas算法搜索物体检测backbone"><a class="markdownIt-Anchor" href="#3-nas算法搜索物体检测backbone"></a> 3. NAS算法搜索物体检测backbone</h4>
-<p><code>2019 NeurIPS: 旷视研究院提出DetNAS</code><br />
-  这是首个用于设计更好的物体检测器Backbone的神经网络搜索方法，由DetNet搜索出的框架在COCO上的性能超越了ResNet-50和ResNet-101，且模型计算量更低。<br />
-论文：<a href="https://arxiv.org/abs/1903.10979?context=cs" target="_blank" rel="noopener">DetNAS:Backbone Search for Object Detection</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1101,20 +1169,20 @@ B：10101010<br />
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">55</span>
+          <span class="site-state-item-count">60</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1189,7 +1257,7 @@ B：10101010<br />
    
     </div>
     <div class="powered-by"></div>
-    <span class="post-count">博客全站共27.7k字</span>
+    <span class="post-count">博客全站共29.9k字</span>
   </div>
         
 <div class="busuanzi-count">

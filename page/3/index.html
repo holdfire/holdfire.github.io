@@ -225,6 +225,399 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/06/cv-imageRetrieval-0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="holdfire">
+      <meta itemprop="description" content="一只想上天的菜鸟！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="holdfire">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/06/cv-imageRetrieval-0/" class="post-title-link" itemprop="url">图像检索——综述</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-11-06 16:14:50 / 修改时间：20:26:19" itemprop="dateCreated datePublished" datetime="2019-11-06T16:14:50+08:00">2019-11-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机视觉</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<p>  图片库Lib中共有n张图片，现有待检索图片q，我们想在Lib中查找和图片q最相似的图片y。</p>
+<h4 id="2-基于内容的图像检索cbir"><a class="markdownIt-Anchor" href="#2-基于内容的图像检索cbir"></a> 2. 基于内容的图像检索CBIR</h4>
+<h5 id="21-基于局部特征"><a class="markdownIt-Anchor" href="#21-基于局部特征"></a> 2.1 基于局部特征</h5>
+<p>  可选用的局部特征点包括角点和斑点两类，如：SIFT特征，SURF特征，ORB特征。流程如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">（1）对图片库Lib中图片，逐张提取局部特征点后生成描述子，将所有图片的描述子Desc保存在本地；</span><br><span class="line">（2）对待检索图片q提取局部特征并生成描述子desc_q；</span><br><span class="line">（3）将desc_q和图片库中图片的描述子进行match操作（判断是matched keypoints的规则见参考文献1），用matched kepoints的数目（设置一个阈值）及其距离来衡量其相似程度；</span><br><span class="line">（4）在图片库中所有图片进行查找（暴力查找或最近邻查找，如opencv提供的flann），根据相似度评分找到最优结果。</span><br></pre></td></tr></table></figure>
+<h5 id="22-基于全局特征"><a class="markdownIt-Anchor" href="#22-基于全局特征"></a> 2.2 基于全局特征</h5>
+<h5 id="23-基于cnn特征"><a class="markdownIt-Anchor" href="#23-基于cnn特征"></a> 2.3 基于CNN特征</h5>
+<h4 id="3检索算法"><a class="markdownIt-Anchor" href="#3检索算法"></a> 3.检索算法</h4>
+<h5 id="31-树形结构检索"><a class="markdownIt-Anchor" href="#31-树形结构检索"></a> 3.1 树形结构检索</h5>
+<h5 id="32-基于哈希的方法"><a class="markdownIt-Anchor" href="#32-基于哈希的方法"></a> 3.2 基于哈希的方法</h5>
+<h5 id="33-基于向量量化的方法"><a class="markdownIt-Anchor" href="#33-基于向量量化的方法"></a> 3.3 基于向量量化的方法</h5>
+<h4 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料：</h4>
+<ol>
+<li>SIFT特征做图像检索论文：<a href="http://xueshu.baidu.com/usercenter/paper/show?paperid=2917562fcc9a75a6c187617f0e99b371&amp;site=xueshu_se" target="_blank" rel="noopener">SIFT-Based Image Retrieval Combining the Distance Measure of Global Image and Sub-Image</a></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/06/dl-base-introduction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="holdfire">
+      <meta itemprop="description" content="一只想上天的菜鸟！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="holdfire">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/06/dl-base-introduction/" class="post-title-link" itemprop="url">deep-learning-introduction</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-06 13:12:36" itemprop="dateCreated datePublished" datetime="2019-11-06T13:12:36+08:00">2019-11-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-07 10:05:10" itemprop="dateModified" datetime="2019-11-07T10:05:10+08:00">2019-11-07</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/05/cV-objectDetection-yolov3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="holdfire">
+      <meta itemprop="description" content="一只想上天的菜鸟！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="holdfire">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/05/cV-objectDetection-yolov3/" class="post-title-link" itemprop="url">目标检测——YOLO系列算法</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-05 23:45:39" itemprop="dateCreated datePublished" datetime="2019-11-05T23:45:39+08:00">2019-11-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-06 19:57:05" itemprop="dateModified" datetime="2019-11-06T19:57:05+08:00">2019-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机视觉</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="1简介"><a class="markdownIt-Anchor" href="#1简介"></a> 1.简介</h4>
+<p>  </p>
+<h4 id="5-对yolov3做出的改进"><a class="markdownIt-Anchor" href="#5-对yolov3做出的改进"></a> 5. 对YOLOv3做出的改进</h4>
+<h5 id="51-模型压缩之yolov3-tiny"><a class="markdownIt-Anchor" href="#51-模型压缩之yolov3-tiny"></a> 5.1 模型压缩之YOLOv3-Tiny</h5>
+<p>  </p>
+<h5 id="52-剪枝"><a class="markdownIt-Anchor" href="#52-剪枝"></a> 5.2 剪枝</h5>
+<p>  在oxford hand数据集上对YOLOv3做模型剪枝，<a href="https://github.com/Lam1360/YOLOv3-model-pruning" target="_blank" rel="noopener">github项目地址</a>对 YOLOv3 进行 channel pruning 之后，模型的参数量、模型大小减少 80% ，FLOPs 降低 70%，前向推断的速度可以达到原来的 200%，同时可以保持 mAP 基本不变。<br />
+  剪枝算法基于论文<a href="">Learning Efficient Convolutional Networks Through Network Slimming (ICCV 2017)</a> <a href="http://openaccess.thecvf.com/content_iccv_2017/html/Liu_Learning_Efficient_Convolutional_ICCV_2017_paper.html" target="_blank" rel="noopener">http://openaccess.thecvf.com/content_iccv_2017/html/Liu_Learning_Efficient_Convolutional_ICCV_2017_paper.html</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/05/cv-fields-OCR/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="holdfire">
+      <meta itemprop="description" content="一只想上天的菜鸟！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="holdfire">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/05/cv-fields-OCR/" class="post-title-link" itemprop="url">文字识别技术</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-05 21:53:30" itemprop="dateCreated datePublished" datetime="2019-11-05T21:53:30+08:00">2019-11-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-06 19:53:00" itemprop="dateModified" datetime="2019-11-06T19:53:00+08:00">2019-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机视觉</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<p>  自然图像文本识别一直被认为是两个连续但独立的问题：文字检测和识别问题。当前最好的文字监测方法都是从目标检测或分割框架拓展而来。基于文字检测的结果，文字识别从被抠出的文本图片中识别一连串字符。一般来说，文字识别被转换为一个序列标记问题，通常用基于卷积神经网络(CNN)特征的递归神经网络(RNN)来解决。然而样两阶段的方法存在一些限制：（1）独立学习两个任务很难利用到文本本身的性质，比如联合的文字检测和识别可以提供丰富的上下文信息，并且两个任务可以实现互补；（2）两阶段的方法通常需要多个连续的步骤，整个系统变复杂。<br />
+  有些方法尝试开发一个统一的文字检测与识别框架（也叫端到端识别），如通过添加一个RNN的分支到文字检测模型来实现端到端识别。但它们本质上还是属于两阶段的框架。其缺点是：（1）使用RNN序列去识别文字，基于RNN的模型是比较难以与CNN文本监测模型进行联合优化的；（2）这些两阶段框架都需要RoI Pooling，因此很难精确地抠出准确的文本区域，通常会有很多背景被包含在抠出来的特征中，这不可避免的限制了文字识别的性能，尤其是对于多方向或弯曲文本。</p>
+<h4 id="2-自然场景下文字检测与识别"><a class="markdownIt-Anchor" href="#2-自然场景下文字检测与识别"></a> 2. 自然场景下文字检测与识别</h4>
+<ul>
+<li>ICCV2019论文：<a href="">Convolutional Character Networks</a><br />
+  码隆科技提出的一种单阶段模型——卷积字符网络CharNet，能够端到端地同时解决文字检测和识别问题。其主要贡献为：（1）利用单个字符作为基本元素，巧妙的避免了需要同时优化CNN文本检测和RNN文本识别模型的困难与限制；（2）针对字符标注难以获取的问题，提出一个可以利用合成数据训练字符检测器的方法。该方法可以更好地将模型在合成数据上学到的知识迁移到真实数据上。</li>
+</ul>
+<h4 id="3-打印文档文字检测与识别"><a class="markdownIt-Anchor" href="#3-打印文档文字检测与识别"></a> 3. 打印文档文字检测与识别</h4>
+<h4 id="4-手写体文字检测与识别"><a class="markdownIt-Anchor" href="#4-手写体文字检测与识别"></a> 4. 手写体文字检测与识别</h4>
+<h4 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料：</h4>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/04/cv-imageRetrieval-3NN-lsh/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="holdfire">
+      <meta itemprop="description" content="一只想上天的菜鸟！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="holdfire">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/04/cv-imageRetrieval-3NN-lsh/" class="post-title-link" itemprop="url">最近邻搜索NN——哈希散列方法</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-04 17:36:20" itemprop="dateCreated datePublished" datetime="2019-11-04T17:36:20+08:00">2019-11-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-06 20:26:29" itemprop="dateModified" datetime="2019-11-06T20:26:29+08:00">2019-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机视觉</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/04/cv-imageRetrieval-3NN/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -770,443 +1163,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/04/ml-adaBoost/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="holdfire">
-      <meta itemprop="description" content="一只想上天的菜鸟！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="holdfire">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/04/ml-adaBoost/" class="post-title-link" itemprop="url">集成学习——AdaBoost</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-04 02:05:04" itemprop="dateCreated datePublished" datetime="2019-11-04T02:05:04+08:00">2019-11-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-06 20:00:14" itemprop="dateModified" datetime="2019-11-06T20:00:14+08:00">2019-11-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/04/ml-XgBoost/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="holdfire">
-      <meta itemprop="description" content="一只想上天的菜鸟！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="holdfire">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/04/ml-XgBoost/" class="post-title-link" itemprop="url">集成学习——XgBoost</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-04 02:05:04" itemprop="dateCreated datePublished" datetime="2019-11-04T02:05:04+08:00">2019-11-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-06 20:01:04" itemprop="dateModified" datetime="2019-11-06T20:01:04+08:00">2019-11-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/04/ml-ensembleLearning/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="holdfire">
-      <meta itemprop="description" content="一只想上天的菜鸟！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="holdfire">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/04/ml-ensembleLearning/" class="post-title-link" itemprop="url">集成学习——简介</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-04 02:05:04" itemprop="dateCreated datePublished" datetime="2019-11-04T02:05:04+08:00">2019-11-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-06 20:00:24" itemprop="dateModified" datetime="2019-11-06T20:00:24+08:00">2019-11-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/03/cv-fields/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="holdfire">
-      <meta itemprop="description" content="一只想上天的菜鸟！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="holdfire">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/03/cv-fields/" class="post-title-link" itemprop="url">计算机视觉方向——介绍</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-03 21:40:07" itemprop="dateCreated datePublished" datetime="2019-11-03T21:40:07+08:00">2019-11-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-07 10:45:41" itemprop="dateModified" datetime="2019-11-07T10:45:41+08:00">2019-11-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机视觉</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
-<p>  计算机视觉包含图像处理、图像分析和图像理解三个部分。</p>
-<h4 id="2-计算机视觉基础任务"><a class="markdownIt-Anchor" href="#2-计算机视觉基础任务"></a> 2. 计算机视觉基础任务</h4>
-<h5 id="21-图像处理image-process"><a class="markdownIt-Anchor" href="#21-图像处理image-process"></a> 2.1 图像处理image process</h5>
-<p>  图像处理是对图像进行去噪、增强、复原、分割、特征提取、识别、等操作的理论、方法和技术。</p>
-<h5 id="22-图像分析image-analysis"><a class="markdownIt-Anchor" href="#22-图像分析image-analysis"></a> 2.2 图像分析image analysis</h5>
-<p>  </p>
-<h5 id="23-图像理解image-understanding"><a class="markdownIt-Anchor" href="#23-图像理解image-understanding"></a> 2.3 图像理解image understanding</h5>
-<p>  图像理解可以认为是一种动态的目标检测，由全局信息生成图像摘要。</p>
-<ul>
-<li>特征检测和匹配(feature detection and matching)</li>
-<li>基于特征的图像对齐(feature based alignment):姿态估计(pose estimation)</li>
-<li>图像分割(segmentation)：图像语义分割(image semantic segmentation)</li>
-<li>图像分类(image classification)</li>
-<li>目标检测(object detection)</li>
-<li>图像描述(image caption)</li>
-<li>图像风格转换()</li>
-<li>图像生成(image generation):如变分自编码器VAE，生成对抗网络GAN</li>
-<li>度量学习(metric learning)</li>
-</ul>
-<h4 id="3-计算机视觉方向"><a class="markdownIt-Anchor" href="#3-计算机视觉方向"></a> 3. 计算机视觉方向</h4>
-<h5 id="31-图像相关"><a class="markdownIt-Anchor" href="#31-图像相关"></a> 3.1 图像相关</h5>
-<ul>
-<li><font color="red">图像检索</font>：基于内容的图像检索CBIR，实例图像检索(instance image retrieval)</li>
-<li><font color="red">人脸识别</font>：人脸检测，人脸识别，人脸活体检测算法，人脸表情识别，人脸颜值打分</li>
-<li><font color="red">行人属性识别</font>：Re ID</li>
-<li><font color="red">人体骨骼关键点检测</font>：人体姿态估计(Pose Estimation)，行为识别(open pose开源框架)</li>
-</ul>
-<h5 id="32-视频或多幅图像"><a class="markdownIt-Anchor" href="#32-视频或多幅图像"></a> 3.2 视频或多幅图像</h5>
-<ul>
-<li><font color="red">视频目标跟踪</font>：单目标跟踪，多目标跟踪，行人再追踪</li>
-<li><font color="red">视频显著物体检测</font>：Video Salient Object Detection</li>
-<li><font color="red">视频对象提取</font>：</li>
-<li><font color="red">视频分类</font>：video classification</li>
-</ul>
-<h5 id="33-文字-语言相关"><a class="markdownIt-Anchor" href="#33-文字-语言相关"></a> 3.3 文字、语言相关</h5>
-<ul>
-<li><font color="red">文字检测与识别</font>：文档文字检测与识别，场景文字检测与识别，手写体文本检测与识别</li>
-<li><font color="red">基于深度学习的表格提取</font>：</li>
-<li><font color="red">唇语识别</font>：</li>
-</ul>
-<h5 id="34-专门领域"><a class="markdownIt-Anchor" href="#34-专门领域"></a> 3.4 专门领域</h5>
-<ul>
-<li><font color="red">自动驾驶</font>：slam技术</li>
-<li><font color="red">车辆结构化</font>：车牌识别，车型识别</li>
-<li><font color="red">医学图像分析</font>:</li>
-</ul>
-<h5 id="35-三维视觉技术"><a class="markdownIt-Anchor" href="#35-三维视觉技术"></a> 3.5 三维视觉技术</h5>
-<ul>
-<li><font color="red">三维重建</font>：单视图三维重建，多视图三维重建，从全景图恢复三维结构，深度相机室内实时稠密三维重建，</li>
-<li><font color="red">立体匹配技术</font>：阵列相机立体全景拼接</li>
-<li><font color="red">运动重构SFM</font>：Strucutre From Motion，从一系列包含视觉运动信息的多幅二维图像序列中估计三维结构</li>
-<li><font color="red">基于RGB-D的三维深度学习</font>：三维目标分类，三维目标检测，三维语义分割</li>
-<li><font color="red">构造深度图</font>：单目微运动生成深度图，深度图补全</li>
-<li><font color="red">深度学习自动构图</font>：</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/03/cV-objectDetection/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="holdfire">
-      <meta itemprop="description" content="一只想上天的菜鸟！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="holdfire">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/03/cV-objectDetection/" class="post-title-link" itemprop="url">目标检测——综述</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-03 21:27:36" itemprop="dateCreated datePublished" datetime="2019-11-03T21:27:36+08:00">2019-11-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-06 19:57:19" itemprop="dateModified" datetime="2019-11-06T19:57:19+08:00">2019-11-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机视觉</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
-<p>  </p>
-<h4 id="2faster-r-cnn系列"><a class="markdownIt-Anchor" href="#2faster-r-cnn系列"></a> 2.Faster R-CNN系列</h4>
-<h4 id="3-yolo系列"><a class="markdownIt-Anchor" href="#3-yolo系列"></a> 3. YOLO系列</h4>
-<h4 id="4-ssd系列"><a class="markdownIt-Anchor" href="#4-ssd系列"></a> 4. SSD系列</h4>
-<h4 id="5-其他方法"><a class="markdownIt-Anchor" href="#5-其他方法"></a> 5. 其他方法</h4>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1257,20 +1213,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">55</span>
+          <span class="site-state-item-count">60</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1345,7 +1301,7 @@
    
     </div>
     <div class="powered-by"></div>
-    <span class="post-count">博客全站共27.7k字</span>
+    <span class="post-count">博客全站共29.9k字</span>
   </div>
         
 <div class="busuanzi-count">
