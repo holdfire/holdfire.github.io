@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://holdfire.github.io/2019/11/08/complie-make-cmake/</loc>
+    
+    <lastmod>2019-11-09T18:24:29.750Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://holdfire.github.io/2019/11/09/dl-course-tf20-1/</loc>
     
     <lastmod>2019-11-09T18:19:22.391Z</lastmod>
@@ -75,13 +82,6 @@
     <loc>http://holdfire.github.io/2019/11/08/python-anaconda/</loc>
     
     <lastmod>2019-11-08T07:25:44.688Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/11/08/complie-make-cmake/</loc>
-    
-    <lastmod>2019-11-07T18:53:17.652Z</lastmod>
     
   </url>
   
