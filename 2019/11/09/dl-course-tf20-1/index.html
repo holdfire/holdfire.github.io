@@ -59,7 +59,7 @@
 <meta property="og:site_name" content="holdfire">
 <meta property="og:description" content="第1章 TensorFlow简介与环境搭建      1. Tensorflow简介  TensorFlow是什么？  采用数据流图，用于数值计算； 数据流图：节点是处理数据，边表示节点的依赖关系，边上运输张量； 节点被分配到各种计算设备上运行；   TensorFlow的特性：  高度的灵活性 可移植性 自动求微分 多语言支持   TensorFlow版本变迁：  201704：集成了kera">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-10T18:57:18.163Z">
+<meta property="og:updated_time" content="2019-11-11T02:25:25.527Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://holdfire.github.io/2019/11/09/dl-course-tf20-1/">
@@ -256,7 +256,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-11 02:57:18" itemprop="dateModified" datetime="2019-11-11T02:57:18+08:00">2019-11-11</time>
+                <time title="修改时间：2019-11-11 10:25:25" itemprop="dateModified" datetime="2019-11-11T10:25:25+08:00">2019-11-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -326,16 +326,16 @@
 </ul>
 <h5 id="tensorflow20的开发流程"><a class="markdownIt-Anchor" href="#tensorflow20的开发流程"></a> TensorFlow2.0的开发流程</h5>
 <ul>
-<li>使用tf.data加载数据；</li>
-<li>使用tf.keras构建模型，也可以使用premade estimator来验证模型；
+<li>使用tf.data加载数据(下载，划分，尺寸，归一化，获取batch)；</li>
+<li>使用tf.keras构建模型，也可以使用premade estimator来验证模型；(用Sequential构建模型，compile设置模式，)
 <ul>
 <li>使用tensorflow hub进行迁移学习</li>
 </ul>
 </li>
 <li>使用eager mode进行运行和调试；</li>
-<li>使用分发策略来进行分布式训练；</li>
+<li>使用分发策略来进行分布式训练；（fit和evaluate）</li>
 <li>导出到SavedModel；</li>
-<li>使用Tesnsoflow Server, Tensorflow Lite, Tensorflow.js部署模型。</li>
+<li>使用Tesnsoflow Server, Tensorflow Lite, Tensorflow.js部署模型（predict）</li>
 </ul>
 <h4 id="2-tensorflow和pytorch的区别"><a class="markdownIt-Anchor" href="#2-tensorflow和pytorch的区别"></a> 2. Tensorflow和Pytorch的区别</h4>
 <p>  在Tensorflow1.0的版本中添加tf.enable_eager_mode，即打开了动态图模式，就可以按照tf2.0的方式去构建动态图了。而tf2.0构建动态图的方法和pytorch基本一样。下面从4个方面比较二者的区别：</p>
@@ -405,7 +405,7 @@ Pytorch支持比较简单</p>
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2019/11/08/dl-AndrewNGDL-chapter1/" rel="next" title="dl-AndrewNGDL-chapter1">
+                <a href="/2019/11/08/dl-AndrewNGdl-chapter1/" rel="next" title="dl-AndrewNGDL-chapter1">
                   <i class="fa fa-chevron-left"></i> dl-AndrewNGDL-chapter1
                 </a>
             </div>
@@ -470,7 +470,7 @@ Pytorch支持比较简单</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-count">70</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -483,7 +483,7 @@ Pytorch支持比较简单</p>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -558,7 +558,7 @@ Pytorch支持比较简单</p>
    
     </div>
     <div class="powered-by"></div>
-    <span class="post-count">博客全站共30.2k字</span>
+    <span class="post-count">博客全站共31.1k字</span>
   </div>
         
 <div class="busuanzi-count">

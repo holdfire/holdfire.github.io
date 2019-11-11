@@ -2,16 +2,142 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://holdfire.github.io/2019/10/31/dl-base-activationFunction/</loc>
+    
+    <lastmod>2019-11-11T18:56:24.731Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/10/31/dl-base-lossFunction/</loc>
+    
+    <lastmod>2019-11-11T18:56:15.733Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/02/dL-base-normalization/</loc>
+    
+    <lastmod>2019-11-11T18:56:07.224Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/10/31/dL-base-optimizationAlgorithm1/</loc>
+    
+    <lastmod>2019-11-11T18:56:04.488Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/10/31/dl-base-optimizationAlgorithm2/</loc>
+    
+    <lastmod>2019-11-11T18:55:56.435Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/02/dl-base-parameterInitialization/</loc>
+    
+    <lastmod>2019-11-11T18:55:43.180Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/12/ml-reduceDimension-LLE/</loc>
+    
+    <lastmod>2019-11-11T18:00:40.414Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/12/ml-reduceDimension-MDS/</loc>
+    
+    <lastmod>2019-11-11T18:00:32.504Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/12/ml-reduceDimension-PCA/</loc>
+    
+    <lastmod>2019-11-11T18:00:24.110Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/12/ml-reduceDimension-SVD/</loc>
+    
+    <lastmod>2019-11-11T18:00:11.727Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/12/ml-reduceDimension-LDA/</loc>
+    
+    <lastmod>2019-11-11T17:55:30.627Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/12/ml-reduceDimension-KLTransformation/</loc>
+    
+    <lastmod>2019-11-11T17:53:34.906Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/12/ml-reduceDimension-ISOmap/</loc>
+    
+    <lastmod>2019-11-11T17:53:24.482Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/12/ml-reduceDimension-FA/</loc>
+    
+    <lastmod>2019-11-11T17:46:20.891Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/08/dl-AndrewNGdl-chapter1/</loc>
+    
+    <lastmod>2019-11-11T08:06:22.905Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/11/compile-bazel/</loc>
+    
+    <lastmod>2019-11-11T07:05:03.734Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/11/software-tensorflow2-0-bug/</loc>
+    
+    <lastmod>2019-11-11T06:57:04.294Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://holdfire.github.io/2019/10/26/python-virtual-environment/</loc>
     
-    <lastmod>2019-11-10T20:13:48.771Z</lastmod>
+    <lastmod>2019-11-11T03:43:43.717Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/09/dl-course-tf20-1/</loc>
+    
+    <lastmod>2019-11-11T02:25:25.527Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://holdfire.github.io/2019/11/08/python-anaconda/</loc>
     
-    <lastmod>2019-11-10T20:12:45.897Z</lastmod>
+    <lastmod>2019-11-10T20:29:33.985Z</lastmod>
     
   </url>
   
@@ -19,13 +145,6 @@
     <loc>http://holdfire.github.io/2019/11/10/python-numpy/</loc>
     
     <lastmod>2019-11-10T20:12:24.922Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/11/09/dl-course-tf20-1/</loc>
-    
-    <lastmod>2019-11-10T18:57:18.163Z</lastmod>
     
   </url>
   
@@ -47,13 +166,6 @@
     <loc>http://holdfire.github.io/2019/11/10/numerical-computation-blas/</loc>
     
     <lastmod>2019-11-09T16:49:29.431Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/11/08/dl-AndrewNGDL-chapter1/</loc>
-    
-    <lastmod>2019-11-08T11:44:44.863Z</lastmod>
     
   </url>
   
@@ -152,48 +264,6 @@
     <loc>http://holdfire.github.io/2019/11/06/dl-base-introduction/</loc>
     
     <lastmod>2019-11-07T02:05:10.031Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/11/02/dl-base-parameterInitialization/</loc>
-    
-    <lastmod>2019-11-07T02:04:59.683Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/10/31/dl-base-optimizationAlgorithm2/</loc>
-    
-    <lastmod>2019-11-07T02:04:52.721Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/10/31/dL-base-optimizationAlgorithm1/</loc>
-    
-    <lastmod>2019-11-07T02:04:46.080Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/11/02/dL-base-normalization/</loc>
-    
-    <lastmod>2019-11-07T02:04:39.838Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/10/31/dl-base-lossFunction/</loc>
-    
-    <lastmod>2019-11-07T02:04:30.121Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/10/31/dl-base-activationFunction/</loc>
-    
-    <lastmod>2019-11-07T02:04:10.948Z</lastmod>
     
   </url>
   

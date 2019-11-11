@@ -1,6 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>特征提取——因子分析法FA</title>
+    <url>/2019/11/12/ml-reduceDimension-FA/</url>
+    <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<p>  </p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>特征提取</tag>
+        <tag>数据降维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>特征提取——等容特征映射IsoMap</title>
+    <url>/2019/11/12/ml-reduceDimension-ISOmap/</url>
+    <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<p>  等容特征映射(Isometric feature mapping, IsoMap)的基本思想是：当样本在高维空间中按照某种复杂结构分布时，如果直接计算两个样本点之间的欧氏距离，就损失了样本分布的结构信息。如果样本分布较密集，可以假定样本及的复杂结构在每个小的局部都可以用欧式空间来近似。计算每个样本与乡邻样本之间的欧氏距离；对两个不相邻的样本，寻找一些一系列凉凉相邻的样本构成连接着两个样本的路径，用两个样本间最短路径上的距不距离只和作为两个样本间的距离。这种距离称作测地距离(geodesic distance)。有了样本间的距离矩阵，就可以用度量型MDS等方法映射到低维空间。</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>特征提取</tag>
+        <tag>数据降维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>特征提取——线性判别分析LDA</title>
+    <url>/2019/11/12/ml-reduceDimension-LDA/</url>
+    <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<p>  线性判别分析（也称作Fisher判别分析，Linear Discriminant Analysis）</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>特征提取</tag>
+        <tag>数据降维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>特征提取——多维尺度法MDS</title>
+    <url>/2019/11/12/ml-reduceDimension-MDS/</url>
+    <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<p>  多维尺度法（Multidimensional Scaling, MDS）</p>
+<h4 id="2-古典尺度法"><a class="markdownIt-Anchor" href="#2-古典尺度法"></a> 2. 古典尺度法</h4>
+<h4 id="3-度量型mds"><a class="markdownIt-Anchor" href="#3-度量型mds"></a> 3. 度量型MDS</h4>
+<h4 id="4-非度量型mds"><a class="markdownIt-Anchor" href="#4-非度量型mds"></a> 4. 非度量型MDS</h4>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>特征提取</tag>
+        <tag>数据降维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>特征提取——局部线性嵌入LLE</title>
+    <url>/2019/11/12/ml-reduceDimension-LLE/</url>
+    <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<p>  局部线性嵌入（Locally Linear Embedding）方法</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>特征提取</tag>
+        <tag>数据降维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>特征提取——主成分分析PCA</title>
+    <url>/2019/11/12/ml-reduceDimension-PCA/</url>
+    <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<p>  主成分分析(Principal Components Analysis, PCA)</p>
+<h4 id="2-核主成分分析kpca"><a class="markdownIt-Anchor" href="#2-核主成分分析kpca"></a> 2. 核主成分分析KPCA</h4>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>特征提取</tag>
+        <tag>数据降维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>特征提取——奇异值分解SVD</title>
+    <url>/2019/11/12/ml-reduceDimension-SVD/</url>
+    <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<p>  奇异值分解(Singular Value Decomposition, SVD)</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>特征提取</tag>
+        <tag>数据降维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>特征提取——KL变换</title>
+    <url>/2019/11/12/ml-reduceDimension-KLTransformation/</url>
+    <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<p>  </p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>特征提取</tag>
+        <tag>数据降维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>bazel编译器</title>
+    <url>/2019/11/11/compile-bazel/</url>
+    <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<p>  编译和移植tensorflow的C/C++源码时，用到bazel这一构建工具。Bazel是一个类似于Make的编译工具，是Google为其内部软件开发的特点量身定制的工具，如今Google使用它来构建内部大多数的软件。Google认为直接用Makefile构建软件速度太慢，结果不可靠，所以构建了一个新的工具叫做Bazel，Bazel的规则层级更高。</p>
+<h4 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料：</h4>
+<ol>
+<li>tensorflow官网——从源代码编译tensorflow：<a href="https://www.tensorflow.org/install/source" target="_blank" rel="noopener">https://www.tensorflow.org/install/source</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>编译原理</category>
+      </categories>
+      <tags>
+        <tag>编译原理</tag>
+        <tag>TensorFlow</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>TensorFlow2.0——Bug和Debug日记</title>
+    <url>/2019/11/11/software-tensorflow2-0-bug/</url>
+    <content><![CDATA[<h4 id="bug-20191111"><a class="markdownIt-Anchor" href="#bug-20191111"></a> BUG #20191111</h4>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">背景信息：[window10，64位，python3.7，tensorflow2.0，cpu版]</span><br><span class="line">Warning 警告信息如下：</span><br><span class="line">Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2</span><br></pre></td></tr></table></figure>
+<p>  出现上述警告，是因为安装的tensorflow版本不对。我的CPU支持AVX2拓展，但我安装的TensorFlow不能编译使用。<br />
+  除了通常的逻辑和算术运算，现代CPU提供了许多低级指令，称为拓展，例如：SSE2,SSE4,AVX,AVX2。高级矢量拓展（AVX）是英特尔在2008年3月提出的英特尔和AMD微处理器的x86指令集体系结构的扩展，英特尔首先通过Sandy Bridge处理器在2011年第一季度推出，随后由AMD推出Bulldozer处理器在2011年第三季度.AVX提供了新功能，新指令和新编码方案。 特别是，AVX引入了融合乘法累加（FMA）操作，加速了线性代数计算，即点积，矩阵乘法，卷积等。几乎所有机器学习训练都涉及大量这些操作，因此将会支持AVX和FMA的CPU（最高达300％）更快。该警告指出您的CPU确实支持AVX。<br />
+  由于tensorflow默认分布是在没有CPU扩展的情况下构建的，例如SSE4.1，SSE4.2，AVX，AVX2，FMA等。默认版本（来自pip install tensorflow的版本）旨在与尽可能多的CPU兼容。另一个观点是，即使使用这些扩展名，CPU的速度也要比GPU慢很多，并且期望在GPU上执行中型和大型机器学习培训。</p>
+<h5 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料：</h5>
+<ol>
+<li>上述bug说明：<a href="https://blog.csdn.net/hq86937375/article/details/79696023" target="_blank" rel="noopener">https://blog.csdn.net/hq86937375/article/details/79696023</a></li>
+<li>使用bazel自己编译tensorflow：<a href="https://stackoverflow.com/questions/41293077/how-to-compile-tensorflow-with-sse4-2-and-avx-instructions" target="_blank" rel="noopener">https://stackoverflow.com/questions/41293077/how-to-compile-tensorflow-with-sse4-2-and-avx-instructions</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>软件安装</category>
+      </categories>
+      <tags>
+        <tag>TensorFlow</tag>
+        <tag>深度学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CUDA编程——快速入门篇</title>
     <url>/2019/11/10/cuda-learning1/</url>
     <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
@@ -146,16 +302,16 @@
 </ul>
 <h5 id="tensorflow20的开发流程"><a class="markdownIt-Anchor" href="#tensorflow20的开发流程"></a> TensorFlow2.0的开发流程</h5>
 <ul>
-<li>使用tf.data加载数据；</li>
-<li>使用tf.keras构建模型，也可以使用premade estimator来验证模型；
+<li>使用tf.data加载数据(下载，划分，尺寸，归一化，获取batch)；</li>
+<li>使用tf.keras构建模型，也可以使用premade estimator来验证模型；(用Sequential构建模型，compile设置模式，)
 <ul>
 <li>使用tensorflow hub进行迁移学习</li>
 </ul>
 </li>
 <li>使用eager mode进行运行和调试；</li>
-<li>使用分发策略来进行分布式训练；</li>
+<li>使用分发策略来进行分布式训练；（fit和evaluate）</li>
 <li>导出到SavedModel；</li>
-<li>使用Tesnsoflow Server, Tensorflow Lite, Tensorflow.js部署模型。</li>
+<li>使用Tesnsoflow Server, Tensorflow Lite, Tensorflow.js部署模型（predict）</li>
 </ul>
 <h4 id="2-tensorflow和pytorch的区别"><a class="markdownIt-Anchor" href="#2-tensorflow和pytorch的区别"></a> 2. Tensorflow和Pytorch的区别</h4>
 <p>  在Tensorflow1.0的版本中添加tf.enable_eager_mode，即打开了动态图模式，就可以按照tf2.0的方式去构建动态图了。而tf2.0构建动态图的方法和pytorch基本一样。下面从4个方面比较二者的区别：</p>
@@ -198,7 +354,7 @@ Pytorch支持比较简单</p>
   </entry>
   <entry>
     <title>dl-AndrewNGDL-chapter1</title>
-    <url>/2019/11/08/dl-AndrewNGDL-chapter1/</url>
+    <url>/2019/11/08/dl-AndrewNGdl-chapter1/</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -288,7 +444,7 @@ Pytorch支持比较简单</p>
       </tags>
   </entry>
   <entry>
-    <title>Python-conda和Anaconda介绍</title>
+    <title>Python——conda和Anaconda介绍</title>
     <url>/2019/11/08/python-anaconda/</url>
     <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
 <p>  </p>
@@ -385,6 +541,25 @@ B：10101010<br />
       </tags>
   </entry>
   <entry>
+    <title>自动机器学习AutoML和神经架构搜索NAS（2）</title>
+    <url>/2019/11/07/dl-advanced-NASandAutoML2/</url>
+    <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<p>  </p>
+<h4 id="2nas算法搜索图像分类backbone"><a class="markdownIt-Anchor" href="#2nas算法搜索图像分类backbone"></a> 2.NAS算法搜索图像分类backbone</h4>
+<p>  </p>
+<h4 id="3-nas算法搜索物体检测backbone"><a class="markdownIt-Anchor" href="#3-nas算法搜索物体检测backbone"></a> 3. NAS算法搜索物体检测backbone</h4>
+<p><code>2019 NeurIPS: 旷视研究院提出DetNAS</code><br />
+  这是首个用于设计更好的物体检测器Backbone的神经网络搜索方法，由DetNet搜索出的框架在COCO上的性能超越了ResNet-50和ResNet-101，且模型计算量更低。<br />
+论文：<a href="https://arxiv.org/abs/1903.10979?context=cs" target="_blank" rel="noopener">DetNAS:Backbone Search for Object Detection</a></p>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>深度学习前沿</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>自动机器学习AutoML和神经架构搜索NAS（1）</title>
     <url>/2019/11/07/dl-advanced-NASandAutoML1/</url>
     <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
@@ -404,25 +579,6 @@ B：10101010<br />
 <li>一文看懂AutoML和NAS：<a href="https://zhuanlan.zhihu.com/p/42924585" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/42924585</a></li>
 <li>AutoML和NAS的调研（CVPR2019）:<a href="https://blog.csdn.net/soulmeetliang/article/details/93002244" target="_blank" rel="noopener">https://blog.csdn.net/soulmeetliang/article/details/93002244</a></li>
 </ol>
-]]></content>
-      <categories>
-        <category>深度学习</category>
-      </categories>
-      <tags>
-        <tag>深度学习前沿</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>自动机器学习AutoML和神经架构搜索NAS（2）</title>
-    <url>/2019/11/07/dl-advanced-NASandAutoML2/</url>
-    <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
-<p>  </p>
-<h4 id="2nas算法搜索图像分类backbone"><a class="markdownIt-Anchor" href="#2nas算法搜索图像分类backbone"></a> 2.NAS算法搜索图像分类backbone</h4>
-<p>  </p>
-<h4 id="3-nas算法搜索物体检测backbone"><a class="markdownIt-Anchor" href="#3-nas算法搜索物体检测backbone"></a> 3. NAS算法搜索物体检测backbone</h4>
-<p><code>2019 NeurIPS: 旷视研究院提出DetNAS</code><br />
-  这是首个用于设计更好的物体检测器Backbone的神经网络搜索方法，由DetNet搜索出的框架在COCO上的性能超越了ResNet-50和ResNet-101，且模型计算量更低。<br />
-论文：<a href="https://arxiv.org/abs/1903.10979?context=cs" target="_blank" rel="noopener">DetNAS:Backbone Search for Object Detection</a></p>
 ]]></content>
       <categories>
         <category>深度学习</category>
@@ -892,8 +1048,8 @@ SURF算法详解 <a href="https://www.cnblogs.com/gfgwxw/p/9415218.html" target=
         <category>机器学习</category>
       </categories>
       <tags>
-        <tag>深度学习</tag>
         <tag>机器学习</tag>
+        <tag>深度学习</tag>
       </tags>
   </entry>
   <entry>
@@ -904,13 +1060,25 @@ SURF算法详解 <a href="https://www.cnblogs.com/gfgwxw/p/9415218.html" target=
         <category>机器学习</category>
       </categories>
       <tags>
-        <tag>深度学习</tag>
         <tag>机器学习</tag>
+        <tag>深度学习</tag>
       </tags>
   </entry>
   <entry>
     <title>集成学习——GBDT</title>
     <url>/2019/11/04/ml-GBDT/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+        <tag>集成学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>集成学习——AdaBoost</title>
+    <url>/2019/11/04/ml-adaBoost/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>机器学习</category>
@@ -935,18 +1103,6 @@ SURF算法详解 <a href="https://www.cnblogs.com/gfgwxw/p/9415218.html" target=
   <entry>
     <title>集成学习——简介</title>
     <url>/2019/11/04/ml-ensembleLearning/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-        <tag>集成学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>集成学习——AdaBoost</title>
-    <url>/2019/11/04/ml-adaBoost/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>机器学习</category>
@@ -1146,7 +1302,7 @@ j = 1,2,...,N；k = 1,2,..,K </annotation></semantics></math></span><span class=
         <category>深度学习</category>
       </categories>
       <tags>
-        <tag>深度学习</tag>
+        <tag>神经网络</tag>
       </tags>
   </entry>
   <entry>
@@ -1172,7 +1328,7 @@ j = 1,2,...,N；k = 1,2,..,K </annotation></semantics></math></span><span class=
         <category>深度学习</category>
       </categories>
       <tags>
-        <tag>深度学习</tag>
+        <tag>神经网络</tag>
         <tag>卷积神经网络</tag>
         <tag>论文阅读</tag>
       </tags>
@@ -1267,7 +1423,7 @@ False Negative(FN)：假的负样本，即正样本被错误识别为负样本�
         <category>深度学习</category>
       </categories>
       <tags>
-        <tag>深度学习</tag>
+        <tag>神经网络</tag>
         <tag>凸优化</tag>
       </tags>
   </entry>
@@ -1283,7 +1439,7 @@ False Negative(FN)：假的负样本，即正样本被错误识别为负样本�
         <category>机器学习</category>
       </categories>
       <tags>
-        <tag>深度学习</tag>
+        <tag>神经网络</tag>
         <tag>机器学习</tag>
       </tags>
   </entry>
@@ -1324,7 +1480,7 @@ False Negative(FN)：假的负样本，即正样本被错误识别为负样本�
         <category>深度学习</category>
       </categories>
       <tags>
-        <tag>深度学习</tag>
+        <tag>神经网络</tag>
         <tag>凸优化</tag>
       </tags>
   </entry>
@@ -1419,7 +1575,7 @@ False Negative(FN)：假的负样本，即正样本被错误识别为负样本�
         <category>深度学习</category>
       </categories>
       <tags>
-        <tag>深度学习</tag>
+        <tag>神经网络</tag>
       </tags>
   </entry>
   <entry>
@@ -1818,7 +1974,7 @@ False Negative(FN)：假的负样本，即正样本被错误识别为负样本�
       </tags>
   </entry>
   <entry>
-    <title>Python——虚拟环境</title>
+    <title>Python——创建虚拟环境</title>
     <url>/2019/10/26/python-virtual-environment/</url>
     <content><![CDATA[<h4 id="1-python虚拟环境简介"><a class="markdownIt-Anchor" href="#1-python虚拟环境简介"></a> 1. Python虚拟环境简介</h4>
 <p>  Python中所有的第三方包都会被pip安装到<strong>site-packages目录</strong>下。对于某个特定的Python包，在项目A中可能需要使用1.0版的，而项目B中需要使用1.1版的。如何解决这种冲突呢？<br />
@@ -1834,7 +1990,8 @@ False Negative(FN)：假的负样本，即正样本被错误识别为负样本�
 <h5 id="22-virtualenvwrapper工具"><a class="markdownIt-Anchor" href="#22-virtualenvwrapper工具"></a> 2.2 virtualenvwrapper工具</h5>
 <p>  用户可以使用virtualenv工具在系统的任意地方创建虚拟环境。但下次需要激活这个环境时仍需要使用<code>source env_path/activate</code>命令，然而同学你可能早已忘记虚拟环境的路径env_path。<br />
   为了让用户更方便使用，我们可以把虚拟环境集中进行管理，virtualenvwrapper工具应运而生。在使用之前，你得先安装了virtualenv，然后再安装virtualenvwrapper。安装命令：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install virtualenvwrapper       # Linux下安装命令</span><br><span class="line">pip install virtualenvwrapper-win   # Windows下安装命令</span><br><span class="line">```  </span><br><span class="line">&amp;emsp;&amp;emsp;不想写了。。。还要自己一遍遍测试代码好麻烦。。。反正我也不用这个工具。。。先放着。。。后面用到了再写！！！</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#### 2.3 使用pipenv</span></span></span><br><span class="line">&amp;emsp;&amp;emsp;pipenv能够有效地管理虚拟环境和包，相当于virtualenv和pip的合体。使用pipenv成功安装虚拟环境后，会生成两个文件Pipfile和Pipfile.lock。前者是TOML格式（这是啥？）的，不用管子依赖包，子依赖包在pipenv install package的时候自动安装或更新。后者是json格式的，它包含了所有子依赖包的确定版本</span><br><span class="line">```shell</span><br><span class="line">pip install pipenv                  # 安装pipenv</span><br><span class="line">mkdir my_project                    # 创建项目文件夹</span><br><span class="line">cd  my_project                      # 进入文件夹下</span><br><span class="line"><span class="meta">#</span><span class="bash"> 创键虚拟环境，下面两种方式二选一</span></span><br><span class="line">pipenv install                      # 使用本地默认的python创建虚拟环境</span><br><span class="line">pipenv --python 3.6                 # 指定Python版本，我没试过</span><br><span class="line">pipenv shell                        # 激活虚拟环境</span><br><span class="line">pipenv install flask                # 然后就可以愉快地安装各种包啦</span><br><span class="line">pip list                            # 这个命令可以查看当前虚拟环境安装的所有包</span><br><span class="line">pipenv graph                        # 可以查看安装包的依赖关系</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install virtualenvwrapper       # Linux下安装命令</span><br><span class="line">pip install virtualenvwrapper-win   # Windows下安装命令</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">```</span><br><span class="line"></span><br><span class="line">&amp;emsp;&amp;emsp;不想写了。。。还要自己一遍遍测试代码好麻烦。。。反正我也不用这个工具。。。先放着。。。后面用到了再写！！！  </span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">##### 2.3 使用pipenv</span><br><span class="line">&amp;emsp;&amp;emsp;pipenv能够有效地管理虚拟环境和包，相当于virtualenv和pip的合体。使用pipenv成功安装虚拟环境后，会生成两个文件Pipfile和Pipfile.lock。前者是TOML格式（这是啥？）的，不用管子依赖包，子依赖包在pipenv install package的时候自动安装或更新。后者是json格式的，它包含了所有子依赖包的确定版本</span><br><span class="line">```shell</span><br><span class="line">pip install pipenv                  # 安装pipenv</span><br><span class="line">mkdir my_project                    # 创建项目文件夹</span><br><span class="line">cd  my_project                      # 进入文件夹下</span><br><span class="line"># 创建虚拟环境,windows和linux（没试过）相同，但不适用于cygwin</span><br><span class="line">pipenv install                      # 创建虚拟环境：使用本地默认的python</span><br><span class="line">pipenv --python 3.6                 # 创建虚拟环境：指定Python版本</span><br><span class="line">pipenv shell                        # 激活虚拟环境</span><br><span class="line"># 然后就可以愉快地安装各种包啦    </span><br><span class="line">pipenv install flask                # 比如flask</span><br><span class="line">pip list                            # 这个命令可以查看当前虚拟环境安装的所有包</span><br><span class="line">pipenv graph                        # 可以查看安装包的依赖关系</span><br></pre></td></tr></table></figure>
 <h5 id="24-使用conda"><a class="markdownIt-Anchor" href="#24-使用conda"></a> 2.4 使用conda</h5>
 <p>  conda是一个开源的软件包和环境管理系统，结合了pip和virtualenv两者的功能。conda是一个通用包管理器，不但可以安装python包，还可以安装其他语言的包。</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 创建虚拟环境，指定python版本，指不指定pip好像都可以</span></span><br><span class="line">conda create -n venv_name python=3.7       </span><br><span class="line">conda create -n venv_name pip python=3.7  </span><br><span class="line">conda env list                          # 可查看当前存在的虚拟环境</span><br><span class="line"><span class="meta">#</span><span class="bash"> linux下激活和退出虚拟环境</span></span><br><span class="line">source activate venv_name               </span><br><span class="line">source deactivate</span><br><span class="line"><span class="meta">#</span><span class="bash"> windows下激活和退出虚拟环境</span></span><br><span class="line">conda activate venv_name                     </span><br><span class="line">conda deactivate</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装和管理包，使用conda或者pip都可以</span></span><br><span class="line">conda install numpy                      # 没试过</span><br><span class="line">pip install numpy</span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除虚拟环境</span></span><br><span class="line">conda remove -n venv_name --all</span><br></pre></td></tr></table></figure>

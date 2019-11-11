@@ -52,14 +52,14 @@
 </script>
 
   <meta name="description" content="1.如何分析参数初始化结果的好坏？   查看初始化后各层的激活值分布，如果在某个固定区间内分布则较好，如果集中在某个值上则初始化不好。  2. 把w初始化为0   对于单层网络可行；对于多层网络，由于链式法则会导致梯度消失。  3. 随机初始化   使用均值为0，方差为0.02的正态分布去初始化。w初始值较小是因为：如果x很大的话，w又相对较大，会导致Z非常大，这样如果激活函数是sigmoid，">
-<meta name="keywords" content="深度学习">
+<meta name="keywords" content="神经网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="神经网络——参数初始化">
 <meta property="og:url" content="http:&#x2F;&#x2F;holdfire.github.io&#x2F;2019&#x2F;11&#x2F;02&#x2F;dl-base-parameterInitialization&#x2F;index.html">
 <meta property="og:site_name" content="holdfire">
 <meta property="og:description" content="1.如何分析参数初始化结果的好坏？   查看初始化后各层的激活值分布，如果在某个固定区间内分布则较好，如果集中在某个值上则初始化不好。  2. 把w初始化为0   对于单层网络可行；对于多层网络，由于链式法则会导致梯度消失。  3. 随机初始化   使用均值为0，方差为0.02的正态分布去初始化。w初始值较小是因为：如果x很大的话，w又相对较大，会导致Z非常大，这样如果激活函数是sigmoid，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-07T02:04:59.683Z">
+<meta property="og:updated_time" content="2019-11-11T18:55:43.180Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://holdfire.github.io/2019/11/02/dl-base-parameterInitialization/">
@@ -256,7 +256,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-07 10:04:59" itemprop="dateModified" datetime="2019-11-07T10:04:59+08:00">2019-11-07</time>
+                <time title="修改时间：2019-11-12 02:55:43" itemprop="dateModified" datetime="2019-11-12T02:55:43+08:00">2019-11-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -325,7 +325,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag"># 深度学习</a>
+              <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag"># 神经网络</a>
           </div>
 
         
@@ -397,7 +397,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-count">70</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -410,7 +410,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -485,7 +485,7 @@
    
     </div>
     <div class="powered-by"></div>
-    <span class="post-count">博客全站共30.2k字</span>
+    <span class="post-count">博客全站共31.1k字</span>
   </div>
         
 <div class="busuanzi-count">
