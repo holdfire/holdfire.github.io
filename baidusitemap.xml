@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://holdfire.github.io/2019/10/31/dl-base-activationFunction/</loc>
-    <lastmod>2019-11-11</lastmod>
+    <loc>http://holdfire.github.io/2019/11/04/cv-imageRetrieval-3NN-vectorQuantization/</loc>
+    <lastmod>2019-11-12</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/10/31/dl-base-lossFunction/</loc>
-    <lastmod>2019-11-11</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/02/dL-base-normalization/</loc>
-    <lastmod>2019-11-11</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/10/31/dL-base-optimizationAlgorithm1/</loc>
-    <lastmod>2019-11-11</lastmod>
+    <lastmod>2019-11-12</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/10/31/dl-base-optimizationAlgorithm2/</loc>
+    <lastmod>2019-11-12</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/10/31/dL-base-optimizationAlgorithm1/</loc>
+    <lastmod>2019-11-12</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/10/31/dl-base-activationFunction/</loc>
+    <lastmod>2019-11-12</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/02/dL-base-normalization/</loc>
     <lastmod>2019-11-11</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/02/dl-base-parameterInitialization/</loc>
@@ -119,9 +122,6 @@
     <lastmod>2019-11-06</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/04/cv-imageRetrieval-3NN/</loc>
-    <lastmod>2019-11-06</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/04/cv-imageRetrieval-3NN-vectorQuantization/</loc>
     <lastmod>2019-11-06</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/04/cv-imageRetrieval-3NN-lsh/</loc>

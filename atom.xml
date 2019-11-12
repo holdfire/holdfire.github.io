@@ -76,6 +76,66 @@
   </entry>
   
   <entry>
+    <title>特征提取——KL变换</title>
+    <link href="http://holdfire.github.io/2019/11/12/ml-reduceDimension-KLTransformation/"/>
+    <id>http://holdfire.github.io/2019/11/12/ml-reduceDimension-KLTransformation/</id>
+    <published>2019-11-11T17:37:20.000Z</published>
+    <updated>2019-11-11T17:53:34.906Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4><p>  </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;1-简介&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-简介&quot;&gt;&lt;/a&gt; 1. 简介&lt;/h4&gt;
+&lt;p&gt;  &lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="机器学习" scheme="http://holdfire.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="特征提取" scheme="http://holdfire.github.io/tags/%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96/"/>
+    
+      <category term="数据降维" scheme="http://holdfire.github.io/tags/%E6%95%B0%E6%8D%AE%E9%99%8D%E7%BB%B4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>特征提取——局部线性嵌入LLE</title>
+    <link href="http://holdfire.github.io/2019/11/12/ml-reduceDimension-LLE/"/>
+    <id>http://holdfire.github.io/2019/11/12/ml-reduceDimension-LLE/</id>
+    <published>2019-11-11T17:37:20.000Z</published>
+    <updated>2019-11-11T18:00:40.414Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4><p>  局部线性嵌入（Locally Linear Embedding）方法</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;1-简介&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-简介&quot;&gt;&lt;/a&gt; 1. 简介&lt;/h4&gt;
+&lt;p&gt;  局部线性嵌入（Locally Linear Embedding）方法&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="机器学习" scheme="http://holdfire.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="特征提取" scheme="http://holdfire.github.io/tags/%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96/"/>
+    
+      <category term="数据降维" scheme="http://holdfire.github.io/tags/%E6%95%B0%E6%8D%AE%E9%99%8D%E7%BB%B4/"/>
+    
+  </entry>
+  
+  <entry>
     <title>特征提取——线性判别分析LDA</title>
     <link href="http://holdfire.github.io/2019/11/12/ml-reduceDimension-LDA/"/>
     <id>http://holdfire.github.io/2019/11/12/ml-reduceDimension-LDA/</id>
@@ -136,20 +196,20 @@
   </entry>
   
   <entry>
-    <title>特征提取——局部线性嵌入LLE</title>
-    <link href="http://holdfire.github.io/2019/11/12/ml-reduceDimension-LLE/"/>
-    <id>http://holdfire.github.io/2019/11/12/ml-reduceDimension-LLE/</id>
+    <title>特征提取——奇异值分解SVD</title>
+    <link href="http://holdfire.github.io/2019/11/12/ml-reduceDimension-SVD/"/>
+    <id>http://holdfire.github.io/2019/11/12/ml-reduceDimension-SVD/</id>
     <published>2019-11-11T17:37:20.000Z</published>
-    <updated>2019-11-11T18:00:40.414Z</updated>
+    <updated>2019-11-11T18:00:11.727Z</updated>
     
-    <content type="html"><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4><p>  局部线性嵌入（Locally Linear Embedding）方法</p>]]></content>
+    <content type="html"><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4><p>  奇异值分解(Singular Value Decomposition, SVD)</p>]]></content>
     
     <summary type="html">
     
       
       
         &lt;h4 id=&quot;1-简介&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-简介&quot;&gt;&lt;/a&gt; 1. 简介&lt;/h4&gt;
-&lt;p&gt;  局部线性嵌入（Locally Linear Embedding）方法&lt;/p&gt;
+&lt;p&gt;  奇异值分解(Singular Value Decomposition, SVD)&lt;/p&gt;
 
       
     
@@ -181,66 +241,6 @@
         &lt;h4 id=&quot;1-简介&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-简介&quot;&gt;&lt;/a&gt; 1. 简介&lt;/h4&gt;
 &lt;p&gt;  主成分分析(Principal Components Analysis, PCA)&lt;/p&gt;
 &lt;h4 id=&quot;2-核主成分分析k
-      
-    
-    </summary>
-    
-    
-      <category term="机器学习" scheme="http://holdfire.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="特征提取" scheme="http://holdfire.github.io/tags/%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96/"/>
-    
-      <category term="数据降维" scheme="http://holdfire.github.io/tags/%E6%95%B0%E6%8D%AE%E9%99%8D%E7%BB%B4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>特征提取——奇异值分解SVD</title>
-    <link href="http://holdfire.github.io/2019/11/12/ml-reduceDimension-SVD/"/>
-    <id>http://holdfire.github.io/2019/11/12/ml-reduceDimension-SVD/</id>
-    <published>2019-11-11T17:37:20.000Z</published>
-    <updated>2019-11-11T18:00:11.727Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4><p>  奇异值分解(Singular Value Decomposition, SVD)</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h4 id=&quot;1-简介&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-简介&quot;&gt;&lt;/a&gt; 1. 简介&lt;/h4&gt;
-&lt;p&gt;  奇异值分解(Singular Value Decomposition, SVD)&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-      <category term="机器学习" scheme="http://holdfire.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="特征提取" scheme="http://holdfire.github.io/tags/%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96/"/>
-    
-      <category term="数据降维" scheme="http://holdfire.github.io/tags/%E6%95%B0%E6%8D%AE%E9%99%8D%E7%BB%B4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>特征提取——KL变换</title>
-    <link href="http://holdfire.github.io/2019/11/12/ml-reduceDimension-KLTransformation/"/>
-    <id>http://holdfire.github.io/2019/11/12/ml-reduceDimension-KLTransformation/</id>
-    <published>2019-11-11T17:37:20.000Z</published>
-    <updated>2019-11-11T17:53:34.906Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4><p>  </p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h4 id=&quot;1-简介&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-简介&quot;&gt;&lt;/a&gt; 1. 简介&lt;/h4&gt;
-&lt;p&gt;  &lt;/p&gt;
-
       
     
     </summary>
