@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>吴恩达深度学习课程——Chpter1</title>
-    <url>/2019/11/14/dl-course-AndrewNGdl-chapter1/</url>
-    <content><![CDATA[<h3 id="center-第一周卷积神经网络center"><a class="markdownIt-Anchor" href="#center-第一周卷积神经网络center"></a> <center > 第一周：卷积神经网络</center></h3>
+    <title>吴恩达深度学习课程——课程4：Chapter1</title>
+    <url>/2019/11/14/dl-course-AndrewNGdl-c4-chapter1/</url>
+    <content><![CDATA[<h3 id="center-课程4第1周卷积神经网络center"><a class="markdownIt-Anchor" href="#center-课程4第1周卷积神经网络center"></a> <center > 课程4第1周：卷积神经网络</center></h3>
 <h4 id="12-卷积神经网络边缘检测"><a class="markdownIt-Anchor" href="#12-卷积神经网络边缘检测"></a> 1.2 卷积神经网络——边缘检测</h4>
 <p>  用如下所示的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn><mo>×</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">3 \times 3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">3</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span></span></span></span>的卷积检测出灰度图中的边缘。矩阵<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span></span></span></span>可以检测图片中由暗到亮的边缘，如果将矩阵<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span></span></span></span>左右翻转，可以检测出由亮到暗的边缘。矩阵<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>H</mi></mrow><annotation encoding="application/x-tex">H</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span></span></span></span>可以检测图片中的出水平的边缘。此外，其他类型的的边缘检测卷积核如：Sobel filter, Scharr filter也可以自定义使用。</p>
 <p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mtable rowspacing="0.15999999999999992em" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>V</mi><mo>=</mo><mrow><mo fence="true">(</mo><mtable rowspacing="0.15999999999999992em" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>1</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>0</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mo>−</mo><mn>1</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>1</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>0</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mo>−</mo><mn>1</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>1</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>0</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mo>−</mo><mn>1</mn></mrow></mstyle></mtd></mtr></mtable><mo fence="true">)</mo></mrow><mspace width="1em"/><mi>H</mi><mo>=</mo><mrow><mo fence="true">(</mo><mtable rowspacing="0.15999999999999992em" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>1</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>1</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>1</mn></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>0</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>0</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>0</mn></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mo>−</mo><mn>1</mn></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mo>−</mo><mn>1</mn></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mo>−</mo><mn>1</mn></mrow></mstyle></mtd></mtr></mtable><mo fence="true">)</mo></mrow><mspace width="1em"/><mi>S</mi><mi>o</mi><mi>b</mi><mi>e</mi><mi>l</mi><mo>=</mo><mrow><mo fence="true">(</mo><mtable rowspacing="0.15999999999999992em" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>1</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>0</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mo>−</mo><mn>1</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>2</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>0</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mo>−</mo><mn>2</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>1</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>0</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mo>−</mo><mn>1</mn></mrow></mstyle></mtd></mtr></mtable><mo fence="true">)</mo></mrow><mspace width="1em"/><mi>S</mi><mi>c</mi><mi>h</mi><mi>a</mi><mi>r</mi><mi>r</mi><mo>=</mo><mrow><mo fence="true">(</mo><mtable rowspacing="0.15999999999999992em" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>3</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>0</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mo>−</mo><mn>3</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>10</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>0</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mo>−</mo><mn>10</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>3</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>0</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mo>−</mo><mn>3</mn></mrow></mstyle></mtd></mtr></mtable><mo fence="true">)</mo></mrow></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{matrix}
@@ -77,9 +77,9 @@ V=\begin{pmatrix}
       </tags>
   </entry>
   <entry>
-    <title>吴恩达深度学习课程——Chpter2</title>
-    <url>/2019/11/14/dl-course-AndrewNGdl-chapter2/</url>
-    <content><![CDATA[<h3 id="center-第二周深度卷积神网络实例探究center"><a class="markdownIt-Anchor" href="#center-第二周深度卷积神网络实例探究center"></a> <center > 第二周：深度卷积神网络——实例探究</center></h3>
+    <title>吴恩达深度学习课程——课程4：Chapter2</title>
+    <url>/2019/11/14/dl-course-AndrewNGdl-c4-chapter2/</url>
+    <content><![CDATA[<h3 id="center-课程4第2周深度卷积神网络实例探究center"><a class="markdownIt-Anchor" href="#center-课程4第2周深度卷积神网络实例探究center"></a> <center > 课程4第2周：深度卷积神网络——实例探究</center></h3>
 <h4 id="21-为什么要进行实例探究"><a class="markdownIt-Anchor" href="#21-为什么要进行实例探究"></a> 2.1 为什么要进行实例探究</h4>
 <p>  </p>
 <p>  </p>
@@ -376,20 +376,6 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
       </tags>
   </entry>
   <entry>
-    <title>特征提取——奇异值分解SVD</title>
-    <url>/2019/11/12/ml-reduceDimension-SVD/</url>
-    <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
-<p>  奇异值分解(Singular Value Decomposition, SVD)</p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>特征提取</tag>
-        <tag>数据降维</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>特征提取——局部线性嵌入LLE</title>
     <url>/2019/11/12/ml-reduceDimension-LLE/</url>
     <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
@@ -426,6 +412,20 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
     <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
 <p>  主成分分析(Principal Components Analysis, PCA)</p>
 <h4 id="2-核主成分分析kpca"><a class="markdownIt-Anchor" href="#2-核主成分分析kpca"></a> 2. 核主成分分析KPCA</h4>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>特征提取</tag>
+        <tag>数据降维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>特征提取——奇异值分解SVD</title>
+    <url>/2019/11/12/ml-reduceDimension-SVD/</url>
+    <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<p>  奇异值分解(Singular Value Decomposition, SVD)</p>
 ]]></content>
       <categories>
         <category>机器学习</category>
@@ -1403,8 +1403,8 @@ SURF算法详解 <a href="https://www.cnblogs.com/gfgwxw/p/9415218.html" target=
       </tags>
   </entry>
   <entry>
-    <title>集成学习——简介</title>
-    <url>/2019/11/04/ml-ensembleLearning/</url>
+    <title>集成学习——AdaBoost</title>
+    <url>/2019/11/04/ml-adaBoost/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>机器学习</category>
@@ -1415,8 +1415,8 @@ SURF算法详解 <a href="https://www.cnblogs.com/gfgwxw/p/9415218.html" target=
       </tags>
   </entry>
   <entry>
-    <title>集成学习——AdaBoost</title>
-    <url>/2019/11/04/ml-adaBoost/</url>
+    <title>集成学习——简介</title>
+    <url>/2019/11/04/ml-ensembleLearning/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>机器学习</category>
