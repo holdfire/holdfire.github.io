@@ -1,6 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://holdfire.github.io/2019/11/25/dl-metricLearning/</loc>
+    <lastmod>2019-11-25</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/12/ml-reduceDimension-SVD/</loc>
+    <lastmod>2019-11-25</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/12/ml-reduceDimension-PCA/</loc>
+    <lastmod>2019-11-25</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/12/ml-reduceDimension-MDS/</loc>
+    <lastmod>2019-11-25</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/12/ml-reduceDimension-LLE/</loc>
+    <lastmod>2019-11-25</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/12/ml-reduceDimension-LDA/</loc>
+    <lastmod>2019-11-25</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/12/ml-reduceDimension-KLTransformation/</loc>
+    <lastmod>2019-11-25</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/12/ml-reduceDimension-ISOmap/</loc>
+    <lastmod>2019-11-25</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/12/ml-reduceDimension-FA/</loc>
+    <lastmod>2019-11-25</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/15/dl-course-AndrewNGdl-c4-chapter4/</loc>
+    <lastmod>2019-11-25</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/25/cv-imageRetrieval-DeepHash/</loc>
+    <lastmod>2019-11-25</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/11/dl-cnn-siameseNetwork/</loc>
+    <lastmod>2019-11-25</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/14/dl-cnn-RetinaNet/</loc>
+    <lastmod>2019-11-25</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/14/dl-cnn-CornerNet/</loc>
+    <lastmod>2019-11-25</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/25/dl-cnn-EfficientDet/</loc>
+    <lastmod>2019-11-25</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/25/dl-cnn-EfficientNet/</loc>
+    <lastmod>2019-11-25</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/25/dl-base-outputLayer/</loc>
+    <lastmod>2019-11-25</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/13/dl-base-optimizationAlgorithm1/</loc>
+    <lastmod>2019-11-25</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/02/dl-base-normalization/</loc>
+    <lastmod>2019-11-25</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/25/ml-base-dataAugment/</loc>
+    <lastmod>2019-11-25</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/21/ml-base-dataPreprocessing/</loc>
+    <lastmod>2019-11-25</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/03/cv-fields/</loc>
+    <lastmod>2019-11-22</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/10/other-numerical-computation-blas/</loc>
+    <lastmod>2019-11-21</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/04/ml-ensembleL-GBDT/</loc>
+    <lastmod>2019-11-21</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/04/ml-ensembleL-XgBoost/</loc>
+    <lastmod>2019-11-21</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/04/ml-ensembleL-adaBoost/</loc>
+    <lastmod>2019-11-21</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/03/ml-unsuperviseL-GMM/</loc>
+    <lastmod>2019-11-21</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/03/ml-unsuperviseL-EMAlgorithm/</loc>
+    <lastmod>2019-11-21</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/20/backendDev-conceptions/</loc>
+    <lastmod>2019-11-20</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/20/dl-course-AndrewNGdl-c4-chapter3/</loc>
+    <lastmod>2019-11-19</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/18/cv-imageProcess-Edge-dl/</loc>
+    <lastmod>2019-11-18</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/14/cv-imageProcess-Edge-canny/</loc>
+    <lastmod>2019-11-18</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/10/31/dl-base-lossFunction/</loc>
+    <lastmod>2019-11-18</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/15/dl-generativeModel-GAN/</loc>
+    <lastmod>2019-11-15</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/15/ml-ReinforcementLearning-1/</loc>
+    <lastmod>2019-11-15</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/15/dl-generativeModel-VAE/</loc>
+    <lastmod>2019-11-15</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/10/25/ml-SVM/</loc>
+    <lastmod>2019-11-15</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/10/25/other-my_first_blog/</loc>
+    <lastmod>2019-11-15</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/04/other-howToReadPapers/</loc>
+    <lastmod>2019-11-15</lastmod>
+  </url>  <url>
     <loc>http://holdfire.github.io/2019/11/15/dl-course-AndrewNGdl-c4-chapter1/</loc>
     <lastmod>2019-11-14</lastmod>
   </url>  <url>
@@ -14,12 +131,6 @@
     <lastmod>2019-11-14</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/15/dl-course-AndrewNGdl-c5-chapter1/</loc>
-    <lastmod>2019-11-14</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/15/dl-course-AndrewNGdl-c4-chapter4/</loc>
-    <lastmod>2019-11-14</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/15/dl-course-AndrewNGdl-c4-chapter3/</loc>
     <lastmod>2019-11-14</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/15/dl-course-AndrewNGdl-c3-chapter2/</loc>
@@ -49,32 +160,11 @@
     <loc>http://holdfire.github.io/2019/11/15/dl-course-AndrewNGdl-c1-chapter1/</loc>
     <lastmod>2019-11-14</lastmod>
   </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/11/dl-cnn-siameseNetwork/</loc>
-    <lastmod>2019-11-14</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/14/dl-cnn-RetinaNet-md/</loc>
-    <lastmod>2019-11-14</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/14/dl-cnn-CornerNet-md/</loc>
-    <lastmod>2019-11-14</lastmod>
-  </url>  <url>
     <loc>http://holdfire.github.io/2019/11/14/dl-cnn-CenterNet/</loc>
-    <lastmod>2019-11-14</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/14/cv-imageProcess-cannyEdge-md/</loc>
-    <lastmod>2019-11-14</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/02/dL-base-normalization/</loc>
-    <lastmod>2019-11-14</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/13/dL-base-optimizationAlgorithm1/</loc>
     <lastmod>2019-11-14</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/13/dl-base-optimizationAlgorithm2/</loc>
     <lastmod>2019-11-13</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/10/31/dl-base-lossFunction/</loc>
-    <lastmod>2019-11-12</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/04/cv-imageRetrieval-3NN-vectorQuantization/</loc>
     <lastmod>2019-11-12</lastmod>
@@ -83,30 +173,6 @@
     <lastmod>2019-11-12</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/02/dl-base-parameterInitialization/</loc>
-    <lastmod>2019-11-11</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/12/ml-reduceDimension-LLE/</loc>
-    <lastmod>2019-11-11</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/12/ml-reduceDimension-MDS/</loc>
-    <lastmod>2019-11-11</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/12/ml-reduceDimension-PCA/</loc>
-    <lastmod>2019-11-11</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/12/ml-reduceDimension-SVD/</loc>
-    <lastmod>2019-11-11</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/12/ml-reduceDimension-LDA/</loc>
-    <lastmod>2019-11-11</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/12/ml-reduceDimension-KLTransformation/</loc>
-    <lastmod>2019-11-11</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/12/ml-reduceDimension-ISOmap/</loc>
-    <lastmod>2019-11-11</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/12/ml-reduceDimension-FA/</loc>
     <lastmod>2019-11-11</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/11/compile-bazel/</loc>
@@ -131,9 +197,6 @@
     <lastmod>2019-11-09</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/10/cuda-learning1/</loc>
-    <lastmod>2019-11-09</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/10/numerical-computation-blas/</loc>
     <lastmod>2019-11-09</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/08/linux-file-mount/</loc>
@@ -169,14 +232,8 @@
     <loc>http://holdfire.github.io/2019/11/07/dl-advanced-NASandAutoML2/</loc>
     <lastmod>2019-11-07</lastmod>
   </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/03/cv-fields/</loc>
-    <lastmod>2019-11-07</lastmod>
-  </url>  <url>
     <loc>http://holdfire.github.io/2019/11/06/dl-base-introduction/</loc>
     <lastmod>2019-11-07</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/04/lx-howToReadPapers/</loc>
-    <lastmod>2019-11-06</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/06/papers-imageRetrieval01/</loc>
     <lastmod>2019-11-06</lastmod>
@@ -188,36 +245,6 @@
     <lastmod>2019-11-06</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/06/cv-imageRetrieval-0/</loc>
-    <lastmod>2019-11-06</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/10/25/ml-SVM/</loc>
-    <lastmod>2019-11-06</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/03/ml-GMM/</loc>
-    <lastmod>2019-11-06</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/03/ml-EMAlgorithm/</loc>
-    <lastmod>2019-11-06</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/04/ml-XgBoost/</loc>
-    <lastmod>2019-11-06</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/04/ml-standardizationNormalization/</loc>
-    <lastmod>2019-11-06</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/04/ml-regularization/</loc>
-    <lastmod>2019-11-06</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/04/ml-GBDT/</loc>
-    <lastmod>2019-11-06</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/04/ml-ensembleLearning/</loc>
-    <lastmod>2019-11-06</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/04/ml-adaBoost/</loc>
-    <lastmod>2019-11-06</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/02/cv-imageProcess-upAndDownSampling/</loc>
     <lastmod>2019-11-06</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/03/cV-objectDetection/</loc>
@@ -267,8 +294,5 @@
   </url>  <url>
     <loc>http://holdfire.github.io/2019/10/27/linux-command/</loc>
     <lastmod>2019-10-30</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/10/25/my_first_blog/</loc>
-    <lastmod>2019-10-25</lastmod>
   </url>
 </urlset>

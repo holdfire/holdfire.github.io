@@ -51,15 +51,15 @@
   };
 </script>
 
-  <meta name="description" content="1. 简介  1.1 单样本学习one shot learning   在训练有监督学习模型时，如果训练样本中每个类别只提供一个或少量训练样本，如何设计和训练模型，使得模型对小样本也能适应，样本的训练集变化也不需要重新训练模型呢？这就是单样本学习one-shot learning。   传统分类问题的输出是标注，通常为one-hot编码，我们学习得到的模型就是分类模型。而在one-shot问题中">
-<meta name="keywords" content="卷积神经网络,数据降维,度量学习">
+  <meta name="description" content="one-shot learning metric learning triplet loss siamese network   1. 简介  1.1 单样本学习one shot learning   在训练有监督学习模型时，如果训练样本中每个类别只提供一个或少量训练样本，如何设计和训练模型，使得模型对小样本也能适应，样本的训练集变化也不需要重新训练模型呢？这就是单样本学习one-shot le">
+<meta name="keywords" content="卷积神经网络,度量学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="孪生网络——Siamese Network">
 <meta property="og:url" content="http:&#x2F;&#x2F;holdfire.github.io&#x2F;2019&#x2F;11&#x2F;11&#x2F;dl-cnn-siameseNetwork&#x2F;index.html">
 <meta property="og:site_name" content="holdfire">
-<meta property="og:description" content="1. 简介  1.1 单样本学习one shot learning   在训练有监督学习模型时，如果训练样本中每个类别只提供一个或少量训练样本，如何设计和训练模型，使得模型对小样本也能适应，样本的训练集变化也不需要重新训练模型呢？这就是单样本学习one-shot learning。   传统分类问题的输出是标注，通常为one-hot编码，我们学习得到的模型就是分类模型。而在one-shot问题中">
+<meta property="og:description" content="one-shot learning metric learning triplet loss siamese network   1. 简介  1.1 单样本学习one shot learning   在训练有监督学习模型时，如果训练样本中每个类别只提供一个或少量训练样本，如何设计和训练模型，使得模型对小样本也能适应，样本的训练集变化也不需要重新训练模型呢？这就是单样本学习one-shot le">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-14T13:19:50.924Z">
+<meta property="og:updated_time" content="2019-11-25T03:47:02.912Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://holdfire.github.io/2019/11/11/dl-cnn-siameseNetwork/">
@@ -256,7 +256,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-14 21:19:50" itemprop="dateModified" datetime="2019-11-14T21:19:50+08:00">2019-11-14</time>
+                <time title="修改时间：2019-11-25 11:47:02" itemprop="dateModified" datetime="2019-11-25T11:47:02+08:00">2019-11-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -281,7 +281,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+        <ul>
+<li>one-shot learning</li>
+<li>metric learning</li>
+<li>triplet loss</li>
+<li>siamese network</li>
+</ul>
+<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
 <h5 id="11-单样本学习one-shot-learning"><a class="markdownIt-Anchor" href="#11-单样本学习one-shot-learning"></a> 1.1 单样本学习one shot learning</h5>
 <p>  在训练有监督学习模型时，如果训练样本中每个类别只提供一个或少量训练样本，如何设计和训练模型，使得模型对小样本也能适应，样本的训练集变化也不需要重新训练模型呢？这就是单样本学习one-shot learning。<br />
   传统分类问题的输出是标注，通常为one-hot编码，我们学习得到的模型就是分类模型。而在one-shot问题中，由于每个类别的样本太少，是无法学习到一个好的分类模型的。我们的思路是让模型学习得到一个相似度函数，模型输出的不是类别，而是给定输入两幅图像的相似度。</p>
@@ -333,7 +339,6 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag"># 卷积神经网络</a>
-              <a href="/tags/%E6%95%B0%E6%8D%AE%E9%99%8D%E7%BB%B4/" rel="tag"># 数据降维</a>
               <a href="/tags/%E5%BA%A6%E9%87%8F%E5%AD%A6%E4%B9%A0/" rel="tag"># 度量学习</a>
           </div>
 
@@ -349,8 +354,8 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2019/11/12/ml-reduceDimension-SVD/" rel="prev" title="特征提取——奇异值分解SVD">
-                  特征提取——奇异值分解SVD <i class="fa fa-chevron-right"></i>
+                <a href="/2019/11/12/ml-reduceDimension-LLE/" rel="prev" title="特征提取——局部线性嵌入LLE">
+                  特征提取——局部线性嵌入LLE <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -406,20 +411,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">90</span>
+          <span class="site-state-item-count">98</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-count">35</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -494,7 +499,7 @@
    
     </div>
     <div class="powered-by"></div>
-    <span class="post-count">博客全站共41.6k字</span>
+    <span class="post-count">博客全站共45.6k字</span>
   </div>
         
 <div class="busuanzi-count">

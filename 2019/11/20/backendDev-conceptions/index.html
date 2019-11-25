@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="holdfire" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"always","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="1. 基本概念  1.1 服务器(Server)：  服务器serve指的是一段程序，或者为客户提供该程序的设备。包括： application server file server computing server database server mail server proxy server web server   1.2 Web服务(Web service)：   Web服务是一个概念">
+<meta name="keywords" content="后端开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="后端开发——概念区分">
+<meta property="og:url" content="http:&#x2F;&#x2F;holdfire.github.io&#x2F;2019&#x2F;11&#x2F;20&#x2F;backendDev-conceptions&#x2F;index.html">
+<meta property="og:site_name" content="holdfire">
+<meta property="og:description" content="1. 基本概念  1.1 服务器(Server)：  服务器serve指的是一段程序，或者为客户提供该程序的设备。包括： application server file server computing server database server mail server proxy server web server   1.2 Web服务(Web service)：   Web服务是一个概念">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;slefboot-1251736664.cos.ap-beijing.myqcloud.com&#x2F;20160728_forum_design_framework_6.jpeg">
+<meta property="og:image" content="https:&#x2F;&#x2F;slefboot-1251736664.cos.ap-beijing.myqcloud.com&#x2F;20160728_forum_design_framework_4.png">
+<meta property="og:updated_time" content="2019-11-20T06:25:34.840Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;slefboot-1251736664.cos.ap-beijing.myqcloud.com&#x2F;20160728_forum_design_framework_6.jpeg">
+
+<link rel="canonical" href="http://holdfire.github.io/2019/11/20/backendDev-conceptions/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>后端开发——概念区分 | holdfire</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+    <div class="headband"></div>
+    <a href="https://github.com/holdfire" target="_blank" rel="noopener"><img style="position:absolute;top:0;right:0;border:0;" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_darkblue_121621.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">holdfire</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">学无止境，不忘初心！</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>动态</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>站内搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/20/backendDev-conceptions/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="holdfire">
+      <meta itemprop="description" content="一只想上天的菜鸟！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="holdfire">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          后端开发——概念区分
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-11-20 10:55:21 / 修改时间：14:25:34" itemprop="dateCreated datePublished" datetime="2019-11-20T10:55:21+08:00">2019-11-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
+                    <span itemprop="name">后端开发</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="1-基本概念"><a class="markdownIt-Anchor" href="#1-基本概念"></a> 1. 基本概念</h4>
+<h5 id="11-服务器server"><a class="markdownIt-Anchor" href="#11-服务器server"></a> <a href="https://en.wikipedia.org/wiki/Server_(computing)#Hardware" target="_blank" rel="noopener">1.1 服务器(Server)：</a></h5>
+<ul>
+<li>服务器serve指的是一段程序，或者为客户提供该程序的设备。包括：</li>
+<li>application server</li>
+<li>file server</li>
+<li>computing server</li>
+<li>database server</li>
+<li>mail server</li>
+<li>proxy server</li>
+<li>web server</li>
+</ul>
+<h5 id="12-web服务web-service"><a class="markdownIt-Anchor" href="#12-web服务web-service"></a> <a href="https://en.wikipedia.org/wiki/Web_service" target="_blank" rel="noopener">1.2 Web服务(Web service)：</a></h5>
+<p>  Web服务是一个概念，广义上是指一台设备为其他设备提供的一种服务，狭义上指运行在一台电脑上的一个server。</p>
+<h5 id="13-web服务器web-server"><a class="markdownIt-Anchor" href="#13-web服务器web-server"></a> <a href="https://en.wikipedia.org/wiki/Web_server" target="_blank" rel="noopener">1.3 Web服务器(Web server)：</a></h5>
+<ul>
+<li>Web服务器是在运行在物理服务器上的一个程序（也可以指该物理服务器），它永久地等待客户端（主要是浏览器，比如Chrome，Firefox等）发送请求request。</li>
+<li>当收到请求之后，它会生成相应的响应并将其返回至客户端。</li>
+<li>Web服务器通过HTTP协议与客户端通信，因此也被称为HTTP服务器。</li>
+<li>web服务器可以被嵌入到一个打印机、路由器、网络摄像头等设备中。</li>
+<li>因特网上常见的web服务器有apache, nginx, IIS等。</li>
+</ul>
+<h5 id="14-web框架web-framework"><a class="markdownIt-Anchor" href="#14-web框架web-framework"></a> <a href="https://en.wikipedia.org/wiki/Web_framework" target="_blank" rel="noopener">1.4 Web框架(Web framework)</a></h5>
+<ul>
+<li>Web框架也称作Web应用框架(Web application framework)，指的是支持各种web application（包括web services, web resources, and web APIs等）的软件框架。</li>
+<li>一种比较经典的框架采用MVC架构</li>
+<li>Django</li>
+<li>flask</li>
+<li>spring MVC</li>
+<li><a href="http://ASP.NET" target="_blank" rel="noopener">ASP.NET</a> core<br />
+<img src="https://slefboot-1251736664.cos.ap-beijing.myqcloud.com/20160728_forum_design_framework_6.jpeg" alt="WSGI的作用" /></li>
+</ul>
+<h5 id="15-web应用web-application"><a class="markdownIt-Anchor" href="#15-web应用web-application"></a> <a href="">1.5 Web应用(Web application)</a></h5>
+<p>  Web 服务器接受 Http Request，返回 Response，很多时候 Response 并不是静态文件，因此需要有一个应用程序根据 Request 生成相应的 Response。这里的应用程序主要用来处理相关业务逻辑，读取或者更新数据库，根据不同 Request 返回相应的 Response。注意这里并不是 Web 服务器本身来做这件事，它只负责 Http 协议层面和一些诸如并发处理，安全，日志等相关的事情。应用程序可以用各种语言编写（Java, PHP, Python, Ruby等），这个应用程序会从Web服务器接收客户端的请求，处理完成后，再返回响应给Web服务器，最后由Web服务器返回给客户端。运行过程为：<br />
+<img src="https://slefboot-1251736664.cos.ap-beijing.myqcloud.com/20160728_forum_design_framework_4.png" alt="web服务器和web应用" /></p>
+<h4 id="2-逻辑关系"><a class="markdownIt-Anchor" href="#2-逻辑关系"></a> 2. 逻辑关系</h4>
+<h5 id="21-web服务器和web框架的关系"><a class="markdownIt-Anchor" href="#21-web服务器和web框架的关系"></a> 2.1 Web服务器和Web框架的关系</h5>
+<p>  Web服务器和Web框架之间需要进行通信，于是需要设计一套双方都遵守的接口。对于Python来说，这个接口是Web服务器网关接口WSGI(Web Server Gateway Interface)。其他编程语言也拥有类似的接口：例如Java的Servlet API和Ruby的Rack。<br />
+  Python WSGI的出现，让开发者可以将 Web 框架与 Web 服务器的选择分隔开来，不再相互限制。现在，你可以真正地将不同的 Web 服务器与Web框架进行混合搭配，选择满足自己需求的组合。例如，可以使用 Gunicorn 或Nginx/uWSGI来运行Django、Flask或web.py应用。</p>
+<p>  </p>
+<h4 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料：</h4>
+<ol>
+<li>web服务器和web框架：<a href="https://selfboot.cn/2016/07/28/forum_design_framework/" target="_blank" rel="noopener">https://selfboot.cn/2016/07/28/forum_design_framework/</a></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+      
+        <div class="reward-container">
+  <div></div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="holdfire 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="holdfire 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag"># 后端开发</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2019/11/20/dl-course-AndrewNGdl-c4-chapter3/" rel="next" title="吴恩达深度学习课程——课程4：Chapter3 Obeject Detection">
+                  <i class="fa fa-chevron-left"></i> 吴恩达深度学习课程——课程4：Chapter3 Obeject Detection
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2019/11/21/ml-base-dataPreprocessing/" rel="prev" title="数据处理">
+                  数据处理 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-基本概念"><span class="nav-number">1.</span> <span class="nav-text"> 1. 基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#11-服务器server"><span class="nav-number">1.1.</span> <span class="nav-text"> 1.1 服务器(Server)：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#12-web服务web-service"><span class="nav-number">1.2.</span> <span class="nav-text"> 1.2 Web服务(Web service)：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#13-web服务器web-server"><span class="nav-number">1.3.</span> <span class="nav-text"> 1.3 Web服务器(Web server)：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#14-web框架web-framework"><span class="nav-number">1.4.</span> <span class="nav-text"> 1.4 Web框架(Web framework)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#15-web应用web-application"><span class="nav-number">1.5.</span> <span class="nav-text"> 1.5 Web应用(Web application)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-逻辑关系"><span class="nav-number">2.</span> <span class="nav-text"> 2. 逻辑关系</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#21-web服务器和web框架的关系"><span class="nav-number">2.1.</span> <span class="nav-text"> 2.1 Web服务器和Web框架的关系</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考资料"><span class="nav-number">3.</span> <span class="nav-text"> 参考资料：</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="holdfire"
+    src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">holdfire</p>
+  <div class="site-description" itemprop="description">一只想上天的菜鸟！</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">98</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/holdfire" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;holdfire" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:liuxing16@tsinghua.org.cn" title="E-Mail &amp;rarr; mailto:liuxing16@tsinghua.org.cn" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/holdfireLX" title="Weibo &amp;rarr; https:&#x2F;&#x2F;weibo.com&#x2F;holdfireLX" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.douban.com/people/holdfireLX" title="Douban &amp;rarr; https:&#x2F;&#x2F;www.douban.com&#x2F;people&#x2F;holdfireLX" rel="noopener" target="_blank"><i class="fa fa-fw fa-heartbeat"></i>Douban</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://leetcode.com/problemset/all/" title="https:&#x2F;&#x2F;leetcode.com&#x2F;problemset&#x2F;all&#x2F;" rel="noopener" target="_blank">LeetCode</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://michaelnielsen.org/" title="http:&#x2F;&#x2F;michaelnielsen.org&#x2F;" rel="noopener" target="_blank">Michael Nielsen</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://kaiminghe.com/" title="http:&#x2F;&#x2F;kaiminghe.com&#x2F;" rel="noopener" target="_blank">Kaiming He</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">holdfire</span>
+</div>
+
+
+<div class="theme-info">
+    <div class="powered-by">
+    <i class="fa fa-user-md"></i>
+   
+    </div>
+    <div class="powered-by"></div>
+    <span class="post-count">博客全站共45.6k字</span>
+  </div>
+        
+<div class="busuanzi-count">
+  <script pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      element.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+    </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
