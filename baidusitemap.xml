@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://holdfire.github.io/2019/12/04/dl-course-AndrewNGdl-c1-chapter2/</loc>
+    <lastmod>2019-12-03</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/12/02/dl-course-AndrewNGdl-c1-chapter1/</loc>
+    <lastmod>2019-12-02</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/20/python-argparse/</loc>
+    <lastmod>2019-12-02</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/29/linux-command-option-argument/</loc>
+    <lastmod>2019-11-29</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/20/python-callable/</loc>
+    <lastmod>2019-11-29</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/29/dl-base-lossFunction2/</loc>
+    <lastmod>2019-11-29</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/03/cv-fields/</loc>
+    <lastmod>2019-11-26</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/25/ml-ensembleL-LightGBM/</loc>
+    <lastmod>2019-11-25</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/04/ml-ensembleL-XgBoost/</loc>
+    <lastmod>2019-11-25</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/25/ml-ensembleL/</loc>
+    <lastmod>2019-11-25</lastmod>
+  </url>  <url>
     <loc>http://holdfire.github.io/2019/11/25/dl-metricLearning/</loc>
     <lastmod>2019-11-25</lastmod>
   </url>  <url>
@@ -64,16 +94,10 @@
     <loc>http://holdfire.github.io/2019/11/21/ml-base-dataPreprocessing/</loc>
     <lastmod>2019-11-25</lastmod>
   </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/03/cv-fields/</loc>
-    <lastmod>2019-11-22</lastmod>
-  </url>  <url>
     <loc>http://holdfire.github.io/2019/11/10/other-numerical-computation-blas/</loc>
     <lastmod>2019-11-21</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/04/ml-ensembleL-GBDT/</loc>
-    <lastmod>2019-11-21</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/04/ml-ensembleL-XgBoost/</loc>
     <lastmod>2019-11-21</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/04/ml-ensembleL-adaBoost/</loc>
@@ -152,12 +176,6 @@
     <lastmod>2019-11-14</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/15/dl-course-AndrewNGdl-c1-chapter3/</loc>
-    <lastmod>2019-11-14</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/15/dl-course-AndrewNGdl-c1-chapter2/</loc>
-    <lastmod>2019-11-14</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/15/dl-course-AndrewNGdl-c1-chapter1/</loc>
     <lastmod>2019-11-14</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/14/dl-cnn-CenterNet/</loc>
