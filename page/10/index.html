@@ -225,6 +225,120 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/10/30/python-package-module-import/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="holdfire">
+      <meta itemprop="description" content="一只想上天的菜鸟！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="holdfire">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/30/python-package-module-import/" class="post-title-link" itemprop="url">Python——导入操作import</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-30 19:19:53" itemprop="dateCreated datePublished" datetime="2019-10-30T19:19:53+08:00">2019-10-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-31 01:34:35" itemprop="dateModified" datetime="2019-10-31T01:34:35+08:00">2019-10-31</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index">
+                    <span itemprop="name">编程语言</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<h5 id="11-导入的内容"><a class="markdownIt-Anchor" href="#11-导入的内容"></a> 1.1 导入的内容</h5>
+<p>  Python中导入操作的关键字为import，导入的内容主要是：包(package)、模块(module)、类(class)、函数(类中称作方法, method)、变量(类中称作属性, attributes)等。<br />
+  在文件夹下面加入<code>__init__.py</code>文件(以下简称init文件)，这个文件夹就成为了一个包。包分为常规包和命名空间包。<br />
+  模块是包下面的python文件。所有的包都可以被看做模块，但不是所有的模块都是包。<br />
+  类是文件的基本单元（类中包括变量和函数）。<br />
+  导入操作中，导入的具体内容主要由init文件、<code>__all__</code>列表(以下简称all列表)控制。</p>
+<h5 id="12-init文件的作用"><a class="markdownIt-Anchor" href="#12-init文件的作用"></a> 1.2 init文件的作用</h5>
+<ul>
+<li>如果包中含有init文件，<code>import 包名</code>就会执行init文件，能够批量导入init文件中导入的模块；</li>
+<li>当这个包或者该包下的模块被导入时，init文件都会被执行；</li>
+</ul>
+<h5 id="13-all列表的作用"><a class="markdownIt-Anchor" href="#13-all列表的作用"></a> 1.3 all列表的作用</h5>
+<ul>
+<li>在init文件或模块中设置all列表时，<code>from 包名/模块名 import *</code>只会导入all列表中的内容；</li>
+<li>all列表的内容可以是本文件自定义的变量或函数，或者是导入进来的模块；</li>
+<li>从模块中all列表导入的内容称为内置变量，内置变量易覆盖本文件中的变量名，因而不建议使用<code>from 模块名 import *</code></li>
+</ul>
+<h4 id="2-import的使用方法"><a class="markdownIt-Anchor" href="#2-import的使用方法"></a> 2. import的使用方法</h4>
+<p>  假设你正在一个名为current.py的文件（下面称为当前文件）中写代码，你想导入一些包或模块，那么不同的导入操作会有什么样的结果呢？<br />
+  <font color = 'aaaaaa'>注意：下面说的执行init文件 == init文件中所有的导入操作都会被执行，但这并不意味导入的内容能被当前文件所调用。（这句话主要是针对下面代码块中从包中导入模块这一情况）</font></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">//(<span class="number">1</span>) 从包名导入：包里必须有init文件，且init文件会被执行</span><br><span class="line"><span class="keyword">import</span> 包名                 // 当前文件能调用init文件所导入的全部内容。调用方式为包名.模块名</span><br><span class="line"><span class="keyword">from</span> 包名 <span class="keyword">import</span> *          // 若init文件有all列表，则当前文件只能调用all列表的内容；若无则能调用init文件所导入的全部内容。调用方式为模块名</span><br><span class="line"></span><br><span class="line">//(<span class="number">2</span>) 从包中导入模块：包里如果有init文件则先执行该文件，没有也没关系；然后导入该模块</span><br><span class="line"><span class="keyword">import</span> 包名.模块名           // 当前文件能调用init文件所导入的全部内容和该模块。调用方式为包名.模块名</span><br><span class="line"><span class="keyword">from</span> 包名 <span class="keyword">import</span> 模块名      // 当前文件只能调用该模块，无法调用init文件所导入的内容。调用方式为模块名</span><br><span class="line"></span><br><span class="line">//(<span class="number">3</span>) 单独导入模块：当前文件和该模块需在同一目录下</span><br><span class="line"><span class="keyword">import</span> 模块名                // 当前文件能调用该模块的所有对象(类、函数、变量等)，调用方式为模块名.对象名</span><br><span class="line"></span><br><span class="line">//(<span class="number">4</span>) 从模块中导入对象(类、函数、变量等)</span><br><span class="line"><span class="keyword">from</span> 模块名 <span class="keyword">import</span> 对象名     // 当前文件只能调用该模块下的指定对象，调用方式为对象名</span><br><span class="line"><span class="keyword">from</span> 模块名 <span class="keyword">import</span>  *        // 当前文件只能调用该模块下all列表中的对象，若无all列表则能调用所有的对象。调用方式为对象名</span><br><span class="line"></span><br><span class="line">//(<span class="number">5</span>) 包的相对导入：相对导入只能用<span class="keyword">from</span> <span class="keyword">import</span> 的方式</span><br><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> 包名           // .表示当前文件所在目录的路径</span><br><span class="line"><span class="keyword">from</span> .. <span class="keyword">import</span> 包名          // ..表示当前文件所在目录的上级目录的路径</span><br><span class="line"></span><br><span class="line">//(<span class="number">6</span>) 相对导入应用：init文件中的导入</span><br><span class="line"><span class="keyword">from</span> 包名 <span class="keyword">import</span> 模块名       // 正确</span><br><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> 模块名         // 正确，使用相对导入，其中.表示当前文件所在的目录</span><br><span class="line"><span class="keyword">import</span> 模块名                // 错误</span><br></pre></td></tr></table></figure>
+<h4 id="3-import被解释执行"><a class="markdownIt-Anchor" href="#3-import被解释执行"></a> 3. import被解释执行</h4>
+<h5 id="31-importlib包介绍"><a class="markdownIt-Anchor" href="#31-importlib包介绍"></a> 3.1 importlib包介绍</h5>
+<p>  </p>
+<h5 id="32-import的搜索路径"><a class="markdownIt-Anchor" href="#32-import的搜索路径"></a> 3.2 import的搜索路径</h5>
+<p>  搜索路径被存储在sys模块中的path变量<br />
+  在导入搜索期间首先会被检查的地方是 sys.modules。 这个映射起到缓存之前导入的所有模块的作用（包括其中间路径）。<br />
+  当指定名称的模块在 sys.modules 中找不到时，Python 会接着搜索 sys.meta_path，其中包含元路径查找器对象列表。</p>
+<h5 id="33-import的注意事项"><a class="markdownIt-Anchor" href="#33-import的注意事项"></a> 3.3 import的注意事项</h5>
+<ul>
+<li>每个包或模块只会被导入一次。</li>
+<li>要避免循环导入。</li>
+</ul>
+<h4 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料：</h4>
+<ol>
+<li>Python语言参考——导入系统：<a href="https://docs.python.org/zh-cn/3/reference/import.html" target="_blank" rel="noopener">https://docs.python.org/zh-cn/3/reference/import.html</a></li>
+<li>菜鸟教程——Python3模块：<a href="https://www.runoob.com/python3/python3-module.html" target="_blank" rel="noopener">https://www.runoob.com/python3/python3-module.html</a></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/10/30/cpp-memory-allocation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1048,101 +1162,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/10/27/linux-introduction/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="holdfire">
-      <meta itemprop="description" content="一只想上天的菜鸟！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="holdfire">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/27/linux-introduction/" class="post-title-link" itemprop="url">Linux——简介</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-10-27 00:10:34" itemprop="dateCreated datePublished" datetime="2019-10-27T00:10:34+08:00">2019-10-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-30 19:22:03" itemprop="dateModified" datetime="2019-10-30T19:22:03+08:00">2019-10-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index">
-                    <span itemprop="name">操作系统</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="1-linux简介"><a class="markdownIt-Anchor" href="#1-linux简介"></a> 1. Linux简介</h4>
-<p>  Linux是一个GNU GPL授权模式的开源的操作系统。操作系统由内核和系统调用组成,操作系统是应用程序和计算机硬件沟通的桥梁。即：硬件–&gt;内核–&gt;系统调用–&gt;应用程序(Shell)。</p>
-<h5 id="11-linux内核版本与发行版本"><a class="markdownIt-Anchor" href="#11-linux内核版本与发行版本"></a> 1.1 Linux内核版本与发行版本</h5>
-<p>  Linux内核版本是单线发展的，其版本号由“主版本.次版本.末版本”的格式构成。截至2019年10月27日，最新的<a href="https://www.kernel.org/" target="_blank" rel="noopener">Linux稳定内核版本为</a>5.3.7版。<br />
-  Linux发行版本是由“Linux内核+软件+工具+文件”组成的一个完整的安装程序，不同的厂商提供不同的发行版本，主要分为两大类：</p>
-<ul>
-<li>使用rpm/yum包管理方式的系统，包括：RedHat,Fedora,CentOS等；</li>
-<li>使用apt-get/dpkg包管理方式的系统，包括：Debian,Ubuntu等；</li>
-</ul>
-<h5 id="12-linux的特点"><a class="markdownIt-Anchor" href="#12-linux的特点"></a> 1.2 Linux的特点</h5>
-<ul>
-<li>Linux严格区分大小写；</li>
-<li>Linux中一切内容皆文件（包括硬件）；</li>
-<li>Linux不依靠拓展名区分文件类型，而是依据文件权限；</li>
-<li>通常，压缩包的后缀为.gz .bz2 .tar .bz2 .tgz；二进制软件包为.rmp；脚本文件为 .sh</li>
-</ul>
-<h4 id="2-linux文件系统和目录"><a class="markdownIt-Anchor" href="#2-linux文件系统和目录"></a> 2. Linux文件系统和目录</h4>
-<h4 id="3-shell与shell-script"><a class="markdownIt-Anchor" href="#3-shell与shell-script"></a> 3. Shell与Shell Script</h4>
-<h4 id="4-linux用户管理"><a class="markdownIt-Anchor" href="#4-linux用户管理"></a> 4. Linux用户管理</h4>
-<h4 id="5-linux系统管理"><a class="markdownIt-Anchor" href="#5-linux系统管理"></a> 5. Linux系统管理</h4>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1193,20 +1212,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">104</span>
+          <span class="site-state-item-count">105</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-count">36</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1281,7 +1300,7 @@
    
     </div>
     <div class="powered-by"></div>
-    <span class="post-count">博客全站共46.8k字</span>
+    <span class="post-count">博客全站共47.2k字</span>
   </div>
         
 <div class="busuanzi-count">

@@ -51,18 +51,18 @@
   };
 </script>
 
-  <meta name="description" content="一只想上天的菜鸟！">
-<meta name="keywords" content="计算机，水利工程">
+  <meta name="description" content="1. 简介   神经架构搜索(Neural Architecture Search, NAS)是一种搜索出最优神经网络架构的算法。它的工作流程通常从定义一组神经网络可能会用到的“建筑模块”开始，比如2018年Google Brain关于NASNet的论文，就为图像识别网络总结了多种常用的卷积池和池化模块。论文：Learning Transferable Architectures for Sca">
+<meta name="keywords" content="深度学习前沿">
 <meta property="og:type" content="article">
-<meta property="og:title" content="dl-course-AndrewNGdl-c1-chapter3">
-<meta property="og:url" content="http:&#x2F;&#x2F;holdfire.github.io&#x2F;2019&#x2F;11&#x2F;15&#x2F;dl-course-AndrewNGdl-c1-chapter3&#x2F;index.html">
+<meta property="og:title" content="神经架构搜索NAS">
+<meta property="og:url" content="http:&#x2F;&#x2F;holdfire.github.io&#x2F;2019&#x2F;11&#x2F;07&#x2F;dl-advance-NAS&#x2F;index.html">
 <meta property="og:site_name" content="holdfire">
-<meta property="og:description" content="一只想上天的菜鸟！">
+<meta property="og:description" content="1. 简介   神经架构搜索(Neural Architecture Search, NAS)是一种搜索出最优神经网络架构的算法。它的工作流程通常从定义一组神经网络可能会用到的“建筑模块”开始，比如2018年Google Brain关于NASNet的论文，就为图像识别网络总结了多种常用的卷积池和池化模块。论文：Learning Transferable Architectures for Sca">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-14T18:49:09.045Z">
+<meta property="og:updated_time" content="2019-12-04T01:50:50.460Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://holdfire.github.io/2019/11/15/dl-course-AndrewNGdl-c1-chapter3/">
+<link rel="canonical" href="http://holdfire.github.io/2019/11/07/dl-advance-NAS/">
 
 
 <script id="page-configurations">
@@ -76,7 +76,7 @@
   };
 </script>
 
-  <title>dl-course-AndrewNGdl-c1-chapter3 | holdfire</title>
+  <title>神经架构搜索NAS | holdfire</title>
   
 
 
@@ -226,7 +226,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/15/dl-course-AndrewNGdl-c1-chapter3/">
+    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/07/dl-advance-NAS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -239,7 +239,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          dl-course-AndrewNGdl-c1-chapter3
+          神经架构搜索NAS
         </h1>
 
         <div class="post-meta">
@@ -248,9 +248,26 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-11-15 02:49:08 / 修改时间：02:49:09" itemprop="dateCreated datePublished" datetime="2019-11-15T02:49:08+08:00">2019-11-15</time>
+              <time title="创建时间：2019-11-07 10:02:55" itemprop="dateCreated datePublished" datetime="2019-11-07T10:02:55+08:00">2019-11-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-04 09:50:50" itemprop="dateModified" datetime="2019-12-04T09:50:50+08:00">2019-12-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%89%8D%E6%B2%BF/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习前沿</span>
+                  </a>
+                </span>
             </span>
 
           
@@ -264,7 +281,28 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<p>  神经架构搜索(Neural Architecture Search, NAS)是一种搜索出最优神经网络架构的算法。它的工作流程通常从定义一组神经网络可能会用到的“建筑模块”开始，比如2018年Google Brain关于NASNet的论文，就为图像识别网络总结了多种常用的卷积池和池化模块。论文：<a href="https://arxiv.org/abs/1707.07012" target="_blank" rel="noopener">Learning Transferable Architectures for Scalable Image Recognition</a><br />
+  NAS算法用一个循环神经网络(RNN)作为控制器，从这些模块中挑选，然后将它们放在一起，来创造某种端到端地架构。然后训练这个新网络直至收敛，得到在验证集上的准确率，这个准确率随后会用来通过策略梯度更新控制器，让控制器生成架构的水平越来越高。</p>
+<h4 id="2-架构搜索的进展"><a class="markdownIt-Anchor" href="#2-架构搜索的进展"></a> 2. 架构搜索的进展</h4>
+<h5 id="渐进式神经架构搜索pnas"><a class="markdownIt-Anchor" href="#渐进式神经架构搜索pnas"></a> 渐进式神经架构搜索PNAS</h5>
+<p>  论文：<a href="https://arxiv.org/abs/1712.00559" target="_blank" rel="noopener">Progressive Neural Architecture Search</a></p>
+<h4 id="3-nas算法搜索物体检测backbone"><a class="markdownIt-Anchor" href="#3-nas算法搜索物体检测backbone"></a> 3. NAS算法搜索物体检测backbone</h4>
+<p><code>2019 NeurIPS: 旷视研究院提出DetNAS</code><br />
+  这是首个用于设计更好的物体检测器Backbone的神经网络搜索方法，由DetNet搜索出的框架在COCO上的性能超越了ResNet-50和ResNet-101，且模型计算量更低。<br />
+论文：<a href="https://arxiv.org/abs/1903.10979?context=cs" target="_blank" rel="noopener">DetNAS:Backbone Search for Object Detection</a></p>
+<h5 id="4-高效神经架构搜索enas"><a class="markdownIt-Anchor" href="#4-高效神经架构搜索enas"></a> 4. 高效神经架构搜索ENAS</h5>
+<p>  论文：<a href="http://arxiv.org/abs/1802.03268" target="_blank" rel="noopener">Efficient Neural Architecture Search via Parameter Sharing</a></p>
+<h4 id="3-架构搜索的开源项目和商业产品"><a class="markdownIt-Anchor" href="#3-架构搜索的开源项目和商业产品"></a> 3. 架构搜索的开源项目和商业产品</h4>
+<h5 id="开源项目"><a class="markdownIt-Anchor" href="#开源项目"></a> 开源项目</h5>
+<h5 id="商业产品"><a class="markdownIt-Anchor" href="#商业产品"></a> 商业产品</h5>
+<p>  Google提供的Cloud AutoML</p>
+<h4 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料：</h4>
+<ol>
+<li>一文看懂AutoML和NAS：<a href="https://zhuanlan.zhihu.com/p/42924585" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/42924585</a></li>
+<li>AutoML和NAS的调研（CVPR2019）:<a href="https://blog.csdn.net/soulmeetliang/article/details/93002244" target="_blank" rel="noopener">https://blog.csdn.net/soulmeetliang/article/details/93002244</a></li>
+</ol>
+
     </div>
 
     
@@ -293,21 +331,24 @@
 
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%89%8D%E6%B2%BF/" rel="tag"># 深度学习前沿</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2019/11/14/cv-imageProcess-Edge-canny/" rel="next" title="图像处理——canny边缘检测">
-                  <i class="fa fa-chevron-left"></i> 图像处理——canny边缘检测
+                <a href="/2019/11/06/cv-imageRetrieval-2encodeFeatures/" rel="next" title="图像检索——特征编码与聚合">
+                  <i class="fa fa-chevron-left"></i> 图像检索——特征编码与聚合
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2019/11/15/dl-course-AndrewNGdl-c1-chapter4/" rel="prev" title="dl-course-AndrewNGdl-c1-chapter4">
-                  dl-course-AndrewNGdl-c1-chapter4 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/11/07/dl-advance-AutoML/" rel="prev" title="自动机器学习AutoML">
+                  自动机器学习AutoML <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -347,6 +388,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-简介"><span class="nav-number">1.</span> <span class="nav-text"> 1. 简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-架构搜索的进展"><span class="nav-number">2.</span> <span class="nav-text"> 2. 架构搜索的进展</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#渐进式神经架构搜索pnas"><span class="nav-number">2.1.</span> <span class="nav-text"> 渐进式神经架构搜索PNAS</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-nas算法搜索物体检测backbone"><span class="nav-number">3.</span> <span class="nav-text"> 3. NAS算法搜索物体检测backbone</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#4-高效神经架构搜索enas"><span class="nav-number">3.1.</span> <span class="nav-text"> 4. 高效神经架构搜索ENAS</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-架构搜索的开源项目和商业产品"><span class="nav-number">4.</span> <span class="nav-text"> 3. 架构搜索的开源项目和商业产品</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#开源项目"><span class="nav-number">4.1.</span> <span class="nav-text"> 开源项目</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#商业产品"><span class="nav-number">4.2.</span> <span class="nav-text"> 商业产品</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text"> 参考资料：</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -362,20 +404,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">104</span>
+          <span class="site-state-item-count">105</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-count">36</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -450,7 +492,7 @@
    
     </div>
     <div class="powered-by"></div>
-    <span class="post-count">博客全站共46.8k字</span>
+    <span class="post-count">博客全站共47.2k字</span>
   </div>
         
 <div class="busuanzi-count">

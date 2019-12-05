@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://holdfire.github.io/2019/12/06/dl-course-AndrewNGdl-c1-chapter3/</loc>
+    <lastmod>2019-12-05</lastmod>
+  </url>  <url>
     <loc>http://holdfire.github.io/2019/12/04/dl-course-AndrewNGdl-c1-chapter2/</loc>
-    <lastmod>2019-12-03</lastmod>
+    <lastmod>2019-12-05</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/03/cv-fields/</loc>
+    <lastmod>2019-12-04</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/12/04/dl-advance-modelCompression/</loc>
+    <lastmod>2019-12-04</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/07/dl-advance-AutoML/</loc>
+    <lastmod>2019-12-04</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/07/dl-advance-NAS/</loc>
+    <lastmod>2019-12-04</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/12/02/dl-course-AndrewNGdl-c1-chapter1/</loc>
     <lastmod>2019-12-02</lastmod>
@@ -18,9 +33,6 @@
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/29/dl-base-lossFunction2/</loc>
     <lastmod>2019-11-29</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/03/cv-fields/</loc>
-    <lastmod>2019-11-26</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/25/ml-ensembleL-LightGBM/</loc>
     <lastmod>2019-11-25</lastmod>
@@ -175,9 +187,6 @@
     <loc>http://holdfire.github.io/2019/11/15/dl-course-AndrewNGdl-c1-chapter4/</loc>
     <lastmod>2019-11-14</lastmod>
   </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/15/dl-course-AndrewNGdl-c1-chapter3/</loc>
-    <lastmod>2019-11-14</lastmod>
-  </url>  <url>
     <loc>http://holdfire.github.io/2019/11/14/dl-cnn-CenterNet/</loc>
     <lastmod>2019-11-14</lastmod>
   </url>  <url>
@@ -242,12 +251,6 @@
     <lastmod>2019-11-07</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/06/cv-imageRetrieval-2encodeFeatures/</loc>
-    <lastmod>2019-11-07</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/07/dl-advanced-NASandAutoML1/</loc>
-    <lastmod>2019-11-07</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/07/dl-advanced-NASandAutoML2/</loc>
     <lastmod>2019-11-07</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/06/dl-base-introduction/</loc>

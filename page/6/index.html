@@ -225,6 +225,81 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/11/compile-bazel/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="holdfire">
+      <meta itemprop="description" content="一只想上天的菜鸟！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="holdfire">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/11/compile-bazel/" class="post-title-link" itemprop="url">bazel编译器</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-11-11 14:59:35 / 修改时间：15:05:03" itemprop="dateCreated datePublished" datetime="2019-11-11T14:59:35+08:00">2019-11-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" itemprop="url" rel="index">
+                    <span itemprop="name">编译原理</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<p>  编译和移植tensorflow的C/C++源码时，用到bazel这一构建工具。Bazel是一个类似于Make的编译工具，是Google为其内部软件开发的特点量身定制的工具，如今Google使用它来构建内部大多数的软件。Google认为直接用Makefile构建软件速度太慢，结果不可靠，所以构建了一个新的工具叫做Bazel，Bazel的规则层级更高。</p>
+<h4 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料：</h4>
+<ol>
+<li>tensorflow官网——从源代码编译tensorflow：<a href="https://www.tensorflow.org/install/source" target="_blank" rel="noopener">https://www.tensorflow.org/install/source</a></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/11/software-tensorflow2-0-bug/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1083,91 +1158,6 @@ Pytorch支持比较简单</p>
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/08/complie-make-cmake/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="holdfire">
-      <meta itemprop="description" content="一只想上天的菜鸟！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="holdfire">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/08/complie-make-cmake/" class="post-title-link" itemprop="url">编译原理——gcc,g++,make和cmake的区别</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-08 02:32:53" itemprop="dateCreated datePublished" datetime="2019-11-08T02:32:53+08:00">2019-11-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-10 02:24:29" itemprop="dateModified" datetime="2019-11-10T02:24:29+08:00">2019-11-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" itemprop="url" rel="index">
-                    <span itemprop="name">编译原理</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="1-gcc和g的区别"><a class="markdownIt-Anchor" href="#1-gcc和g的区别"></a> 1. gcc和g++的区别</h4>
-<p>  二者的区别在于：<br />
-（1）对于.c的文件，gcc把它当成是c程序，g<ins>当做是c</ins>程序；对于.cpp的文件，两者都会认为是c<ins>程序。<br />
-（2）编译可以用gcc或g</ins>，链接可以用gcc-lstdc<ins>或者g</ins>。<br />
-（3）如果后缀为.C的文件定义了_cplusplus宏，gcc编译器认为该宏是未定义的，否则就是已定义的。<br />
-（4）无论是gcc还是g++，当源文件中用extern &quot;C&quot;时，都是以C的命名方式来为symbol命名的；否则，都以c<ins>的方式命名。<br />
-（5）在编译阶段，g</ins>是调用gcc的。</p>
-<h4 id="2-make和cmake的区别"><a class="markdownIt-Anchor" href="#2-make和cmake的区别"></a> 2. make和cmake的区别</h4>
-<p>  但如果源文件太多，一个个编译会太麻烦。于是人们设计了一个类似批处理的程序来来批量编译源文件，于是就有了make工具，但你需要编写一个规则文件，make依据它来批处理编译，这个文件就是<strong>makefile</strong>。所以编写makefile也是一个程序员所必备的技能。<br />
-  对于一个大型工程，编写makefile是一件复杂的事。于是人们又设计了一个读入所有源文件后，自动生成makefile的工具，这就是cmake，它能够输出makefile或者project文件。但是程序员还是要编写<strong>cmakefile</strong>，它是cmake所依据的规则。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1218,20 +1208,20 @@ Pytorch支持比较简单</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">104</span>
+          <span class="site-state-item-count">105</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-count">36</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1306,7 +1296,7 @@ Pytorch支持比较简单</p>
    
     </div>
     <div class="powered-by"></div>
-    <span class="post-count">博客全站共46.8k字</span>
+    <span class="post-count">博客全站共47.2k字</span>
   </div>
         
 <div class="busuanzi-count">
