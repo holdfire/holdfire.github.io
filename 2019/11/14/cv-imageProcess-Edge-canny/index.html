@@ -59,7 +59,7 @@
 <meta property="og:site_name" content="holdfire">
 <meta property="og:description" content="1. 简介   1986年，JOHN在论文《A Computation Approach to Edge Detection》中首次提出Canny边缘检测。Canny发现：在不同视觉系统上对边缘检测的要求较为类似，因此，可以实现一种具有广泛应用意义的边缘检测技术。边缘检测的一般标准包括： （1）以低的错误率检测边缘，也即意味着需要尽可能准确地捕获图像中尽可能多的边缘； （2）检测到的边缘应精确定">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-18T09:26:48.475Z">
+<meta property="og:updated_time" content="2019-12-06T09:45:42.135Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://holdfire.github.io/2019/11/14/cv-imageProcess-Edge-canny/">
@@ -256,7 +256,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-18 17:26:48" itemprop="dateModified" datetime="2019-11-18T17:26:48+08:00">2019-11-18</time>
+                <time title="修改时间：2019-12-06 17:45:42" itemprop="dateModified" datetime="2019-12-06T17:45:42+08:00">2019-12-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -288,9 +288,9 @@
 （3）图像中给定的边缘应只被标记一次；<br />
 （4）并且在可能的情况下，图像的噪声不应产生假的边缘；<br />
   为了满足上述要求，Canny使用了变分法。Canny检测器中最优函数使用4个指数项的和来描述，它可以由高斯函数的一阶导数来近似。其算法处理流程如下：<br />
-（1）使用高斯滤波器，以平滑图像，滤除噪声；<br />
-（2）计算图像中每个像素点的梯度强度和方向；<br />
-（3）运用非极大值抑制（Non-Maximum Suppression），以消除边缘检测带来的杂散响应；<br />
+（1）使用高斯滤波器滤除噪声；<br />
+（2）用sobel滤波器求每个像素点的水平梯度和垂直梯度–&gt;计算每个像素点的梯度大小和方向–&gt;将梯度大小小于1e-5取值为1e-5，梯度方向量化为4个方向；<br />
+（3）运用非极大值抑制（Non-Maximum Suppression）以消除边缘检测带来的杂散响应。比较像素点p和其梯度方向上p-1和p+1三点的梯度强度，如果p比它的邻居小，它这个点的梯度强度会被设为0。<br />
 （4）应用双阈值（Double Threshold）检测来确定真实和潜在的边缘；<br />
 （5）通过抑制孤立的弱边缘最终完成边缘检测。</p>
 <h4 id="2-算法步骤详解"><a class="markdownIt-Anchor" href="#2-算法步骤详解"></a> 2. 算法步骤详解</h4>
@@ -407,7 +407,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">105</span>
+          <span class="site-state-item-count">106</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -495,7 +495,7 @@
    
     </div>
     <div class="powered-by"></div>
-    <span class="post-count">博客全站共47.2k字</span>
+    <span class="post-count">博客全站共47.7k字</span>
   </div>
         
 <div class="busuanzi-count">

@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>图像处理之————图像滤波</title>
+    <url>/2019/12/06/cv-imageProcess-filter/</url>
+    <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<p>  高通滤波器可以提取边缘，低通滤波器可以消除噪声。不同类型的滤波器特点不同。</p>
+<h4 id="2-低通滤波器"><a class="markdownIt-Anchor" href="#2-低通滤波器"></a> 2. 低通滤波器</h4>
+<h5 id="21-高斯滤波"><a class="markdownIt-Anchor" href="#21-高斯滤波"></a> 2.1 高斯滤波</h5>
+<p>  对高斯噪声的消除效果较好，其特点是：高斯核中，各像素的贡献率与距离区域中心的距离成正比，其权重由高斯分布计算得到。opencv中实现函数为cv2.GaussianBlur()</p>
+<h5 id="22-均值滤波"><a class="markdownIt-Anchor" href="#22-均值滤波"></a> 2.2 均值滤波</h5>
+<p>  用于消除噪声，对于胡椒盐噪声的滤除效果比较好，其特点是：核中各像素的贡献率相同。opencv中实现函数为cv2.blur()</p>
+<h5 id="23-中值滤波"><a class="markdownIt-Anchor" href="#23-中值滤波"></a> 2.3 中值滤波</h5>
+<p>  是一种非线性滤波，中心点的像素值被核的中位数所替代，对于胡椒盐噪声有效。其特点是：能在消除噪声的同时很好地保持图像边缘。opencv中实现函数为cv2.medianBlur()</p>
+<h5 id="24-双边滤波保边降噪"><a class="markdownIt-Anchor" href="#24-双边滤波保边降噪"></a> 2.4 双边滤波——保边降噪</h5>
+<p>  是一种非线性滤波，滤波器同时考虑了像素值和像素位置信息。一个空间上的高斯滤波器使邻近的像素点被用于滤波，一个基于像素差的高斯滤波器使与中间像素值相同的像素点被用于滤波。其特点是：在滤波的同时能保证一定的边缘信息，缺点是运算较慢。opencv中实现函数为cv2.bilateralFilter()</p>
+<h4 id="3-高通滤波器"><a class="markdownIt-Anchor" href="#3-高通滤波器"></a> 3. 高通滤波器</h4>
+<h5 id="31-sobel滤波器"><a class="markdownIt-Anchor" href="#31-sobel滤波器"></a> 3.1 sobel滤波器</h5>
+<p>  sobel滤波器被用来检测水平线和垂直线的预处理，滤波后得到的是该像素点在水平方向和垂直方向的梯度值。</p>
+]]></content>
+      <categories>
+        <category>计算机视觉</category>
+      </categories>
+      <tags>
+        <tag>图像处理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>吴恩达深度学习课程——课程1：Chapter3</title>
     <url>/2019/12/06/dl-course-AndrewNGdl-c1-chapter3/</url>
     <content><![CDATA[<p><strong><center>Shallow Neural Networks</center></strong></p>
@@ -129,11 +154,6 @@
       <tags>
         <tag>Linux</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>dl-base-lossFunction2</title>
-    <url>/2019/11/29/dl-base-lossFunction2/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>集成学习——简介</title>
@@ -301,6 +321,11 @@
       <tags>
         <tag>数据处理</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>dl-base-lossFunction2</title>
+    <url>/2019/11/20/dl-base-lossFunction2/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>命令行参数解析——argparse模块解析python脚本</title>
@@ -516,13 +541,9 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>dl-generativeModel-GAN</title>
-    <url>/2019/11/15/dl-generativeModel-GAN/</url>
-    <content><![CDATA[<p>参考资料：</p>
-<ol>
-<li><a href="https://arxiv.org/abs/1701.00160" target="_blank" rel="noopener">NIPS 2016 Tutorial: Generative Adversarial Networks</a></li>
-</ol>
-]]></content>
+    <title>dl-generativeModel-VAE</title>
+    <url>/2019/11/15/dl-generativeModel-VAE/</url>
+    <content><![CDATA[]]></content>
       <categories>
         <category>深度学习</category>
       </categories>
@@ -531,9 +552,13 @@
       </tags>
   </entry>
   <entry>
-    <title>dl-generativeModel-VAE</title>
-    <url>/2019/11/15/dl-generativeModel-VAE/</url>
-    <content><![CDATA[]]></content>
+    <title>dl-generativeModel-GAN</title>
+    <url>/2019/11/15/dl-generativeModel-GAN/</url>
+    <content><![CDATA[<p>参考资料：</p>
+<ol>
+<li><a href="https://arxiv.org/abs/1701.00160" target="_blank" rel="noopener">NIPS 2016 Tutorial: Generative Adversarial Networks</a></li>
+</ol>
+]]></content>
       <categories>
         <category>深度学习</category>
       </categories>
@@ -764,9 +789,9 @@ V=\begin{pmatrix}
 （3）图像中给定的边缘应只被标记一次；<br />
 （4）并且在可能的情况下，图像的噪声不应产生假的边缘；<br />
   为了满足上述要求，Canny使用了变分法。Canny检测器中最优函数使用4个指数项的和来描述，它可以由高斯函数的一阶导数来近似。其算法处理流程如下：<br />
-（1）使用高斯滤波器，以平滑图像，滤除噪声；<br />
-（2）计算图像中每个像素点的梯度强度和方向；<br />
-（3）运用非极大值抑制（Non-Maximum Suppression），以消除边缘检测带来的杂散响应；<br />
+（1）使用高斯滤波器滤除噪声；<br />
+（2）用sobel滤波器求每个像素点的水平梯度和垂直梯度–&gt;计算每个像素点的梯度大小和方向–&gt;将梯度大小小于1e-5取值为1e-5，梯度方向量化为4个方向；<br />
+（3）运用非极大值抑制（Non-Maximum Suppression）以消除边缘检测带来的杂散响应。比较像素点p和其梯度方向上p-1和p+1三点的梯度强度，如果p比它的邻居小，它这个点的梯度强度会被设为0。<br />
 （4）应用双阈值（Double Threshold）检测来确定真实和潜在的边缘；<br />
 （5）通过抑制孤立的弱边缘最终完成边缘检测。</p>
 <h4 id="2-算法步骤详解"><a class="markdownIt-Anchor" href="#2-算法步骤详解"></a> 2. 算法步骤详解</h4>
@@ -1080,6 +1105,32 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
       </tags>
   </entry>
   <entry>
+    <title>特征提取——等容特征映射IsoMap</title>
+    <url>/2019/11/12/ml-reduceDimension-ISOmap/</url>
+    <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<p>  等容特征映射(Isometric feature mapping, IsoMap)的基本思想是：当样本在高维空间中按照某种复杂结构分布时，如果直接计算两个样本点之间的欧氏距离，就损失了样本分布的结构信息。如果样本分布较密集，可以假定样本及的复杂结构在每个小的局部都可以用欧式空间来近似。计算每个样本与乡邻样本之间的欧氏距离；对两个不相邻的样本，寻找一些一系列凉凉相邻的样本构成连接着两个样本的路径，用两个样本间最短路径上的距不距离只和作为两个样本间的距离。这种距离称作测地距离(geodesic distance)。有了样本间的距离矩阵，就可以用度量型MDS等方法映射到低维空间。</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>数据降维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>特征提取——KL变换</title>
+    <url>/2019/11/12/ml-reduceDimension-KLTransformation/</url>
+    <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<p>  </p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>数据降维</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>特征提取——线性判别分析LDA</title>
     <url>/2019/11/12/ml-reduceDimension-LDA/</url>
     <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
@@ -1093,10 +1144,11 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
       </tags>
   </entry>
   <entry>
-    <title>特征提取——等容特征映射IsoMap</title>
-    <url>/2019/11/12/ml-reduceDimension-ISOmap/</url>
+    <title>特征提取——主成分分析PCA</title>
+    <url>/2019/11/12/ml-reduceDimension-PCA/</url>
     <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
-<p>  等容特征映射(Isometric feature mapping, IsoMap)的基本思想是：当样本在高维空间中按照某种复杂结构分布时，如果直接计算两个样本点之间的欧氏距离，就损失了样本分布的结构信息。如果样本分布较密集，可以假定样本及的复杂结构在每个小的局部都可以用欧式空间来近似。计算每个样本与乡邻样本之间的欧氏距离；对两个不相邻的样本，寻找一些一系列凉凉相邻的样本构成连接着两个样本的路径，用两个样本间最短路径上的距不距离只和作为两个样本间的距离。这种距离称作测地距离(geodesic distance)。有了样本间的距离矩阵，就可以用度量型MDS等方法映射到低维空间。</p>
+<p>  主成分分析(Principal Components Analysis, PCA)</p>
+<h4 id="2-核主成分分析kpca"><a class="markdownIt-Anchor" href="#2-核主成分分析kpca"></a> 2. 核主成分分析KPCA</h4>
 ]]></content>
       <categories>
         <category>机器学习</category>
@@ -1135,37 +1187,10 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
       </tags>
   </entry>
   <entry>
-    <title>特征提取——KL变换</title>
-    <url>/2019/11/12/ml-reduceDimension-KLTransformation/</url>
-    <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
-<p>  </p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>数据降维</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>特征提取——奇异值分解SVD</title>
     <url>/2019/11/12/ml-reduceDimension-SVD/</url>
     <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
 <p>  奇异值分解(Singular Value Decomposition, SVD)</p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>数据降维</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>特征提取——主成分分析PCA</title>
-    <url>/2019/11/12/ml-reduceDimension-PCA/</url>
-    <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
-<p>  主成分分析(Principal Components Analysis, PCA)</p>
-<h4 id="2-核主成分分析kpca"><a class="markdownIt-Anchor" href="#2-核主成分分析kpca"></a> 2. 核主成分分析KPCA</h4>
 ]]></content>
       <categories>
         <category>机器学习</category>
@@ -2144,8 +2169,8 @@ SURF算法详解 <a href="https://www.cnblogs.com/gfgwxw/p/9415218.html" target=
       </tags>
   </entry>
   <entry>
-    <title>集成学习——XgBoost</title>
-    <url>/2019/11/04/ml-ensembleL-XgBoost/</url>
+    <title>集成学习——AdaBoost</title>
+    <url>/2019/11/04/ml-ensembleL-adaBoost/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>机器学习</category>
@@ -2155,8 +2180,8 @@ SURF算法详解 <a href="https://www.cnblogs.com/gfgwxw/p/9415218.html" target=
       </tags>
   </entry>
   <entry>
-    <title>集成学习——AdaBoost</title>
-    <url>/2019/11/04/ml-ensembleL-adaBoost/</url>
+    <title>集成学习——XgBoost</title>
+    <url>/2019/11/04/ml-ensembleL-XgBoost/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>机器学习</category>

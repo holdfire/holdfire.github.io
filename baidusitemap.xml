@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://holdfire.github.io/2019/11/14/cv-imageProcess-Edge-canny/</loc>
+    <lastmod>2019-12-06</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/12/06/cv-imageProcess-filter/</loc>
+    <lastmod>2019-12-06</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/11/20/dl-base-lossFunction2/</loc>
+    <lastmod>2019-12-06</lastmod>
+  </url>  <url>
     <loc>http://holdfire.github.io/2019/12/06/dl-course-AndrewNGdl-c1-chapter3/</loc>
     <lastmod>2019-12-05</lastmod>
   </url>  <url>
@@ -29,9 +38,6 @@
     <lastmod>2019-11-29</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/20/python-callable/</loc>
-    <lastmod>2019-11-29</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/29/dl-base-lossFunction2/</loc>
     <lastmod>2019-11-29</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/25/ml-ensembleL-LightGBM/</loc>
@@ -128,9 +134,6 @@
     <lastmod>2019-11-19</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/18/cv-imageProcess-Edge-dl/</loc>
-    <lastmod>2019-11-18</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/14/cv-imageProcess-Edge-canny/</loc>
     <lastmod>2019-11-18</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/10/31/dl-base-lossFunction/</loc>

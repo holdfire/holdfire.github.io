@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://holdfire.github.io/"/>
-  <updated>2019-12-05T18:04:44.305Z</updated>
+  <updated>2019-12-06T09:25:40.053Z</updated>
   <id>http://holdfire.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>图像处理之————图像滤波</title>
+    <link href="http://holdfire.github.io/2019/12/06/cv-imageProcess-filter/"/>
+    <id>http://holdfire.github.io/2019/12/06/cv-imageProcess-filter/</id>
+    <published>2019-12-06T08:42:05.000Z</published>
+    <updated>2019-12-06T09:25:40.053Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4><p>  高通滤波器可以提取边缘，低通滤波器可以消除噪声。不同类型的滤波器特点不同。</p><h4 id="2-低通滤波器"><a class="markdownIt-Anchor" href="#2-低通滤波器"></a> 2. 低通滤波器</h4><h5 id="21-高斯滤波"><a class="markdownIt-Anchor" href="#21-高斯滤波"></a> 2.1 高斯滤波</h5><p>  对高斯噪声的消除效果较好，其特点是：高斯核中，各像素的贡献率与距离区域中心的距离成正比，其权重由高斯分布计算得到。opencv中实现函数为cv2.GaussianBlur()</p><h5 id="22-均值滤波"><a class="markdownIt-Anchor" href="#22-均值滤波"></a> 2.2 均值滤波</h5><p>  用于消除噪声，对于胡椒盐噪声的滤除效果比较好，其特点是：核中各像素的贡献率相同。opencv中实现函数为cv2.blur()</p><h5 id="23-中值滤波"><a class="markdownIt-Anchor" href="#23-中值滤波"></a> 2.3 中值滤波</h5><p>  是一种非线性滤波，中心点的像素值被核的中位数所替代，对于胡椒盐噪声有效。其特点是：能在消除噪声的同时很好地保持图像边缘。opencv中实现函数为cv2.medianBlur()</p><h5 id="24-双边滤波保边降噪"><a class="markdownIt-Anchor" href="#24-双边滤波保边降噪"></a> 2.4 双边滤波——保边降噪</h5><p>  是一种非线性滤波，滤波器同时考虑了像素值和像素位置信息。一个空间上的高斯滤波器使邻近的像素点被用于滤波，一个基于像素差的高斯滤波器使与中间像素值相同的像素点被用于滤波。其特点是：在滤波的同时能保证一定的边缘信息，缺点是运算较慢。opencv中实现函数为cv2.bilateralFilter()</p><h4 id="3-高通滤波器"><a class="markdownIt-Anchor" href="#3-高通滤波器"></a> 3. 高通滤波器</h4><h5 id="31-sobel滤波器"><a class="markdownIt-Anchor" href="#31-sobel滤波器"></a> 3.1 sobel滤波器</h5><p>  sobel滤波器被用来检测水平线和垂直线的预处理，滤波后得到的是该像素点在水平方向和垂直方向的梯度值。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;1-简介&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-简介&quot;&gt;&lt;/a&gt; 1. 简介&lt;/h4&gt;
+&lt;p&gt;  高通滤波器可以提取边缘，低通滤波器可以消除噪声。不同类型的滤波器特点不同。&lt;/p&gt;
+&lt;h4 id=&quot;2-低通滤波器&quot;&gt;&lt;a c
+      
+    
+    </summary>
+    
+    
+      <category term="计算机视觉" scheme="http://holdfire.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+    
+      <category term="图像处理" scheme="http://holdfire.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>吴恩达深度学习课程——课程1：Chapter3</title>
@@ -155,21 +183,6 @@
     
     
       <category term="Linux" scheme="http://holdfire.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>dl-base-lossFunction2</title>
-    <link href="http://holdfire.github.io/2019/11/29/dl-base-lossFunction2/"/>
-    <id>http://holdfire.github.io/2019/11/29/dl-base-lossFunction2/</id>
-    <published>2019-11-29T08:55:27.000Z</published>
-    <updated>2019-11-29T08:55:27.481Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
     
   </entry>
   
@@ -418,6 +431,21 @@
   </entry>
   
   <entry>
+    <title>dl-base-lossFunction2</title>
+    <link href="http://holdfire.github.io/2019/11/20/dl-base-lossFunction2/"/>
+    <id>http://holdfire.github.io/2019/11/20/dl-base-lossFunction2/</id>
+    <published>2019-11-20T08:55:27.000Z</published>
+    <updated>2019-12-06T08:43:58.498Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>命令行参数解析——argparse模块解析python脚本</title>
     <link href="http://holdfire.github.io/2019/11/20/python-argparse/"/>
     <id>http://holdfire.github.io/2019/11/20/python-argparse/</id>
@@ -525,38 +553,6 @@
     
     
       <category term="卷积神经网络" scheme="http://holdfire.github.io/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>基于深度学习的图像边缘和轮廓的提取</title>
-    <link href="http://holdfire.github.io/2019/11/18/cv-imageProcess-Edge-dl/"/>
-    <id>http://holdfire.github.io/2019/11/18/cv-imageProcess-Edge-dl/</id>
-    <published>2019-11-18T09:14:41.000Z</published>
-    <updated>2019-11-18T10:01:22.628Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4><p>  </p><h4 id="2-边缘提取hed网络"><a class="markdownIt-Anchor" href="#2-边缘提取hed网络"></a> 2. 边缘提取——HED网络</h4><p>  整体嵌套边缘检测(Holistically-Nested Edge Detection)是一个基于深度卷积神经网络的图像边缘提取算法。其特点是：（1）整体图像训练和预测；（2）多尺度和多层特征学习。该深度模型利用全卷积神经网络，自动学习丰富的分层表示。（基于侧面响应的深层监督指导）</p><h5 id="21-多尺度深度学习"><a class="markdownIt-Anchor" href="#21-多尺度深度学习"></a> 2.1 多尺度深度学习</h5><p>  多尺度深度学习可以分为四类，即多流学习(multi-stream learning)、跳网(skip-net learning)、多输入单模型以及独立网训练，如下图所示：（a）多流架构；（b）跳网架构；（c）多尺度输入的单一模型；（d）不同网络独立训练；（e）HED，其中添加多个侧面输出。</p><p>  在表示和计算方面，前四种方法存在冗余，HED是一个相对简单的变体，能够从多个尺度产生预测。该结构可以被解释为（d）独立网络的整体嵌套版，包括多个侧输出单流深度网络。隐藏层监督可以改善图像分类任务的优化和泛化。如果需要统一输出，多侧向输出可以灵活地添加额外的融合层。</p><h4 id="3-边缘提取casenet网络"><a class="markdownIt-Anchor" href="#3-边缘提取casenet网络"></a> 3. 边缘提取——CASENet网络</h4><p>  CASENet网络将每个边缘像素与多于一个的边缘类相关联，是一种基于ResNet的端到端深度语义边缘学习的架构，同时也是一种跳层(skip-layer)架构，其中顶层卷积层的类别边缘激活共享并与底层特征的同一集融合，用一种多标签损失函数来监督激活的融合。</p><h4 id="4-轮廓提取deepedge"><a class="markdownIt-Anchor" href="#4-轮廓提取deepedge"></a> 4. 轮廓提取——DeepEdge</h4><p>  DeepEdge利用目标相关特征作为轮廓的高级线索检测。设计了一个多级深度网络，由五个卷积层和一个分叉全连接子网络(bifurcated fully-connected subnetwork)组成。</p><h4 id="5-轮廓提取cedn"><a class="markdownIt-Anchor" href="#5-轮廓提取cedn"></a> 5. 轮廓提取——CEDN</h4><p>  利用全卷积编码器-解码器网络(CEDN)，端到端的训练数据来自PASCAL VOC中修正的不准确的多边形标注，</p><h4 id="参考文献"><a class="markdownIt-Anchor" href="#参考文献"></a> 参考文献：</h4><ol><li><p><a href="https://arxiv.org/abs/1504.06375" target="_blank" rel="noopener">S Xie, Z Tu,“Holistically-Nested Edge Detection“, ICCV 2015</a></p></li><li><p><a href="https://arxiv.org/abs/1705.09759" target="_blank" rel="noopener">Z Yu et al.,“CASENet: Deep Category-Aware Semantic Edge Detection”, CVPR 2017</a></p></li><li><p><a href="https://arxiv.org/abs/1412.1123" target="_blank" rel="noopener">CG Bertasius, J Shi, L Torresani,“DeepEdge: A Multi-Scale Bifurcated Deep Network for Top-Down Contour Detection”, CVPR, 2015</a></p></li><li><p><a href="https://www.researchgate.net/publication/308820325_DeepContour_A_Deep_Convolutional_Feature_Learned_by_Positive-sharing_Loss_for_Contour_Detection" target="_blank" rel="noopener">W Shen et al.,“DeepContour: A Deep Convolutional Feature Learned by Positive-sharing Loss for Contour Detection”, CVPR 2015</a></p></li><li><p><a href="https://zhuanlan.zhihu.com/p/78051407" target="_blank" rel="noopener">知乎专栏的综述</a></p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h4 id=&quot;1-简介&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-简介&quot;&gt;&lt;/a&gt; 1. 简介&lt;/h4&gt;
-&lt;p&gt;  &lt;/p&gt;
-&lt;h4 id=&quot;2-边缘提取hed网络&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#2
-      
-    
-    </summary>
-    
-    
-      <category term="计算机视觉" scheme="http://holdfire.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-    
-      <category term="图像处理" scheme="http://holdfire.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
-      <category term="边缘提取" scheme="http://holdfire.github.io/tags/%E8%BE%B9%E7%BC%98%E6%8F%90%E5%8F%96/"/>
-    
-      <category term="深度学习" scheme="http://holdfire.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   

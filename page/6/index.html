@@ -225,6 +225,108 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/11/dl-cnn-siameseNetwork/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="holdfire">
+      <meta itemprop="description" content="一只想上天的菜鸟！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="holdfire">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/11/dl-cnn-siameseNetwork/" class="post-title-link" itemprop="url">孪生网络——Siamese Network</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-11 16:07:11" itemprop="dateCreated datePublished" datetime="2019-11-11T16:07:11+08:00">2019-11-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-25 11:47:02" itemprop="dateModified" datetime="2019-11-25T11:47:02+08:00">2019-11-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li>one-shot learning</li>
+<li>metric learning</li>
+<li>triplet loss</li>
+<li>siamese network</li>
+</ul>
+<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<h5 id="11-单样本学习one-shot-learning"><a class="markdownIt-Anchor" href="#11-单样本学习one-shot-learning"></a> 1.1 单样本学习one shot learning</h5>
+<p>  在训练有监督学习模型时，如果训练样本中每个类别只提供一个或少量训练样本，如何设计和训练模型，使得模型对小样本也能适应，样本的训练集变化也不需要重新训练模型呢？这就是单样本学习one-shot learning。<br />
+  传统分类问题的输出是标注，通常为one-hot编码，我们学习得到的模型就是分类模型。而在one-shot问题中，由于每个类别的样本太少，是无法学习到一个好的分类模型的。我们的思路是让模型学习得到一个相似度函数，模型输出的不是类别，而是给定输入两幅图像的相似度。</p>
+<h5 id="12-孪生网络siamese"><a class="markdownIt-Anchor" href="#12-孪生网络siamese"></a> 1.2 孪生网络siamese</h5>
+<p>  Siamese网络是一种相似性度量网络。当类别数多且每个类别的数目少时，可以用于类别的识别和分类。siamese网络从数据中去学习一个相似性度量，用这个学习出来的度量去比较和匹配新的未知类别的样本。<br />
+  网络的主要思想是：通过一个函数将输入向量映射到目标空间，使得相同类别图片的相似性度量大，不同类别图片的相似性度量小。网络用训练集中成对的样本进行训练。</p>
+<h4 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料：</h4>
+<ol>
+<li><a href="https://www.researchgate.net/publication/4156225_Learning_a_similarity_metric_discriminatively_with_application_to_face_verification" target="_blank" rel="noopener">Learning a Similarity Metric Discriminatively, with Application to Face Verification.</a></li>
+<li><a href="https://www.researchgate.net/publication/283326408_Hamming_Distance_Metric_Learning?_sg=WGil4Wk76YjSrxwbkMquQ0KXrsc9OniM9q_4zretKujj4FZA1MwjOSTSKUbbhS6g-jkxap7Hi145aSM" target="_blank" rel="noopener">Hamming Distance Metric Learning.</a></li>
+<li><a href="https://arxiv.org/abs/1703.07326" target="_blank" rel="noopener">One-Shot Imitation Learning</a></li>
+<li><a href="http://de.arxiv.org/pdf/1504.03641" target="_blank" rel="noopener">Learning to Compare Image Patches via Convolutional Neural Networks</a></li>
+<li><a href="https://cims.nyu.edu/~brenden/LakeEtAlNips2013.pdf" target="_blank" rel="noopener">One-shot learning by inverting a compositional causal process</a></li>
+<li><a href="https://arxiv.org/pdf/1606.04080.pdf" target="_blank" rel="noopener">Matching Networks for One Shot Learning</a></li>
+<li><a href="http://www.cs.cmu.edu/~rsalakhu/papers/oneshot1.pdf" target="_blank" rel="noopener">Siamese Neural Networks for One-shot Image Recognition</a></li>
+<li><a href="https://arxiv.org/pdf/1605.06065.pdf" target="_blank" rel="noopener">One-shot Learning with Memory-Augmented Neural Networks<br />
+</a></li>
+<li>小样本机器学习 few shot learning: <a href="https://blog.csdn.net/mao_feng/article/details/78939864" target="_blank" rel="noopener">https://blog.csdn.net/mao_feng/article/details/78939864</a></li>
+<li>单样本学习和孪生网络简介：<a href="https://blog.csdn.net/weixin_41481113/article/details/88415546" target="_blank" rel="noopener">https://blog.csdn.net/weixin_41481113/article/details/88415546</a></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/11/compile-bazel/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1081,83 +1183,6 @@ Pytorch支持比较简单</p>
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/08/python-anaconda/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="holdfire">
-      <meta itemprop="description" content="一只想上天的菜鸟！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="holdfire">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/08/python-anaconda/" class="post-title-link" itemprop="url">Python——conda和Anaconda介绍</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-08 15:20:56" itemprop="dateCreated datePublished" datetime="2019-11-08T15:20:56+08:00">2019-11-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-11 04:29:33" itemprop="dateModified" datetime="2019-11-11T04:29:33+08:00">2019-11-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index">
-                    <span itemprop="name">编程语言</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
-<p>  </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1208,7 +1233,7 @@ Pytorch支持比较简单</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">105</span>
+          <span class="site-state-item-count">106</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1296,7 +1321,7 @@ Pytorch支持比较简单</p>
    
     </div>
     <div class="powered-by"></div>
-    <span class="post-count">博客全站共47.2k字</span>
+    <span class="post-count">博客全站共47.7k字</span>
   </div>
         
 <div class="busuanzi-count">

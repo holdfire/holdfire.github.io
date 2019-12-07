@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://holdfire.github.io/2019/11/14/cv-imageProcess-Edge-canny/</loc>
+    
+    <lastmod>2019-12-06T09:45:42.135Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/12/06/cv-imageProcess-filter/</loc>
+    
+    <lastmod>2019-12-06T09:25:40.053Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://holdfire.github.io/2019/11/20/dl-base-lossFunction2/</loc>
+    
+    <lastmod>2019-12-06T08:43:58.498Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://holdfire.github.io/2019/12/06/dl-course-AndrewNGdl-c1-chapter3/</loc>
     
     <lastmod>2019-12-05T18:04:44.305Z</lastmod>
@@ -75,13 +96,6 @@
     <loc>http://holdfire.github.io/2019/11/20/python-callable/</loc>
     
     <lastmod>2019-11-29T09:04:20.280Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/11/29/dl-base-lossFunction2/</loc>
-    
-    <lastmod>2019-11-29T08:55:27.481Z</lastmod>
     
   </url>
   
@@ -306,13 +320,6 @@
     <loc>http://holdfire.github.io/2019/11/18/cv-imageProcess-Edge-dl/</loc>
     
     <lastmod>2019-11-18T10:01:22.628Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://holdfire.github.io/2019/11/14/cv-imageProcess-Edge-canny/</loc>
-    
-    <lastmod>2019-11-18T09:26:48.475Z</lastmod>
     
   </url>
   
