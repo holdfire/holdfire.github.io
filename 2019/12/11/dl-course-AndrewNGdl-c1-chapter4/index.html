@@ -51,18 +51,18 @@
   };
 </script>
 
-  <meta name="description" content="一只想上天的菜鸟！">
-<meta name="keywords" content="计算机，水利工程">
+  <meta name="description" content="Deep Neural Networks  4.1 Deep Layer Neural Network   计算神经网络的层数不包括输入层。  4.2 Why deep representations?  4.3 parameters and hyperparameters 超参数：学习率，迭代步数，网络层数，每一层的神经元数，激活函数，优化算法，batch size，正则化项  深度神经网络的构">
+<meta name="keywords" content="深度学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="dl-course-AndrewNGdl-c2-chapter1">
-<meta property="og:url" content="http:&#x2F;&#x2F;holdfire.github.io&#x2F;2019&#x2F;11&#x2F;15&#x2F;dl-course-AndrewNGdl-c2-chapter1&#x2F;index.html">
+<meta property="og:title" content="吴恩达深度学习课程——课程1：Chapter4">
+<meta property="og:url" content="http:&#x2F;&#x2F;holdfire.github.io&#x2F;2019&#x2F;12&#x2F;11&#x2F;dl-course-AndrewNGdl-c1-chapter4&#x2F;index.html">
 <meta property="og:site_name" content="holdfire">
-<meta property="og:description" content="一只想上天的菜鸟！">
+<meta property="og:description" content="Deep Neural Networks  4.1 Deep Layer Neural Network   计算神经网络的层数不包括输入层。  4.2 Why deep representations?  4.3 parameters and hyperparameters 超参数：学习率，迭代步数，网络层数，每一层的神经元数，激活函数，优化算法，batch size，正则化项  深度神经网络的构">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-14T18:49:48.010Z">
+<meta property="og:updated_time" content="2019-12-15T13:58:41.410Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://holdfire.github.io/2019/11/15/dl-course-AndrewNGdl-c2-chapter1/">
+<link rel="canonical" href="http://holdfire.github.io/2019/12/11/dl-course-AndrewNGdl-c1-chapter4/">
 
 
 <script id="page-configurations">
@@ -76,7 +76,7 @@
   };
 </script>
 
-  <title>dl-course-AndrewNGdl-c2-chapter1 | holdfire</title>
+  <title>吴恩达深度学习课程——课程1：Chapter4 | holdfire</title>
   
 
 
@@ -226,7 +226,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/15/dl-course-AndrewNGdl-c2-chapter1/">
+    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/12/11/dl-course-AndrewNGdl-c1-chapter4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -239,7 +239,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          dl-course-AndrewNGdl-c2-chapter1
+          吴恩达深度学习课程——课程1：Chapter4
         </h1>
 
         <div class="post-meta">
@@ -248,9 +248,26 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-11-15 02:49:47 / 修改时间：02:49:48" itemprop="dateCreated datePublished" datetime="2019-11-15T02:49:47+08:00">2019-11-15</time>
+              <time title="创建时间：2019-12-11 01:34:40" itemprop="dateCreated datePublished" datetime="2019-12-11T01:34:40+08:00">2019-12-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-15 21:58:41" itemprop="dateModified" datetime="2019-12-15T21:58:41+08:00">2019-12-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习课程</span>
+                  </a>
+                </span>
             </span>
 
           
@@ -264,7 +281,37 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <p><strong><center>Deep Neural Networks</center></strong></p>
+<h4 id="41-deep-layer-neural-network"><a class="markdownIt-Anchor" href="#41-deep-layer-neural-network"></a> 4.1 Deep Layer Neural Network</h4>
+<p>  计算神经网络的层数不包括输入层。</p>
+<h4 id="42-why-deep-representations"><a class="markdownIt-Anchor" href="#42-why-deep-representations"></a> 4.2 Why deep representations?</h4>
+<h4 id="43-parameters-and-hyperparameters"><a class="markdownIt-Anchor" href="#43-parameters-and-hyperparameters"></a> 4.3 parameters and hyperparameters</h4>
+<p>超参数：学习率，迭代步数，网络层数，每一层的神经元数，激活函数，优化算法，batch size，正则化项</p>
+<h4 id="深度神经网络的构造过程"><a class="markdownIt-Anchor" href="#深度神经网络的构造过程"></a> 深度神经网络的构造过程：</h4>
+<h4 id="1-参数初始化模块"><a class="markdownIt-Anchor" href="#1-参数初始化模块"></a> 1. 参数初始化模块：</h4>
+<p>  参数初始化函数的输入为各层的神经元个数，函数实现：权重参数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>W</mi></mrow><annotation encoding="application/x-tex">W</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span></span></span></span>用一个正态分布矩阵乘以0.01，偏置参数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span>可以用0来初始化。输出结果：每一层的W和b缓存在一个字典parameters中。</p>
+<h4 id="2-前向传播模块"><a class="markdownIt-Anchor" href="#2-前向传播模块"></a> 2. 前向传播模块：</h4>
+<p>  输入是前一层的激活值A_prev和上一步的字典parameters</p>
+<h5 id="21-通过一个线性函数"><a class="markdownIt-Anchor" href="#21-通过一个线性函数"></a> 2.1 通过一个线性函数</h5>
+<p>  输出得到Z，缓存输入linear_cache = (A_prev,W,b)的值</p>
+<h5 id="22-通过一个激活函数"><a class="markdownIt-Anchor" href="#22-通过一个激活函数"></a> 2.2 通过一个激活函数</h5>
+<p>   得到激活值A，缓存输入activation_cache = Z</p>
+<h5 id="23-我们得到本层的激活值a"><a class="markdownIt-Anchor" href="#23-我们得到本层的激活值a"></a> 2.3 我们得到本层的激活值A</h5>
+<p>  以及该层的缓存cache = (linear_cache, activation_cache)，然后就可以不断循环该步骤啦！</p>
+<h4 id="3-代价函数cost-function计算模块"><a class="markdownIt-Anchor" href="#3-代价函数cost-function计算模块"></a> 3. 代价函数cost function计算模块；</h4>
+<h4 id="4-反向传播模块"><a class="markdownIt-Anchor" href="#4-反向传播模块"></a> 4. 反向传播模块：</h4>
+<p>  输入是某一层的dA，以及步骤2中的缓存cache（先把输出层参数单独更新）</p>
+<h5 id="41-通过一个activation_backforward函数"><a class="markdownIt-Anchor" href="#41-通过一个activation_backforward函数"></a> 4.1 通过一个activation_backforward函数</h5>
+<p>  输入还应该有activation_cache，求出dZ的值；</p>
+<h5 id="42-通过一个linear_backforward函数"><a class="markdownIt-Anchor" href="#42-通过一个linear_backforward函数"></a> 4.2 通过一个linear_backforward函数</h5>
+<p>  输入再加上linear_cache，求出dW，db，dA_prev的值；</p>
+<h5 id="43-得到了da_prev的值"><a class="markdownIt-Anchor" href="#43-得到了da_prev的值"></a> 4.3 得到了dA_prev的值</h5>
+<p>  然后就可以一直循环上述两个步骤直到输入层啦！循环过程中用一个字典grads来保存各层dW，db，dA_prev的值。</p>
+<h4 id="5-参数更新模块"><a class="markdownIt-Anchor" href="#5-参数更新模块"></a> 5. 参数更新模块：</h4>
+<p>  输入为当前参数值parameters，参数梯度grads以及学习率。</p>
+<h4 id="6-循环训练"><a class="markdownIt-Anchor" href="#6-循环训练"></a> 6. 循环训练</h4>
+<p>   将第2，3，4和5步骤循环num_iterations次，直至代价函数很小。</p>
+
     </div>
 
     
@@ -293,21 +340,24 @@
 
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag"># 深度学习</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2019/11/15/dl-course-AndrewNGdl-c1-chapter4/" rel="next" title="dl-course-AndrewNGdl-c1-chapter4">
-                  <i class="fa fa-chevron-left"></i> dl-course-AndrewNGdl-c1-chapter4
+                <a href="/2019/12/06/cv-imageProcess-filter/" rel="next" title="图像处理之————图像滤波">
+                  <i class="fa fa-chevron-left"></i> 图像处理之————图像滤波
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2019/11/15/dl-course-AndrewNGdl-c2-chapter2/" rel="prev" title="dl-course-AndrewNGdl-c2-chapter2">
-                  dl-course-AndrewNGdl-c2-chapter2 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/12/11/dl-course-AndrewNGdl-c2-chapter1/" rel="prev" title="吴恩达深度学习课程——课程2：Week1">
+                  吴恩达深度学习课程——课程2：Week1 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -347,6 +397,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#41-deep-layer-neural-network"><span class="nav-number">1.</span> <span class="nav-text"> 4.1 Deep Layer Neural Network</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#42-why-deep-representations"><span class="nav-number">2.</span> <span class="nav-text"> 4.2 Why deep representations?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#43-parameters-and-hyperparameters"><span class="nav-number">3.</span> <span class="nav-text"> 4.3 parameters and hyperparameters</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#深度神经网络的构造过程"><span class="nav-number">4.</span> <span class="nav-text"> 深度神经网络的构造过程：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-参数初始化模块"><span class="nav-number">5.</span> <span class="nav-text"> 1. 参数初始化模块：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-前向传播模块"><span class="nav-number">6.</span> <span class="nav-text"> 2. 前向传播模块：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#21-通过一个线性函数"><span class="nav-number">6.1.</span> <span class="nav-text"> 2.1 通过一个线性函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#22-通过一个激活函数"><span class="nav-number">6.2.</span> <span class="nav-text"> 2.2 通过一个激活函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#23-我们得到本层的激活值a"><span class="nav-number">6.3.</span> <span class="nav-text"> 2.3 我们得到本层的激活值A</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-代价函数cost-function计算模块"><span class="nav-number">7.</span> <span class="nav-text"> 3. 代价函数cost function计算模块；</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-反向传播模块"><span class="nav-number">8.</span> <span class="nav-text"> 4. 反向传播模块：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#41-通过一个activation_backforward函数"><span class="nav-number">8.1.</span> <span class="nav-text"> 4.1 通过一个activation_backforward函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#42-通过一个linear_backforward函数"><span class="nav-number">8.2.</span> <span class="nav-text"> 4.2 通过一个linear_backforward函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#43-得到了da_prev的值"><span class="nav-number">8.3.</span> <span class="nav-text"> 4.3 得到了dA_prev的值</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-参数更新模块"><span class="nav-number">9.</span> <span class="nav-text"> 5. 参数更新模块：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-循环训练"><span class="nav-number">10.</span> <span class="nav-text"> 6. 循环训练</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -362,7 +413,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">106</span>
+          <span class="site-state-item-count">105</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -450,7 +501,7 @@
    
     </div>
     <div class="powered-by"></div>
-    <span class="post-count">博客全站共47.7k字</span>
+    <span class="post-count">博客全站共49.1k字</span>
   </div>
         
 <div class="busuanzi-count">
@@ -564,6 +615,9 @@ window.addEventListener('pjax:success', () => {
   
 
   
+      
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css">
+
 
   
 

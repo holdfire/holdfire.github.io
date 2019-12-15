@@ -1,6 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>吴恩达深度学习课程——课程2：Week1</title>
+    <url>/2019/12/11/dl-course-AndrewNGdl-c2-chapter1/</url>
+    <content><![CDATA[<p><strong><center>Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization</center></strong></p>
+<h4 id="11-traindevelopmenttest"><a class="markdownIt-Anchor" href="#11-traindevelopmenttest"></a> 1.1 train/development/test</h4>
+<ul>
+<li>超参数：网络层数，每一层神经元数目，学习率，激活函数，优化算法</li>
+<li>机器学习时代数据集的划分： train set ： development set ： test set = 0.6 : 0.2 ： 0.2</li>
+<li>大数据和深度学习时代，三者比例可能是1,000,000 ： 10,000 ： 10,000</li>
+<li>训练集和测试集/验证集不匹配时，比如你的训练集来自网上抓取的图片，测试和验证集来自用户图片时，这时你要保证你的dev和test要有同样的分布，因为dev是评估最好的模型，test是模型性能的无偏估计。或者不需要test只需要dev也可以。</li>
+</ul>
+<h4 id="12-偏差bias和方差variance"><a class="markdownIt-Anchor" href="#12-偏差bias和方差variance"></a> 1.2 偏差bias和方差variance</h4>
+<ul>
+<li>高偏差：欠拟合，训练集和测试集误差都较大</li>
+<li>高方差：过拟合，训练集误差小，验证集误差大</li>
+</ul>
+<p><strong><center>现假设人类的错误率为0%(base error)，实际模型是一个二次模型</center></strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">high variance</th>
+<th style="text-align:center">high bias</th>
+<th style="text-align:center">高偏差&amp;高方差</th>
+<th style="text-align:center">低偏差&amp;低偏差</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">训练集</td>
+<td style="text-align:center">1%</td>
+<td style="text-align:center">15%</td>
+<td style="text-align:center">15%</td>
+<td style="text-align:center">0.5%</td>
+</tr>
+<tr>
+<td style="text-align:center">验证集</td>
+<td style="text-align:center">11%</td>
+<td style="text-align:center">16%</td>
+<td style="text-align:center">30%</td>
+<td style="text-align:center">1%</td>
+</tr>
+<tr>
+<td style="text-align:center">举例</td>
+<td style="text-align:center">用高次模型拟合</td>
+<td style="text-align:center">训练次数不够</td>
+<td style="text-align:center">用线性模型拟合</td>
+<td style="text-align:center">学到正确模型了！</td>
+</tr>
+</tbody>
+</table>
+<p>  对于上述例子，如果base error为15%，那么第二列就是学习到了很好的模型。通过比较训练集上错误率和base error来判断你的模型是否有高偏差，通过比较训练集和测试集错误率的差别来判断你的模型是否有高方差。</p>
+<h4 id="13-机器学习模型的bias-vairance-tradeoff实现过程"><a class="markdownIt-Anchor" href="#13-机器学习模型的bias-vairance-tradeoff实现过程"></a> 1.3 机器学习模型的bias-vairance tradeoff——实现过程</h4>
+<p>  首先，判断你的模型是否在训练集上有high bias，如果有，说明你的模型欠拟合，这时你可以尝试加大你的网络深度或者每一层的神经元个数，增加训练时间，换一种网络结构<br />
+  然后，一旦你的bias降下来了，再通过验证集上的表现看看模型是否有high variance，这时你可以尝试获取更多数据，或者使用正则化，调整网络结构。<br />
+  返回循环继续看模型是否有high bias，直至最后你的模型获得了low variance和low bias<br />
+  <strong>然而在深度学习时代，我们可以一边使用更大的神经网络，一边使用更多的数据，能够同时降低偏差和方差。</strong></p>
+<h4 id="14-正则化regularization正则化参数λ"><a class="markdownIt-Anchor" href="#14-正则化regularization正则化参数λ"></a> 1.4 正则化regularization，正则化参数λ</h4>
+<ul>
+<li>L2正则化：通常使用更多，其效果是weight decay，准确的叫法应该是Frobenius norm</li>
+<li>L1正则化：通常能够让你的参数更加稀疏，可以压缩模型<br />
+<strong>为什么正则化可以减小过拟合呢？</strong><br />
+  正则化在代价函数中添加对参数的惩罚项，防止参数过大。<br />
+  如果你的激活函数是tanh函数，那么<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Z</mi><mo>=</mo><mi>W</mi><mo separator="true">⋅</mo><mi>a</mi><mo>+</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">Z=W·a + b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">Z</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mpunct">⋅</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span>，这时候Z的值会接近0，此时的激活函数tanh会近似一个线性函数，这样即使你的网络再深，其拟合能力也有限。</li>
+</ul>
+<h4 id="15-dropout-regularization"><a class="markdownIt-Anchor" href="#15-dropout-regularization"></a> 1.5 Dropout Regularization</h4>
+<p>  </p>
+]]></content>
+      <categories>
+        <category>深度学习课程</category>
+      </categories>
+      <tags>
+        <tag>深度学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>吴恩达深度学习课程——课程1：Chapter4</title>
+    <url>/2019/12/11/dl-course-AndrewNGdl-c1-chapter4/</url>
+    <content><![CDATA[<p><strong><center>Deep Neural Networks</center></strong></p>
+<h4 id="41-deep-layer-neural-network"><a class="markdownIt-Anchor" href="#41-deep-layer-neural-network"></a> 4.1 Deep Layer Neural Network</h4>
+<p>  计算神经网络的层数不包括输入层。</p>
+<h4 id="42-why-deep-representations"><a class="markdownIt-Anchor" href="#42-why-deep-representations"></a> 4.2 Why deep representations?</h4>
+<h4 id="43-parameters-and-hyperparameters"><a class="markdownIt-Anchor" href="#43-parameters-and-hyperparameters"></a> 4.3 parameters and hyperparameters</h4>
+<p>超参数：学习率，迭代步数，网络层数，每一层的神经元数，激活函数，优化算法，batch size，正则化项</p>
+<h4 id="深度神经网络的构造过程"><a class="markdownIt-Anchor" href="#深度神经网络的构造过程"></a> 深度神经网络的构造过程：</h4>
+<h4 id="1-参数初始化模块"><a class="markdownIt-Anchor" href="#1-参数初始化模块"></a> 1. 参数初始化模块：</h4>
+<p>  参数初始化函数的输入为各层的神经元个数，函数实现：权重参数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>W</mi></mrow><annotation encoding="application/x-tex">W</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span></span></span></span>用一个正态分布矩阵乘以0.01，偏置参数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span>可以用0来初始化。输出结果：每一层的W和b缓存在一个字典parameters中。</p>
+<h4 id="2-前向传播模块"><a class="markdownIt-Anchor" href="#2-前向传播模块"></a> 2. 前向传播模块：</h4>
+<p>  输入是前一层的激活值A_prev和上一步的字典parameters</p>
+<h5 id="21-通过一个线性函数"><a class="markdownIt-Anchor" href="#21-通过一个线性函数"></a> 2.1 通过一个线性函数</h5>
+<p>  输出得到Z，缓存输入linear_cache = (A_prev,W,b)的值</p>
+<h5 id="22-通过一个激活函数"><a class="markdownIt-Anchor" href="#22-通过一个激活函数"></a> 2.2 通过一个激活函数</h5>
+<p>   得到激活值A，缓存输入activation_cache = Z</p>
+<h5 id="23-我们得到本层的激活值a"><a class="markdownIt-Anchor" href="#23-我们得到本层的激活值a"></a> 2.3 我们得到本层的激活值A</h5>
+<p>  以及该层的缓存cache = (linear_cache, activation_cache)，然后就可以不断循环该步骤啦！</p>
+<h4 id="3-代价函数cost-function计算模块"><a class="markdownIt-Anchor" href="#3-代价函数cost-function计算模块"></a> 3. 代价函数cost function计算模块；</h4>
+<h4 id="4-反向传播模块"><a class="markdownIt-Anchor" href="#4-反向传播模块"></a> 4. 反向传播模块：</h4>
+<p>  输入是某一层的dA，以及步骤2中的缓存cache（先把输出层参数单独更新）</p>
+<h5 id="41-通过一个activation_backforward函数"><a class="markdownIt-Anchor" href="#41-通过一个activation_backforward函数"></a> 4.1 通过一个activation_backforward函数</h5>
+<p>  输入还应该有activation_cache，求出dZ的值；</p>
+<h5 id="42-通过一个linear_backforward函数"><a class="markdownIt-Anchor" href="#42-通过一个linear_backforward函数"></a> 4.2 通过一个linear_backforward函数</h5>
+<p>  输入再加上linear_cache，求出dW，db，dA_prev的值；</p>
+<h5 id="43-得到了da_prev的值"><a class="markdownIt-Anchor" href="#43-得到了da_prev的值"></a> 4.3 得到了dA_prev的值</h5>
+<p>  然后就可以一直循环上述两个步骤直到输入层啦！循环过程中用一个字典grads来保存各层dW，db，dA_prev的值。</p>
+<h4 id="5-参数更新模块"><a class="markdownIt-Anchor" href="#5-参数更新模块"></a> 5. 参数更新模块：</h4>
+<p>  输入为当前参数值parameters，参数梯度grads以及学习率。</p>
+<h4 id="6-循环训练"><a class="markdownIt-Anchor" href="#6-循环训练"></a> 6. 循环训练</h4>
+<p>   将第2，3，4和5步骤循环num_iterations次，直至代价函数很小。</p>
+]]></content>
+      <categories>
+        <category>深度学习课程</category>
+      </categories>
+      <tags>
+        <tag>深度学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>图像处理之————图像滤波</title>
     <url>/2019/12/06/cv-imageProcess-filter/</url>
     <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
@@ -30,7 +146,20 @@
     <url>/2019/12/06/dl-course-AndrewNGdl-c1-chapter3/</url>
     <content><![CDATA[<p><strong><center>Shallow Neural Networks</center></strong></p>
 <h4 id="31-神经网络表达"><a class="markdownIt-Anchor" href="#31-神经网络表达"></a> 3.1 神经网络表达</h4>
-<p>  </p>
+<p>  含有一个隐含层的神经网络，前向传播计算过程的vectorization和broadcasting。</p>
+<h4 id="32-激活函数activation-function"><a class="markdownIt-Anchor" href="#32-激活函数activation-function"></a> 3.2 激活函数activation function</h4>
+<p>sigmoid函数，tanh函数，ReLU函数，leaky_ReLU函数。<br />
+为什么使用激活函数？不使用激活函数的话，多个隐含层的线性变换等价于一个线性变换。<br />
+激活函数求导：<br />
+设有激活函数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo>=</mo><mi>g</mi><mo stretchy="false">(</mo><mi>z</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">a = g(z)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mclose">)</span></span></span></span><br />
+则有sigmoid函数的导数为：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>g</mi><mo mathvariant="normal">′</mo></msup><mo stretchy="false">(</mo><mi>z</mi><mo stretchy="false">)</mo><mo>=</mo><mi>a</mi><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mi>a</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">g&#x27;(z) = a(1-a)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.001892em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mclose">)</span></span></span></span><br />
+tanh函数的导数为：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>g</mi><mo mathvariant="normal">′</mo></msup><mo stretchy="false">(</mo><mi>z</mi><mo stretchy="false">)</mo><mo>=</mo><mn>1</mn><mo>−</mo><msup><mi>a</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">g&#x27;(z) = 1-a^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.001892em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></p>
+<h4 id="33-含有一个隐含层神经网络的反向传播过程"><a class="markdownIt-Anchor" href="#33-含有一个隐含层神经网络的反向传播过程"></a> 3.3 含有一个隐含层神经网络的反向传播过程</h4>
+<h4 id="34-神经网络权重参数的随机初始化"><a class="markdownIt-Anchor" href="#34-神经网络权重参数的随机初始化"></a> 3.4 神经网络权重参数的随机初始化</h4>
+<p>把所有权重初始值赋值为0，会使得同层神经元学到的东西都一样；<br />
+权重参数w通常赋值为均值为np.random.randn((2,2))*0.01，赋值太大会使得sigmoid函数饱和；<br />
+b初始值可以赋值为0；</p>
+<h4 id="35-采访ian-goodfellow"><a class="markdownIt-Anchor" href="#35-采访ian-goodfellow"></a> 3.5 采访Ian Goodfellow</h4>
 ]]></content>
       <categories>
         <category>深度学习课程</category>
@@ -323,11 +452,6 @@
       </tags>
   </entry>
   <entry>
-    <title>dl-base-lossFunction2</title>
-    <url>/2019/11/20/dl-base-lossFunction2/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>命令行参数解析——argparse模块解析python脚本</title>
     <url>/2019/11/20/python-argparse/</url>
     <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
@@ -541,9 +665,13 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>dl-generativeModel-VAE</title>
-    <url>/2019/11/15/dl-generativeModel-VAE/</url>
-    <content><![CDATA[]]></content>
+    <title>dl-generativeModel-GAN</title>
+    <url>/2019/11/15/dl-generativeModel-GAN/</url>
+    <content><![CDATA[<p>参考资料：</p>
+<ol>
+<li><a href="https://arxiv.org/abs/1701.00160" target="_blank" rel="noopener">NIPS 2016 Tutorial: Generative Adversarial Networks</a></li>
+</ol>
+]]></content>
       <categories>
         <category>深度学习</category>
       </categories>
@@ -552,13 +680,9 @@
       </tags>
   </entry>
   <entry>
-    <title>dl-generativeModel-GAN</title>
-    <url>/2019/11/15/dl-generativeModel-GAN/</url>
-    <content><![CDATA[<p>参考资料：</p>
-<ol>
-<li><a href="https://arxiv.org/abs/1701.00160" target="_blank" rel="noopener">NIPS 2016 Tutorial: Generative Adversarial Networks</a></li>
-</ol>
-]]></content>
+    <title>dl-generativeModel-VAE</title>
+    <url>/2019/11/15/dl-generativeModel-VAE/</url>
+    <content><![CDATA[]]></content>
       <categories>
         <category>深度学习</category>
       </categories>
@@ -767,16 +891,6 @@ V=\begin{pmatrix}
   <entry>
     <title>dl-course-AndrewNGdl-c2-chapter2</title>
     <url>/2019/11/15/dl-course-AndrewNGdl-c2-chapter2/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>dl-course-AndrewNGdl-c2-chapter1</title>
-    <url>/2019/11/15/dl-course-AndrewNGdl-c2-chapter1/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>dl-course-AndrewNGdl-c1-chapter4</title>
-    <url>/2019/11/15/dl-course-AndrewNGdl-c1-chapter4/</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -1092,32 +1206,6 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
       </tags>
   </entry>
   <entry>
-    <title>特征提取——因子分析法FA</title>
-    <url>/2019/11/12/ml-reduceDimension-FA/</url>
-    <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
-<p>  </p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>数据降维</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>特征提取——等容特征映射IsoMap</title>
-    <url>/2019/11/12/ml-reduceDimension-ISOmap/</url>
-    <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
-<p>  等容特征映射(Isometric feature mapping, IsoMap)的基本思想是：当样本在高维空间中按照某种复杂结构分布时，如果直接计算两个样本点之间的欧氏距离，就损失了样本分布的结构信息。如果样本分布较密集，可以假定样本及的复杂结构在每个小的局部都可以用欧式空间来近似。计算每个样本与乡邻样本之间的欧氏距离；对两个不相邻的样本，寻找一些一系列凉凉相邻的样本构成连接着两个样本的路径，用两个样本间最短路径上的距不距离只和作为两个样本间的距离。这种距离称作测地距离(geodesic distance)。有了样本间的距离矩阵，就可以用度量型MDS等方法映射到低维空间。</p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>数据降维</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>特征提取——KL变换</title>
     <url>/2019/11/12/ml-reduceDimension-KLTransformation/</url>
     <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
@@ -1131,10 +1219,23 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
       </tags>
   </entry>
   <entry>
-    <title>特征提取——线性判别分析LDA</title>
-    <url>/2019/11/12/ml-reduceDimension-LDA/</url>
+    <title>特征提取——因子分析法FA</title>
+    <url>/2019/11/12/ml-reduceDimension-FA/</url>
     <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
-<p>  线性判别分析（也称作Fisher判别分析，Linear Discriminant Analysis）</p>
+<p>  </p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>数据降维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>特征提取——局部线性嵌入LLE</title>
+    <url>/2019/11/12/ml-reduceDimension-LLE/</url>
+    <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<p>  局部线性嵌入（Locally Linear Embedding）方法</p>
 ]]></content>
       <categories>
         <category>机器学习</category>
@@ -1158,10 +1259,36 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
       </tags>
   </entry>
   <entry>
-    <title>特征提取——局部线性嵌入LLE</title>
-    <url>/2019/11/12/ml-reduceDimension-LLE/</url>
+    <title>特征提取——线性判别分析LDA</title>
+    <url>/2019/11/12/ml-reduceDimension-LDA/</url>
     <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
-<p>  局部线性嵌入（Locally Linear Embedding）方法</p>
+<p>  线性判别分析（也称作Fisher判别分析，Linear Discriminant Analysis）</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>数据降维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>特征提取——奇异值分解SVD</title>
+    <url>/2019/11/12/ml-reduceDimension-SVD/</url>
+    <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<p>  奇异值分解(Singular Value Decomposition, SVD)</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>数据降维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>特征提取——等容特征映射IsoMap</title>
+    <url>/2019/11/12/ml-reduceDimension-ISOmap/</url>
+    <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<p>  等容特征映射(Isometric feature mapping, IsoMap)的基本思想是：当样本在高维空间中按照某种复杂结构分布时，如果直接计算两个样本点之间的欧氏距离，就损失了样本分布的结构信息。如果样本分布较密集，可以假定样本及的复杂结构在每个小的局部都可以用欧式空间来近似。计算每个样本与乡邻样本之间的欧氏距离；对两个不相邻的样本，寻找一些一系列凉凉相邻的样本构成连接着两个样本的路径，用两个样本间最短路径上的距不距离只和作为两个样本间的距离。这种距离称作测地距离(geodesic distance)。有了样本间的距离矩阵，就可以用度量型MDS等方法映射到低维空间。</p>
 ]]></content>
       <categories>
         <category>机器学习</category>
@@ -1178,19 +1305,6 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 <h4 id="2-古典尺度法"><a class="markdownIt-Anchor" href="#2-古典尺度法"></a> 2. 古典尺度法</h4>
 <h4 id="3-度量型mds"><a class="markdownIt-Anchor" href="#3-度量型mds"></a> 3. 度量型MDS</h4>
 <h4 id="4-非度量型mds"><a class="markdownIt-Anchor" href="#4-非度量型mds"></a> 4. 非度量型MDS</h4>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>数据降维</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>特征提取——奇异值分解SVD</title>
-    <url>/2019/11/12/ml-reduceDimension-SVD/</url>
-    <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
-<p>  奇异值分解(Singular Value Decomposition, SVD)</p>
 ]]></content>
       <categories>
         <category>机器学习</category>
@@ -1658,21 +1772,6 @@ B：10101010<br />
       </tags>
   </entry>
   <entry>
-    <title>自动机器学习AutoML</title>
-    <url>/2019/11/07/dl-advance-AutoML/</url>
-    <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
-<p>  </p>
-<h4 id="2nas算法搜索图像分类backbone"><a class="markdownIt-Anchor" href="#2nas算法搜索图像分类backbone"></a> 2.NAS算法搜索图像分类backbone</h4>
-<p>  </p>
-]]></content>
-      <categories>
-        <category>深度学习前沿</category>
-      </categories>
-      <tags>
-        <tag>深度学习前沿</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>神经架构搜索NAS</title>
     <url>/2019/11/07/dl-advance-NAS/</url>
     <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
@@ -1696,6 +1795,21 @@ B：10101010<br />
 <li>一文看懂AutoML和NAS：<a href="https://zhuanlan.zhihu.com/p/42924585" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/42924585</a></li>
 <li>AutoML和NAS的调研（CVPR2019）:<a href="https://blog.csdn.net/soulmeetliang/article/details/93002244" target="_blank" rel="noopener">https://blog.csdn.net/soulmeetliang/article/details/93002244</a></li>
 </ol>
+]]></content>
+      <categories>
+        <category>深度学习前沿</category>
+      </categories>
+      <tags>
+        <tag>深度学习前沿</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>自动机器学习AutoML</title>
+    <url>/2019/11/07/dl-advance-AutoML/</url>
+    <content><![CDATA[<h4 id="1-简介"><a class="markdownIt-Anchor" href="#1-简介"></a> 1. 简介</h4>
+<p>  </p>
+<h4 id="2nas算法搜索图像分类backbone"><a class="markdownIt-Anchor" href="#2nas算法搜索图像分类backbone"></a> 2.NAS算法搜索图像分类backbone</h4>
+<p>  </p>
 ]]></content>
       <categories>
         <category>深度学习前沿</category>

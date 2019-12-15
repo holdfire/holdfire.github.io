@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://holdfire.github.io/2019/12/11/dl-course-AndrewNGdl-c2-chapter1/</loc>
+    <lastmod>2019-12-15</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/12/11/dl-course-AndrewNGdl-c1-chapter4/</loc>
+    <lastmod>2019-12-15</lastmod>
+  </url>  <url>
+    <loc>http://holdfire.github.io/2019/12/06/dl-course-AndrewNGdl-c1-chapter3/</loc>
+    <lastmod>2019-12-10</lastmod>
+  </url>  <url>
     <loc>http://holdfire.github.io/2019/11/14/cv-imageProcess-Edge-canny/</loc>
     <lastmod>2019-12-06</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/12/06/cv-imageProcess-filter/</loc>
     <lastmod>2019-12-06</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/20/dl-base-lossFunction2/</loc>
-    <lastmod>2019-12-06</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/12/06/dl-course-AndrewNGdl-c1-chapter3/</loc>
-    <lastmod>2019-12-05</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/12/04/dl-course-AndrewNGdl-c1-chapter2/</loc>
     <lastmod>2019-12-05</lastmod>
@@ -182,12 +185,6 @@
     <lastmod>2019-11-14</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/15/dl-course-AndrewNGdl-c2-chapter2/</loc>
-    <lastmod>2019-11-14</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/15/dl-course-AndrewNGdl-c2-chapter1/</loc>
-    <lastmod>2019-11-14</lastmod>
-  </url>  <url>
-    <loc>http://holdfire.github.io/2019/11/15/dl-course-AndrewNGdl-c1-chapter4/</loc>
     <lastmod>2019-11-14</lastmod>
   </url>  <url>
     <loc>http://holdfire.github.io/2019/11/14/dl-cnn-CenterNet/</loc>

@@ -51,18 +51,18 @@
   };
 </script>
 
-  <meta name="description" content="一只想上天的菜鸟！">
-<meta name="keywords" content="计算机，水利工程">
+  <meta name="description" content="Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization  1.1 train&#x2F;development&#x2F;test  超参数：网络层数，每一层神经元数目，学习率，激活函数，优化算法 机器学习时代数据集的划分： train set ： development set ： test set">
+<meta name="keywords" content="深度学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="dl-base-lossFunction2">
-<meta property="og:url" content="http:&#x2F;&#x2F;holdfire.github.io&#x2F;2019&#x2F;11&#x2F;20&#x2F;dl-base-lossFunction2&#x2F;index.html">
+<meta property="og:title" content="吴恩达深度学习课程——课程2：Week1">
+<meta property="og:url" content="http:&#x2F;&#x2F;holdfire.github.io&#x2F;2019&#x2F;12&#x2F;11&#x2F;dl-course-AndrewNGdl-c2-chapter1&#x2F;index.html">
 <meta property="og:site_name" content="holdfire">
-<meta property="og:description" content="一只想上天的菜鸟！">
+<meta property="og:description" content="Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization  1.1 train&#x2F;development&#x2F;test  超参数：网络层数，每一层神经元数目，学习率，激活函数，优化算法 机器学习时代数据集的划分： train set ： development set ： test set">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-06T08:43:58.498Z">
+<meta property="og:updated_time" content="2019-12-15T18:09:11.067Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://holdfire.github.io/2019/11/20/dl-base-lossFunction2/">
+<link rel="canonical" href="http://holdfire.github.io/2019/12/11/dl-course-AndrewNGdl-c2-chapter1/">
 
 
 <script id="page-configurations">
@@ -76,7 +76,7 @@
   };
 </script>
 
-  <title>dl-base-lossFunction2 | holdfire</title>
+  <title>吴恩达深度学习课程——课程2：Week1 | holdfire</title>
   
 
 
@@ -226,7 +226,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/11/20/dl-base-lossFunction2/">
+    <link itemprop="mainEntityOfPage" href="http://holdfire.github.io/2019/12/11/dl-course-AndrewNGdl-c2-chapter1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -239,7 +239,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          dl-base-lossFunction2
+          吴恩达深度学习课程——课程2：Week1
         </h1>
 
         <div class="post-meta">
@@ -249,15 +249,26 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-11-20 16:55:27" itemprop="dateCreated datePublished" datetime="2019-11-20T16:55:27+08:00">2019-11-20</time>
+              <time title="创建时间：2019-12-11 01:34:40" itemprop="dateCreated datePublished" datetime="2019-12-11T01:34:40+08:00">2019-12-11</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-06 16:43:58" itemprop="dateModified" datetime="2019-12-06T16:43:58+08:00">2019-12-06</time>
+                <time title="修改时间：2019-12-16 02:09:11" itemprop="dateModified" datetime="2019-12-16T02:09:11+08:00">2019-12-16</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习课程</span>
+                  </a>
+                </span>
+            </span>
 
           
 
@@ -270,7 +281,71 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <p><strong><center>Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization</center></strong></p>
+<h4 id="11-traindevelopmenttest"><a class="markdownIt-Anchor" href="#11-traindevelopmenttest"></a> 1.1 train/development/test</h4>
+<ul>
+<li>超参数：网络层数，每一层神经元数目，学习率，激活函数，优化算法</li>
+<li>机器学习时代数据集的划分： train set ： development set ： test set = 0.6 : 0.2 ： 0.2</li>
+<li>大数据和深度学习时代，三者比例可能是1,000,000 ： 10,000 ： 10,000</li>
+<li>训练集和测试集/验证集不匹配时，比如你的训练集来自网上抓取的图片，测试和验证集来自用户图片时，这时你要保证你的dev和test要有同样的分布，因为dev是评估最好的模型，test是模型性能的无偏估计。或者不需要test只需要dev也可以。</li>
+</ul>
+<h4 id="12-偏差bias和方差variance"><a class="markdownIt-Anchor" href="#12-偏差bias和方差variance"></a> 1.2 偏差bias和方差variance</h4>
+<ul>
+<li>高偏差：欠拟合，训练集和测试集误差都较大</li>
+<li>高方差：过拟合，训练集误差小，验证集误差大</li>
+</ul>
+<p><strong><center>现假设人类的错误率为0%(base error)，实际模型是一个二次模型</center></strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">high variance</th>
+<th style="text-align:center">high bias</th>
+<th style="text-align:center">高偏差&amp;高方差</th>
+<th style="text-align:center">低偏差&amp;低偏差</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">训练集</td>
+<td style="text-align:center">1%</td>
+<td style="text-align:center">15%</td>
+<td style="text-align:center">15%</td>
+<td style="text-align:center">0.5%</td>
+</tr>
+<tr>
+<td style="text-align:center">验证集</td>
+<td style="text-align:center">11%</td>
+<td style="text-align:center">16%</td>
+<td style="text-align:center">30%</td>
+<td style="text-align:center">1%</td>
+</tr>
+<tr>
+<td style="text-align:center">举例</td>
+<td style="text-align:center">用高次模型拟合</td>
+<td style="text-align:center">训练次数不够</td>
+<td style="text-align:center">用线性模型拟合</td>
+<td style="text-align:center">学到正确模型了！</td>
+</tr>
+</tbody>
+</table>
+<p>  对于上述例子，如果base error为15%，那么第二列就是学习到了很好的模型。通过比较训练集上错误率和base error来判断你的模型是否有高偏差，通过比较训练集和测试集错误率的差别来判断你的模型是否有高方差。</p>
+<h4 id="13-机器学习模型的bias-vairance-tradeoff实现过程"><a class="markdownIt-Anchor" href="#13-机器学习模型的bias-vairance-tradeoff实现过程"></a> 1.3 机器学习模型的bias-vairance tradeoff——实现过程</h4>
+<p>  首先，判断你的模型是否在训练集上有high bias，如果有，说明你的模型欠拟合，这时你可以尝试加大你的网络深度或者每一层的神经元个数，增加训练时间，换一种网络结构<br />
+  然后，一旦你的bias降下来了，再通过验证集上的表现看看模型是否有high variance，这时你可以尝试获取更多数据，或者使用正则化，调整网络结构。<br />
+  返回循环继续看模型是否有high bias，直至最后你的模型获得了low variance和low bias<br />
+  <strong>然而在深度学习时代，我们可以一边使用更大的神经网络，一边使用更多的数据，能够同时降低偏差和方差。</strong></p>
+<h4 id="14-正则化regularization正则化参数λ"><a class="markdownIt-Anchor" href="#14-正则化regularization正则化参数λ"></a> 1.4 正则化regularization，正则化参数λ</h4>
+<ul>
+<li>L2正则化：通常使用更多，其效果是weight decay，准确的叫法应该是Frobenius norm</li>
+<li>L1正则化：通常能够让你的参数更加稀疏，可以压缩模型<br />
+<strong>为什么正则化可以减小过拟合呢？</strong><br />
+  正则化在代价函数中添加对参数的惩罚项，防止参数过大。<br />
+  如果你的激活函数是tanh函数，那么<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Z</mi><mo>=</mo><mi>W</mi><mo separator="true">⋅</mo><mi>a</mi><mo>+</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">Z=W·a + b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">Z</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mpunct">⋅</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span>，这时候Z的值会接近0，此时的激活函数tanh会近似一个线性函数，这样即使你的网络再深，其拟合能力也有限。</li>
+</ul>
+<h4 id="15-dropout-regularization"><a class="markdownIt-Anchor" href="#15-dropout-regularization"></a> 1.5 Dropout Regularization</h4>
+<p>  </p>
+
     </div>
 
     
@@ -299,22 +374,22 @@
 
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag"># 深度学习</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2019/11/20/python-argparse/" rel="next" title="命令行参数解析——argparse模块解析python脚本">
-                  <i class="fa fa-chevron-left"></i> 命令行参数解析——argparse模块解析python脚本
+                <a href="/2019/12/11/dl-course-AndrewNGdl-c1-chapter4/" rel="next" title="吴恩达深度学习课程——课程1：Chapter4">
+                  <i class="fa fa-chevron-left"></i> 吴恩达深度学习课程——课程1：Chapter4
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2019/11/21/ml-base-dataPreprocessing/" rel="prev" title="数据处理">
-                  数据处理 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
       </footer>
@@ -353,6 +428,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#11-traindevelopmenttest"><span class="nav-number">1.</span> <span class="nav-text"> 1.1 train/development/test</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-偏差bias和方差variance"><span class="nav-number">2.</span> <span class="nav-text"> 1.2 偏差bias和方差variance</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-机器学习模型的bias-vairance-tradeoff实现过程"><span class="nav-number">3.</span> <span class="nav-text"> 1.3 机器学习模型的bias-vairance tradeoff——实现过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14-正则化regularization正则化参数λ"><span class="nav-number">4.</span> <span class="nav-text"> 1.4 正则化regularization，正则化参数λ</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15-dropout-regularization"><span class="nav-number">5.</span> <span class="nav-text"> 1.5 Dropout Regularization</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -368,7 +444,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">106</span>
+          <span class="site-state-item-count">105</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -456,7 +532,7 @@
    
     </div>
     <div class="powered-by"></div>
-    <span class="post-count">博客全站共47.7k字</span>
+    <span class="post-count">博客全站共49.1k字</span>
   </div>
         
 <div class="busuanzi-count">
@@ -570,6 +646,9 @@ window.addEventListener('pjax:success', () => {
   
 
   
+      
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css">
+
 
   
 
